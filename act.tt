@@ -53,13 +53,13 @@ set wimpy 30;
 {
 	#var link {http://fullme.pkuxkx.net/robot.php?filename=%1};
   #nop mxp;
-  	#system sh bot/fullme.sh %1;
+  	#system sh bot/fullme.sh $link;
 };
 
 #act {^http://fullme.pkuxkx.com/robot.php?filename=%1}
 {
 	#var link {http://fullme.pkuxkx.com/robot.php?filename=%1};
   #nop mxp;
-  	#system sh bot/fullme.sh %1;
+  	#system sh bot/fullme.sh $link;
 };
 
