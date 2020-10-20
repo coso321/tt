@@ -49,19 +49,17 @@ set wimpy 30;
 
 #nop slink查看mxp链接，termux调用浏览器mxp;
 #alias {mxp} {#sys termux-open-url $link};
-#act {^http://pkuxkx.net/antirobot/robot.php?filename=%1}
+#act {^http://fullme.pkuxkx.net/robot.php?filename=%1}
 {
-	#var link {http://pkuxkx.net/antirobot/robot.php?filename=%1};
+	#var link {http://fullme.pkuxkx.net/robot.php?filename=%1};
   #nop mxp;
-  #nop	#system sh bot/fullme.sh %1;
   	#system sh bot/fullme.sh %1;
 };
 
-#act {^http://pkuxkx.com/antirobot/robot.php?filename=%1}
+#act {^http://fullme.pkuxkx.com/robot.php?filename=%1}
 {
-	#var link {http://pkuxkx.com/antirobot/robot.php?filename=%1};
+	#var link {http://fullme.pkuxkx.com/robot.php?filename=%1};
   #nop mxp;
-  #nop	#system sh bot/fullme.sh %1;
   	#system sh bot/fullme.sh %1;
 };
 
