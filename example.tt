@@ -1,13 +1,13 @@
-#nop ÈÎÎñÑù±¾;
+#nop ä»»åŠ¡æ ·æœ¬;
 #class a open;
-¿ªÊ¼ÈÎÎñ
+å¼€å§‹ä»»åŠ¡
 #tic {a} {#untic a;aa} {2};
 #ali {aa} {ask  about job};
 #ali {d} {give };
 #ali {f} {ask about fail;#untic a1;x};
-´¥·¢
+è§¦å‘
 #act {^$} {
-  #tic {a1} {#echo {%c%h} {light yellow} {ÔÚ%1}} {15}
+  #tic {a1} {#echo {%c%h} {light yellow} {åœ¨%1}} {15}
 };
 
 #act {^$} {

@@ -1,55 +1,55 @@
-#nop {==ĞŞ¸ÄĞÅÏ¢==;
-201006 ĞŞ¸´ÌìÖù·åµ½Îäµ±Â·¾¶£¬Ğ¡ĞÄÍÁ·Ë;
-200404 Ôö¼Ówait¡¢waitfor¡¢waitline¹¦ÄÜ;
-       Ôö¼Ó½Úµã¹Ûº£Ê¯ghs;
-191106 Ôö¼Ó½ÚµãÁ«»¨Éú´óÊ¿lh,ÎäÃÅ±ÈÎäbw;
-190722 ĞŞ¸Ä×Ô¶¯¼ÆËãÖ±Á¬ÊıÄ¿count±í;
-  Ö±Á¬ÁĞ±í¸ÄÎª¸ß¼¶Êı¾İ½á¹¹;
-  Ìí¼Ó½ÚµãÖ»ĞèÌí¼ÓÍù·µÂ·¾¶£¬Ë«ÏòÖ±Á¬µØµã¼´¿É;
-190710 Ìí¼Ó¼×Îçº£Õ½»ùµØjdÉÙÁÖ¹ÄÂ¥gl;
-190709 Ìí¼Ó´ºÀ´²è¹İcg£¬ÓÅ»¯Î»ÖÃÏÔÊ¾;
-190629 Ìí¼ÓÌ«ºş½ÖÉß¿ßskÄÁÑòÈËmyr;
-190628 ĞŞ¸Äleadtoº¯Êı×Ô¶¯¼ÆËãÖ±Á¬Â·¾¶Æ«ÒÆ;
-  ÖØĞ´Ö±Á¬Â·¾¶¼¯ºÏ·½±ãÌí¼ÓÂ·¾¶;
-  Ìí¼ÓÓ¦Ìì¸®ytf¡¢ÕıÑôÃÅzymÄĞ¾ônjºéÆß¹«hq;
-  ĞŞ¸Äinquire listÏÔÊ¾¸ü¶àĞÅÏ¢;
-190627 ĞŞ¸ÄforallÎªforeach¼æÈİ¸ß°æ±¾tt++;
-  ĞŞÕı¿Ú°¶µØ±êÌØÊâ·ûºÅÏÔÊ¾²»Õı³£;
-  Ìí¼Ó»Ø¼Ò±ğÃû£¬·ÀÖ¹¼ÆËãÂ·¾¶Ê±ÁéÊ±²»Áé;
-190622 ĞŞ¸´×ÔÉíĞÅÏ¢±äÁ¿È¡Öµ;
-190617  Ìí¼ÓÑïÖİµ±ÆÌdp;
-        ĞŞÕıÒòÌí¼ÓµØµãµ¼ÖÂµÄÖ±Á¬Â·¾¶´íÎ»¡£;
-190616  Ìí¼Óhzbs jnqzÂ·¾¶£¬ĞŞÕı16¸ö¿Ú°¶¶¨Î»;
-190615  ĞŞÕıĞ¡Õòxzµ½³¤°²caµ½ººÖĞhanzÂ·¾¶;
-190614  ÆÁ±Îunvar SUF£¬Ôö¼ÓÑïÖİÇ®×¯bk;
-         ĞŞ¸ÄÏÂ³µ´¥·¢·ÀÖ¹»»ĞĞ;
-201906   ĞŞ¸ÄËµÃ÷¡¢Òş²Ø°æÈ¨by Xgg@pkuxkx;
-         dzp@pkuxkx ĞŞ¸ÄµØÃû´¥·¢sethere;
-20181016 ±±ÏÀÂÛÌ³dashuĞŞ¸Ä²¿·Öbug;
-         °×ÍÕÈ¥Ò»´ÎÒª1½ğ±Ò£¬É÷È¥;
-201703   ĞŞ¸Ä by Meirenzhi@pkuxkx;
-201305   Ô­×÷Õß by Alucar@pkuxkx;
+#nop {==ä¿®æ”¹ä¿¡æ¯==;
+201006 ä¿®å¤å¤©æŸ±å³°åˆ°æ­¦å½“è·¯å¾„ï¼Œå°å¿ƒåœŸåŒª;
+200404 å¢åŠ waitã€waitforã€waitlineåŠŸèƒ½;
+       å¢åŠ èŠ‚ç‚¹è§‚æµ·çŸ³ghs;
+191106 å¢åŠ èŠ‚ç‚¹è²èŠ±ç”Ÿå¤§å£«lh,æ­¦é—¨æ¯”æ­¦bw;
+190722 ä¿®æ”¹è‡ªåŠ¨è®¡ç®—ç›´è¿æ•°ç›®countè¡¨;
+  ç›´è¿åˆ—è¡¨æ”¹ä¸ºé«˜çº§æ•°æ®ç»“æ„;
+  æ·»åŠ èŠ‚ç‚¹åªéœ€æ·»åŠ å¾€è¿”è·¯å¾„ï¼ŒåŒå‘ç›´è¿åœ°ç‚¹å³å¯;
+190710 æ·»åŠ ç”²åˆæµ·æˆ˜åŸºåœ°jdå°‘æ—é¼“æ¥¼gl;
+190709 æ·»åŠ æ˜¥æ¥èŒ¶é¦†cgï¼Œä¼˜åŒ–ä½ç½®æ˜¾ç¤º;
+190629 æ·»åŠ å¤ªæ¹–è¡—è›‡çªŸskç‰§ç¾Šäººmyr;
+190628 ä¿®æ”¹leadtoå‡½æ•°è‡ªåŠ¨è®¡ç®—ç›´è¿è·¯å¾„åç§»;
+  é‡å†™ç›´è¿è·¯å¾„é›†åˆæ–¹ä¾¿æ·»åŠ è·¯å¾„;
+  æ·»åŠ åº”å¤©åºœytfã€æ­£é˜³é—¨zymç”·çˆµnjæ´ªä¸ƒå…¬hq;
+  ä¿®æ”¹inquire listæ˜¾ç¤ºæ›´å¤šä¿¡æ¯;
+190627 ä¿®æ”¹forallä¸ºforeachå…¼å®¹é«˜ç‰ˆæœ¬tt++;
+  ä¿®æ­£å£å²¸åœ°æ ‡ç‰¹æ®Šç¬¦å·æ˜¾ç¤ºä¸æ­£å¸¸;
+  æ·»åŠ å›å®¶åˆ«åï¼Œé˜²æ­¢è®¡ç®—è·¯å¾„æ—¶çµæ—¶ä¸çµ;
+190622 ä¿®å¤è‡ªèº«ä¿¡æ¯å˜é‡å–å€¼;
+190617  æ·»åŠ æ‰¬å·å½“é“ºdp;
+        ä¿®æ­£å› æ·»åŠ åœ°ç‚¹å¯¼è‡´çš„ç›´è¿è·¯å¾„é”™ä½ã€‚;
+190616  æ·»åŠ hzbs jnqzè·¯å¾„ï¼Œä¿®æ­£16ä¸ªå£å²¸å®šä½;
+190615  ä¿®æ­£å°é•‡xzåˆ°é•¿å®‰caåˆ°æ±‰ä¸­hanzè·¯å¾„;
+190614  å±è”½unvar SUFï¼Œå¢åŠ æ‰¬å·é’±åº„bk;
+         ä¿®æ”¹ä¸‹è½¦è§¦å‘é˜²æ­¢æ¢è¡Œ;
+201906   ä¿®æ”¹è¯´æ˜ã€éšè—ç‰ˆæƒby Xgg@pkuxkx;
+         dzp@pkuxkx ä¿®æ”¹åœ°åè§¦å‘sethere;
+20181016 åŒ—ä¾ è®ºå›dashuä¿®æ”¹éƒ¨åˆ†bug;
+         ç™½é©¼å»ä¸€æ¬¡è¦1é‡‘å¸ï¼Œæ…å»;
+201703   ä¿®æ”¹ by Meirenzhi@pkuxkx;
+201305   åŸä½œè€… by Alucar@pkuxkx;
 };
 
-#nop ×ßÂ·ËÙ¶È¿ØÖÆ,·Ö±ğÎªÃ¿ÃëÉÏÏŞ²½Êı¡¢³¬ÏŞµÈ´ıÊ±¼ä¡¢Õı³£ĞĞ×ß¼ä¸ôÊ±¼ä;
+#nop èµ°è·¯é€Ÿåº¦æ§åˆ¶,åˆ†åˆ«ä¸ºæ¯ç§’ä¸Šé™æ­¥æ•°ã€è¶…é™ç­‰å¾…æ—¶é—´ã€æ­£å¸¸è¡Œèµ°é—´éš”æ—¶é—´;
 #var xiaoyao.accu 15;
 #var xiaoyao.delay_long 0.5;
 #var xiaoyao.delay_short 0.05;
 
 #alias gt {
     #if {"%1"==""} {
-     #echo {%c%h} {light green} {¡¾»¶Ó­Ê¹ÓÃ±±ÏÀåĞÒ£ĞĞv1.5h1(for tt++)¡¿ };
+     #echo {%c%h} {light green} {ã€æ¬¢è¿ä½¿ç”¨åŒ—ä¾ é€é¥è¡Œv1.5h1(for tt++)ã€‘ };
 		#echo ;
-		#echo {%c%h} {light green} {¡¾sethere [µØÃûËõĞ´]Ö¸¶¨µ±Ç°Î»ÖÃ¡¿};
+		#echo {%c%h} {light green} {ã€sethere [åœ°åç¼©å†™]æŒ‡å®šå½“å‰ä½ç½®ã€‘};
 		#echo ;
-		#echo {%c%+2sÃüÁî¸ñÊ½£ºgt [Destination|here|list]} {light yellow};
-		#echo {%c%+2sËµÃ÷£ºgt Destination£ºÇ°ÍùÖ¸¶¨ÇøÓò£¬¿ÉÊ¹ÓÃµØÇøÈ«Ãû»òËõĞ´} {light yellow};
-		#echo {%c%+8sgt here£ºÏÔÊ¾µ±Ç°ÇøÓòÃû³Æ¼°µØ±ê·¿¼ä} {light yellow};
-		#echo {%c%+8sgt list£ºÏÔÊ¾ËùÓĞ¿ÉÍ¨ĞĞÇøÓòµÄÃû³Æ} {light yellow};
-		#echo {%c%+8sgt£ºÏÔÊ¾±¾ËµÃ÷} {light yellow};
-		#echo {%c%+8s²éÑ¯¸÷µØÇøµØ±ê·¿¼äÇëÊ¹ÓÃinquireÃüÁî} {light yellow};
+		#echo {%c%+2så‘½ä»¤æ ¼å¼ï¼šgt [Destination|here|list]} {light yellow};
+		#echo {%c%+2sè¯´æ˜ï¼šgt Destinationï¼šå‰å¾€æŒ‡å®šåŒºåŸŸï¼Œå¯ä½¿ç”¨åœ°åŒºå…¨åæˆ–ç¼©å†™} {light yellow};
+		#echo {%c%+8sgt hereï¼šæ˜¾ç¤ºå½“å‰åŒºåŸŸåç§°åŠåœ°æ ‡æˆ¿é—´} {light yellow};
+		#echo {%c%+8sgt listï¼šæ˜¾ç¤ºæ‰€æœ‰å¯é€šè¡ŒåŒºåŸŸçš„åç§°} {light yellow};
+		#echo {%c%+8sgtï¼šæ˜¾ç¤ºæœ¬è¯´æ˜} {light yellow};
+		#echo {%c%+8sæŸ¥è¯¢å„åœ°åŒºåœ°æ ‡æˆ¿é—´è¯·ä½¿ç”¨inquireå‘½ä»¤} {light yellow};
 		#echo ;
-		#echo {%c%h} {light green} {¡¾×îºóĞŞ¸Ä20201006¡¿};
+		#echo {%c%h} {light green} {ã€æœ€åä¿®æ”¹20201006ã€‘};
 	};
     #else {
         #if {"%1"=="here"} {
@@ -58,15 +58,15 @@
                 #list AreaNameCh_list get $i j;
                 #list AreaName_list get $i k;
                 #echo {%c%h} {light yellow};
-                #echo {%c  µ±Ç°Î»ÖÃ£º$j($i,$k, $CurrentPosition)} {light yellow};
+                #echo {%c  å½“å‰ä½ç½®ï¼š$j($i,$k, $CurrentPosition)} {light yellow};
                 #var current_area $j($k,$CurrentPosition);
                 #list AreaPosition_list get $i j;
-                #echo {%c  µ±Ç°µØÇøµØ±ê·¿¼äÎª£º$j} {light yellow};
+                #echo {%c  å½“å‰åœ°åŒºåœ°æ ‡æˆ¿é—´ä¸ºï¼š$j} {light yellow};
                 #echo {%c%h} {light yellow};
             };
             #else {
                 #echo {%c%h} {light yellow};
-                #echo {%c  ²»ÄÜÈ·¶¨µ±Ç°Î»ÖÃ} {light yellow};
+                #echo {%c  ä¸èƒ½ç¡®å®šå½“å‰ä½ç½®} {light yellow};
                 #echo {%c%h} {light yellow};
             };
         };
@@ -92,7 +92,7 @@
                         #list AreaAbbr_list get $i j;
                         #if {"$CurrentPosition"=="$j" | "$CurrentPosition"=="%1"} {
                             #echo {%c%h} {light yellow};
-                            #echo {%c  ÄãÏ²»¶Ô­µØ¹ä¹äÃ´£¿} {light yellow};
+                            #echo {%c  ä½ å–œæ¬¢åŸåœ°é€›é€›ä¹ˆï¼Ÿ} {light yellow};
                             #echo {%c%h} {light yellow};
                         };
                         #else {
@@ -101,7 +101,7 @@
                             #list AreaName_list get $AreaId j;
                             #list AreaAbbr_list get $AreaId k;
                             #echo {%c%h} {light yellow};
-                            #echo {%c  ÄãÒªÇ°ÍùµÄµØÇøÊÇ£º$i ($j, $k)} {light yellow};
+                            #echo {%c  ä½ è¦å‰å¾€çš„åœ°åŒºæ˜¯ï¼š$i ($j, $k)} {light yellow};
                             #nop unload record;
                             #var critical_running 1;
                             routecreate;
@@ -109,13 +109,13 @@
                     };
                     #else {
                         #echo {%c%h} {light yellow};
-                        #echo {%c  ²»ÄÜÈ·¶¨µ±Ç°Î»ÖÃ} {light yellow};
+                        #echo {%c  ä¸èƒ½ç¡®å®šå½“å‰ä½ç½®} {light yellow};
                         #echo {%c%h} {light yellow};
                     };
                 };
                 #else {
                     #echo {%c%h} {light yellow};
-                    #echo {%c  Ã»ÓĞ%1Õâ¸öµØÇø} {light yellow};
+                    #echo {%c  æ²¡æœ‰%1è¿™ä¸ªåœ°åŒº} {light yellow};
                     #echo {%c%h} {light yellow};
                 };
             };
@@ -126,10 +126,10 @@
 #alias inquire {
     #if {"%1"==""} {
         #echo {%c%h} {light yellow};
-        #echo {%c  ÃüÁî¸ñÊ½£ºinquire [areaname|list]} {lght yellow};
-        #echo {%c  ËµÃ÷£ºinquire areaname£º²éÑ¯Ö¸¶¨ÇøÓòµÄµØ±ê·¿¼ä£¬¿ÉÊ¹ÓÃµØÇøÈ«Ãû»òËõĞ´} {light yellow};
-        #echo {%c        inquire list£ºÏÔÊ¾ËùÓĞµØÇøµÄµØ±ê·¿¼äÇåµ¥} {light yellow};
-        #echo {%c        inquire£ºÏÔÊ¾±¾ËµÃ÷} {light yellow};
+        #echo {%c  å‘½ä»¤æ ¼å¼ï¼šinquire [areaname|list]} {lght yellow};
+        #echo {%c  è¯´æ˜ï¼šinquire areanameï¼šæŸ¥è¯¢æŒ‡å®šåŒºåŸŸçš„åœ°æ ‡æˆ¿é—´ï¼Œå¯ä½¿ç”¨åœ°åŒºå…¨åæˆ–ç¼©å†™} {light yellow};
+        #echo {%c        inquire listï¼šæ˜¾ç¤ºæ‰€æœ‰åœ°åŒºçš„åœ°æ ‡æˆ¿é—´æ¸…å•} {light yellow};
+        #echo {%c        inquireï¼šæ˜¾ç¤ºæœ¬è¯´æ˜} {light yellow};
         #echo {%c%h} {light yellow};
     };
     #else {
@@ -139,7 +139,7 @@
                 #list AreaName_list get $n j;
                 #list AreaAbbr_list get $n k;
                 #list RouteConnection_count get $n c;
-                #echo {$n . $i ($j,$k) --Ö±Á¬µØÇø($c)¸ö};
+                #echo {$n . $i ($j,$k) --ç›´è¿åœ°åŒº($c)ä¸ª};
                 inquire $k;
             };
         };
@@ -151,10 +151,10 @@
                 #list AreaNameCh_list get $AreaId i;
                 #list AreaName_list get $AreaId j;
                 #list AreaAbbr_list get $AreaId k;
-         #showme ÄãÒª²éÑ¯µÄµØÇøÊÇ:$i($AreaId,$j,$k);
+         #showme ä½ è¦æŸ¥è¯¢çš„åœ°åŒºæ˜¯:$i($AreaId,$j,$k);
                 #list AreaPosition_list get $AreaId i;
-                #showme ¸ÃµØÇøµØ±ê·¿¼äÃûÎª£º$i;
-                #showme Óë¸ÃµØÇøÖ±½ÓÏàÁ¬µÄµØÇøÓĞ£º;
+                #showme è¯¥åœ°åŒºåœ°æ ‡æˆ¿é—´åä¸ºï¼š$i;
+                #showme ä¸è¯¥åœ°åŒºç›´æ¥ç›¸è¿çš„åœ°åŒºæœ‰ï¼š;
                 #list RouteConnection_count get $AreaId i;
                 #while {$i>0} {
                     #var j @leadto{$AreaId;$i};
@@ -167,7 +167,7 @@
             };
             #else {
                 #echo {%c%h} {light yellow};
-                #echo {%c  Ã»ÓĞ%1Õâ¸öµØÇø} {light yellow};
+                #echo {%c  æ²¡æœ‰%1è¿™ä¸ªåœ°åŒº} {light yellow};
                 #echo {%c%h} {light yellow};
             };
         };
@@ -179,19 +179,19 @@
     #if {$AreaId>0} {
         #var CurrentPosition %1;
         #echo {%c%h} {light yellow};
-        #echo {%c  µ±Ç°Î»ÖÃÉè¶¨Îª@item{AreaNameCh_list;$AreaId} (@item{AreaName_list;$AreaId},@item{AreaAbbr_list;$AreaId})} {light yellow};
+        #echo {%c  å½“å‰ä½ç½®è®¾å®šä¸º@item{AreaNameCh_list;$AreaId} (@item{AreaName_list;$AreaId},@item{AreaAbbr_list;$AreaId})} {light yellow};
         #echo {%c%h} {light yellow};
     };
     #else {
         #echo {%c%h} {light yellow};
-        #echo {%c  Ã»ÓĞ%1Õâ¸öµØÇø} {light yellow};
+        #echo {%c  æ²¡æœ‰%1è¿™ä¸ªåœ°åŒº} {light yellow};
         #echo {%c%h} {light yellow};
     };
 };
 
 #alias {stopwalk} {#class walk kill};
 
-#nop ==×Ô¶¨º¯Êı==;
+#nop ==è‡ªå®šå‡½æ•°==;
 
 #function {leadto} {
     #list tmp create $RouteConnection_list[%1];
@@ -208,12 +208,12 @@
     #list AreaName_list get $tmp result;
 };
 
-#nop ==Â·¾¶¼ÆËã==;
+#nop ==è·¯å¾„è®¡ç®—==;
 
 #alias routecreate {
     #echo {%c%h} {light yellow};
-    #echo {%c  ¿ªÊ¼¼ÆËã´Ó @fullname{$CurrentPosition} µ½ @fullname{$Destination} Â·¾¶...} {light yellow};
-    #nop ----------¶¨Òå±äÁ¿----------;
+    #echo {%c  å¼€å§‹è®¡ç®—ä» @fullname{$CurrentPosition} åˆ° @fullname{$Destination} è·¯å¾„...} {light yellow};
+    #nop ----------å®šä¹‰å˜é‡----------;
     #var Route {};
     #var Route_list {};
     #var Route_list_from {};
@@ -224,10 +224,10 @@
     #list AreaAbbr_list find $CurrentPosition AreaId;
     #var Degree 1;
     #while {@numitems{Route}==0} {
-        #nop //----------¿ªÊ¼¼ÆËã----------;
+        #nop //----------å¼€å§‹è®¡ç®—----------;
         #nop        #showme -$Degree-;
         #math Degree {$Degree+1};
-        #nop //----------Éú³Éµ±Ç°¶ÈÊıµÄÂ·¾¶ÁĞ±í----------;
+        #nop //----------ç”Ÿæˆå½“å‰åº¦æ•°çš„è·¯å¾„åˆ—è¡¨----------;
         #var AreaOpen_list {};
         #var AreaOpen_list_from {};
         #loop @numitems{AreaOpen_list_prev} 1 i {
@@ -244,12 +244,12 @@
         #nop        #showme AreaOpen_list: $AreaOpen_list[%*];
         #nop        #showme AreaOpen_list_from: $AreaOpen_list_from[%*];
         #if {$Degree>100} {
-            #echo {%c  ³ö´íÁË!!} {light yellow};
+            #echo {%c  å‡ºé”™äº†!!} {light yellow};
             #break;
         };
-        #nop //----------ËÑË÷Ä¿µÄµØ----------;
+        #nop //----------æœç´¢ç›®çš„åœ°----------;
         #if {@ismember{$Destination;AreaOpen_list}>0} {
-            #nop //----------·¢ÏÖÄ¿µÄµØ----------;
+            #nop //----------å‘ç°ç›®çš„åœ°----------;
             #nop            #showme =$Degree=;
             #list Route create {$Destination};
             #var i @ismember{$Destination;AreaOpen_list};
@@ -264,7 +264,7 @@
             #break;
         };
         #else {
-            #nop //----------Î´·¢ÏÖÄ¿µÄµØ----------;
+            #nop //----------æœªå‘ç°ç›®çš„åœ°----------;
             #var AreaOpen_list_prev $AreaOpen_list;
             #loop @numitems{AreaOpen_list} 1 i {
                 #list Route_list add {@item{AreaOpen_list;$i}};
@@ -272,8 +272,8 @@
             };
         };
     };
-    #echo {%c  Â·¾¶´´½¨ÖĞ ...} {light yellow};
-    #nop //----------Éú³ÉÂ·¾¶ÁĞ±í----------;
+    #echo {%c  è·¯å¾„åˆ›å»ºä¸­ ...} {light yellow};
+    #nop //----------ç”Ÿæˆè·¯å¾„åˆ—è¡¨----------;
     #var Route_list {};
     #var RouteName {};
     #var Route_list_short {};
@@ -282,7 +282,7 @@
         #var Route_list_short ${$RouteName};
         #list Route_list add $Route_list_short[%*];
     };
-    #nop //----------¿ªÊ¼Â·¾¶¼ò»¯----------;
+    #nop //----------å¼€å§‹è·¯å¾„ç®€åŒ–----------;
     #showme {$Route[%*]};
     #nop    #showme $Route_list[%*];
     #var i 1;
@@ -301,11 +301,11 @@
     #showme {$Route_list[%*]};
     #echo {%c%h} {light yellow};
     #echo ;
-    #showme <efa>  ´øÄã×°B´øÄã·É ...;
+    #showme <efa>  å¸¦ä½ è£…Bå¸¦ä½ é£ ...;
     #echo ;
     #echo {%c%h} {light yellow};
 };
-#nop ==ĞĞ×ßÃüÁî==;
+#nop ==è¡Œèµ°å‘½ä»¤==;
 #ali {wait}{
   #switch {"%1"}{
      #case {""}{
@@ -323,7 +323,7 @@
   #var cmd {waitline %1}
 };
 
-#action {^  ´øÄã×°B´øÄã·É ...$} {
+#action {^  å¸¦ä½ è£…Bå¸¦ä½ é£ ...$} {
     #class walk open;
     #alias walk {
         #if {$step==$stepmax} {set brief 0};
@@ -334,7 +334,7 @@
 		  #replace time {wait} {};
 		  #replace time { } {};
 		  #delay {$time} {walk};
-		  #echo {%c%+2sµÈ´ı¡¸$time¡¹sºóĞĞ¶¯¡£}{light yellow};
+		  #echo {%c%+2sç­‰å¾…ã€Œ$timeã€såè¡ŒåŠ¨ã€‚}{light yellow};
 		  #var cmd {};
               };
               #case {"wait{for|line} %*"}{
@@ -354,7 +354,7 @@
                   #var cmd {
                     #class xiaoyao-walk-tmp kill;
                     #class xiaoyao-walk-tmp open;
-                    #echo {%c%+2sµÈ´ıÊÂ¼ş¡¸$waitfor¡¹³öÏÖ¡£}{light yellow};
+                    #echo {%c%+2sç­‰å¾…äº‹ä»¶ã€Œ$waitforã€å‡ºç°ã€‚}{light yellow};
                     #action {$waitfor} {
                         #class xiaoyao-walk-tmp kill;
                         #delay 1 walk;
@@ -395,99 +395,99 @@
             #class walk kill;
             #var critical_running 0;
             #echo {%c%h} {light yellow};
-            #showme <efa>  µÖ´ïÄ¿µÄµØ ...;
+            #showme <efa>  æŠµè¾¾ç›®çš„åœ° ...;
             #echo {%c%h} {light yellow};
         };
     };
 
-    #nop #action {^ÄãÒª¶ÔË­¶úÓïĞ©Ê²Ã´£¿} {
+    #nop #action {^ä½ è¦å¯¹è°è€³è¯­äº›ä»€ä¹ˆï¼Ÿ} {
     #nop    #var CurrentPosition $Destination;
     #nop    #class walk kill;
     #nop    #var critical_running 0;
-    #nop    #showme <fff>==================µÖ´ïÄ¿µÄµØ£¡==================;
+    #nop    #showme <fff>==================æŠµè¾¾ç›®çš„åœ°ï¼==================;
     #nop };
 
-    #alias guojiang1 {ask shao gong about ¹ı½­};
-    #alias guohe1 {ask shao gong about ¹ıºÓ};
-    #alias gb_andao {enter shudong;say ÌìÌÃÓĞÂ·Äã²»×ßÑ½;d;%%1;};
+    #alias guojiang1 {ask shao gong about è¿‡æ±Ÿ};
+    #alias guohe1 {ask shao gong about è¿‡æ²³};
+    #alias gb_andao {enter shudong;say å¤©å ‚æœ‰è·¯ä½ ä¸èµ°å‘€;d;%%1;};
     #alias gy_yinzhe {s;w;w;e;s};
     #alias meizhuang_gate {knock gate 4;knock gate 2;knock gate 5;knock gate 3};
     #alias mr_mantuo {w;n;w;s;s;e;e;w;w};
     #alias mr_mantuob {e;s;n;w;n;n;e;s;e};
     #alias tiandihui_andao {knock guancai 3;ed;s;s;s;w;e;n;n;n;n;e};
     #alias tiandihui_andaob {w;#4 s;w;n;n;e;n;s;wu};
-    #alias guohe3s2n {#if {"$mymenpai"=="Ã÷½Ì"} {sw;n;ban stone;you;#alias guohe3 {n;ne}} {guohe1}};
-    #alias guohe3n2s {#if {"$mymenpai"=="Ã÷½Ì"} {sw;s;ban stone;you;#alias guohe3 {s;ne}} {guohe1}};
+    #alias guohe3s2n {#if {"$mymenpai"=="æ˜æ•™"} {sw;n;ban stone;you;#alias guohe3 {n;ne}} {guohe1}};
+    #alias guohe3n2s {#if {"$mymenpai"=="æ˜æ•™"} {sw;s;ban stone;you;#alias guohe3 {s;ne}} {guohe1}};
     #alias guohe3 {n;ne};
-    #alias taohuadao {#if {"$mymenpai"=="ÌÒ»¨µº"} {ride diao} {enter boat}};
-    #alias baituofufei {#if {"$mymenpai"=="°×ÍÕÉ½"} {give qian 30 silver} {give qian 1 gold}};
-    #alias murongboat {#if {"$mymenpai"=="¹ÃËÕÄ½Èİ"} {find boat} {enter boat}};
-    #alias shenlongboat {#if {"$mymenpai"=="ÉñÁú½Ì"} {find boat} {enter boat}};
+    #alias taohuadao {#if {"$mymenpai"=="æ¡ƒèŠ±å²›"} {ride diao} {enter boat}};
+    #alias baituofufei {#if {"$mymenpai"=="ç™½é©¼å±±"} {give qian 30 silver} {give qian 1 gold}};
+    #alias murongboat {#if {"$mymenpai"=="å§‘è‹æ…•å®¹"} {find boat} {enter boat}};
+    #alias shenlongboat {#if {"$mymenpai"=="ç¥é¾™æ•™"} {find boat} {enter boat}};
     #alias qytoyzw {#if {$mydodgelv>120} {e;cai yanziwu} {#3 n;tan qin;row yanziwu}};
     #alias qytotx {#if {$mydodgelv>120} {e;cai tingxiang} {#3 n;tan qin;row tingxiang}};
     #alias gotoqinyun {#if {$mydodgelv>120} {cai qinyun} {enter boat;row qinyun}};
     #alias gototingxiang {#if {$mydodgelv>120} {cai tingxiang} {enter boat;row tingxiang}};
     #alias gotoyanziwu {#if {$mydodgelv>120} {cai yanziwu} {enter boat;row yanziwu}};
-    #action {^ÄãÑØ×ÅÌ¤°å×ßÁËÉÏÈ¥¡£} {walk};
-    #action {^{ÄãĞ¡ĞÄÒíÒíÍùÇ°Å²¶¯£¬Óöµ½¼èÏÕÄÑĞĞ´¦£¬Ö»ºÃ·ÅÂı½Å²½¡£|Äã»¹ÔÚÉ½ÖĞ°ÏÉæ£¬Ò»Ê±°ë»á¿ÖÅÂ×ß²»³öÕâ²Ø±ßÈºÉ½£¡|Çàº£ºşÅÏÃÀ²»Ê¤ÊÕ£¬Äã²»ÓÉÍ£ÏÂ½Å²½£¬ĞÀÉÍÆğÁË·ç¾°¡£|Äã»¹ÔÚÉ½ÖĞ°ÏÉæ£¬Ò»Ê±°ë»á¿ÖÅÂ×ß²»³öÕâÎ÷ÄÏµØÃàÃàÈºÉ½£¡|Äã»¹ÔÚÉ½ÖĞ°ÏÉæ£¬Ò»Ê±°ë»á¿ÖÅÂ×ß²»³öÕâÁùÅÌÉ½£¡}} {#math step {$step-2}};
-    #action {ÕıµÈ×ÅÄãÄØ£¬ÉÏÀ´°É¡£} {#class tmp kill;enter};
-    #action {ô¹¹«½«Ò»¿éÌ¤½Å°å´îÉÏµÌ°¶£¬} {#class tmp kill;enter};
-    #action {^%*½Ó¹ıÄãµİ¸øµÄ´¬×Ê} {
+    #action {^ä½ æ²¿ç€è¸æ¿èµ°äº†ä¸Šå»ã€‚} {walk};
+    #action {^{ä½ å°å¿ƒç¿¼ç¿¼å¾€å‰æŒªåŠ¨ï¼Œé‡åˆ°è‰°é™©éš¾è¡Œå¤„ï¼Œåªå¥½æ”¾æ…¢è„šæ­¥ã€‚|ä½ è¿˜åœ¨å±±ä¸­è·‹æ¶‰ï¼Œä¸€æ—¶åŠä¼šææ€•èµ°ä¸å‡ºè¿™è—è¾¹ç¾¤å±±ï¼|é’æµ·æ¹–ç•”ç¾ä¸èƒœæ”¶ï¼Œä½ ä¸ç”±åœä¸‹è„šæ­¥ï¼Œæ¬£èµèµ·äº†é£æ™¯ã€‚|ä½ è¿˜åœ¨å±±ä¸­è·‹æ¶‰ï¼Œä¸€æ—¶åŠä¼šææ€•èµ°ä¸å‡ºè¿™è¥¿å—åœ°ç»µç»µç¾¤å±±ï¼|ä½ è¿˜åœ¨å±±ä¸­è·‹æ¶‰ï¼Œä¸€æ—¶åŠä¼šææ€•èµ°ä¸å‡ºè¿™å…­ç›˜å±±ï¼}} {#math step {$step-2}};
+    #action {æ­£ç­‰ç€ä½ å‘¢ï¼Œä¸Šæ¥å§ã€‚} {#class tmp kill;enter};
+    #action {è‰„å…¬å°†ä¸€å—è¸è„šæ¿æ­ä¸Šå ¤å²¸ï¼Œ} {#class tmp kill;enter};
+    #action {^%*æ¥è¿‡ä½ é€’ç»™çš„èˆ¹èµ„} {
         #class tmp open;
-        #action {^Ö»ÌıµÃ½­ÃæÉÏÒşÒş´«À´£º¡°±ğ¼±Âï£¬Õâ¶ùÕıÃ¦×ÅÄÅ¡­¡­¡±} {#class tmp kill;#delay {3} {yell boat}};
+        #action {^åªå¬å¾—æ±Ÿé¢ä¸Šéšéšä¼ æ¥ï¼šâ€œåˆ«æ€¥å˜›ï¼Œè¿™å„¿æ­£å¿™ç€å‘â€¦â€¦â€} {#class tmp kill;#delay {3} {yell boat}};
         #class tmp close;
     };
-    #action {^ÄãµÄ³µ´¬Í¨ÕËÉÏ»¹Ê£%S£¬ÕâÒ»ÌËµÄ´¬×Ê%S¡£} {
+    #action {^ä½ çš„è½¦èˆ¹é€šè´¦ä¸Šè¿˜å‰©%Sï¼Œè¿™ä¸€è¶Ÿçš„èˆ¹èµ„%Sã€‚} {
         #class tmp open;
-        #action {^Ö»ÌıµÃ½­ÃæÉÏÒşÒş´«À´£º¡°±ğ¼±Âï£¬Õâ¶ùÕıÃ¦×ÅÄÅ¡­¡­¡±} {#class tmp kill;#delay {3} {yell boat}};
+        #action {^åªå¬å¾—æ±Ÿé¢ä¸Šéšéšä¼ æ¥ï¼šâ€œåˆ«æ€¥å˜›ï¼Œè¿™å„¿æ­£å¿™ç€å‘â€¦â€¦â€} {#class tmp kill;#delay {3} {yell boat}};
         #class tmp close;
     };
-    #action {^ÄãÎüÁË¿ÚÆø£¬Ò»Éù¡°´¬¼Ò¡±£¬ÉùÒôÖĞÕıÆ½ºÍµØÔ¶Ô¶´«ÁË³öÈ¥¡£$} {
+    #action {^ä½ å¸äº†å£æ°”ï¼Œä¸€å£°â€œèˆ¹å®¶â€ï¼Œå£°éŸ³ä¸­æ­£å¹³å’Œåœ°è¿œè¿œä¼ äº†å‡ºå»ã€‚$} {
         #class tmp open;
-        #action {^Ö»ÌıµÃ½­ÃæÉÏÒşÒş´«À´£º¡°±ğ¼±Âï£¬Õâ¶ùÕıÃ¦×ÅÄÅ¡­¡­¡±} {#class tmp kill;#delay {3} {yell boat}};
+        #action {^åªå¬å¾—æ±Ÿé¢ä¸Šéšéšä¼ æ¥ï¼šâ€œåˆ«æ€¥å˜›ï¼Œè¿™å„¿æ­£å¿™ç€å‘â€¦â€¦â€} {#class tmp kill;#delay {3} {yell boat}};
         #class tmp close;
     };
-    #action {^ÄãÊ¹³ö³ÔÄÌµÄÁ¦Æøº°ÁËÒ»Éù£º¡°´¬¼Ò¡±$} {
+    #action {^ä½ ä½¿å‡ºåƒå¥¶çš„åŠ›æ°”å–Šäº†ä¸€å£°ï¼šâ€œèˆ¹å®¶â€$} {
         #class tmp open;
-        #action {^Ö»ÌıµÃ½­ÃæÉÏÒşÒş´«À´£º¡°±ğ¼±Âï£¬Õâ¶ùÕıÃ¦×ÅÄÅ¡­¡­¡±} {#class tmp kill;#delay {3} {yell boat}};
+        #action {^åªå¬å¾—æ±Ÿé¢ä¸Šéšéšä¼ æ¥ï¼šâ€œåˆ«æ€¥å˜›ï¼Œè¿™å„¿æ­£å¿™ç€å‘â€¦â€¦â€} {#class tmp kill;#delay {3} {yell boat}};
         #class tmp close;
     };
     #var in_boat 0;
-    #action {½­ĞÄÊ»È¥¡£} {
+    #action {æ±Ÿå¿ƒé©¶å»ã€‚} {
         #var in_boat 1;
     };
-    #action {^ô¹¹«Ëµ¡°µ½À²£¬ÉÏ°¶°É¡±£¬Ëæ¼´°ÑÒ»¿éÌ¤½Å°å´îÉÏµÌ°¶¡£} {
+    #action {^è‰„å…¬è¯´â€œåˆ°å•¦ï¼Œä¸Šå²¸å§â€ï¼Œéšå³æŠŠä¸€å—è¸è„šæ¿æ­ä¸Šå ¤å²¸ã€‚} {
         #if {${in_boat} == 1} {
             #var in_boat 0;
             #var stepaccu 1;
             out;walk;
         };
     };
-    #action {^Äã¸ÕÒªÇ°ĞĞ£¬ºöÈ»·¢ÏÖ½­Ë®¾öµÌ£¬²»ÓÉ°µ×ÔÇìĞÒ£¬»¹ºÃÃ»¹ıÈ¥¡£$} {
+    #action {^ä½ åˆšè¦å‰è¡Œï¼Œå¿½ç„¶å‘ç°æ±Ÿæ°´å†³å ¤ï¼Œä¸ç”±æš—è‡ªåº†å¹¸ï¼Œè¿˜å¥½æ²¡è¿‡å»ã€‚$} {
        #0;
     };
-    #action {^Äã·´Ó¦Ñ¸ËÙ£¬¼±Ã¦Ë«ÊÖ±§Í·£¬ÉíÌåòéÇú¡£ÑÛÇ°»èÌìºÚµØ£¬Ë³×ÅÉ½Â·Ö±¹öÁËÏÂÈ¥¡£} {#class walk kill;#var CurrentPosition qbl};
-    #action {^Äã´ÓÉ½ÉÏ¹öÁËÏÂÀ´£¬Ö»¾õµÃ»ëÉíÎŞ´¦²»ÌÛ£¬»¹ÊÜÁË¼¸´¦ÉË¡£} {#class walk kill;#var CurrentPosition dzf};
-    #action {^²»Öª¹ıÁË¶à¾Ã£¬´¬ÖÕÓÚ¿¿°¶ÁË£¬ÄãÀÛµÃÂúÍ·´óº¹¡£} {walk};
-    #action {^Ğ¡ÖÛÖÕÓÚ»®µ½½ü°¶£¬Äã´Ó´¬ÉÏ×ßÁË³öÀ´¡£} {walk};
-    #action {^ÂÌÒÂÉÙÅ®½«Ğ¡´¬ÏµÔÚÊ÷Ö¦Ö®ÉÏ£¬Äã¿çÉÏ°¶È¥¡£} {walk};
-    #action {^Äã¶¨ÁË¶¨Éñ£¬×ßÁË³öÀ´¡£} {walk};
-    #action {^ÄãÉíÔÚ°ë¿Õ£¬Ë«ÊÖÂÒ»Ó£¬Ö»ÅÎÄÜ×¥µ½Ê²Ã´¶«Î÷£¬ÕâÃ´ÂÒ»ÓÒ»Õó£¬ÓÖÏÂ¶éÏÂ°ÙâÅÕÉ¡£} {walk};
-    #action {^ÄãÖÕÓÚÒ»²½²½µÄÖÕÓÚ°¤µ½ÁËÇÅÍ·} {walk};
-    #action {^Äã³¯´¬·ò»ÓÁË»ÓÊÖ±ã¿çÉÏ°¶È¥¡£} {walk};
-    #action {^ÄãÖÕÓÚÀ´µ½ÁË¶ÔÃæ£¬ĞÄÀïµÄÊ¯Í·ÖÕÓÚÂäµØ¡£} {walk};
-    #action {^%xµÀ£ºÄãÀÏÈË¼Ò¿ìÇëÉÏ´¬¡£} {#delay {3} {yell boat}};
-    #action {^°ëÉÎ£¬ÄãÖÕÓÚÓÎµ½ÁË¶Ô°¶£¬ËæÊÖÈÓµôÁËÊ¯¿é¡£} {guohe3;walk};
-    #action {^ÄãÖÕÓÚ·Éµ½ÁË%*£¬°×µñÂäÁËÏÂÀ´¡£} {walk};
-    #action {^²»Ò»»á¶ù£¬ÄãÀ´µ½²ÎºÏ×¯¡£} {walk};
-    #action {^²»Ò»»á¶ù£¬Ğ¡´¬»®µ½ÁË°¶±ß¡£} {walk};
-    #action {^²»Ò»»á¶ù¾Íµ½ÁËÉñÁúµº£¬Äã×İÉíÔ¾ÉÏÂëÍ·¡£} {walk};
-    #action {^²»Ò»»á¶ù¾Íµ½ÁËÌì½òÌÁ¹Á¿Ú£¬Äã×ßÉÏÂëÍ·¡£} {walk};
-    #action {^Äã½¡²½Èç·É£¬²»Ò»»á¾Í×ßµ½} {walk};
-    #action {^ÁùÃûÑ©É½µÜ×ÓÒ»Æë×ª¶¯»ú¹Ø£¬µõÇÅ±ãÓÖÉıÁËÆğÀ´¡£} {walk};
-    #action {^ô¹¹«°ÑÌ¤½Å°åÊÕÁËÆğÀ´£¬Öñ¸İÒ»µã£¬±âÖÛÏò½­ĞÄÊ»È¥¡£} {yell boat};
-    #action {^´ó³µÍ£ÎÈÁËÏÂÀ´%*$} {walk};
-    #action {^ÄãÒª½øÈëÄÄ¼ä´¢Îï¹ñ£¿$} {
+    #action {^ä½ ååº”è¿…é€Ÿï¼Œæ€¥å¿™åŒæ‰‹æŠ±å¤´ï¼Œèº«ä½“èœ·æ›²ã€‚çœ¼å‰æ˜å¤©é»‘åœ°ï¼Œé¡ºç€å±±è·¯ç›´æ»šäº†ä¸‹å»ã€‚} {#class walk kill;#var CurrentPosition qbl};
+    #action {^ä½ ä»å±±ä¸Šæ»šäº†ä¸‹æ¥ï¼Œåªè§‰å¾—æµ‘èº«æ— å¤„ä¸ç–¼ï¼Œè¿˜å—äº†å‡ å¤„ä¼¤ã€‚} {#class walk kill;#var CurrentPosition dzf};
+    #action {^ä¸çŸ¥è¿‡äº†å¤šä¹…ï¼Œèˆ¹ç»ˆäºé å²¸äº†ï¼Œä½ ç´¯å¾—æ»¡å¤´å¤§æ±—ã€‚} {walk};
+    #action {^å°èˆŸç»ˆäºåˆ’åˆ°è¿‘å²¸ï¼Œä½ ä»èˆ¹ä¸Šèµ°äº†å‡ºæ¥ã€‚} {walk};
+    #action {^ç»¿è¡£å°‘å¥³å°†å°èˆ¹ç³»åœ¨æ ‘æä¹‹ä¸Šï¼Œä½ è·¨ä¸Šå²¸å»ã€‚} {walk};
+    #action {^ä½ å®šäº†å®šç¥ï¼Œèµ°äº†å‡ºæ¥ã€‚} {walk};
+    #action {^ä½ èº«åœ¨åŠç©ºï¼ŒåŒæ‰‹ä¹±æŒ¥ï¼Œåªç›¼èƒ½æŠ“åˆ°ä»€ä¹ˆä¸œè¥¿ï¼Œè¿™ä¹ˆä¹±æŒ¥ä¸€é˜µï¼Œåˆä¸‹å •ä¸‹ç™¾é¦€ä¸ˆã€‚} {walk};
+    #action {^ä½ ç»ˆäºä¸€æ­¥æ­¥çš„ç»ˆäºæŒ¨åˆ°äº†æ¡¥å¤´} {walk};
+    #action {^ä½ æœèˆ¹å¤«æŒ¥äº†æŒ¥æ‰‹ä¾¿è·¨ä¸Šå²¸å»ã€‚} {walk};
+    #action {^ä½ ç»ˆäºæ¥åˆ°äº†å¯¹é¢ï¼Œå¿ƒé‡Œçš„çŸ³å¤´ç»ˆäºè½åœ°ã€‚} {walk};
+    #action {^%xé“ï¼šä½ è€äººå®¶å¿«è¯·ä¸Šèˆ¹ã€‚} {#delay {3} {yell boat}};
+    #action {^åŠæ™Œï¼Œä½ ç»ˆäºæ¸¸åˆ°äº†å¯¹å²¸ï¼Œéšæ‰‹æ‰”æ‰äº†çŸ³å—ã€‚} {guohe3;walk};
+    #action {^ä½ ç»ˆäºé£åˆ°äº†%*ï¼Œç™½é›•è½äº†ä¸‹æ¥ã€‚} {walk};
+    #action {^ä¸ä¸€ä¼šå„¿ï¼Œä½ æ¥åˆ°å‚åˆåº„ã€‚} {walk};
+    #action {^ä¸ä¸€ä¼šå„¿ï¼Œå°èˆ¹åˆ’åˆ°äº†å²¸è¾¹ã€‚} {walk};
+    #action {^ä¸ä¸€ä¼šå„¿å°±åˆ°äº†ç¥é¾™å²›ï¼Œä½ çºµèº«è·ƒä¸Šç å¤´ã€‚} {walk};
+    #action {^ä¸ä¸€ä¼šå„¿å°±åˆ°äº†å¤©æ´¥å¡˜æ²½å£ï¼Œä½ èµ°ä¸Šç å¤´ã€‚} {walk};
+    #action {^ä½ å¥æ­¥å¦‚é£ï¼Œä¸ä¸€ä¼šå°±èµ°åˆ°} {walk};
+    #action {^å…­åé›ªå±±å¼Ÿå­ä¸€é½è½¬åŠ¨æœºå…³ï¼ŒåŠæ¡¥ä¾¿åˆå‡äº†èµ·æ¥ã€‚} {walk};
+    #action {^è‰„å…¬æŠŠè¸è„šæ¿æ”¶äº†èµ·æ¥ï¼Œç«¹ç¯™ä¸€ç‚¹ï¼Œæ‰èˆŸå‘æ±Ÿå¿ƒé©¶å»ã€‚} {yell boat};
+    #action {^å¤§è½¦åœç¨³äº†ä¸‹æ¥%*$} {walk};
+    #action {^ä½ è¦è¿›å…¥å“ªé—´å‚¨ç‰©æŸœï¼Ÿ$} {
         score;
         #delay 1 {
             xy.home;
@@ -495,8 +495,8 @@
             #list Route_mz_hz create {open gate}{s}{ne}{ne}{ne}{ne}{n}{e}{e}{e}{se}{s}{s}{w}{n}{enter $myid}{store ouxue pu}{store xishan tu}{store shuaiyi tie}{store guangling san}{out}{s}{e}{n}{n}{nw};
         };
     };
-    #action {^%d%s¡¶{¹ãÁêÉ¢|ÂÊÒâÌû|ÏªÉ½ĞĞÂÃÍ¼|Å»ÑªÆ×}¡·$} {#list sibao add {%%1}};
-    #action {^¹ñ×ÓÀïÄ¿Ç°´æ·ÅµÄÎïÆ·ÓĞ£º$} {
+    #action {^%d%sã€Š{å¹¿é™µæ•£|ç‡æ„å¸–|æºªå±±è¡Œæ—…å›¾|å‘•è¡€è°±}ã€‹$} {#list sibao add {%%1}};
+    #action {^æŸœå­é‡Œç›®å‰å­˜æ”¾çš„ç‰©å“æœ‰ï¼š$} {
         #var sibao {};
         #delay {1} {
             #if {@numitems{sibao}==4} {
@@ -504,12 +504,12 @@
                 #delay 1 {walk};
             };
             #else {
-                #showme ÄãµÄ¹ñ×ÓÀïËÄ±¦²»Æë»òÓĞ¶àÓà£¬ÎŞ·¨×Ô¶¯Ç°ÍùÃ·×¯¡£;
+                #showme ä½ çš„æŸœå­é‡Œå››å®ä¸é½æˆ–æœ‰å¤šä½™ï¼Œæ— æ³•è‡ªåŠ¨å‰å¾€æ¢…åº„ã€‚;
                 set brief 2;
             };
         };
     };
-    #nop #action {¿´ÆğÀ´ÍÁ·ËÏëÉ±ËÀÄã£¡} {waitfor {ÍÁ·ËËÀÁË¡£};kill tufei};
+    #nop #action {çœ‹èµ·æ¥åœŸåŒªæƒ³æ€æ­»ä½ ï¼} {waitfor {åœŸåŒªæ­»äº†ã€‚};kill tufei};
     #class walk close;
 
     #var step 1;
@@ -519,13 +519,13 @@
     walk;
 };
 
-#nop ==·½Ïò±äÁ¿==;
+#nop ==æ–¹å‘å˜é‡==;
 
 #list Directions create {e} {eu} {ed} {s} {su} {sd} {w} {wu} {wd} {n} {nu} {nd} {ne} {nw} {se} {sw} {u} {d} {enter} {out};
 #list Directionsb create {w} {wd} {wu} {n} {nd} {nu} {e} {ed} {eu} {s} {sd} {su} {sw} {se} {nw} {ne} {d} {u} {out} {enter};
 
-#nop ==Â·¾¶±äÁ¿==;
-#list Route_yz_sd create {enter shudong;say ÌìÌÃÓĞÂ·Äã²»×ßÑ½};
+#nop ==è·¯å¾„å˜é‡==;
+#list Route_yz_sd create {enter shudong;say å¤©å ‚æœ‰è·¯ä½ ä¸èµ°å‘€};
 #list Route_sd_yz create {out};
 
 #list Route_hz_hzbs create {se} {s} {s} {w} {n} {xy.home};
@@ -650,7 +650,7 @@
 #list Route_dl_km create {s} {s} {s} {e} {se} {e} {se} {e} {e} {n};
 #list Route_dl_tls create {n} {n} {n} {n} {n} {n} {n} {ne} {ne} {ne} {n} {sw} {wu};
 #list Route_km_dl create {s} {w} {w} {nw} {w} {nw} {w} {n} {n} {n};
-#list Route_km_px create {s} {e} {n} {n} {n} {n} {n} {n} {n} {ask tou about ×ÔÁ¢ÎªÍõ};
+#list Route_km_px create {s} {e} {n} {n} {n} {n} {n} {n} {n} {ask tou about è‡ªç«‹ä¸ºç‹};
 #list Route_px_km create {s} {s} {s} {s} {s} {s} {s} {w} {n};
 #list Route_zp_xs create {n} {n} {n} {nu} {ne} {nu} {nu} {n} {w} {w};
 #list Route_xs_zp create {e} {e} {s} {sd} {sd} {sw} {sd} {s} {s} {s};
@@ -723,7 +723,7 @@
 #list Route_xy_xiny create {s} {e} {e} {e} {e} {e} {e} {e} {se} {e} {e} {e} {n};
 #list Route_xiny_xy create {s} {w} {w} {w} {nw} {w} {w} {w} {w} {w} {w} {w} {n};
 #list Route_wdc_wd create {wu} {nu} {nu} {nu} {w} {nu} {nu} {eu} {eu} {nu} {nu};
-#list Route_wd_wdc create {n} {ask song about ÏÂÉ½} {s} {sd} {sd} {wd} {wd} {sd} {sd} {e} {sd} {sd} {sd} {ed};
+#list Route_wd_wdc create {n} {ask song about ä¸‹å±±} {s} {sd} {sd} {wd} {wd} {sd} {sd} {e} {sd} {sd} {sd} {ed};
 #list Route_yz_qlc create {gb_andao 1} {n} {nw} {nw} {nw} {n} {nw} {u} {e} {s} {w};
 #list Route_qlc_yz create {e} {n} {w} {enter dong} {se} {s} {se} {se} {se} {s} {s} {u} {out};
 #list Route_qf_hn1 create {e} {n} {n} {n} {n} {nw} {nw} {nw};
@@ -764,8 +764,8 @@
 #list Route_jb3_jb2 create {se} {se} {e} {ne} {ne} {ne} {e};
 #list Route_jb3_jb4 create {nw} {w} {w} {sw} {sw} {sw} {sw} {w} {w};
 #list Route_jb4_jb3 create {e} {e} {ne} {ne} {ne} {ne} {e} {e} {se};
-#list Route_bt_yz create {nw} {s} {ask zhang about ÑïÖİ} {e} {s};
-#list Route_yz_bt create {n} {w} {ask qian about °×ÍÕÉ½} {baituofufei};
+#list Route_bt_yz create {nw} {s} {ask zhang about æ‰¬å·} {e} {s};
+#list Route_yz_bt create {n} {w} {ask qian about ç™½é©¼å±±} {baituofufei};
 #list Route_jb1_jn1 create {guojiang1} {stop};
 #list Route_jb2_jn2 create {guojiang1} {stop};
 #list Route_jb3_jn3 create {guojiang1} {stop};
@@ -816,7 +816,7 @@
 #list Route_tyc_wd create {w} {w} {wu} {nu} {wu} {nu} {wu} {w} {w} {wu};
 #nop #list Route_wd_tzf create {sd} {wu} {wu} {nu} {wu} {nu} {eu} {eu} {eu};
 #nop #list Route_tzf_wd create {wd} {wd} {wd} {sd} {ed} {sd} {ed} {ed} {nu};
-#list Route_wd_tzf create {n;{ask song about ÏÂÉ½};s;sd;eu;e;e;e;eu;eu;eu;e;e;e;eu;eu;eu;ne;nu;nw;nu;ne;eu;se;u;nu;eu;su;wu;u;eu;nu;eu;ne;nu;nw;nu;ne;eu;se;u;nu;eu;su;wu;u;nu;nu;wu;nu;nw;wu;sw;nu;eu;su;wu;u;nu;nw;wu;sw;nu;eu;su;wu;u;nu;nw;wu;sw;nu;eu;su;wu;u;wu;sw;nu;nu;nu;nu;nu;nu;nu;nu};
+#list Route_wd_tzf create {n;{ask song about ä¸‹å±±};s;sd;eu;e;e;e;eu;eu;eu;e;e;e;eu;eu;eu;ne;nu;nw;nu;ne;eu;se;u;nu;eu;su;wu;u;eu;nu;eu;ne;nu;nw;nu;ne;eu;se;u;nu;eu;su;wu;u;nu;nu;wu;nu;nw;wu;sw;nu;eu;su;wu;u;nu;nw;wu;sw;nu;eu;su;wu;u;nu;nw;wu;sw;nu;eu;su;wu;u;wu;sw;nu;nu;nu;nu;nu;nu;nu;nu};
 #list Route_tzf_wd create {sd;sd;sd;sd;sd;sd;sd;sd;ne;ed;d;ed;nd;wd;sd;ne;ed;se;sd;d;ed;nd;wd;sd;ne;ed;se;sd;d;ed;nd;wd;sd;ne;ed;se;sd;ed;sd;sd;d;ed;nd;wd;sd;d;nw;wd;sw;sd;se;sd;sw;wd;sd;wd;d;ed;nd;wd;sd;d;nw;wd;sw;sd;se;sd;sw;wd;wd;wd;w;w;w;wd;wd;wd;w;w;w;wd;nu};
 #list Route_km_mlx create {s}{e}{e}{e}{e}{ne}{eu}{eu};
 #list Route_mlx_km create {wd}{wd}{sw}{w}{w}{w}{w}{n};
@@ -836,7 +836,7 @@
 #list Route_llx_nc create {wd} {wd} {w} {w} {n};
 #list Route_jz_pyh create {w} {w} {s} {s} {s} {s} {e};
 #list Route_pyh_jz create {w} {n} {n} {n} {n} {e} {e};
-#list Route_jx_gjc create {e} {nd} {ask chou diao about ¶À¹ÂÇó°Ü} {nu} {se};
+#list Route_jx_gjc create {e} {nd} {ask chou diao about ç‹¬å­¤æ±‚è´¥} {nu} {se};
 #list Route_gjc_jx create {nw} {sd} {sd} {su} {w};
 #list Route_cz_yz create {u} {w} {n} {n};
 #list Route_yz_cz create {s} {s} {e} {d};
@@ -851,7 +851,7 @@
 #list Route_qy_mt create {n} {e} {e} {n} {n} {n} {play qin} {row mantuo} {stop} {mr_mantuo} {w};
 #list Route_mt_qy create {e} {e} {mr_mantuob} {enter boat} {stop} {w} {w} {w} {s};
 #list Route_qy_mr create {n} {e} {e} {e} {murongboat} {stop};
-#list Route_mr_qy create {ask girl about °İ×¯} {murongboat} {stop} {w} {w} {w} {s};
+#list Route_mr_qy create {ask girl about æ‹œåº„} {murongboat} {stop} {w} {w} {w} {s};
 #list Route_yz_rbz create {s} {e} {s};
 #list Route_rbz_yz create {n} {w} {n};
 #list Route_yz_bs create {s} {s} {s} {w} {xy.home};
@@ -877,7 +877,7 @@
 #list Route_sy_sld create {s} {nw} {s} {wd} {sd} {sd} {busy1} {w} {w} {w} {w} {w} {w};
 #list Route_sld_sy create {e} {e} {e} {e} {e} {e} {e} {e} {e} {e} {e} {nu} {nu} {eu} {n} {se} {n};
 #list Route_sld_tgk create {s} {shenlongboat} {stop};
-#list Route_tgk_sld create {ask chuan fu about ³öº£} {shenlongboat} {stop} {n};
+#list Route_tgk_sld create {ask chuan fu about å‡ºæµ·} {shenlongboat} {stop} {n};
 #list Route_fds_yz create {enter} {u};
 #list Route_yz_fds create {d} {out};
 #list Route_lj_dzt create {zou tiesuo} {stop} {nw} {ne} {nu} {nu} {n} {n};
@@ -888,10 +888,10 @@
 #list Route_yz_wm create {n} {n} {w};
 #list Route_ny_ly create {n} {n} {n} {n} {n} {n} {n};
 #list Route_ly_ny create {s} {s} {s} {s} {s} {s} {s};
-#list Route_gw_shg create {s} {s} {s} {s} {s} {s} {sw} {s} {sw} {sw} {sw} {sw} {ask jiang about Èë¹Ø};
+#list Route_gw_shg create {s} {s} {s} {s} {s} {s} {sw} {s} {sw} {sw} {sw} {sw} {ask jiang about å…¥å…³};
 #list Route_shg_bj create {se} {sw} {sw} {sw} {sw} {s} {s} {s} {e} {e} {s} {s} {s} {s} {s} {s} {s} {s} {s} {s} {s} {w} {w} {w} {w} {w};
 #list Route_bj_shg create {e} {e} {e} {e} {e} {n} {n} {n} {n} {n} {n} {n} {n} {n} {n} {n} {w} {w} {n} {n} {n} {ne} {ne} {ne} {ne} {nw};
-#list Route_shg_gw create {ask jiang about ³ö¹Ø} {ne} {ne} {ne} {ne} {n} {ne} {n} {n} {n} {n} {n} {n};
+#list Route_shg_gw create {ask jiang about å‡ºå…³} {ne} {ne} {ne} {ne} {n} {ne} {n} {n} {n} {n} {n} {n};
 #list Route_xc_cll create {e} {e} {e} {e} {e} {se} {su} {eu} {su} {eu} {su} {su};
 #list Route_cll_xc create {nd} {nd} {wd} {nd} {wd} {nd} {nw} {w} {w} {w} {w} {w};
 #list Route_cll_hs create {sd} {su} {s} {s} {s} {w} {w};
@@ -1021,12 +1021,12 @@
 #class xiaoyao_data open;
 #list AreaName_list create {baituo} {baixiaosheng} {beijing} {chengdu} {chongzi} {dali} {qianbuling} {dalunsi} {xieketing} {dudajin} {emei} {qianfuoan} {fadaishi} {fuzhou} {gaibang} {gumu} {hean} {mishi} {xiaoting} {guajianci} {guanwai} {yinzhe} {guiyun} {hanzhong} {hangzhou} {heimuya} {honghuahui} {huyidao} {bieshu} {huashan} {canglongling} {xiaocun} {huaibei} {huanghedukoubei1} {huanghedukoubei2} {huanghedukoubei3} {huanghedukoubei4} {huanghedukounan1} {huanghedukounan2} {huanghedukounan3} {huanghedukounan4} {jiaxing} {jiayuguan} {jianmenguan} {jiangzhou} {jinyang} {jingzhou} {kunming} {fudi} {laolindong} {laolinxi} {lingjiu} {duzunting} {lingzhou} {lingxiaocheng} {lujiazhuang} {luoyang} {lvliu} {mantuo} {meizhuang} {miaolingbei} {miaolingxi} {mingjiao} {mogaoku} {murong} {murongfu} {nanchang} {nanyang} {pingxi} {poyanghu} {puyang} {qilingcun} {qinyun} {qinghaihubei} {qinghaihunan} {qufu} {quqing} {quanzhen} {quanzhou} {riyue} {rongbaozhai} {ruzhou} {shashoubang} {lvzhou} {shanhaiguan} {fangzhanglou} {shaolinsi} {shenlongdao} {fengding} {shanyao} {shikefa} {shudaobei} {shudaonan} {suzhou} {taihu} {taishan} {daizongfang} {tanggukou} {taohua} {taoyuancun} {taoyuan} {tiandihui} {tianlongsi} {tianzhufeng} {tiezhangfeng} {tingxiang} {wananta} {wanjiegu} {gudi} {wuliang} {yubi} {wudang} {wudangcun} {wumiao} {wuyishan} {xiyuanzi} {xiangyang} {xiaofeng} {xiaozhen} {xinyang} {xingxiu} {tianxiugong} {xuchang} {xueshan} {yashan} {yanziwu} {yangzhou} {yizhan} {yinggu} {yuewangmu} {yueyang} {zanpu} {zhangjiakou} {zhangzhi} {changan} {changjiangdukoubei1} {changjiangdukoubei2} {changjiangdukoubei3} {changjiangdukoubei4} {changjiangdukounan1} {changjiangdukounan2} {changjiangdukounan3} {changjiangdukounan4} {zhenjiang} {zhuxi} {zhuangfu} {tidufu} {xihu} {hanshizhong} {jiangnanqianzhuang} {hangzhoubieshu} {changlong} {chaoting} {qiuqianzhang} {kangqinwangfu} {bofu} {feima} {feihu} {houtang} {tianfu} {tiantan} {hongshuitan} {chaoyangmen} {shencemen} {zijincheng} {andao} {kedian} {jiankangfu} {lanzhou} {huangzhong} {luchengfeng}{yzbank} {yzdangpu} {yingtianfu} {zhengyangmen} {nanjue} {hongqigong} {sheku} {muyangren}{chaguan}{jidi}{gulou}{lianhua}{biwu}{guanhaishi};
 #list AreaAbbr_list create {bt} {bxs} {bj} {cd} {cz} {dl} {qbl} {dls} {xkt} {ddj} {em} {qfa} {fds} {fz} {gb} {gm} {ha} {ms} {xt} {gjc} {gw} {yinz} {gy} {hanz} {hz} {hmy} {hhh} {hyd} {bs} {hs} {cll} {xc} {hb} {hb1} {hb2} {hb3} {hb4} {hn1} {hn2} {hn3} {hn4} {jx} {jyg} {jmg} {jz} {jy} {jzh} {km} {fd} {lld} {llx} {lj} {dzt} {lz} {lxc} {ljz} {ly} {ll} {mt} {mz} {mlb} {mlx} {mj} {mgk} {mr} {mrf} {nc} {ny} {px} {pyh} {py} {qlc} {qy} {qhb} {qhn} {qf} {qq} {qzh} {qz} {ry} {rbz} {rz} {ssb} {lvz} {shg} {fzl} {sl} {sld} {fengd} {sy} {skf} {sdb} {sdn} {sz} {taih} {tais} {dzf} {tgk} {th} {tyc} {ty} {tdh} {tls} {tzf} {tz} {tx} {wat} {wjg} {gd} {wl} {yb} {wd} {wdc} {wm} {wys} {xyz} {xy} {xf} {xz} {xiny} {xx} {txg} {xch} {xs} {ys} {yzw} {yz} {yiz} {yg} {ywm} {yy} {zp} {zjk} {zz} {ca} {jb1} {jb2} {jb3} {jb4} {jn1} {jn2} {jn3} {jn4} {zj} {zx} {zf} {tdf} {xh} {hsz} {jnqz} {hzbs} {zuo} {ct} {qiu} {kf} {bf} {fm} {fh} {ht} {tf} {tt} {hst} {cym} {scm} {zjc} {sd} {kd} {jk} {lanz} {huangz} {lcf} {bk} {dp} {ytf} {zym} {nj} {hq} {sk} {myr} {cg} {jd} {gl} {lh} {bw}{ghs};
-#list AreaNameCh_list create {°×ÍÕ} {°ÙÏşÉú} {±±¾©} {³É¶¼} {³æ×Ó} {´óÀí} {´óÂÖÇ§²½Áë} {´óÂÖËÂ} {´óÂÖĞ»¿ÍÍ¤} {¶¼´ó½õ} {¶ëáÒ} {¶ëáÒÇ§·ğâÖ} {·¢´ôÊÒ} {¸£Öİ} {Ø¤°ï} {¹ÅÄ¹} {¹ÅÄ¹ºÓ°¶} {¹ÅÄ¹ÃÜÊÒ} {¹ÅÄ¹Ğ¡Ìü} {¹Ò½£ìô} {¹ØÍâ} {¹éÔÆÒşÕß} {¹éÔÆ×¯} {ººÖĞ} {º¼Öİ} {ºÚÄ¾ÑÂ} {ºì»¨»á} {ºúÒ»µ¶} {»¨Ô°±ğÊûÇø} {»ªÉ½} {»ªÉ½²ÔÁúÁë} {»ªÉ½´å} {»´±±} {»ÆºÓ¶É¿Ú±±1} {»ÆºÓ¶É¿Ú±±2} {»ÆºÓ¶É¿Ú±±3} {»ÆºÓ¶É¿Ú±±4} {»ÆºÓ¶É¿ÚÄÏ1} {»ÆºÓ¶É¿ÚÄÏ2} {»ÆºÓ¶É¿ÚÄÏ3} {»ÆºÓ¶É¿ÚÄÏ4} {¼ÎĞË} {¼ÎÓø¹Ø} {½£ÃÅ¹Ø} {½­Öİ} {½úÑô} {¾£Öİ} {À¥Ã÷} {ÀÅçÙ¸£µØ} {ÀÏÁÖ¶«} {ÀÏÁÖÎ÷} {ÁéğÕ} {ÁéğÕ¶À×ğÌü} {ÁéÖİ} {ÁèÏö³Ç} {Â½¼Ò×¯} {ÂåÑô} {ÂÌÁøÉ½×¯} {ÂüÍÓÉ½×¯} {Ã·×¯} {ÃçÁë±±} {ÃçÁëÎ÷} {Ã÷½Ì} {Äª¸ß¿ß} {Ä½Èİ} {Ä½Èİ¸´} {ÄÏ²ı} {ÄÏÑô} {Æ½Î÷Íõ¸®} {Û¶Ñôºş} {å§Ñô} {÷è÷ë´å} {ÇÙÔÏĞ¡Öş} {Çàº£ºş±±} {Çàº£ºşÄÏ} {Çú²º} {ÇúÇå} {È«Õæ½Ì} {ÈªÖİ} {ÈÕÔÂÉñ½Ì} {ÈÙ±¦Õ«} {ÈêÖİ} {É±ÊÖ°ï} {É³Ä®ÂÌÖŞ} {É½º£¹Ø} {ÉÙÁÖ·½ÕÉÂ¥} {ÉÙÁÖËÂ} {ÉñÁúµº} {ÉñÁú·å¶¥} {ÉñÁúÉ½Ñü} {Ê·¿É·¨} {ÊñµÀ±±} {ÊñµÀÄÏ} {ËÕÖİ} {Ì«ºş} {Ì©É½} {Ì©É½á·×Ú·»} {ÌÁ¹Á¿Ú} {ÌÒ»¨µº} {ÌÒÔ°´å} {ÌÒÔ´} {ÌìµØ»á} {ÌìÁúËÂ} {ÌìÖù·å} {ÌúÕÆ·å} {ÌıÏãË®é¿} {Íò°²Ëş} {Íò½Ù¹È} {ÎŞÁ¿¹Èµ×} {ÎŞÁ¿É½} {ÎŞÁ¿Óñèµ} {Îäµ±} {Îäµ±´å} {ÎäÃí} {ÎäÒÄÉ½} {Ï·Ô°×Ó} {ÏåÑô} {Ïô·å} {Ğ¡Õò} {ĞÅÑô} {ĞÇËŞ} {ĞÇËŞÌìĞã¹¬} {Ğí²ı} {Ñ©É½ÅÉ} {ÑÀÉ½} {Ñà×ÓÎë} {ÑïÖİ} {æäÕ¾} {çø¹Ã} {ÔÀÍõÄ¹} {ÔÀÑô} {ÔŞÆÕ} {ÕÅ¼Ò¿Ú} {ÕÅÖ¾} {³¤°²} {³¤½­¶É¿Ú±±1} {³¤½­¶É¿Ú±±2} {³¤½­¶É¿Ú±±3} {³¤½­¶É¿Ú±±4} {³¤½­¶É¿ÚÄÏ1} {³¤½­¶É¿ÚÄÏ2} {³¤½­¶É¿ÚÄÏ3} {³¤½­¶É¿ÚÄÏ4} {Õò½­} {Öììä} {×¯¸®} {Ìá¶½¸®} {Î÷ºş} {º«ÊÀÖÒ} {½­ÄÏÇ®×¯} {º¼Öİ±ğÊû} {²ıÂ¡ïÚ¾Ö} {³¯Í¢} {ôÃÇ§ÕÉ} {¿µÇ×Íõ¸®} {²§·ò} {·ÉÂíïÚ¾Ö} {·É»¢ïÚ¾Ö} {ºóÌÃ} {Ìì¸£ïÚ¾Ö} {µ¤±İÇÅ} {ºéË®Ì³} {³¯ÑôÃÅ} {Éñ²ßÃÅ} {¶ËÃÅ} {Ê÷¶´ÄÚ²¿} {¿Íµê} {½¨¿µ¸®} {À¼Öİ} {äÒÖĞ} {Â½³Ë·ç} {ÑïÖİÇ®×¯} {ÑïÖİµ±ÆÌ} {Ó¦Ìì¸®} {ÕıÑôÃÅ} {¾©Õ×¸®ÄĞ¾ô}{ºéÆß¹«}{Éß¿ß}{ÄÁÑòÈË}{²è¹İ}{º£±ß»ùµØ}{¹ÄÂ¥}{Á«»¨Éú´óÊ¿}{ÎäÃÅ±ÈÎä}{¹Ûº£Ê¯};
-#nop µØ±ê·¿¼äĞÅÏ¢;
-#list AreaPosition_list create {¸ê±Ú} {×íÏÉÂ¥¶şÂ¥} {ÓÀ°²ÃÅ} {×Ü¶½¸®ÃÅÇ°} {Àö´ºÔºÃÜÊÒ} {Ê®×ÖÂ·¿Ú} {Ç§²½Áë} {´óÂÖËÂÉ½ÃÅ} {Ğ»¿ÍÍ¤} {ÁúÃÅïÚ¾Ö} {ÓñÅ®³Ø} {Ç§·ğâÖ´óµî} {·¢´ôÊÒ} {¸£ÍşïÚ¾Ö} {ÍÁµØÃí} {¶ÏÁúÊ¯} {ºÓ°¶} {ÃÜÊÒ} {Ğ¡Ìü} {¹Ò½£ìô} {¼¯ÊĞ} {ÒşÕß¾Ó} {¹éÔÆÍ¤} {ººÖĞ} {´óÀíËÂ} {³ÉµÂµî} {º¼Öİ·Ö¶æ´óÃÅ} {¸ßÁ»µØ} {Íæ¼Ò´¢Îï¹ñ} {Êé·¿} {²ÔÁúÁë} {´ò¹È³¡} {»´±±} {[»ÆºÓ±±°¶w©Ie»ÆºÓ±±°¶]} {·çÁê¶É[¹ÙµÀu©Id»ÆºÓ±±°¶]} {[É³Ä®±ßÔµnw©Ine»ÆºÓ±±°¶]} {[´óÂ·nw©Ine»ÆºÓ±±°¶]} {[»ÆºÓÄÏ°¶w©IseÇàÊ¯´óµÀ]} {ÃÏ½ò¶É[©IsdÂåË®]} {[»ÆºÓÄÏ°¶sw©IseÍÁÂ·]} {[»ÆºÓÄÏ°¶sw©Ine»ÆºÓÄÏ°¶]} {¼ÎĞË³Ç} {¼ÎÓø¹Ø} {½£ÃÅ¹Ø} {º«¼Ò} {Ïô¸®} {¾£Öİ} {ÉñÍşïÚ¾Ö} {ÀÅçÙ¸£µØ} {ÀÏÁÖ¾¡Í·} {ÀÏÁÖ±ßÔµ} {°ÙÕÉ½§} {¶À×ğÌü´óÃÅ} {»Ê¹¬´óÃÅ} {ÁèÏö´óÌü} {Â½¼Ò×¯} {ÂåÑôÖĞĞÄ¹ã³¡} {ÂÌÁøÉ½×¯´óÃÅ} {Ğ¡ÇÅ} {Ã·×¯Ìì¾®} {ÎŞ} {ÎŞ} {°ëÉ½ÃÅ} {Äª¸ß¿ß} {ºş±ß} {´ºÀ´²è¹İ} {°×¼Ò} {ÄÏÑô³Ç} {Æ½Î÷Íõ¸®´óÃÅ} {Û¶Ñôºş±ß} {å§Ñô} {ÔÀ·É¼Ò} {ÇÙÔÏĞ¡¾Ó} {»ÆÑòÌ²} {ÎŞ} {¿×Ãí} {ÈÙ²ı½»Ò×ĞĞ} {³çĞşÌ¨} {ÈªÖİ¸Û} {Ğ¡´å×¯} {ÈÙ±¦Õ«} {ÈêÖİ³Ç} {ÍòÂÚÌ¨} {É³Ä®ÂÌÖŞ} {É½º£¹ØÄÏÃÅ} {·½ÕÉÂ¥} {ÉÙÁÖËÂ} {º£Ì²} {·å¶¥} {Ğ¡»ØÀÈ} {³Ç±±¾üÓª} {ÎŞ} {ÎŞ} {±¦´øÇÅ} {Ì«ºş±ß} {ÄÏÌìÃÅ} {á·×Ú·»} {ÌÁ¹Á¿Ú} {º£¸Û} {ÌÒÔ°Ğ¡Â·} {ÌÒÔ´æäÕ¾} {²àÌü} {Èğº×ÃÅ} {ÌìÖù·åÏÂ} {Ğ¡Í¤} {ÌıÏãË®é¿} {Íò°²Ëş} {Íò½Ù¹È} {¹Èµ×} {ÑÂ¼ä¹ÅËÉ} {ÎŞÁ¿Óñèµ} {Îäµ±¹ã³¡} {Îäµ±É½ÃÅ} {ÎäÃí} {ÎäÒÄÉ½Â·} {Ï·Ô°×Ó} {ÏåÑôµ±ÆÌ} {ÍûĞÇÂ¥¶ş²ã} {Ğ¡Õò} {Õò»´ÇÅ} {¾ŞÑÒ} {ÌìĞã¹¬} {Ğí²ı³Ç} {ÇÅÍ·} {ÑÀÉ½ÍåÖĞĞÄ} {Ñà×ÓÎë´óÃÅ} {ÖĞÑë¹ã³¡©I´óéÅÊ÷} {æäÕ¾} {ºÚÕÓĞ¡Îİ} {Ä¹Ç°¹ã³¡} {ÄÏÃÅÄÚ´ó½Ö} {ÔŞÆÕ¹ã³¡} {´ó¾³ÃÅ} {¾£Î÷ïÚ¾Ö} {ÖìÈ¸ÃÅ} {Ñï×Ó½ò[Ñï×Ó½òw©Ie³¤½­°¶±ß]} {[³¤½­°¶±ßw©Ie³¤½­¶É¿Ú]} {[Ğ¡³ØÕòu©I]} {Áêí¶[³¤½­¶É¿Úw©Ie³¤½­°¶±ß]} {[Î÷½ò¶É¿Úw©Ie³¤½­°¶±ß]} {²ÉÊ¯í¶[³¤½­°¶±ßw©Ie³¤½­¶É¿Ú]} {[³¤½­°¶±ßnw©Ise³¤½­°¶±ß]} {Áêí¶[³¤½­¶É¿Úw©Ie³¤½­°¶±ß]} {ÃÎÏªÔ°} {ÔÀÂ´ÊéÔº} {×¯¸®´óÃÅ} {Ìá¶½¸®ÕıÃÅ} {¹ÂÉ½} {´óÌü} {½­ÄÏÇ®×¯} {Ê¢²ıĞĞÁÙ°²¸®·Öµê} {²ıÂ¡ïÚ¾Ö} {ÌüÌÃ} {Íû½­Í¤} {Íõ¸®´óÃÅ} {µîÇ°¹ã³¡} {·ÉÂíïÚ¾Ö} {·É»¢ïÚ¾Ö} {ºóÌÃ} {Ìì¸£ïÚ¾Ö} {µ¤±İÇÅ} {ºéË®Ì³} {³¯ÑôÃÅ} {Éñ²ßÃÅ} {¶ËÃÅ} {Ê÷¶´ÄÚ²¿} {¿Íµê} {ÖĞ³Ç} {¸®Ç°¹ã³¡} {¹¬³Ç} {´óÌü} {ÑïÖİÇ®×¯} {ÑïÖİµ±ÆÌ} {ĞşÎäºşÅÏ} {½¨¿µÄÏÕıÑôÃÅ} {¾©Õ×¸®²àÌü}{ÁÖ¼äĞ¡ÎİºéÆß¹«} {¹éÔÆÉß¿ß} {»ÄµØ}{´ºÀ´²è¹İ}{¼×Îçº£Õ½»ùµØ}{¹ÄÂ¥Ğ¡Ôº}{Öé¶¼°Íµî}{ÎäÃÅ±ÈÎä}{¹Ûº£Ê¯};
-#nop »¨À¨ºÅ¶ÔÓ¦¸ÃµØËùÓĞÖ±Á¬£¬²ÉÓÃ¸ß¼¶Êı¾İ½á¹¹;
+#list AreaNameCh_list create {ç™½é©¼} {ç™¾æ™“ç”Ÿ} {åŒ—äº¬} {æˆéƒ½} {è™«å­} {å¤§ç†} {å¤§è½®åƒæ­¥å²­} {å¤§è½®å¯º} {å¤§è½®è°¢å®¢äº­} {éƒ½å¤§é”¦} {å³¨åµ‹} {å³¨åµ‹åƒä½›åºµ} {å‘å‘†å®¤} {ç¦å·} {ä¸å¸®} {å¤å¢“} {å¤å¢“æ²³å²¸} {å¤å¢“å¯†å®¤} {å¤å¢“å°å…} {æŒ‚å‰‘ç¥ } {å…³å¤–} {å½’äº‘éšè€…} {å½’äº‘åº„} {æ±‰ä¸­} {æ­å·} {é»‘æœ¨å´–} {çº¢èŠ±ä¼š} {èƒ¡ä¸€åˆ€} {èŠ±å›­åˆ«å¢…åŒº} {åå±±} {åå±±è‹é¾™å²­} {åå±±æ‘} {æ·®åŒ—} {é»„æ²³æ¸¡å£åŒ—1} {é»„æ²³æ¸¡å£åŒ—2} {é»„æ²³æ¸¡å£åŒ—3} {é»„æ²³æ¸¡å£åŒ—4} {é»„æ²³æ¸¡å£å—1} {é»„æ²³æ¸¡å£å—2} {é»„æ²³æ¸¡å£å—3} {é»„æ²³æ¸¡å£å—4} {å˜‰å…´} {å˜‰å³ªå…³} {å‰‘é—¨å…³} {æ±Ÿå·} {æ™‹é˜³} {è†å·} {æ˜†æ˜} {ç…ç¼³ç¦åœ°} {è€æ—ä¸œ} {è€æ—è¥¿} {çµé¹«} {çµé¹«ç‹¬å°Šå…} {çµå·} {å‡Œéœ„åŸ} {é™†å®¶åº„} {æ´›é˜³} {ç»¿æŸ³å±±åº„} {æ›¼é™€å±±åº„} {æ¢…åº„} {è‹—å²­åŒ—} {è‹—å²­è¥¿} {æ˜æ•™} {è«é«˜çªŸ} {æ…•å®¹} {æ…•å®¹å¤} {å—æ˜Œ} {å—é˜³} {å¹³è¥¿ç‹åºœ} {é„±é˜³æ¹–} {æ¿®é˜³} {éº’éºŸæ‘} {ç´éŸµå°ç­‘} {é’æµ·æ¹–åŒ—} {é’æµ·æ¹–å—} {æ›²åŸ } {æ›²æ¸…} {å…¨çœŸæ•™} {æ³‰å·} {æ—¥æœˆç¥æ•™} {è£å®æ–‹} {æ±å·} {æ€æ‰‹å¸®} {æ²™æ¼ ç»¿æ´²} {å±±æµ·å…³} {å°‘æ—æ–¹ä¸ˆæ¥¼} {å°‘æ—å¯º} {ç¥é¾™å²›} {ç¥é¾™å³°é¡¶} {ç¥é¾™å±±è…°} {å²å¯æ³•} {èœ€é“åŒ—} {èœ€é“å—} {è‹å·} {å¤ªæ¹–} {æ³°å±±} {æ³°å±±å²±å®—åŠ} {å¡˜æ²½å£} {æ¡ƒèŠ±å²›} {æ¡ƒå›­æ‘} {æ¡ƒæº} {å¤©åœ°ä¼š} {å¤©é¾™å¯º} {å¤©æŸ±å³°} {é“æŒå³°} {å¬é¦™æ°´æ¦­} {ä¸‡å®‰å¡”} {ä¸‡åŠ«è°·} {æ— é‡è°·åº•} {æ— é‡å±±} {æ— é‡ç‰ç’§} {æ­¦å½“} {æ­¦å½“æ‘} {æ­¦åº™} {æ­¦å¤·å±±} {æˆå›­å­} {è¥„é˜³} {è§å³°} {å°é•‡} {ä¿¡é˜³} {æ˜Ÿå®¿} {æ˜Ÿå®¿å¤©ç§€å®«} {è®¸æ˜Œ} {é›ªå±±æ´¾} {ç‰™å±±} {ç‡•å­å} {æ‰¬å·} {é©¿ç«™} {ç‘›å§‘} {å²³ç‹å¢“} {å²³é˜³} {èµæ™®} {å¼ å®¶å£} {å¼ å¿—} {é•¿å®‰} {é•¿æ±Ÿæ¸¡å£åŒ—1} {é•¿æ±Ÿæ¸¡å£åŒ—2} {é•¿æ±Ÿæ¸¡å£åŒ—3} {é•¿æ±Ÿæ¸¡å£åŒ—4} {é•¿æ±Ÿæ¸¡å£å—1} {é•¿æ±Ÿæ¸¡å£å—2} {é•¿æ±Ÿæ¸¡å£å—3} {é•¿æ±Ÿæ¸¡å£å—4} {é•‡æ±Ÿ} {æœ±ç†¹} {åº„åºœ} {æç£åºœ} {è¥¿æ¹–} {éŸ©ä¸–å¿ } {æ±Ÿå—é’±åº„} {æ­å·åˆ«å¢…} {æ˜Œéš†é•–å±€} {æœå»·} {è£˜åƒä¸ˆ} {åº·äº²ç‹åºœ} {é’µå¤«} {é£é©¬é•–å±€} {é£è™é•–å±€} {åå ‚} {å¤©ç¦é•–å±€} {ä¸¹é™›æ¡¥} {æ´ªæ°´å›} {æœé˜³é—¨} {ç¥ç­–é—¨} {ç«¯é—¨} {æ ‘æ´å†…éƒ¨} {å®¢åº—} {å»ºåº·åºœ} {å…°å·} {æ¹Ÿä¸­} {é™†ä¹˜é£} {æ‰¬å·é’±åº„} {æ‰¬å·å½“é“º} {åº”å¤©åºœ} {æ­£é˜³é—¨} {äº¬å…†åºœç”·çˆµ}{æ´ªä¸ƒå…¬}{è›‡çªŸ}{ç‰§ç¾Šäºº}{èŒ¶é¦†}{æµ·è¾¹åŸºåœ°}{é¼“æ¥¼}{è²èŠ±ç”Ÿå¤§å£«}{æ­¦é—¨æ¯”æ­¦}{è§‚æµ·çŸ³};
+#nop åœ°æ ‡æˆ¿é—´ä¿¡æ¯;
+#list AreaPosition_list create {æˆˆå£} {é†‰ä»™æ¥¼äºŒæ¥¼} {æ°¸å®‰é—¨} {æ€»ç£åºœé—¨å‰} {ä¸½æ˜¥é™¢å¯†å®¤} {åå­—è·¯å£} {åƒæ­¥å²­} {å¤§è½®å¯ºå±±é—¨} {è°¢å®¢äº­} {é¾™é—¨é•–å±€} {ç‰å¥³æ± } {åƒä½›åºµå¤§æ®¿} {å‘å‘†å®¤} {ç¦å¨é•–å±€} {åœŸåœ°åº™} {æ–­é¾™çŸ³} {æ²³å²¸} {å¯†å®¤} {å°å…} {æŒ‚å‰‘ç¥ } {é›†å¸‚} {éšè€…å±…} {å½’äº‘äº­} {æ±‰ä¸­} {å¤§ç†å¯º} {æˆå¾·æ®¿} {æ­å·åˆ†èˆµå¤§é—¨} {é«˜ç²±åœ°} {ç©å®¶å‚¨ç‰©æŸœ} {ä¹¦æˆ¿} {è‹é¾™å²­} {æ‰“è°·åœº} {æ·®åŒ—} {[é»„æ²³åŒ—å²¸wãŠ£eé»„æ²³åŒ—å²¸]} {é£é™µæ¸¡[å®˜é“uãŠ£dé»„æ²³åŒ—å²¸]} {[æ²™æ¼ è¾¹ç¼˜nwãŠ£neé»„æ²³åŒ—å²¸]} {[å¤§è·¯nwãŠ£neé»„æ²³åŒ—å²¸]} {[é»„æ²³å—å²¸wãŠ£seé’çŸ³å¤§é“]} {å­Ÿæ´¥æ¸¡[ãŠ£sdæ´›æ°´]} {[é»„æ²³å—å²¸swãŠ£seåœŸè·¯]} {[é»„æ²³å—å²¸swãŠ£neé»„æ²³å—å²¸]} {å˜‰å…´åŸ} {å˜‰å³ªå…³} {å‰‘é—¨å…³} {éŸ©å®¶} {è§åºœ} {è†å·} {ç¥å¨é•–å±€} {ç…ç¼³ç¦åœ°} {è€æ—å°½å¤´} {è€æ—è¾¹ç¼˜} {ç™¾ä¸ˆæ¶§} {ç‹¬å°Šå…å¤§é—¨} {çš‡å®«å¤§é—¨} {å‡Œéœ„å¤§å…} {é™†å®¶åº„} {æ´›é˜³ä¸­å¿ƒå¹¿åœº} {ç»¿æŸ³å±±åº„å¤§é—¨} {å°æ¡¥} {æ¢…åº„å¤©äº•} {æ— } {æ— } {åŠå±±é—¨} {è«é«˜çªŸ} {æ¹–è¾¹} {æ˜¥æ¥èŒ¶é¦†} {ç™½å®¶} {å—é˜³åŸ} {å¹³è¥¿ç‹åºœå¤§é—¨} {é„±é˜³æ¹–è¾¹} {æ¿®é˜³} {å²³é£å®¶} {ç´éŸµå°å±…} {é»„ç¾Šæ»©} {æ— } {å­”åº™} {è£æ˜Œäº¤æ˜“è¡Œ} {å´‡ç„å°} {æ³‰å·æ¸¯} {å°æ‘åº„} {è£å®æ–‹} {æ±å·åŸ} {ä¸‡çº¶å°} {æ²™æ¼ ç»¿æ´²} {å±±æµ·å…³å—é—¨} {æ–¹ä¸ˆæ¥¼} {å°‘æ—å¯º} {æµ·æ»©} {å³°é¡¶} {å°å›å»Š} {åŸåŒ—å†›è¥} {æ— } {æ— } {å®å¸¦æ¡¥} {å¤ªæ¹–è¾¹} {å—å¤©é—¨} {å²±å®—åŠ} {å¡˜æ²½å£} {æµ·æ¸¯} {æ¡ƒå›­å°è·¯} {æ¡ƒæºé©¿ç«™} {ä¾§å…} {ç‘é¹¤é—¨} {å¤©æŸ±å³°ä¸‹} {å°äº­} {å¬é¦™æ°´æ¦­} {ä¸‡å®‰å¡”} {ä¸‡åŠ«è°·} {è°·åº•} {å´–é—´å¤æ¾} {æ— é‡ç‰ç’§} {æ­¦å½“å¹¿åœº} {æ­¦å½“å±±é—¨} {æ­¦åº™} {æ­¦å¤·å±±è·¯} {æˆå›­å­} {è¥„é˜³å½“é“º} {æœ›æ˜Ÿæ¥¼äºŒå±‚} {å°é•‡} {é•‡æ·®æ¡¥} {å·¨å²©} {å¤©ç§€å®«} {è®¸æ˜ŒåŸ} {æ¡¥å¤´} {ç‰™å±±æ¹¾ä¸­å¿ƒ} {ç‡•å­åå¤§é—¨} {ä¸­å¤®å¹¿åœºãŠ£å¤§æ¦•æ ‘} {é©¿ç«™} {é»‘æ²¼å°å±‹} {å¢“å‰å¹¿åœº} {å—é—¨å†…å¤§è¡—} {èµæ™®å¹¿åœº} {å¤§å¢ƒé—¨} {è†è¥¿é•–å±€} {æœ±é›€é—¨} {æ‰¬å­æ´¥[æ‰¬å­æ´¥wãŠ£eé•¿æ±Ÿå²¸è¾¹]} {[é•¿æ±Ÿå²¸è¾¹wãŠ£eé•¿æ±Ÿæ¸¡å£]} {[å°æ± é•‡uãŠ£]} {é™µçŸ¶[é•¿æ±Ÿæ¸¡å£wãŠ£eé•¿æ±Ÿå²¸è¾¹]} {[è¥¿æ´¥æ¸¡å£wãŠ£eé•¿æ±Ÿå²¸è¾¹]} {é‡‡çŸ³çŸ¶[é•¿æ±Ÿå²¸è¾¹wãŠ£eé•¿æ±Ÿæ¸¡å£]} {[é•¿æ±Ÿå²¸è¾¹nwãŠ£seé•¿æ±Ÿå²¸è¾¹]} {é™µçŸ¶[é•¿æ±Ÿæ¸¡å£wãŠ£eé•¿æ±Ÿå²¸è¾¹]} {æ¢¦æºªå›­} {å²³éº“ä¹¦é™¢} {åº„åºœå¤§é—¨} {æç£åºœæ­£é—¨} {å­¤å±±} {å¤§å…} {æ±Ÿå—é’±åº„} {ç››æ˜Œè¡Œä¸´å®‰åºœåˆ†åº—} {æ˜Œéš†é•–å±€} {å…å ‚} {æœ›æ±Ÿäº­} {ç‹åºœå¤§é—¨} {æ®¿å‰å¹¿åœº} {é£é©¬é•–å±€} {é£è™é•–å±€} {åå ‚} {å¤©ç¦é•–å±€} {ä¸¹é™›æ¡¥} {æ´ªæ°´å›} {æœé˜³é—¨} {ç¥ç­–é—¨} {ç«¯é—¨} {æ ‘æ´å†…éƒ¨} {å®¢åº—} {ä¸­åŸ} {åºœå‰å¹¿åœº} {å®«åŸ} {å¤§å…} {æ‰¬å·é’±åº„} {æ‰¬å·å½“é“º} {ç„æ­¦æ¹–ç•”} {å»ºåº·å—æ­£é˜³é—¨} {äº¬å…†åºœä¾§å…}{æ—é—´å°å±‹æ´ªä¸ƒå…¬} {å½’äº‘è›‡çªŸ} {è’åœ°}{æ˜¥æ¥èŒ¶é¦†}{ç”²åˆæµ·æˆ˜åŸºåœ°}{é¼“æ¥¼å°é™¢}{ç éƒ½å·´æ®¿}{æ­¦é—¨æ¯”æ­¦}{è§‚æµ·çŸ³};
+#nop èŠ±æ‹¬å·å¯¹åº”è¯¥åœ°æ‰€æœ‰ç›´è¿ï¼Œé‡‡ç”¨é«˜çº§æ•°æ®ç»“æ„;
 #var {RouteConnection_list} {{1}{yz} {2}{yz} {3}{zjc;ry;jy;zjk;tgk;hyd;zf;py;shg} {4}{em;tls;zp;sdn;jmg;yy} {5} {yz}{6} {tls;km} {7}{dls;zp} {8}{qbl;xs;yz;xkt} {9}{dls;bf;lh} {10}{ly} {11}{cd;qfa} {12}{em} {13}{yz} {14}{qz;wys} {15}{yz;hq} {16}{qzh;ca;ha} {17}{ms;gm} {18}{xt} {19}{gm} {20}{jx} {21}{shg} {22}{taih} {23}{taih;lcf} {24}{ca;xz} {25}{zym;xh;wys;hhh;tdf;mz;hsz;hzbs;jnqz} {26}{ry} {27}{xh;hz} {28}{py;bj} {29}{yz} {30}{cll} {31}{xc;hs;ca;ly} {32}{cll;ny;qzh} {33}{qf;yz;xch} {34}{py;hn1} {35}{hb3;jy;hn2} {36}{hb2;mj;hn3;hb4} {37}{lanz;hb3;hn4;mgk;jyg} {38}{qf;dzf;yz;hb1} {39}{hn3;ly;hb2;ca} {40}{hn2;lz;hn4;hb3} {41}{hn3;hb4} {42}{zym;gjc;wys;th;ys;ljz;sz} {43}{hb4} {44}{cd} {45}{jn3;yy;nc;pyh;tf} {46}{bj;zjk;ry;hb2} {47}{xy;jb4} {48}{dl;px;mlx} {49}{wjg} {50}{tdf} {51}{nc} {52}{lz;xz;dzt} {53}{lj} {54}{lj;xz;qhb;hn3} {55}{xs} {56}{jx} {57}{ca;qlc;cll;rz;hn2;xf;wat;tdh;ddj;ny;bw} {58}{mj} {59}{qy} {60}{hz} {61}{nc;yy} {62}{km} {63}{ll;hb3;hst} {64}{hb4} {65}{sz;taih;qy} {66}{sz} {67}{jz;mlb;wys;llx;zx;fh} {68}{myr;ly;xch;xc;xy} {69}{km} {70}{jz} {71}{hb1;hyd;bj} {72}{ly;rz;yz} {73}{mr;tx;yzw;mt} {74}{lz;qhn} {75}{zp;qhb} {76}{hb;yz;dzf;hn1} {77}{yz} {78}{gm;xc} {79}{fz;wys} {80}{bj;jy;hmy} {81}{yz} {82}{yz;ly;sl;qlc;xch} {83}{yz;jb1} {84}{xz} {85}{gw;bj} {86}{sl;gl} {87}{rz;fzl} {88}{tgk;sy} {89}{sy} {90}{sld;fengd} {91}{yz} {92}{sdn;yy} {93}{sdb;cd} {94}{mrf;jx;mr;zj;xyz;zuo;cym} {95}{sk;gy;mr;yinz} {96}{dzf} {97}{tais;qf;hn1} {98}{bj;sld} {99}{jx;ghs} {100}{wd} {101}{yy;tz;yg} {102}{ly} {103}{cd;dl;wl;wjg} {104}{wd} {105}{ty} {106}{yzw;qy} {107}{ly} {108}{tls} {109}{yb;fd} {110}{gd} {111}{gd} {112}{wdc;tzf;tyc;ht} {113}{zz;wd} {114}{yz} {115}{fz;hz;jx;nc;qz;ywm} {116}{sz}{117}{myr;ny;zz;xiny;jzh} {118}{ly} {119}{ca;lj;lz;hanz} {120}{xy;yz;jb3;xch} {121}{huangz;txg} {122}{xx} {123}{hb;ny;rz;xiny} {124}{zp;dls;yz;lxc} {125}{jx;jd} {126}{tx;qy} {127}{bt;gb;hb;qf;ssb;xiny;cg;xc;qlc;rz;xz;xs;dls;skf;bxs;cz;rbz;bs;fds;wm;qq;yiz;sd;kd;bk;dp;hn1;jb1} {128}{yz} {129}{ty} {130}{wys} {131}{sdb;jz;mlb;ty;jn4;cd} {132}{cd;qbl;qhn;xs} {133}{bj;jy;ct;kf} {134}{xy;wdc} {135}{ly;cll;gm;xz;hanz;hn2;fm;nj} {136}{jb2;yz;ssb;jn1;qiu} {137}{jb1;jb3;jn2} {138}{jb2;jb4;xiny;jn3} {139}{jb3;jzh;jn4} {140}{jn2;zj;jb1} {141}{ytf;jn1;jn3;jb2} {142}{jn2;jn4;jz;jb3} {143}{jn3;yy;jb4} {144}{sz;jn1} {145}{nc} {146}{bj} {147}{hz;lld} {148}{hz;hhh} {149}{hz} {150}{hz} {151}{hz} {152}{sz} {153}{zjk} {154}{jb1} {155}{zjk;tt;zjc} {156}{xkt} {157}{ca} {158}{nc} {159}{wd} {160}{jz} {161}{kf} {162}{mj} {163}{sz;scm;jk} {164}{cym;jk;ytf} {165}{bj;kf} {166}{yz} {167}{yz} {168}{cym;scm} {169}{hb4;huangz} {170}{lanz;xx} {171}{gy} {172}{yz} {173}{yz} {174}{jn2;scm} {175}{jx;hz} {176}{ca} {177}{gb} {178}{taih} {179}{ny;xy} {180}{yz} {181}{ys} {182}{fzl} {183}{xkt} {184}{ly}{185}{th}};
-#nop ×Ô¶¯¼ÆËãÖ±Á¬µØµãÊıÄ¿count;
+#nop è‡ªåŠ¨è®¡ç®—ç›´è¿åœ°ç‚¹æ•°ç›®count;
 #list RouteConnection_count create {};
 #foreach *RouteConnection_list[] id {
     #list tmp create  $RouteConnection_list[$id];
@@ -1035,201 +1035,201 @@
     #unvar tmp;
 };
 
-#var SUF {%s-%s{\[´ó.*¹ú\][ ]*|}{\[(³ÇÄÚ|ÃÅÅÉ|Ò°Íâ|.*ÊÆÁ¦·¶Î§)\][ ]*(|\[´æÅÌµã\])(|\[Íæ¼Ò´¢Îï¹ñ\])|}%s};
+#var SUF {%s-%s{\[å¤§.*å›½\][ ]*|}{\[(åŸå†…|é—¨æ´¾|é‡å¤–|.*åŠ¿åŠ›èŒƒå›´)\][ ]*(|\[å­˜ç›˜ç‚¹\])(|\[ç©å®¶å‚¨ç‰©æŸœ\])|}%s};
 
-#action {^¸ê±Ú${SUF}$} {set_position {bt}};
-#action {^×íÏÉÂ¥¶şÂ¥${SUF}$} {set_position {bxs}};
-#action {^ÓÀ°²ÃÅ${SUF}$} {set_position {bj}};
-#action {^×Ü¶½¸®ÃÅÇ°${SUF}$} {set_position {cd}};
-#action {^Àö´ºÔºÃÜÊÒ${SUF}$} {set_position {cz}};
-#action {^Ê®×ÖÂ·¿Ú${SUF}$} {set_position {dl}};
-#action {^Ç§²½Áë${SUF}$} {set_position {qbl}};
-#action {^´óÂÖËÂÉ½ÃÅ${SUF}$} {set_position {dls}};
-#action {^Ğ»¿ÍÍ¤${SUF}$} {set_position {xkt}};
-#action {^ÁúÃÅïÚ¾Ö${SUF}$} {set_position {ddj}};
-#action {^ÓñÅ®³Ø${SUF}$} {set_position {em}};
-#action {^Ç§·ğâÖ´óµî${SUF}$} {set_position {qfa}};
-#action {^·¢´ôÊÒ${SUF}$} {set_position {fds}};
-#action {^¸£ÍşïÚ¾Ö${SUF}$} {set_position {fz}};
-#action {^ÍÁµØÃí${SUF}$} {set_position {gb}};
-#action {^¶ÏÁúÊ¯${SUF}$} {set_position {gm}};
-#action {^ºÓ°¶${SUF}$} {set_position {ha}};
-#action {^ÃÜÊÒ${SUF}$} {set_position {ms}};
-#action {^Ğ¡Ìü${SUF}$} {set_position {xt}};
-#action {^¹Ò½£ìô${SUF}$} {set_position {gjc}};
-#action {^¼¯ÊĞ${SUF}$} {set_position {gw}};
-#action {^ÒşÕß¾Ó${SUF}$} {set_position {yinz}};
-#action {^¹éÔÆÍ¤${SUF}$} {set_position {gy}};
-#action {^ººÖĞ${SUF}$} {set_position {hanz}};
-#action {^´óÀíËÂ${SUF}$} {set_position {hz}};
-#action {^³ÉµÂµîÃÅ${SUF}$} {set_position {hmy}};
-#action {^º¼Öİ·Ö¶æ´óÃÅ${SUF}$} {set_position {hhh}};
-#action {^¸ßÁ»µØ${SUF}$} {set_position {hyd}};
-#action {^Ê¢²ı×ÜĞĞ${SUF}$} {set_position {bs}};
-#action {^Ê¢²ıĞĞÁÙ°²¸®·Öµê${SUF}$} {set_position {hzbs}};
-#action {^Êé·¿${SUF}$} {set_position {hs}};
-#action {^²ÔÁúÁë${SUF}$} {set_position {cll}};
-#action {^´ò¹È³¡${SUF}$} {set_position {xc}};
-#action {^»´±±${SUF}$} {set_position {hb}};
-#action {^¼ÎĞË³Ç${SUF}$} {set_position {jx}};
-#action {^¼ÎÓø¹Ø${SUF}$} {set_position {jyg}};
-#action {^½£ÃÅ¹Ø${SUF}$} {set_position {jmg}};
-#action {^º«¼Ò${SUF}$} {set_position {jz}};
-#action {^Ïô¸®${SUF}$} {set_position {jy}};
-#action {^¾£Öİ${SUF}$} {set_position {jzh}};
-#action {^ÉñÍşïÚ¾Ö${SUF}$} {set_position {km}};
-#action {^ÀÅçÙ¸£µØ${SUF}$} {set_position {fd}};
-#action {^ÀÏÁÖ¾¡Í·${SUF}$} {set_position {lld}};
-#action {^ÀÏÁÖ±ßÔµ${SUF}$} {set_position {llx}};
-#action {^°ÙÕÉ½§${SUF}$} {set_position {lj}};
-#action {^¶À×ğÌü´óÃÅ${SUF}$} {set_position {dzt}};
-#action {^»Ê¹¬´óÃÅ${SUF}$} {set_position {lz}};
-#action {^ÁèÏö´óÌü${SUF}$} {set_position {lxc}};
-#action {^Â½¼Ò×¯${SUF}$} {set_position {ljz}};
-#action {^ÂåÑôÖĞĞÄ¹ã³¡${SUF}$} {set_position {ly}};
-#action {^ÂÌÁøÉ½×¯´óÃÅ${SUF}$} {set_position {ll}};
-#action {^Ğ¡ÇÅ${SUF}$} {set_position {mt}};
-#action {^Ã·×¯Ìì¾®${SUF}$} {set_position {mz}};
-#action {^°ëÉ½ÃÅ${SUF}$} {set_position {mj}};
-#action {^Äª¸ß¿ß${SUF}$} {set_position {mgk}};
-#action {^ºş±ß${SUF}$} {set_position {mr}};
-#action {^²è¹İ${SUF}$} {set_position {mrf}};
-#action {^°×¼Ò${SUF}$} {set_position {nc}};
-#action {^ÄÏÑô³Ç${SUF}$} {set_position {ny}};
-#action {^Æ½Î÷Íõ¸®´óÃÅ${SUF}$} {set_position {px}};
-#action {^Û¶Ñôºş±ß${SUF}$} {set_position {pyh}};
-#action {^å§Ñô${SUF}$} {set_position {py}};
-#action {^ÔÀ·É¼Ò${SUF}$} {set_position {qlc}};
-#action {^ÇÙÔÏĞ¡¾Ó${SUF}$} {set_position {qy}};
-#action {^»ÆÑòÌ²${SUF}$} {set_position {qhb}};
-#action {^¿×Ãí${SUF}$} {set_position {qf}};
-#action {^ÈÙ²ı½»Ò×ĞĞ${SUF}$} {set_position {qq}};
-#action {^³çĞşÌ¨${SUF}$} {set_position {qzh}};
-#action {^ÈªÖİ¸Û${SUF}$} {set_position {qz}};
-#action {^Ğ¡´å×¯${SUF}$} {set_position {ry}};
-#action {^ÈÙ±¦Õ«${SUF}$} {set_position {rbz}};
-#action {^ÈêÖİ³Ç${SUF}$} {set_position {rz}};
-#action {^ÍòÂÚÌ¨${SUF}$} {set_position {ssb}};
-#action {^É³Ä®ÂÌÖŞ${SUF}$} {set_position {lvz}};
-#action {^É½º£¹ØÄÏÃÅ${SUF}$} {set_position {shg}};
-#action {^·½ÕÉÂ¥${SUF}$} {set_position {fzl}};
-#action {^ÉÙÁÖËÂ${SUF}$} {set_position {sl}};
-#action {^º£Ì²${SUF}$} {set_position {sld}};
-#action {ÕâÊÇÌÒ»¨µºµÄ³öº£¿Ú} {set_position {th}};
-#action {^·å¶¥${SUF}$} {set_position {fengd}};
-#action {^Ğ¡»ØÀÈ${SUF}$} {set_position {sy}};
-#action {^³Ç±±¾üÓª${SUF}$} {set_position {skf}};
-#action {^±¦´øÇÅ${SUF}$} {set_position {sz}};
-#action {^Ì«ºş±ß${SUF}$} {set_position {taih}};
-#action {^ÄÏÌìÃÅ${SUF}$} {set_position {tais}};
-#action {^á·×Ú·»${SUF}$} {set_position {dzf}};
-#action {^ÌÁ¹Á¿Ú${SUF}$} {set_position {tgk}};
-#action {^º£¸Û${SUF}$} {set_position {th}};
-#action {^ÌÒÔ°Ğ¡Â·${SUF}$} {set_position {tyc}};
-#action {^ÌÒÔ´æäÕ¾${SUF}$} {set_position {ty}};
-#action {^²àÌü${SUF}$} {set_position {tdh}};
-#action {^Èğº×ÃÅ${SUF}$} {set_position {tls}};
-#action {^ÌìÖù·åÏÂ${SUF}$} {set_position {tzf}};
-#action {^Ğ¡Í¤${SUF}$} {set_position {tz}};
-#action {^ÌıÏãË®é¿${SUF}$} {set_position {tx}};
-#action {^Íò°²Ëş${SUF}$} {set_position {wat}};
-#action {^Íò½Ù¹È${SUF}$} {set_position {wjg}};
-#action {^¹Èµ×${SUF}$} {set_position {gd}};
-#action {^ÑÂ¼ä¹ÅËÉ${SUF}$} {set_position {wl}};
-#action {^ÎŞÁ¿Óñèµ${SUF}$} {set_position {yb}};
-#action {^Îäµ±¹ã³¡${SUF}$} {set_position {wd}};
-#action {^Îäµ±É½ÃÅ${SUF}$} {set_position {wdc}};
-#action {^ÎäÃí${SUF}$} {set_position {wm}};
-#action {^ÎäÒÄÉ½Â·${SUF}$} {set_position {wys}};
-#action {^Ï·Ô°×Ó${SUF}$} {set_position {xyz}};
-#action {^ÏåÑôµ±ÆÌ${SUF}$} {set_position {xy}};
-#action {^ÍûĞÇÂ¥¶ş²ã${SUF}$} {set_position {xf}};
-#action {^Ğ¡Õò${SUF}$} {set_position {xz}};
-#action {^Õò»´ÇÅ${SUF}$} {set_position {xiny}};
-#action {^¾ŞÑÒ${SUF}$} {set_position {xx}};
-#action {^ÌìĞã¹¬${SUF}$} {set_position {txg}};
-#action {^Ğí²ı³Ç${SUF}$} {set_position {xch}};
-#action {^ÇÅÍ·${SUF}$} {set_position {xs}};
-#action {^ÑÀÉ½ÍåÖĞĞÄ${SUF}$} {set_position {ys}};
-#action {^Ñà×ÓÎë´óÃÅ${SUF}$} {set_position {yzw}};
-#action {^%s%s´óéÅÊ÷(Rong shu)$} {set_position {yz}};
-#action {^æäÕ¾${SUF}$} {set_position {yiz}};
-#action {^ºÚÕÓĞ¡Îİ${SUF}$} {set_position {yg}};
-#action {^Ä¹Ç°¹ã³¡${SUF}$} {set_position {ywm}};
-#action {^ÄÏÃÅÄÚ´ó½Ö${SUF}$} {set_position {yy}};
-#action {^ÔŞÆÕ¹ã³¡${SUF}$} {set_position {zp}};
-#action {^´ó¾³ÃÅ${SUF}$} {set_position {zjk}};
-#action {^¾£Î÷ïÚ¾Ö${SUF}$} {set_position {zz}};
-#action {^ÖìÈ¸ÃÅ${SUF}$} {set_position {ca}};
-#action {^ÃÎÏªÔ°${SUF}$} {set_position {zj}};
-#action {^ÔÀÂ´ÊéÔº${SUF}$} {set_position {zx}};
-#action {^×¯¸®´óÃÅ${SUF}$} {set_position {zf}};
-#action {^Ìá¶½¸®ÕıÃÅ${SUF}$} {set_position {tdf}};
-#action {^¹ÂÉ½${SUF}$} {set_position {xh}};
-#action {ÕâÀïÊÇº«Íõ¸®µÄ´óÌü} {set_position {hsz}};
-#action {ÕâÀïÊÇ¹éÔÆ×¯µÄ´óÌü} {set_position {lcf}};
-#action {^½­ÄÏÇ®×¯${SUF}$} {set_position {jnqz}};
-#action {^²ıÂ¡ïÚ¾Ö${SUF}$} {set_position {zuo}};
-#action {^ÌüÌÃ${SUF}$} {set_position {ct}};
-#action {^Íû½­Í¤${SUF}$} {set_position {qiu}};
-#action {^Íõ¸®´óÃÅ${SUF}$} {set_position {kf}};
-#action {^µîÇ°¹ã³¡${SUF}$} {set_position {bf}};
-#action {^·ÉÂíïÚ¾Ö${SUF}$} {set_position {fm}};
-#action {^·É»¢ïÚ¾Ö${SUF}$} {set_position {fh}};
-#action {^ºóÌÃ${SUF}$} {set_position {ht}};
-#action {^Ìì¸£ïÚ¾Ö${SUF}$} {set_position {tf}};
-#action {^µ¤±İÇÅ${SUF}$} {set_position {tt}};
-#action {^ºéË®Ì³${SUF}$} {set_position {hst}};
-#action {^³¯ÑôÃÅ${SUF}$} {set_position {cym}};
-#action {^Éñ²ßÃÅ${SUF}$} {set_position {scm}};
-#action {^Ìì¸£ïÚ¾Ö${SUF}$} {set_position {tf}};
-#action {^µ¤±İÇÅ${SUF}$} {set_position {tt}};
-#action {^¶ËÃÅ${SUF}$} {set_position {zjc}};
-#action {^Ê÷¶´ÄÚ²¿${SUF}$} {set_position {sd}};
-#action {^¿Íµê${SUF}$} {set_position {kd}};
-#action {^ÖĞ³Ç${SUF}$} {set_position {jk}};
-#action {^¸®Ç°¹ã³¡${SUF}$} {set_position {lanz}};
-#action {^¹¬³Ç${SUF}$} {set_position {huangz}};
-#action {^ÑïÖİÇ®×¯${SUF}$} {set_position {bk}};
-#action {^%s%sµ±ÆÌÀÏ°å ÌÆéª(Tang nan)$} {set_position {dp}};
-#action {^%s%sÕâÀïÊÇ½¨¿µ¸®µÄ¶«ÄÏÃæµÄÕıÑôÃÅ¡£$} {set_position {zym}};
-#action {^ĞşÎäºşÅÏ${SUF}$} {set_position {ytf}};
-#action {^¾©Õ×¸®²àÌü${SUF}$} {set_position {nj}};
-#action {^ÁÖ¼äĞ¡Îİ${SUF}$} {set_position {hq}};
-#action {^Éß¿ß${SUF}$} {set_position {sk}};
-#action {^´ºÀ´²è¹İ${SUF}$} {set_position {cg}};
-#action {^º£±ß»ùµØ${SUF}$} {set_position {jd}};
-#action {^¹ÄÂ¥Ğ¡Ôº${SUF}$} {set_position {gl}};
-#action {^¿´À´¿ìµ½ÃÉ¹ÅÈËµÄ×¤µØÁË¡£$} {set_position {myr}};
-#action {^Öé¶¼°Íµî${SUF}$} {set_position {lh}};
-#action {^%sÎäÁÖ´ó»áÖ÷³Ö ÌìÌìºÃÎ¶µÀ(Jason npc)$} {set_position {bw}};
-#action {^¹Ûº£Ê¯${SUF}$} {set_position {ghs}};
+#action {^æˆˆå£${SUF}$} {set_position {bt}};
+#action {^é†‰ä»™æ¥¼äºŒæ¥¼${SUF}$} {set_position {bxs}};
+#action {^æ°¸å®‰é—¨${SUF}$} {set_position {bj}};
+#action {^æ€»ç£åºœé—¨å‰${SUF}$} {set_position {cd}};
+#action {^ä¸½æ˜¥é™¢å¯†å®¤${SUF}$} {set_position {cz}};
+#action {^åå­—è·¯å£${SUF}$} {set_position {dl}};
+#action {^åƒæ­¥å²­${SUF}$} {set_position {qbl}};
+#action {^å¤§è½®å¯ºå±±é—¨${SUF}$} {set_position {dls}};
+#action {^è°¢å®¢äº­${SUF}$} {set_position {xkt}};
+#action {^é¾™é—¨é•–å±€${SUF}$} {set_position {ddj}};
+#action {^ç‰å¥³æ± ${SUF}$} {set_position {em}};
+#action {^åƒä½›åºµå¤§æ®¿${SUF}$} {set_position {qfa}};
+#action {^å‘å‘†å®¤${SUF}$} {set_position {fds}};
+#action {^ç¦å¨é•–å±€${SUF}$} {set_position {fz}};
+#action {^åœŸåœ°åº™${SUF}$} {set_position {gb}};
+#action {^æ–­é¾™çŸ³${SUF}$} {set_position {gm}};
+#action {^æ²³å²¸${SUF}$} {set_position {ha}};
+#action {^å¯†å®¤${SUF}$} {set_position {ms}};
+#action {^å°å…${SUF}$} {set_position {xt}};
+#action {^æŒ‚å‰‘ç¥ ${SUF}$} {set_position {gjc}};
+#action {^é›†å¸‚${SUF}$} {set_position {gw}};
+#action {^éšè€…å±…${SUF}$} {set_position {yinz}};
+#action {^å½’äº‘äº­${SUF}$} {set_position {gy}};
+#action {^æ±‰ä¸­${SUF}$} {set_position {hanz}};
+#action {^å¤§ç†å¯º${SUF}$} {set_position {hz}};
+#action {^æˆå¾·æ®¿é—¨${SUF}$} {set_position {hmy}};
+#action {^æ­å·åˆ†èˆµå¤§é—¨${SUF}$} {set_position {hhh}};
+#action {^é«˜ç²±åœ°${SUF}$} {set_position {hyd}};
+#action {^ç››æ˜Œæ€»è¡Œ${SUF}$} {set_position {bs}};
+#action {^ç››æ˜Œè¡Œä¸´å®‰åºœåˆ†åº—${SUF}$} {set_position {hzbs}};
+#action {^ä¹¦æˆ¿${SUF}$} {set_position {hs}};
+#action {^è‹é¾™å²­${SUF}$} {set_position {cll}};
+#action {^æ‰“è°·åœº${SUF}$} {set_position {xc}};
+#action {^æ·®åŒ—${SUF}$} {set_position {hb}};
+#action {^å˜‰å…´åŸ${SUF}$} {set_position {jx}};
+#action {^å˜‰å³ªå…³${SUF}$} {set_position {jyg}};
+#action {^å‰‘é—¨å…³${SUF}$} {set_position {jmg}};
+#action {^éŸ©å®¶${SUF}$} {set_position {jz}};
+#action {^è§åºœ${SUF}$} {set_position {jy}};
+#action {^è†å·${SUF}$} {set_position {jzh}};
+#action {^ç¥å¨é•–å±€${SUF}$} {set_position {km}};
+#action {^ç…ç¼³ç¦åœ°${SUF}$} {set_position {fd}};
+#action {^è€æ—å°½å¤´${SUF}$} {set_position {lld}};
+#action {^è€æ—è¾¹ç¼˜${SUF}$} {set_position {llx}};
+#action {^ç™¾ä¸ˆæ¶§${SUF}$} {set_position {lj}};
+#action {^ç‹¬å°Šå…å¤§é—¨${SUF}$} {set_position {dzt}};
+#action {^çš‡å®«å¤§é—¨${SUF}$} {set_position {lz}};
+#action {^å‡Œéœ„å¤§å…${SUF}$} {set_position {lxc}};
+#action {^é™†å®¶åº„${SUF}$} {set_position {ljz}};
+#action {^æ´›é˜³ä¸­å¿ƒå¹¿åœº${SUF}$} {set_position {ly}};
+#action {^ç»¿æŸ³å±±åº„å¤§é—¨${SUF}$} {set_position {ll}};
+#action {^å°æ¡¥${SUF}$} {set_position {mt}};
+#action {^æ¢…åº„å¤©äº•${SUF}$} {set_position {mz}};
+#action {^åŠå±±é—¨${SUF}$} {set_position {mj}};
+#action {^è«é«˜çªŸ${SUF}$} {set_position {mgk}};
+#action {^æ¹–è¾¹${SUF}$} {set_position {mr}};
+#action {^èŒ¶é¦†${SUF}$} {set_position {mrf}};
+#action {^ç™½å®¶${SUF}$} {set_position {nc}};
+#action {^å—é˜³åŸ${SUF}$} {set_position {ny}};
+#action {^å¹³è¥¿ç‹åºœå¤§é—¨${SUF}$} {set_position {px}};
+#action {^é„±é˜³æ¹–è¾¹${SUF}$} {set_position {pyh}};
+#action {^æ¿®é˜³${SUF}$} {set_position {py}};
+#action {^å²³é£å®¶${SUF}$} {set_position {qlc}};
+#action {^ç´éŸµå°å±…${SUF}$} {set_position {qy}};
+#action {^é»„ç¾Šæ»©${SUF}$} {set_position {qhb}};
+#action {^å­”åº™${SUF}$} {set_position {qf}};
+#action {^è£æ˜Œäº¤æ˜“è¡Œ${SUF}$} {set_position {qq}};
+#action {^å´‡ç„å°${SUF}$} {set_position {qzh}};
+#action {^æ³‰å·æ¸¯${SUF}$} {set_position {qz}};
+#action {^å°æ‘åº„${SUF}$} {set_position {ry}};
+#action {^è£å®æ–‹${SUF}$} {set_position {rbz}};
+#action {^æ±å·åŸ${SUF}$} {set_position {rz}};
+#action {^ä¸‡çº¶å°${SUF}$} {set_position {ssb}};
+#action {^æ²™æ¼ ç»¿æ´²${SUF}$} {set_position {lvz}};
+#action {^å±±æµ·å…³å—é—¨${SUF}$} {set_position {shg}};
+#action {^æ–¹ä¸ˆæ¥¼${SUF}$} {set_position {fzl}};
+#action {^å°‘æ—å¯º${SUF}$} {set_position {sl}};
+#action {^æµ·æ»©${SUF}$} {set_position {sld}};
+#action {è¿™æ˜¯æ¡ƒèŠ±å²›çš„å‡ºæµ·å£} {set_position {th}};
+#action {^å³°é¡¶${SUF}$} {set_position {fengd}};
+#action {^å°å›å»Š${SUF}$} {set_position {sy}};
+#action {^åŸåŒ—å†›è¥${SUF}$} {set_position {skf}};
+#action {^å®å¸¦æ¡¥${SUF}$} {set_position {sz}};
+#action {^å¤ªæ¹–è¾¹${SUF}$} {set_position {taih}};
+#action {^å—å¤©é—¨${SUF}$} {set_position {tais}};
+#action {^å²±å®—åŠ${SUF}$} {set_position {dzf}};
+#action {^å¡˜æ²½å£${SUF}$} {set_position {tgk}};
+#action {^æµ·æ¸¯${SUF}$} {set_position {th}};
+#action {^æ¡ƒå›­å°è·¯${SUF}$} {set_position {tyc}};
+#action {^æ¡ƒæºé©¿ç«™${SUF}$} {set_position {ty}};
+#action {^ä¾§å…${SUF}$} {set_position {tdh}};
+#action {^ç‘é¹¤é—¨${SUF}$} {set_position {tls}};
+#action {^å¤©æŸ±å³°ä¸‹${SUF}$} {set_position {tzf}};
+#action {^å°äº­${SUF}$} {set_position {tz}};
+#action {^å¬é¦™æ°´æ¦­${SUF}$} {set_position {tx}};
+#action {^ä¸‡å®‰å¡”${SUF}$} {set_position {wat}};
+#action {^ä¸‡åŠ«è°·${SUF}$} {set_position {wjg}};
+#action {^è°·åº•${SUF}$} {set_position {gd}};
+#action {^å´–é—´å¤æ¾${SUF}$} {set_position {wl}};
+#action {^æ— é‡ç‰ç’§${SUF}$} {set_position {yb}};
+#action {^æ­¦å½“å¹¿åœº${SUF}$} {set_position {wd}};
+#action {^æ­¦å½“å±±é—¨${SUF}$} {set_position {wdc}};
+#action {^æ­¦åº™${SUF}$} {set_position {wm}};
+#action {^æ­¦å¤·å±±è·¯${SUF}$} {set_position {wys}};
+#action {^æˆå›­å­${SUF}$} {set_position {xyz}};
+#action {^è¥„é˜³å½“é“º${SUF}$} {set_position {xy}};
+#action {^æœ›æ˜Ÿæ¥¼äºŒå±‚${SUF}$} {set_position {xf}};
+#action {^å°é•‡${SUF}$} {set_position {xz}};
+#action {^é•‡æ·®æ¡¥${SUF}$} {set_position {xiny}};
+#action {^å·¨å²©${SUF}$} {set_position {xx}};
+#action {^å¤©ç§€å®«${SUF}$} {set_position {txg}};
+#action {^è®¸æ˜ŒåŸ${SUF}$} {set_position {xch}};
+#action {^æ¡¥å¤´${SUF}$} {set_position {xs}};
+#action {^ç‰™å±±æ¹¾ä¸­å¿ƒ${SUF}$} {set_position {ys}};
+#action {^ç‡•å­åå¤§é—¨${SUF}$} {set_position {yzw}};
+#action {^%s%så¤§æ¦•æ ‘(Rong shu)$} {set_position {yz}};
+#action {^é©¿ç«™${SUF}$} {set_position {yiz}};
+#action {^é»‘æ²¼å°å±‹${SUF}$} {set_position {yg}};
+#action {^å¢“å‰å¹¿åœº${SUF}$} {set_position {ywm}};
+#action {^å—é—¨å†…å¤§è¡—${SUF}$} {set_position {yy}};
+#action {^èµæ™®å¹¿åœº${SUF}$} {set_position {zp}};
+#action {^å¤§å¢ƒé—¨${SUF}$} {set_position {zjk}};
+#action {^è†è¥¿é•–å±€${SUF}$} {set_position {zz}};
+#action {^æœ±é›€é—¨${SUF}$} {set_position {ca}};
+#action {^æ¢¦æºªå›­${SUF}$} {set_position {zj}};
+#action {^å²³éº“ä¹¦é™¢${SUF}$} {set_position {zx}};
+#action {^åº„åºœå¤§é—¨${SUF}$} {set_position {zf}};
+#action {^æç£åºœæ­£é—¨${SUF}$} {set_position {tdf}};
+#action {^å­¤å±±${SUF}$} {set_position {xh}};
+#action {è¿™é‡Œæ˜¯éŸ©ç‹åºœçš„å¤§å…} {set_position {hsz}};
+#action {è¿™é‡Œæ˜¯å½’äº‘åº„çš„å¤§å…} {set_position {lcf}};
+#action {^æ±Ÿå—é’±åº„${SUF}$} {set_position {jnqz}};
+#action {^æ˜Œéš†é•–å±€${SUF}$} {set_position {zuo}};
+#action {^å…å ‚${SUF}$} {set_position {ct}};
+#action {^æœ›æ±Ÿäº­${SUF}$} {set_position {qiu}};
+#action {^ç‹åºœå¤§é—¨${SUF}$} {set_position {kf}};
+#action {^æ®¿å‰å¹¿åœº${SUF}$} {set_position {bf}};
+#action {^é£é©¬é•–å±€${SUF}$} {set_position {fm}};
+#action {^é£è™é•–å±€${SUF}$} {set_position {fh}};
+#action {^åå ‚${SUF}$} {set_position {ht}};
+#action {^å¤©ç¦é•–å±€${SUF}$} {set_position {tf}};
+#action {^ä¸¹é™›æ¡¥${SUF}$} {set_position {tt}};
+#action {^æ´ªæ°´å›${SUF}$} {set_position {hst}};
+#action {^æœé˜³é—¨${SUF}$} {set_position {cym}};
+#action {^ç¥ç­–é—¨${SUF}$} {set_position {scm}};
+#action {^å¤©ç¦é•–å±€${SUF}$} {set_position {tf}};
+#action {^ä¸¹é™›æ¡¥${SUF}$} {set_position {tt}};
+#action {^ç«¯é—¨${SUF}$} {set_position {zjc}};
+#action {^æ ‘æ´å†…éƒ¨${SUF}$} {set_position {sd}};
+#action {^å®¢åº—${SUF}$} {set_position {kd}};
+#action {^ä¸­åŸ${SUF}$} {set_position {jk}};
+#action {^åºœå‰å¹¿åœº${SUF}$} {set_position {lanz}};
+#action {^å®«åŸ${SUF}$} {set_position {huangz}};
+#action {^æ‰¬å·é’±åº„${SUF}$} {set_position {bk}};
+#action {^%s%så½“é“ºè€æ¿ å”æ¥ (Tang nan)$} {set_position {dp}};
+#action {^%s%sè¿™é‡Œæ˜¯å»ºåº·åºœçš„ä¸œå—é¢çš„æ­£é˜³é—¨ã€‚$} {set_position {zym}};
+#action {^ç„æ­¦æ¹–ç•”${SUF}$} {set_position {ytf}};
+#action {^äº¬å…†åºœä¾§å…${SUF}$} {set_position {nj}};
+#action {^æ—é—´å°å±‹${SUF}$} {set_position {hq}};
+#action {^è›‡çªŸ${SUF}$} {set_position {sk}};
+#action {^æ˜¥æ¥èŒ¶é¦†${SUF}$} {set_position {cg}};
+#action {^æµ·è¾¹åŸºåœ°${SUF}$} {set_position {jd}};
+#action {^é¼“æ¥¼å°é™¢${SUF}$} {set_position {gl}};
+#action {^çœ‹æ¥å¿«åˆ°è’™å¤äººçš„é©»åœ°äº†ã€‚$} {set_position {myr}};
+#action {^ç éƒ½å·´æ®¿${SUF}$} {set_position {lh}};
+#action {^%sæ­¦æ—å¤§ä¼šä¸»æŒ å¤©å¤©å¥½å‘³é“(Jason npc)$} {set_position {bw}};
+#action {^è§‚æµ·çŸ³${SUF}$} {set_position {ghs}};
 
-#nop ÀûÓÃµØµãÃèÊöÆ¥Åä16¸ö¿Ú°¶;
-#action {^%sÕâÀïÊÇ³¤½­±±°¶µÄ¶É¿Ú£¬¶óÊØÑïÖİµÄÃÅ»§} {set_position {jb1}};
-#action {^%s%sÕâÀïÊÇ³¤½­±±°¶µÄ¶É¿Ú£¬¶óÊØ½¨¿µ¸®µÄÃÅ»§} {set_position {jb2}};
-#action {^%s%sÕâÀïÊÇ³¤½­±±°¶µÄ¶É¿Ú¡£$} {set_position {jb3}};
-#action {^%s%sÕâÀïÊÇ³¤½­±±°¶µÄ¶É¿Ú¡£¶«Ãæ²»Ô¶¾ÍÊÇ»ªÈİµÀ£¬¹ØÓğÒåÊÍ²Ü²ÙµÄµØ·½} {set_position {jb4}};
-#action {^%s%sÕâÀïÊÇ³¤½­ÄÏ°¶µÄ¶É¿Ú£¬¶óÊØÕò½­ÃÅ»§} {set_position {jn1}};
-#action {^%s%sÕâÀïÊÇ³¤½­ÄÏ°¶µÄ¶É¿Ú£¬ÄÏ±ß¾ÍÊÇÖØÕò½¨¿µ¸®ÁË} {set_position {jn2}};
-#action {^%s%sÕâÀïÊÇ³¤½­ÄÏ°¶µÄ¶É¿Ú¡£$} {set_position {jn3}};
-#action {^%s%sÕâÀïÊÇ³¤½­ÄÏ°¶µÄ¶É¿Ú¡£ÄÏÃæ¾ÍÊÇ½­ººÍ¨Ç­¹óµÄÒª³å¡ª¡ªÔÀÑô} {set_position {jn4}};
-#action {^%s%sÕâÀïÊÇ»ÆºÓ±±°¶µÄ¶É¿Ú£¬Íù±±Í¨Ïòå§Ñô¡£¶É¹ıºÓÈ¥¾ÍÊÇÉ½¶«µØ½çÁË} {set_position {hb1}};
-#action {^%s%sÕâÀïÊÇ»ÆºÓ±±°¶µÄ¶É¿Ú£¬¶«±±Í¨Ïò½úÑô¡£¶É¹ı»ÆºÓ¾ÍÊÇÂåÑôÁË} {set_position {hb2}};
-#action {^%s%sÕâÀïÊÇ»ÆºÓ±±°¶µÄ¶É¿Ú£¬¶É¹ıºÓÈ¥Í¨ÏòÁéÖİ} {set_position {hb3}};
-#action {^%s%sÕâÀïÊÇ»ÆºÓ±±°¶µÄ¶É¿Ú£¬Î÷±±Í¨ÏòÀ¼Öİ} {set_position {hb4}};
-#action {^%s%sÕâÀïÊÇ»ÆºÓÄÏ°¶µÄ¶É¿Ú£¬ÍùÄÏÍ¨ÏòÇú¸·¡£¶É¹ı»ÆºÓÏò±±¾ÍÊÇå§Ñô} {set_position {hn1}};
-#action {^%s%sÕâÀïÊÇ»ÆºÓÄÏ°¶µÄ¶É¿Ú£¬ÄÏÃæÍ¨ÏòÂåÑô¡£¶É¹ıºÓ¾Í½øÈë½úÑôÁË} {set_position {hn2}};
-#action {^%s%sÕâÀïÊÇ»ÆºÓÄÏ°¶µÄ¶É¿Ú£¬¶«ÄÏÃæÍ¨ÏòÁéÖİ} {set_position {hn3}};
-#action {^%s%sÕâÀïÊÇ»ÆºÓÄÏ°¶µÄ¶É¿Ú£¬Íù¶«ÄÏÍ¨Ïò³¤°²¡£¶É¹ıºÓÈ¥¾ÍÊÇÀ¼ÖİÁË} {set_position {hn4}};
+#nop åˆ©ç”¨åœ°ç‚¹æè¿°åŒ¹é…16ä¸ªå£å²¸;
+#action {^%sè¿™é‡Œæ˜¯é•¿æ±ŸåŒ—å²¸çš„æ¸¡å£ï¼Œæ‰¼å®ˆæ‰¬å·çš„é—¨æˆ·} {set_position {jb1}};
+#action {^%s%sè¿™é‡Œæ˜¯é•¿æ±ŸåŒ—å²¸çš„æ¸¡å£ï¼Œæ‰¼å®ˆå»ºåº·åºœçš„é—¨æˆ·} {set_position {jb2}};
+#action {^%s%sè¿™é‡Œæ˜¯é•¿æ±ŸåŒ—å²¸çš„æ¸¡å£ã€‚$} {set_position {jb3}};
+#action {^%s%sè¿™é‡Œæ˜¯é•¿æ±ŸåŒ—å²¸çš„æ¸¡å£ã€‚ä¸œé¢ä¸è¿œå°±æ˜¯åå®¹é“ï¼Œå…³ç¾½ä¹‰é‡Šæ›¹æ“çš„åœ°æ–¹} {set_position {jb4}};
+#action {^%s%sè¿™é‡Œæ˜¯é•¿æ±Ÿå—å²¸çš„æ¸¡å£ï¼Œæ‰¼å®ˆé•‡æ±Ÿé—¨æˆ·} {set_position {jn1}};
+#action {^%s%sè¿™é‡Œæ˜¯é•¿æ±Ÿå—å²¸çš„æ¸¡å£ï¼Œå—è¾¹å°±æ˜¯é‡é•‡å»ºåº·åºœäº†} {set_position {jn2}};
+#action {^%s%sè¿™é‡Œæ˜¯é•¿æ±Ÿå—å²¸çš„æ¸¡å£ã€‚$} {set_position {jn3}};
+#action {^%s%sè¿™é‡Œæ˜¯é•¿æ±Ÿå—å²¸çš„æ¸¡å£ã€‚å—é¢å°±æ˜¯æ±Ÿæ±‰é€šé»”è´µçš„è¦å†²â€”â€”å²³é˜³} {set_position {jn4}};
+#action {^%s%sè¿™é‡Œæ˜¯é»„æ²³åŒ—å²¸çš„æ¸¡å£ï¼Œå¾€åŒ—é€šå‘æ¿®é˜³ã€‚æ¸¡è¿‡æ²³å»å°±æ˜¯å±±ä¸œåœ°ç•Œäº†} {set_position {hb1}};
+#action {^%s%sè¿™é‡Œæ˜¯é»„æ²³åŒ—å²¸çš„æ¸¡å£ï¼Œä¸œåŒ—é€šå‘æ™‹é˜³ã€‚æ¸¡è¿‡é»„æ²³å°±æ˜¯æ´›é˜³äº†} {set_position {hb2}};
+#action {^%s%sè¿™é‡Œæ˜¯é»„æ²³åŒ—å²¸çš„æ¸¡å£ï¼Œæ¸¡è¿‡æ²³å»é€šå‘çµå·} {set_position {hb3}};
+#action {^%s%sè¿™é‡Œæ˜¯é»„æ²³åŒ—å²¸çš„æ¸¡å£ï¼Œè¥¿åŒ—é€šå‘å…°å·} {set_position {hb4}};
+#action {^%s%sè¿™é‡Œæ˜¯é»„æ²³å—å²¸çš„æ¸¡å£ï¼Œå¾€å—é€šå‘æ›²é˜œã€‚æ¸¡è¿‡é»„æ²³å‘åŒ—å°±æ˜¯æ¿®é˜³} {set_position {hn1}};
+#action {^%s%sè¿™é‡Œæ˜¯é»„æ²³å—å²¸çš„æ¸¡å£ï¼Œå—é¢é€šå‘æ´›é˜³ã€‚æ¸¡è¿‡æ²³å°±è¿›å…¥æ™‹é˜³äº†} {set_position {hn2}};
+#action {^%s%sè¿™é‡Œæ˜¯é»„æ²³å—å²¸çš„æ¸¡å£ï¼Œä¸œå—é¢é€šå‘çµå·} {set_position {hn3}};
+#action {^%s%sè¿™é‡Œæ˜¯é»„æ²³å—å²¸çš„æ¸¡å£ï¼Œå¾€ä¸œå—é€šå‘é•¿å®‰ã€‚æ¸¡è¿‡æ²³å»å°±æ˜¯å…°å·äº†} {set_position {hn4}};
 
-#nop ¾É¿Ú°¶ÃèÊö;
-#nop #act {^·çÁê¶É${SUF}$} {set_position {hb2}};
-#nop #act {^ÃÏ½ò¶É${SUF}$} {set_position {hn2}};
-#nop #act {^Ñï×Ó½ò${SUF}$} {set_position {jb1}};
-#nop #act {^²ÉÊ¯í¶${SUF}$} {set_position {jn2}};
+#nop æ—§å£å²¸æè¿°;
+#nop #act {^é£é™µæ¸¡${SUF}$} {set_position {hb2}};
+#nop #act {^å­Ÿæ´¥æ¸¡${SUF}$} {set_position {hn2}};
+#nop #act {^æ‰¬å­æ´¥${SUF}$} {set_position {jb1}};
+#nop #act {^é‡‡çŸ³çŸ¶${SUF}$} {set_position {jn2}};
 
-#nop ´¥·¢µØµãÃèÊö±äÁ¿;
+#nop è§¦å‘åœ°ç‚¹æè¿°å˜é‡;
 #nop #unvar SUF;
 
 #class xiaoyao_data close;
@@ -1242,39 +1242,39 @@
 };
 #class goto close;
 
-#nop ==×Ô¶¨º¯Êı==;
+#nop ==è‡ªå®šå‡½æ•°==;
 #function {numitems} {#list %1 size result};
 #function {ismember} {#list %2 find {%1} result};
 #function {item} {#list %1 get %2 result};
-#nop ÁĞ±í°ü×°;
+#nop åˆ—è¡¨åŒ…è£…;
 #function {wrap} {#format result {%w} {%1}};
-#nop ÆÕÍ¨×Ö·û´®;
+#nop æ™®é€šå­—ç¬¦ä¸²;
 #function {string} {#format result {%s} {%1}};
-#nop ÊıÑ§ÔËËã;
+#nop æ•°å­¦è¿ç®—;
 #function {eval} {#math result {%1}};
-#nop Ğ¡Ğ´ÎÄ±¾;
+#nop å°å†™æ–‡æœ¬;
 #function {lower} {#format result {%l} {%1}};
-#nop È¡ÕûÊı;
+#nop å–æ•´æ•°;
 #function {int} {#format result {%d} {%1}};
-#nop ´óĞ´ÎÄ±¾;
+#nop å¤§å†™æ–‡æœ¬;
 #function {upper} {#format result {%u} {%1}};
-#nop ´óĞ´µÚÒ»¸ö×ÖÄ¸;
+#nop å¤§å†™ç¬¬ä¸€ä¸ªå­—æ¯;
 #function {capital} {#format result {%n} {%1}};
-#nop ×Ö·û´®³¤¶È;
+#nop å­—ç¬¦ä¸²é•¿åº¦;
 #function {len} {#format result {%L} {%1}};
-#nop  °şÀëÇ°ºó¿Õ¸ñ;
+#nop  å‰¥ç¦»å‰åç©ºæ ¼;
 #function {trim} {#format result {%p} {%1}};
-#nop ÆÁÄ»¿í¶È;
+#nop å±å¹•å®½åº¦;
 #function {screenw} {#format result {%C}};
-#nop ÆÁÄ»¸ß¶È;
+#nop å±å¹•é«˜åº¦;
 #function {screenh} {#format result {%R}};
-#nop Ìæ»»ÖĞÎÄÊı×ÖÎª°¢À­²®Êı×Ö;
+#nop æ›¿æ¢ä¸­æ–‡æ•°å­—ä¸ºé˜¿æ‹‰ä¼¯æ•°å­—;
 #function {replace} {#var result %1;#replace result {%2} {%3}};
 #function {ctd} {
-    #math result {@replace{@replace{{0+@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{%1;{Áã};{*0+}};{Ê®};{*10+}};{°Ù};{*100+}};{Ç§};{*1000+}};{Íò};{*10000+}};{Áù};{6}};{Ò»};{1}};{¶ş};{2}};{Èı};{3}};{ËÄ};{4}};{Îå};{5}};{Æß};{7}};{°Ë};{8}};{¾Å};{9}}+0};{++};{+}};{+*};{+}}}
+    #math result {@replace{@replace{{0+@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{%1;{é›¶};{*0+}};{å};{*10+}};{ç™¾};{*100+}};{åƒ};{*1000+}};{ä¸‡};{*10000+}};{å…­};{6}};{ä¸€};{1}};{äºŒ};{2}};{ä¸‰};{3}};{å››};{4}};{äº”};{5}};{ä¸ƒ};{7}};{å…«};{8}};{ä¹};{9}}+0};{++};{+}};{+*};{+}}}
 };
 
-#nop µØµã¶¨Î»;
+#nop åœ°ç‚¹å®šä½;
 #alias set_position {
     #var CurrentPosition %1;
     #list AreaName_list find %1 i;
@@ -1292,33 +1292,33 @@
             #math i {$i-1};
         };
     };
-    #echo {%c%s %c>> %s} {light yellow} { µ±Ç°Î»ÖÃ£º$a($AreaId,%1)} {light white} {$position_connect};
+    #echo {%c%s %c>> %s} {light yellow} { å½“å‰ä½ç½®ï¼š$a($AreaId,%1)} {light white} {$position_connect};
     #showme {};
     #nop #if {@blsupport{${CurrentPosition}} == 1} {
-    #nop    #showme Ö§³Ö±éÀú;
+    #nop    #showme æ”¯æŒéå†;
     #nop };
     #nop #else {
-    #nop    #showme ²»Ö§³Ö±éÀú;
+    #nop    #showme ä¸æ”¯æŒéå†;
     #nop };
 };
 
-#nop ==¸öÈËĞÅÏ¢==sc,sk²é¿´Ë¢ĞÂ;
+#nop ==ä¸ªäººä¿¡æ¯==sc,skæŸ¥çœ‹åˆ·æ–°;
 #alias {xy.home} {enter $myid};
 #var mymenpai {};
 #var myid {};
 #var mygender {};
 #var mydodgelv 0;
-#act {^¡Ô©¥©¥©¥©¥¡òÈËÎïÏêÇé¡ò©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥¡Ô$}
+#act {^â‰¡â”â”â”â”â—äººç‰©è¯¦æƒ…â—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â‰¡$}
 {
 	#class tmp open;
-	#act {^ ¡¾%*¡¿%*(%*)$} {#var myid @lower{%%3}};
-	#act {ÄãÊÇ%*µÚ%*´úµÜ×Ó} {#var mymenpai %%1};
-	#act {ÄãÊÇ³¯Í¢%*Æ·¹ÙÔ±} {#var mymenpai ³¯Í¢};
-	#act {ÄãÊÇÒ»Î»%*ËêµÄ%*»é%*ĞÔÈËÀà} {#var myage @ctd{%%1};#var mygender %%3};
-	#act {^¡Ô©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥¡ò±±´óÏÀ¿ÍĞĞ¡ò©¥©¥©¥©¥¡Ô$} {#class tmp kill};
+	#act {^ ã€%*ã€‘%*(%*)$} {#var myid @lower{%%3}};
+	#act {ä½ æ˜¯%*ç¬¬%*ä»£å¼Ÿå­} {#var mymenpai %%1};
+	#act {ä½ æ˜¯æœå»·%*å“å®˜å‘˜} {#var mymenpai æœå»·};
+	#act {ä½ æ˜¯ä¸€ä½%*å²çš„%*å©š%*æ€§äººç±»} {#var myage @ctd{%%1};#var mygender %%3};
+	#act {^â‰¡â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â—åŒ—å¤§ä¾ å®¢è¡Œâ—â”â”â”â”â‰¡$} {#class tmp kill};
 	#class tmp close;
 };
 
-#act {^©¦%s%s»ù±¾Çá¹¦%s©¦dodge%*©¦%*©¦%1©¦%2©¦$} {#var mydodgelv @int{%1}};
+#act {^â”‚%s%såŸºæœ¬è½»åŠŸ%sâ”‚dodge%*â”‚%*â”‚%1â”‚%2â”‚$} {#var mydodgelv @int{%1}};
 
-#nop ==¸öÈËĞÅÏ¢½áÊø=;
+#nop ==ä¸ªäººä¿¡æ¯ç»“æŸ=;

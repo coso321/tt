@@ -1,40 +1,40 @@
 #class gba open;
 
-#act {ÅíÓÐ¾´%*Äã%*ËµµÀ£º%1} {
-#tic {gbq3} {#echo {%c%h} {light yellow} {ÃÅÖÒÈÎÎñ%1}} {15}};
+#act {å½­æœ‰æ•¬%*ä½ %*è¯´é“ï¼š%1} {
+#tic {gbq3} {#echo {%c%h} {light yellow} {é—¨å¿ ä»»åŠ¡%1}} {15}};
 
-#act {Äã¶ÔØ¤°ïµÄÖÒ³Ï¶ÈÌá¸ßÁË}{#untic gbq3;gbx};
-#act {Äã¶ÔØ¤°ïµÄÖÒ³Ï¶È½µµÍÁË} {#untic gbq3;gbx};
+#act {ä½ å¯¹ä¸å¸®çš„å¿ è¯šåº¦æé«˜äº†}{#untic gbq3;gbx};
+#act {ä½ å¯¹ä¸å¸®çš„å¿ è¯šåº¦é™ä½Žäº†} {#untic gbq3;gbx};
 
-#act {Â³ÓÐ½Å¶ÔÄãËµµÀ£º%1£¬ÄãÈ¥°ÑÆäÉíÉÏµÄ%2ÌÖ(%3)À´£¬ÉÏ½É(jiao)°ïÀï¡£} {
-  #tic {gbq1} {#echo {%c%h} {light yellow} {Ä¿±ê%1£¬%3ÎïÆ·%2£¬Íê³Éºó(jiao)}} {15}}£»
-#act {Â³ÓÐ½ÅËµµÀ£º¡¸ÎÒ°ïËØÀ´%*£¬ÄãÈ¥%1ÕÒµ½Ò»¸ö½Ð%2µÄÈË£¬ºÍËû½ÓÍ·(jietou)¡£} {
-  #tic {gbq1} {#echo {%c%h} {light yellow} {Ä¿±ê%2ÔÚ%1´¦(jietou)Çé±¨}} {11}};
+#act {é²æœ‰è„šå¯¹ä½ è¯´é“ï¼š%1ï¼Œä½ åŽ»æŠŠå…¶èº«ä¸Šçš„%2è®¨(%3)æ¥ï¼Œä¸Šç¼´(jiao)å¸®é‡Œã€‚} {
+  #tic {gbq1} {#echo {%c%h} {light yellow} {ç›®æ ‡%1ï¼Œ%3ç‰©å“%2ï¼Œå®ŒæˆåŽ(jiao)}} {15}}ï¼›
+#act {é²æœ‰è„šè¯´é“ï¼šã€Œæˆ‘å¸®ç´ æ¥%*ï¼Œä½ åŽ»%1æ‰¾åˆ°ä¸€ä¸ªå«%2çš„äººï¼Œå’Œä»–æŽ¥å¤´(jietou)ã€‚} {
+  #tic {gbq1} {#echo {%c%h} {light yellow} {ç›®æ ‡%2åœ¨%1å¤„(jietou)æƒ…æŠ¥}} {11}};
 
-#act {%*¸æËßÄã£º%1Ä¿Ç°ÔÚ%2,¿ìÈ¥ÞôËÀËü°É!}
+#act {%*å‘Šè¯‰ä½ ï¼š%1ç›®å‰åœ¨%2,å¿«åŽ»æ‘æ­»å®ƒå§!}
  {#tic {gbq2} {
-  #echo {%c%h} {light yellow} {Ä¿±ê%1ÕýÔÚ%2´¦} } {15}};
+  #echo {%c%h} {light yellow} {ç›®æ ‡%1æ­£åœ¨%2å¤„} } {15}};
 
-#act {Íê³ÉÈÎÎñºó£¬Äã±»½±ÀøÁË} {gbx};
-#act {Â³ÓÐ½ÅËµµÀ£º¡¸Ã»¹ØÏµ£¬Ã»×öµ½¾ÍËãÁË°É¡£¡¹} {gbx};
+#act {å®Œæˆä»»åŠ¡åŽï¼Œä½ è¢«å¥–åŠ±äº†} {gbx};
+#act {é²æœ‰è„šè¯´é“ï¼šã€Œæ²¡å…³ç³»ï¼Œæ²¡åšåˆ°å°±ç®—äº†å§ã€‚ã€} {gbx};
 
-#act {^×óÈ«¶Ô×ÅÄãµãÁËµãÍ·} {#delay 20 gbza};
-#act {^×óÈ«%*ÐÝÏ¢} {#delay 20 gbza};
-#act {^×óÈ«ËµµÀ£º¡¸ÄãµÄÎäÒÕÒÑ¾­²»´íÁË£¬È¥¿´¿´Åí¡¢Â³Á½Î»³¤ÀÏÓÐºÎÈÎÎñ} {gbx};
-#act {^×óÈ«¶ÔÄãËµµÀ£ºÈËÈË¶¼ÖªµÀÎÒÃÇØ¤°ïÏûÏ¢ÌìÏÂ×îÎªÁéÍ¨£¬´òÌ½ÏûÏ¢¾Í¿¿ÄãÃÇÕâÐ©ÅÜÍÈµÄÁË£¬ÄãÈ¥%1ÃÅ´òÌý(dating)Ð©ÏûÏ¢»ØÀ´¡£$}
+#act {^å·¦å…¨å¯¹ç€ä½ ç‚¹äº†ç‚¹å¤´} {#delay 20 gbza};
+#act {^å·¦å…¨%*ä¼‘æ¯} {#delay 20 gbza};
+#act {^å·¦å…¨è¯´é“ï¼šã€Œä½ çš„æ­¦è‰ºå·²ç»ä¸é”™äº†ï¼ŒåŽ»çœ‹çœ‹å½­ã€é²ä¸¤ä½é•¿è€æœ‰ä½•ä»»åŠ¡} {gbx};
+#act {^å·¦å…¨å¯¹ä½ è¯´é“ï¼šäººäººéƒ½çŸ¥é“æˆ‘ä»¬ä¸å¸®æ¶ˆæ¯å¤©ä¸‹æœ€ä¸ºçµé€šï¼Œæ‰“æŽ¢æ¶ˆæ¯å°±é ä½ ä»¬è¿™äº›è·‘è…¿çš„äº†ï¼Œä½ åŽ»%1é—¨æ‰“å¬(dating)äº›æ¶ˆæ¯å›žæ¥ã€‚$}
 {
-  #act {ÄãÒÑ¾­Íê³ÉÁË´òÌýÏûÏ¢µÄÈÎÎñ}
+  #act {ä½ å·²ç»å®Œæˆäº†æ‰“å¬æ¶ˆæ¯çš„ä»»åŠ¡}
 	{
 	#untic dta;#delay {5} {dtb};
 	};
- #act {´òÌ½ÍêÁË}
+ #act {æ‰“æŽ¢å®Œäº†}
 	{
 	#untic dta;#delay {5} {dtb};
 	};
-  #if {"%1"=="±±"} {#alias {dtb} {#3 s;enter shudong};out;#3 n};
-  #elseif {"%1"=="ÄÏ"} {#alias {dtb} {#4 n;enter shudong};out;#4 s};
-  #elseif {"%1"=="¶«"} {#alias {dtb} {#4 w;enter shudong};out;#4 e};
-  #elseif {"%1"=="Î÷"} {#alias {dtb} {#4 e;enter shudong};out;#4 w};
+  #if {"%1"=="åŒ—"} {#alias {dtb} {#3 s;enter shudong};out;#3 n};
+  #elseif {"%1"=="å—"} {#alias {dtb} {#4 n;enter shudong};out;#4 s};
+  #elseif {"%1"=="ä¸œ"} {#alias {dtb} {#4 w;enter shudong};out;#4 e};
+  #elseif {"%1"=="è¥¿"} {#alias {dtb} {#4 e;enter shudong};out;#4 w};
   dating;
   #tic {dta} {dating} {5};
 };

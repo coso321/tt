@@ -4,7 +4,7 @@
 
 #alias {xlaa} {xiulian $xgong};
 
-#act {你从玄幻之境回过神来，顿觉内功修为增进不小。} {verify $xgong;xlaa};
-#act {你的潜能必须大于%*才能修炼}{xlx};
+#act {浣犱粠鐜勫够涔嬪鍥炶繃绁炴潵锛岄】瑙夊唴鍔熶慨涓哄杩涗笉灏忋�倉 {verify $xgong;xlaa};
+#act {浣犵殑娼滆兘蹇呴』澶т簬%*鎵嶈兘淇偧}{xlx};
 
 #class xla close;

@@ -3,7 +3,7 @@
 #var saodigt 1;
 #var xiaoyao.delay_short 0.75;
 
-#tic {sd.start} {#show <afa>¿ªÊ¼É¨µØ¡£<099>;#untic sd.start;sd.start;} {2};
+#tic {sd.start} {#show <afa>å¼€å§‹æ‰«åœ°ã€‚<099>;#untic sd.start;sd.start;} {2};
 
 #alias {sd.start}  {
   #delay 5 {look;
@@ -19,7 +19,7 @@
 }};
 
 
-#act {^  µÖ´ïÄ¿µÄµØ ...$} {
+#act {^  æŠµè¾¾ç›®çš„åœ° ...$} {
   look;
   #if {$saodigt == 1} {#delay 2 {#var saodigt 2;sd.start}};
   #elseif {$saodigt == 2} {#delay 2 {#var saodigt 3;sd.start}};
@@ -69,30 +69,30 @@ dor;
 #delay 5 {sd.start};
 }}}}}};
 
-#act {^%s%*¹¦µÂÏä(Gongde xiang)$}{sd.pause;get coin from box;get silver from box;get gold from box};
-#act {^%*¶ªÏÂ%*{ÎÄÍ­°å¡£|Á½°×Òø¡£|»Æ½ğ¡£|ÒøÆ±¡£}} {sd.pause;get coin;get silver;get gold;get cash};
-#act {^ %*ÎÄÍ­°å(Coin)$} {sd.pause;get coin};
-#act {^ %*Á½°×Òø(Silver)$} {sd.pause;get silver};
-#act {^ %*Á½»Æ½ğ(Gold)$} {sd.pause;get gold};
-#act {^ %*ÒøÆ±(Cash)$} {sd.pause;get cash};
-#act {^ %*½ğ»¨(Jin hua)$} {sd.pause;get jin hua};
-#act {^ %*ÓñÊ¯×Ó(Shi zi)$} {sd.pause;get shi zi};
-#act {^ %*½ğÒ¶×Ó(} {sd.pause;get leaf};
-#act {^ %*±ÌË®½£(} {sd.pause;get bishui};
-#act {^ %*·üÄ§µ¶(} {sd.pause;get blade};
-#act {^ %*½ôÉí±¦¼×(} {sd.pause;get baojia};
-#act {^ %*ÕæË¿±¦¼×(} {sd.pause;get baojia};
-#act {^ %*Èíâ¬¼×(} {sd.pause;get jia};
-#act {^ %*ÓÎÏÀ±¦½£(} {sd.pause;get paladin};
-#act {^ %*Ìú¼×(Armor)$} {sd.pause;get armor};
-#act {^ %*Ê¥»ğÁî(Shenghuo ling)$} {sd.pause;get ling};
-#act {^ %*òùòğÑª¼×(Bianfuxue jia)$} {sd.pause;get jia};
-#act {^ %*ÓñÖñÕÈ(Yuzhu zhang)$} {sd.pause;get zhang};
-#act {^ %*Óñóï(Yu xiao)$} {sd.pause;get xiao};
-#act {^ %*±ùÆÇÕÈ(Bingpo zhang)$} {sd.pause;get zhang};
-#act {^ %*Ö®%*(%w)$} {sd.pause;get @lower{%3}};
+#act {^%s%*åŠŸå¾·ç®±(Gongde xiang)$}{sd.pause;get coin from box;get silver from box;get gold from box};
+#act {^%*ä¸¢ä¸‹%*{æ–‡é“œæ¿ã€‚|ä¸¤ç™½é“¶ã€‚|é»„é‡‘ã€‚|é“¶ç¥¨ã€‚}} {sd.pause;get coin;get silver;get gold;get cash};
+#act {^ %*æ–‡é“œæ¿(Coin)$} {sd.pause;get coin};
+#act {^ %*ä¸¤ç™½é“¶(Silver)$} {sd.pause;get silver};
+#act {^ %*ä¸¤é»„é‡‘(Gold)$} {sd.pause;get gold};
+#act {^ %*é“¶ç¥¨(Cash)$} {sd.pause;get cash};
+#act {^ %*é‡‘èŠ±(Jin hua)$} {sd.pause;get jin hua};
+#act {^ %*ç‰çŸ³å­(Shi zi)$} {sd.pause;get shi zi};
+#act {^ %*é‡‘å¶å­(} {sd.pause;get leaf};
+#act {^ %*ç¢§æ°´å‰‘(} {sd.pause;get bishui};
+#act {^ %*ä¼é­”åˆ€(} {sd.pause;get blade};
+#act {^ %*ç´§èº«å®ç”²(} {sd.pause;get baojia};
+#act {^ %*çœŸä¸å®ç”²(} {sd.pause;get baojia};
+#act {^ %*è½¯çŒ¬ç”²(} {sd.pause;get jia};
+#act {^ %*æ¸¸ä¾ å®å‰‘(} {sd.pause;get paladin};
+#act {^ %*é“ç”²(Armor)$} {sd.pause;get armor};
+#act {^ %*åœ£ç«ä»¤(Shenghuo ling)$} {sd.pause;get ling};
+#act {^ %*è™è è¡€ç”²(Bianfuxue jia)$} {sd.pause;get jia};
+#act {^ %*ç‰ç«¹æ–(Yuzhu zhang)$} {sd.pause;get zhang};
+#act {^ %*ç‰ç®«(Yu xiao)$} {sd.pause;get xiao};
+#act {^ %*å†°é­„æ–(Bingpo zhang)$} {sd.pause;get zhang};
+#act {^ %*ä¹‹%*(%w)$} {sd.pause;get @lower{%3}};
 #nop #act {^%s%*$} {sd.pause;get };
-#act {^ %*¡òÓñËè(Shan sui)$} {sd.pause;get sui};
+#act {^ %*â—ç‰é«“(Shan sui)$} {sd.pause;get sui};
 
 
 #class sda close;

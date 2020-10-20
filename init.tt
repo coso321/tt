@@ -1,4 +1,4 @@
-#nop ¼ÓÔØ³£ÓÃ±ğÃû¡¢´¥·¢¡¢ÅäÖÃ¡¢åĞÒ£ĞĞ¡¢Á¬½ÓĞÅÏ¢;
+#nop åŠ è½½å¸¸ç”¨åˆ«åã€è§¦å‘ã€é…ç½®ã€é€é¥è¡Œã€è¿æ¥ä¿¡æ¯;
 #re ali.tt;
 #re act.tt;
 #re config.tt;
@@ -6,13 +6,13 @@
 #re emote.tt;
 #re colorpad.tt;
 
-#nop ¶ÏÏßÊÂ¼ş;
+#nop æ–­çº¿äº‹ä»¶;
 #event {SESSION ACTIVATED}
 {
 	#if {"%0" == "gts"} {#read init.tt}
 };
 
-#nop ÆÁ±ÎÁ¬½ÓÌáÊ¾;
+#nop å±è”½è¿æ¥æç¤º;
 #event {GAG SESSION ACTIVATED} {#0};
 #event {GAG SESSION CONNECTED} {#0};
 #event {GAG SESSION CREATED} {#0};
@@ -25,8 +25,7 @@
 #class tmp close;
 
 #echo {%c%h} {light yellow};
-#echo {%c%h} {light green} {¡¾ÇëÊäÈëpkuÖ¸ÁîÁ¬½ÓÖÁ±±´óÏÀ¿ÍĞĞ¡¿};
-#echo {%c%h} {light green} {¡¾×Ô¶¨ÒåÃüÁî°ïÖúÖ¸Áîomg¡¿};
-#echo {%c%h} {light green} {¡¾åĞÒ£ĞĞÖ¸Áîgt¡¿};
+#echo {%c%h} {light green} {ã€è¯·è¾“å…¥pkuæŒ‡ä»¤è¿æ¥è‡³åŒ—å¤§ä¾ å®¢è¡Œã€‘};
+#echo {%c%h} {light green} {ã€è‡ªå®šä¹‰å‘½ä»¤å¸®åŠ©æŒ‡ä»¤omgã€‘};
+#echo {%c%h} {light green} {ã€é€é¥è¡ŒæŒ‡ä»¤gtã€‘};
 #echo {%c%h} {light yellow};
-

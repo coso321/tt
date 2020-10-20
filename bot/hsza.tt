@@ -1,4 +1,4 @@
-#nop ÈÎÎñ;
+#nop ä»»åŠ¡;
 #class hsza open;
 
 #tic {hsza} {#untic hsza;hszaa} {2};
@@ -6,13 +6,13 @@
 #ali {hszd} {ask han about finish};
 #ali {hszf} {ask han about fail;#untic hsza1;hszx};
 
-#act {^º«ÊÀÖÒËµµÀ£º¡¸ÎÒÌıËµÓĞÒ»ÈºÒì×å¼éÏ¸ÔÚ%*¸½½ü³öÃ»%*È¥´òÌ½(datan)Ò»ÏÂ} {
-  #tic {hsza1} {#echo {%c%h} {light yellow} {¼éÏ¸ÔÚ%1£¬µ½ÁËdatan¡£}} {15}
+#act {^éŸ©ä¸–å¿ è¯´é“ï¼šã€Œæˆ‘å¬è¯´æœ‰ä¸€ç¾¤å¼‚æ—å¥¸ç»†åœ¨%*é™„è¿‘å‡ºæ²¡%*å»æ‰“æ¢(datan)ä¸€ä¸‹} {
+  #tic {hsza1} {#echo {%c%h} {light yellow} {å¥¸ç»†åœ¨%1ï¼Œåˆ°äº†datanã€‚}} {15}
 };
 
 #nop #act {}{};
 
-#act {^ÄãÒÑ¾­Íê³ÉÁË%*´ÎÇå³ıÒì×å¼éÏ¸µÄ¹¤×÷¡£$} {
+#act {^ä½ å·²ç»å®Œæˆäº†%*æ¬¡æ¸…é™¤å¼‚æ—å¥¸ç»†çš„å·¥ä½œã€‚$} {
     #untic hsza1;hszx
 };
 

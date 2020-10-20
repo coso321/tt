@@ -1,13 +1,13 @@
 #class dea open;
 
-#nop �ж�λ�ĵط���ʼ;
+#nop 有定位的地方开始;
 #alias {buyjiudai} {buy jiudai 5};
 #alias {buyliang} {buy liang 6}
 
 #tic {dea} {#untic dea;deaa} {1};
 #alias {deaa} {look;gt bk};
 
-#act {^  �ִ�Ŀ�ĵ� ...$} {
+#act {^  抵达目的地 ...$} {
 #delay 2 {qu 88 silver;
 #delay 2 {e;n;
 #delay 2 {e;buyjiudai;w;

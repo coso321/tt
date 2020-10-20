@@ -2,35 +2,35 @@
 
 #tic {pza} {set wimpy 20;pzi;#untic pza;pzaa}{1};
 
-#act {Äã³É¹¦Íì»ØÌÒ»¨µºµÄÉùÓş£¬±»½±Àø£º}{pzx};
+#act {ä½ æˆåŠŸæŒ½å›æ¡ƒèŠ±å²›çš„å£°èª‰ï¼Œè¢«å¥–åŠ±ï¼š}{pzx};
 
 #alias pzaa {
 	#class pzaa open;
-	#action {Äã¶ÔÂ½³Ë·çµÀ£º¡°ÌıÎÅ½üÀ´ÓĞÈËÃ°ÃûÌÒ»¨µºµÜ×ÓÔÚ%S²¼ÏÂÃÔÕóĞĞ¶ñ£¬ÎÒÔ¸´úÀÍ³ıÈ¥´Ëâ²¡£¡±} {
+	#action {ä½ å¯¹é™†ä¹˜é£é“ï¼šâ€œå¬é—»è¿‘æ¥æœ‰äººå†’åæ¡ƒèŠ±å²›å¼Ÿå­åœ¨%Så¸ƒä¸‹è¿·é˜µè¡Œæ¶ï¼Œæˆ‘æ„¿ä»£åŠ³é™¤å»æ­¤ç ã€‚â€} {
 		#var jobplace %%1;
 		pzp;
 		#class pzaa kill;
 	};
 	#class pzaa close;
-	ask lu about ÆÆÕó;
+	ask lu about ç ´é˜µ;
 };
 
-#alias jpz {ask lu about ÆÆÕó½±Àø};
-#alias fpz {ask lu about ÆÆÕóÊ§°Ü};
+#alias jpz {ask lu about ç ´é˜µå¥–åŠ±};
+#alias fpz {ask lu about ç ´é˜µå¤±è´¥};
 
 #alias pzi {
   #echo {%c%h} {light yellow};
-  #echo {%c%+2s¿ªÊ¼ÆÆÕó...} {light green};
-	#echo {%c%+2sÕ¼²·µØµã£º¡¾pzp¡¿¡£} {light green};
-	#echo {%c%+2sÕ¼²·Ö¸Áî£º¡¾pzm¡¿¡£} {light green};
-  #echo {%c%+2s½»ÈÎÎñ£º¡¾jpz¡¿¡£} {light green};
-  #echo {%c%+2sÈ¡ÏûÈÎÎñ£º¡¾fpz¡¿¡£} {light green};
+  #echo {%c%+2så¼€å§‹ç ´é˜µ...} {light green};
+	#echo {%c%+2så åœåœ°ç‚¹ï¼šã€pzpã€‘ã€‚} {light green};
+	#echo {%c%+2så åœæŒ‡ä»¤ï¼šã€pzmã€‘ã€‚} {light green};
+  #echo {%c%+2säº¤ä»»åŠ¡ï¼šã€jpzã€‘ã€‚} {light green};
+  #echo {%c%+2så–æ¶ˆä»»åŠ¡ï¼šã€fpzã€‘ã€‚} {light green};
   #echo {%c%h} {light yellow};
 };
 
 #alias pzp {
 	#echo {%c%h} {light yellow};
-	#echo {%c%+2sÆÆÕóµØµã£º$jobplace¡£} {light green};
+	#echo {%c%+2sç ´é˜µåœ°ç‚¹ï¼š$jobplaceã€‚} {light green};
 	#echo {%c%h} {light yellow};
 };
 #alias pzm {
@@ -43,7 +43,7 @@
 		$exec;
 	};
 	#function printdirec {
-		#var printtext {¡¡¡¡¾­ÍÆËã£¬ÕıÈ··½Ïò¿ÉÄÜÎª£º};
+		#var printtext {ã€€ã€€ç»æ¨ç®—ï¼Œæ­£ç¡®æ–¹å‘å¯èƒ½ä¸ºï¼š};
 		#foreach $direc direction {
 			#if {$pos[$direction]} {
 				#var printtext $printtext $direction;
@@ -90,39 +90,39 @@
 		#elseif {"%%3" == "\e[5m\e[42" && !$pos[e]} {#var pos[e] 0};
 		#else {#var pos[e] 1};
 	} {2};
-	#action {Äã³¢ÊÔÆÆÕó£¬¿ÉÏ§Ñ¡ÔñÁË´íÎóµÄ·½Ïò£¬ËğÊ§ÁËÒ»Ğ©ÆøÑªºÍÄÚÁ¦¡£} {
+	#action {ä½ å°è¯•ç ´é˜µï¼Œå¯æƒœé€‰æ‹©äº†é”™è¯¯çš„æ–¹å‘ï¼ŒæŸå¤±äº†ä¸€äº›æ°”è¡€å’Œå†…åŠ›ã€‚} {
 		#var pos[$pace] 0;
 	};
-	#action {ÕâÀïµÄÃÔÕóÔÚÄãÑÛÖĞÈçÍ¬¶ùÏ·Ò»°ã¡£} {
+	#action {è¿™é‡Œçš„è¿·é˜µåœ¨ä½ çœ¼ä¸­å¦‚åŒå„¿æˆä¸€èˆ¬ã€‚} {
 		#var pos {{nw}{2}{n}{2}{ne}{2}{w}{2}{e}{2}{sw}{2}{s}{2}{se}{2}};
 		#var posstep 0;
 	};
-	#action {ÆÆÕóÊ§°Ü£¡ÕâÀïµÄÕæÏà¿ÖÅÂÓÀÔ¶±»ÑÚ¸Ç¡£} {
+	#action {ç ´é˜µå¤±è´¥ï¼è¿™é‡Œçš„çœŸç›¸ææ€•æ°¸è¿œè¢«æ©ç›–ã€‚} {
 		#class zhanbu.maze kill;
 	  #echo {%c%h} {light yellow};
-		#echo <cfa>¡¡¡¡ÆÆÕóÊ§°Ü£¡;
+		#echo <cfa>ã€€ã€€ç ´é˜µå¤±è´¥ï¼;
 		#echo {%c%h} {light yellow};
 	};
-	#action {Äã³¹µ×ÆÆ½âÁËÕâÀïµÄÃÔÕó£¡} {
+	#action {ä½ å½»åº•ç ´è§£äº†è¿™é‡Œçš„è¿·é˜µï¼} {
 		#class zhanbu.maze kill;
 		#echo {%c%h} {light yellow};
-		#echo <cfa>¡¡¡¡ÆÆÕó³É¹¦£¡;
+		#echo <cfa>ã€€ã€€ç ´é˜µæˆåŠŸï¼;
 		#echo {%c%h} {light yellow};
 	};
-	#action {¿´ÆğÀ´%SÏëÉ±ËÀÄã£¡} {
+	#action {çœ‹èµ·æ¥%Sæƒ³æ€æ­»ä½ ï¼} {
 		#class zhanbu.maze.kill open;
-		#action {´ó ¶ñ %%1(%D)} {
+		#action {å¤§ æ¶ %%1(%D)} {
 			#format npcid %l %%%1;
 			kill $npcid;
 		};
-		#action {%%1µÀ£ºÏë²»µ½ÎÒ×îÖÕ»¹ÊÇÊ§°ÜÁË£¡°¥£¡} {
+		#action {%%1é“ï¼šæƒ³ä¸åˆ°æˆ‘æœ€ç»ˆè¿˜æ˜¯å¤±è´¥äº†ï¼å“ï¼} {
 			#class zhanbu.maze.kill kill;
 			#echo {%c%h} {light yellow};
-			#echo <cfa>¡¡¡¡ÆÆÕóÈÎÎñ³É¹¦Íê³É£¡;
+			#echo <cfa>ã€€ã€€ç ´é˜µä»»åŠ¡æˆåŠŸå®Œæˆï¼;
 			#echo {%c%h} {light yellow};
 			s;
 		};  
-		#action {ÄãÔÚ¹¥»÷ÖĞ²»¶Ï»ıĞî¹¥ÊÆ¡£(ÆøÊÆ£º%d%)} {
+		#action {ä½ åœ¨æ”»å‡»ä¸­ä¸æ–­ç§¯è“„æ”»åŠ¿ã€‚(æ°”åŠ¿ï¼š%d%)} {
 			#if {%%%1 >= 24} {#nop perform strike.leiting};
 		};
 		#class zhanbu.maze.kill close;

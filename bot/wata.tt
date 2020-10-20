@@ -1,33 +1,33 @@
-#nop Íò°²Ëş;
+#nop ä¸‡å®‰å¡”;
 #class wata open;
 
 #tic {wata} {
     #untic wata;wataa;
-    #showme <afa>¿ªÊ¼ÅÀËş...;
+    #showme <afa>å¼€å§‹çˆ¬å¡”...;
 } {2};
 #math watl 4;
 #math watc 1;
 
 #alias {wataa} {
-   jiali max;yun powerup;ask ke about ½øËş;
+   jiali max;yun powerup;ask ke about è¿›å¡”;
 };
 
-#act {Èç¹ûÄãÏÖÔÚÀë¿ª£¬¿É»ñºñÀñ} {
+#act {å¦‚æœä½ ç°åœ¨ç¦»å¼€ï¼Œå¯è·åšç¤¼} {
     #if {$watc<$watl}
     {#math watc {$watc+1};dazuo max};
     #else
     {qiao luo};
 };
 
-#act {Äã¶ÌÊ±¼äÄÚÁ¦Ê¹ÓÃ´óÁ¿ÄÚÁ¦}{
+#act {ä½ çŸ­æ—¶é—´å†…åŠ›ä½¿ç”¨å¤§é‡å†…åŠ›}{
    #var wat_wait 1;
    #delay 60 {#var wat_wait 0;
   };
 };
 
-#act {¾­¹ıÒ»¶ÎÊ±¼ä£¬ÄãÌåÄÚµÄÄÚÁ¦ÓÖÖØĞÂ»Ö¸´Õı³£ÔË×ª£¡}{#var wat_wait 0};
+#act {ç»è¿‡ä¸€æ®µæ—¶é—´ï¼Œä½ ä½“å†…çš„å†…åŠ›åˆé‡æ–°æ¢å¤æ­£å¸¸è¿è½¬ï¼}{#var wat_wait 0};
 
-#act {Äã%*Õ¾ÁËÆğÀ´}{
+#act {ä½ %*ç«™äº†èµ·æ¥}{
     #if {"$wat_wait"=="1"}{
        #delay 120 {#var wat_wait 0;yp;up}
     };

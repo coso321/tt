@@ -44,7 +44,7 @@
 #delay 1 {donate yi;}
 }}}}}}}}}}}}}}}}}}}};
 
-#act {天不生我小乖乖，侠客万古长如夜} {
+#act {澶╀笉鐢熸垜灏忎箹涔栵紝渚犲涓囧彜闀垮澶渳 {
 buygd;
 #delay 25 {w;n;n;n;
 #delay 3 {donategd;

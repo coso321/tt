@@ -1,8 +1,8 @@
-#nop µ÷É«°å;
+#nop è°ƒè‰²æ¿;
 #class colorpad open;
 
 #alias {colorpad} {
-  #echo {µ÷É«°å¡º<afa>´ó<dfa>´È<aff>´ó<faa>±¯<fff>Èë<fcf>·²<faf>³¾£¬<afc>ÆÕ<efc>¶È<fee>²Ô<aef>Éú<eba>Á¯<fcf>ÊÀ<faf>ÈË¡»};
+  #echo {è°ƒè‰²æ¿ã€<afa>å¤§<dfa>æ…ˆ<aff>å¤§<faa>æ‚²<fff>å…¥<fcf>å‡¡<faf>å°˜ï¼Œ<afc>æ™®<efc>åº¦<fee>è‹<aef>ç”Ÿ<eba>æ€œ<fcf>ä¸–<faf>äººã€};
   #var color_dic {A;B;C;D;E;F};
   #var color_bg {};
   #var color_str {};

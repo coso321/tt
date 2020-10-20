@@ -5,28 +5,28 @@
 #alias  {sxd} {ask yue about finish};
 #alias  {sxf} {ask yue about fail};
 
-#act {ÔÀ²»Èº¶ÔÄãµÀ£º%*½»¸ø%1¡£} {
-  #tic {sxa1} {#echo {%c%h} {light yellow} {»ªÉ½ËÍĞÅÄ¿±êÔÚ%1´¦}} {15}
+#act {å²³ä¸ç¾¤å¯¹ä½ é“ï¼š%*äº¤ç»™%1ã€‚} {
+  #tic {sxa1} {#echo {%c%h} {light yellow} {åå±±é€ä¿¡ç›®æ ‡åœ¨%1å¤„}} {15}
 };
-#act {ÔÀ²»ÈºµÀ£º%*ËÍµ½%1¡£} {
-  #tic {sxa1} {#echo {%c%h} {light yellow} {»ªÉ½ËÍĞÅÄ¿±êÔÚ%1´¦}} {15}
+#act {å²³ä¸ç¾¤é“ï¼š%*é€åˆ°%1ã€‚} {
+  #tic {sxa1} {#echo {%c%h} {light yellow} {åå±±é€ä¿¡ç›®æ ‡åœ¨%1å¤„}} {15}
 };
 
-#act {%*Ä¿Ç°ÔÚ¡¾%1¡¿,¿ìÈ¥ŞôËÀËü°É!} {
+#act {%*ç›®å‰åœ¨ã€%1ã€‘,å¿«å»æ‘æ­»å®ƒå§!} {
   #tic {sxa2} {
-  #echo {%c%h} {light yellow} {Ä¿±êÕıÔÚ%1´¦} } {15}
+  #echo {%c%h} {light yellow} {ç›®æ ‡æ­£åœ¨%1å¤„} } {15}
 };
 
-#act {ÄãÉìÊÖÏò»³ÖĞÒ»Ãş£¬·¢ÏÖÃÜº¯ÒÑ¾­²»Òí¶ø·É£¡} {
+#act {ä½ ä¼¸æ‰‹å‘æ€€ä¸­ä¸€æ‘¸ï¼Œå‘ç°å¯†å‡½å·²ç»ä¸ç¿¼è€Œé£ï¼} {
   #var wait wait;stopwalk;jiali max;yun powerup};
 
-#act {¿´ÆğÀ´%1ÏëÉ±ËÀÄã} {#var sxss %1};
-#act {$sxssËÀÁË} {#delay 2 {get all from corpse}};
+#act {çœ‹èµ·æ¥%1æƒ³æ€æ­»ä½ } {#var sxss %1};
+#act {$sxssæ­»äº†} {#delay 2 {get all from corpse}};
 
-#act {ÄãµÄÈÎÎñÊ§°Ü}{
+#act {ä½ çš„ä»»åŠ¡å¤±è´¥}{
    #untic sxa1;#untic sxa2;sxx};
 
-#act {Äã±»½±ÀøÁË} {#untic sxa1;#untic sxa2;sxx};
+#act {ä½ è¢«å¥–åŠ±äº†} {#untic sxa1;#untic sxa2;sxx};
 
 #class sxa close;
 

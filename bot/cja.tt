@@ -1,29 +1,29 @@
 #class cja open;
 
-#tic {cjaa} {#show <afa>¿ªÊ¼²ÎÎò²Ğ¾Ö¡£<099>;#untic cjaa;watch canju} {2};
+#tic {cjaa} {#show <afa>å¼€å§‹å‚æ‚Ÿæ®‹å±€ã€‚<099>;#untic cjaa;watch canju} {2};
 
 #tic {cja} {watch canju}{77};
 
-#act {Äã¶Ô×Å²Ğ¾ÖÑĞ¾¿ÁËÒ»»á,ËÆºõÓĞĞ©ĞÄµÃ¡£} {watch canju};
-#act {Äã¾«Á¦²»¹»£¬ÎŞ·¨ÁìÎò²Ğ¾Ö¡£} {exert regenerate};
-#act {ÄãÂÔÒ»ÄıÉñ£¬¾«Éñ¿´ÆğÀ´ºÃ¶àÁË¡£} {watch canju};
-#act {ÄãµÄÄÚÁ¦²»¹»¡£} {verify literate;sleep};
+#act {ä½ å¯¹ç€æ®‹å±€ç ”ç©¶äº†ä¸€ä¼š,ä¼¼ä¹æœ‰äº›å¿ƒå¾—ã€‚} {watch canju};
+#act {ä½ ç²¾åŠ›ä¸å¤Ÿï¼Œæ— æ³•é¢†æ‚Ÿæ®‹å±€ã€‚} {exert regenerate};
+#act {ä½ ç•¥ä¸€å‡ç¥ï¼Œç²¾ç¥çœ‹èµ·æ¥å¥½å¤šäº†ã€‚} {watch canju};
+#act {ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚} {verify literate;sleep};
 
-#act {ÄãÒ»¾õĞÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å¡£} {watch canju};
+#act {ä½ ä¸€è§‰é†’æ¥ï¼Œç²¾ç¥æŠ–æ“åœ°æ´»åŠ¨äº†å‡ ä¸‹æ‰‹è„šã€‚} {watch canju};
 
-#act {Äã¸ÕÔÚÈı·ÖÖÓÄÚË¯¹ıÒ»¾õ} {
+#act {ä½ åˆšåœ¨ä¸‰åˆ†é’Ÿå†…ç¡è¿‡ä¸€è§‰} {
   eat liang;
 	#delay 1 {drink jiudai;
   #delay 15 {watch canju;
 }}};
 
-#act {ÕâÀï²»ÊÇÄãÄÜË¯µÄµØ·½} {dor;cjx};
+#act {è¿™é‡Œä¸æ˜¯ä½ èƒ½ç¡çš„åœ°æ–¹} {dor;cjx};
 
-#act {ÄãÔË¹¦Íê±Ï} {exert recover};
-#act {ÄãÉîÉîÎüÁË¼¸¿ÚÆø} {watch canju};
-#act {ÄãÏÖÔÚ¾«²»¹»} {exert regenerate};
-#act {ÄãÏÖÔÚÆøÁ¦³äÅæ} {watch canju};
-#act {Äã½«ÄÚÏ¢×ßÁË¸öĞ¡ÖÜÌì} {exert recover};
-#act {ÄãÏÖÔÚµÄÆøÌ«ÉÙÁË} {exert recover};
+#act {ä½ è¿åŠŸå®Œæ¯•} {exert recover};
+#act {ä½ æ·±æ·±å¸äº†å‡ å£æ°”} {watch canju};
+#act {ä½ ç°åœ¨ç²¾ä¸å¤Ÿ} {exert regenerate};
+#act {ä½ ç°åœ¨æ°”åŠ›å……æ²›} {watch canju};
+#act {ä½ å°†å†…æ¯èµ°äº†ä¸ªå°å‘¨å¤©} {exert recover};
+#act {ä½ ç°åœ¨çš„æ°”å¤ªå°‘äº†} {exert recover};
 
 #class cja close;

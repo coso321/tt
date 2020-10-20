@@ -1,18 +1,18 @@
 #class ali open;
-#nop ==³£ÓÃalias==;
-#nop ==°ïÖú==;
+#nop ==å¸¸ç”¨alias==;
+#nop ==å¸®åŠ©==;
 #alias {omg} {
     #echo {%c%h} {light green};
-    #showme {<efa>×Ô¶¨ÒåÃüÁîÈçÏÂ£º};
-    #showme {<efa>åĞÒ£ĞĞÊ¹ÓÃ·½·¨:sethere {ÆğµãËõĞ´};gt {Ä¿µÄµØËõĞ´};gt °ïÖú;};
-    #showme {<efa>pg/pb ×Ô¶¯¼ÇÂ¼/·µ»ØÂ·¾¶};
-    #showme {<efa>lzba ÑïÖİ×Ô¶¯ÁìĞÂÊÖ×°±¸};
-    #showme {<efa>dea ÑïÖİ×Ô¶¯Âò³ÔºÈ};
-   #showme {<efa>tna/tnx ×Ô¶¯ÍÂÄÉ};
-    #showme {<efa>dza/dzx ×Ô¶¯´ò×ø};
+    #showme {<efa>è‡ªå®šä¹‰å‘½ä»¤å¦‚ä¸‹ï¼š};
+    #showme {<efa>é€é¥è¡Œä½¿ç”¨æ–¹æ³•:sethere {èµ·ç‚¹ç¼©å†™};gt {ç›®çš„åœ°ç¼©å†™};gt å¸®åŠ©;};
+    #showme {<efa>pg/pb è‡ªåŠ¨è®°å½•/è¿”å›è·¯å¾„};
+    #showme {<efa>lzba æ‰¬å·è‡ªåŠ¨é¢†æ–°æ‰‹è£…å¤‡};
+    #showme {<efa>dea æ‰¬å·è‡ªåŠ¨ä¹°åƒå–};
+   #showme {<efa>tna/tnx è‡ªåŠ¨åçº³};
+    #showme {<efa>dza/dzx è‡ªåŠ¨æ‰“å};
    #echo {%c%h} {light green};
 }; 
-#nop ³£ÓÃ±ğÃû;
+#nop å¸¸ç”¨åˆ«å;
 #alias {zisha} {suicide -f};
 #alias {rl} {
      #kill;
@@ -57,28 +57,28 @@
 #alias {bf %0} {set brief %0};
 #alias {k} {kill %0};
 #alias {ka} {killall %0};
-#alias {lq %0} {ask %0 about ÀıÇ®};
+#alias {lq %0} {ask %0 about ä¾‹é’±};
 #alias {zc} {check -g %1;status_me -a};
 #alias {tuneall} {tune chat;tune bd;tune helpme;tune jy;tune qq;tune qy;tune rumor;tune rw};
-#alias {dq} {say ÇëÖîÎ»Ê¦ĞÖ½«µõÇÅÉıÉÏÀ´£¬ÒÔ·À¼é¶ñÖ®Í½»ìÈë³ÇÖĞ£¡};
+#alias {dq} {say è¯·è¯¸ä½å¸ˆå…„å°†åŠæ¡¥å‡ä¸Šæ¥ï¼Œä»¥é˜²å¥¸æ¶ä¹‹å¾’æ··å…¥åŸä¸­ï¼};
 #alias {damo} {open door;n;sw;se;n;s;w;e;w;#2 e;s;w;n;nw;n};
-#alias {jiuyin} {ask yang about ¾ÅÒõÕæ¾­;give whip book to yang;#delay 2 {#3 n;e;#2 ne;e;swim river;#2 n;e;#2 n;w;enter xuanwo;get jiuyin zhenjing;#delay 1 {out;#2 s;out;w;#2 sw;w}}};
-#alias {shiban} {say ÉÏ±¨ËÄÖØ¶÷£¬ÏÂ¼ÃÈıÍ¾¿à;#4 pull stone up;#3 push stone down};
-#alias {shuikao} {e;nd;ask chou diao about ¶À¹ÂÇó°Ü;nu;ask yu fu about ¹ıºÓ;se;catch fish;nw;give fish to yu fu;swim;pick sword};
+#alias {jiuyin} {ask yang about ä¹é˜´çœŸç»;give whip book to yang;#delay 2 {#3 n;e;#2 ne;e;swim river;#2 n;e;#2 n;w;enter xuanwo;get jiuyin zhenjing;#delay 1 {out;#2 s;out;w;#2 sw;w}}};
+#alias {shiban} {say ä¸ŠæŠ¥å››é‡æ©ï¼Œä¸‹æµä¸‰é€”è‹¦;#4 pull stone up;#3 push stone down};
+#alias {shuikao} {e;nd;ask chou diao about ç‹¬å­¤æ±‚è´¥;nu;ask yu fu about è¿‡æ²³;se;catch fish;nw;give fish to yu fu;swim;pick sword};
 #alias {shuikaob} {swim;#2 sd;su;w};
-#alias {swe} {swear ÎÒ½«ÓÀÔ¶ÖÒÓÚ°ïÖ÷£¬ÈôÓĞã£Äæ£¬ÌìÖïµØÃğ!!};
-#alias {swordbook} {#2 s;w;nw;ask punk about ÍõĞ¡¶ş;se;e;#2 n;#2 nw;ne;enter hole;ask wang about ¼¦;bihua};
+#alias {swe} {swear æˆ‘å°†æ°¸è¿œå¿ äºå¸®ä¸»ï¼Œè‹¥æœ‰æ‚–é€†ï¼Œå¤©è¯›åœ°ç­!!};
+#alias {swordbook} {#2 s;w;nw;ask punk about ç‹å°äºŒ;se;e;#2 n;#2 nw;ne;enter hole;ask wang about é¸¡;bihua};
 #alias {swordbookb} {w;sw;#2 se};
-#alias {bladebook} {#2 w;#3 n;ask tian about ÒùÔô;accept};
+#alias {bladebook} {#2 w;#3 n;ask tian about æ·«è´¼;accept};
 #alias {bladebookb} {#3 s;#2 e};
-#alias {weizao} {ask teller about Î±Ôì;give teller paper;#delay {1} {give teller 50 silver};#delay {2} {give teller 50 silver}};
+#alias {weizao} {ask teller about ä¼ªé€ ;give teller paper;#delay {1} {give teller 50 silver};#delay {2} {give teller 50 silver}};
 
-#nop ¹ıÃÔ¹¬,Ö¸Áî¸ñÊ½mazeout {n|s|e|w};
+#nop è¿‡è¿·å®«,æŒ‡ä»¤æ ¼å¼mazeout {n|s|e|w};
 #alias {mazeout}
 {
 	#if {"%1"=="n" | "%1"=="s" | "%1"=="e" | "%1"=="w"}
 	{
-		#show {<afa>¿ªÊ¼¹ıÃÔ¹¬¡£};
+		#show {<afa>å¼€å§‹è¿‡è¿·å®«ã€‚};
 		#class mazeout open;
 		#var mazeout 1;
 		#ticker mazeout
@@ -92,42 +92,42 @@
 			#math mazeout {$mazeout+1};
 			#if {$mazeout>3} {#var mazeout 1};
 		} {6};
-		#act {^ÔÚÄã½îÆ£Á¦¾¡Ö®¼Ê£¬ÖÕÓÚÕÒµ½ÁË³öÂ·(out)¡£$} {#unticker mazeout;#class mazeout kill;#delay 6 out};
+		#act {^åœ¨ä½ ç­‹ç–²åŠ›å°½ä¹‹é™…ï¼Œç»ˆäºæ‰¾åˆ°äº†å‡ºè·¯(out)ã€‚$} {#unticker mazeout;#class mazeout kill;#delay 6 out};
 		#class mazeout close;
 	};
-	#else {#show {ÇëÖ¸¶¨ÕıÈ·µÄ·½Ïò£¬¸ñÊ½Îªmazeout [dir]¡£}};
+	#else {#show {è¯·æŒ‡å®šæ­£ç¡®çš„æ–¹å‘ï¼Œæ ¼å¼ä¸ºmazeout [dir]ã€‚}};
 };
 
-#nop ×Ô¶¯·µ»ØÔ­µã;
+#nop è‡ªåŠ¨è¿”å›åŸç‚¹;
 #alias {pg} {
 #path new;
 #class pgtmp open;
-#act {%*Õâ¸ö·½ÏòÃ»ÓĞ³öÂ·¡£} {#path del};
+#act {%*è¿™ä¸ªæ–¹å‘æ²¡æœ‰å‡ºè·¯ã€‚} {#path del};
 #class pgtmp close;
-#echo {%c%h} {light yellow}{¡¾¿ªÊ¼¼ÇÂ¼Â·¾¶£¬Ö¸Áîpb·µ»Ø¡¿}};
+#echo {%c%h} {light yellow}{ã€å¼€å§‹è®°å½•è·¯å¾„ï¼ŒæŒ‡ä»¤pbè¿”å›ã€‘}};
 #alias {pb} {
 #path save backward ptmp;$ptmp;
 #path end;
 #class pgtmp kill;
-#delay 2 {#echo {%c%h} {light yellow}{¡¾ÒÑ»ØÔ­µã£¬Ö¸Áîpg¼ÇÂ¼ĞÂÂ·¾¶¡¿}}};
+#delay 2 {#echo {%c%h} {light yellow}{ã€å·²å›åŸç‚¹ï¼ŒæŒ‡ä»¤pgè®°å½•æ–°è·¯å¾„ã€‘}}};
 
-#nop ¼ñÀ¬»øÂôÇ®;
+#nop æ¡åƒåœ¾å–é’±;
 #alias {sda}{#class sda read bot/sda.tt};
 #alias {sdx} {#class sda kill};
 
-#nop Ï´Ôè´Ó¼ÒÀï¿ªÊ¼;
+#nop æ´—æ¾¡ä»å®¶é‡Œå¼€å§‹;
 #alias {xza}{#class xza read bot/xza.tt};
 #alias {xzx} {#class xza kill};
 
-#nop ²Ğ¾Ö;
+#nop æ®‹å±€;
 #alias {cja} {#class cja read bot/cja.tt};
 #alias {cjx} {#class cja kill};
 
-#nop Íò°²Ëş;
+#nop ä¸‡å®‰å¡”;
 #alias {wata} {#class wata read bot/wata.tt};
 #alias {watx} {#class wata kill};
 
-#nop ÉÙÁÖËÂÌøÂ¥;
+#nop å°‘æ—å¯ºè·³æ¥¼;
 #alias {tla} {#class tla read bot/tla.tt};
 #alias {tlx} {#class tla kill};
 
@@ -135,74 +135,74 @@
 #alias {fska} {#class fska read bot/fska.tt};
 #alias {fskx} {#class fska kill};
 
-#nop Ä½Èİ£»
+#nop æ…•å®¹ï¼›
 #alias {mra} {#class mra read bot/mra.tt};
 #alias {mrx} {#class mra kill};
 
-#nop »ªÉ½ËÍĞÅ£»
+#nop åå±±é€ä¿¡ï¼›
 #alias {sxa} {#class sxa read bot/sxa.tt};
 #alias {sxx} {#class sxa kill};
 
-#nop ÌìÖé;
+#nop å¤©ç ;
 #alias {tza} {#class tza read bot/tza.tt};
 #alias {tzx} {#class tza kill;#untic tza1};
 
-#nop Í¶Ãû×´;
+#nop æŠ•åçŠ¶;
 #alias {tma} {#class tma read bot/tma.tt};
 #alias {tmx} {#class tma kill;#untic tma1};
 
-#nop º«ÊÀÖÒ;
+#nop éŸ©ä¸–å¿ ;
 #alias {hsza} {#class hsza read bot/hsza.tt};
 #alias {hszx} {#class hsza kill;#untic hsza1};
 
-#nop ¹«ËïÖ¹;
+#nop å…¬å­™æ­¢;
 #alias {gsza} {#class gsza read bot/gsza.tt};
 #alias {gszx} {#class gsza kill;#untic gsza1};
 
-#nop ¹¦µÂ¾èÏ×;
-#alias {gda} {#class gda read bot/gda.tt;say Ìì²»ÉúÎÒĞ¡¹Ô¹Ô£¬ÏÀ¿ÍÍò¹Å³¤ÈçÒ¹};
+#nop åŠŸå¾·æçŒ®;
+#alias {gda} {#class gda read bot/gda.tt;say å¤©ä¸ç”Ÿæˆ‘å°ä¹–ä¹–ï¼Œä¾ å®¢ä¸‡å¤é•¿å¦‚å¤œ};
 #alias {gdx} {#class gda kill};
 
-#nop Á·Ï°;
+#nop ç»ƒä¹ ;
 #alias {lxa} {#class lxa read bot/lxa.tt;#var skname %1};
 #alias {lxx} {#class lxa kill};
 
-#nop ÁìÎò;
+#nop é¢†æ‚Ÿ;
 #alias {lwa} {#class lwa read bot/lwa.tt;#var lwname %1};
 #alias {lwx} {#class lwa kill};
 
-#nop ¿´Ñ©Çá¹¦;
+#nop çœ‹é›ªè½»åŠŸ;
 #alias {sna} {#class sna read bot/sna.tt;l snow;}
 #alias {snx} {#class sna kill};
 
-#nop ĞÂÈË¸£Àû;
-#alias {nfuli} {pick guo;eat guo;up;ask lver about ÔÂ±ı;#delay {5} {answer ÏÌÔÂ±ı;eat yuebing;d}};
+#nop æ–°äººç¦åˆ©;
+#alias {nfuli} {pick guo;eat guo;up;ask lver about æœˆé¥¼;#delay {5} {answer å’¸æœˆé¥¼;eat yuebing;d}};
 
-#nop ¶ÁÊéËµÎÄ½â×ÖÉäµñµÈ;
+#nop è¯»ä¹¦è¯´æ–‡è§£å­—å°„é›•ç­‰;
 #alias {dsa} {#class dsa read bot/dsa.tt;#var book %1};
 #alias {dsx} {#class dsa kill};
 
-#nop ×Ô¶¯ÍÂÄÉ;
+#nop è‡ªåŠ¨åçº³;
 #alias {tna} {#class tna read bot/tna.tt;tunaa};
 #alias {tnx} {#class tna kill;#untic tna};
 
-#nop ×Ô¶¯´ò×ø£»
+#nop è‡ªåŠ¨æ‰“åï¼›
 #alias {dza} {#class dza read bot/dza.tt;
      #switch {"%1"} {
         #case {"dz"} {
               #ali dzaa dz;
-              #echo ¿ªÊ¼dz...};
+              #echo å¼€å§‹dz...};
         #default {
-              #echo ¿ªÊ¼´ò×ø...};
+              #echo å¼€å§‹æ‰“å...};
      };
 };
 #alias {dzx} {#class dza kill;#untic dza};
 
-#nop ×Ô¶¯ĞŞÁ¶£»
-#alias {xla} {#echo {%c%h} {light yellow}{¡¾Ö¸Áî¸ñÊ½:xla [huntian-qigong]ĞŞÁ¶»ìÌìÆø¹¦¡¿};#class xla read bot/xla.tt;#var xgong %1;xlaa};
+#nop è‡ªåŠ¨ä¿®ç‚¼ï¼›
+#alias {xla} {#echo {%c%h} {light yellow}{ã€æŒ‡ä»¤æ ¼å¼:xla [huntian-qigong]ä¿®ç‚¼æ··å¤©æ°”åŠŸã€‘};#class xla read bot/xla.tt;#var xgong %1;xlaa};
 #alias {xlx} {#class xla kill;#untic xla};
 
-#nop skillÑ§Ï°;
+#nop skillå­¦ä¹ ;
 #alias ska {
     #class ska read bot/ska.tt;
     #var shi %1;
@@ -210,31 +210,31 @@
 };
 #alias {skx} {#class ska kill};
 
-#nop Ø¤°ïÃÅÖÒ;
+#nop ä¸å¸®é—¨å¿ ;
 #alias gbpa {#class gba read bot/gba.tt;ask peng about quest};
-#nop °ë×Ô¶¯Ø¤°ï×óÈ«;
+#nop åŠè‡ªåŠ¨ä¸å¸®å·¦å…¨;
 #alias gbza {#class gba read bot/gba.tt;ask zuo about job};
 #alias gbla {#class  gba read bot/gba.tt;ask lu about job};
 #alias gbx {#class gba kill;#untic gbq1;#untic gbq2;#untic gbq3};
-#nop °ë×Ô¶¯Ø¤°ïÂ³ÓĞ½Å;
+#nop åŠè‡ªåŠ¨ä¸å¸®é²æœ‰è„š;
 
-#nop ÆÆÕó;
+#nop ç ´é˜µ;
 #alias {pza} {#class pza read bot/pza.tt};
 #alias {pzx} {#class pza kill};
 
-#nop ×Ô¶¯µöÓãÏÈÈ¥ÂòÒ»¸öÓã¹³ 50Óã¶ü£»
+#nop è‡ªåŠ¨é’“é±¼å…ˆå»ä¹°ä¸€ä¸ªé±¼é’© 50é±¼é¥µï¼›
 #alias fishb {e;n;n;gt yz};
 #alias fish {#class fish read bot/fish.tt};
 #alias fishx {#class fish kill};
 
-#nop °®°®Áì×°±¸;
-#alias lzba {#class lzba read bot/lzba.tt;say Îä¹¦ÔÙ¸ßÒ²ÅÂ²Ëµ¶};
+#nop çˆ±çˆ±é¢†è£…å¤‡;
+#alias lzba {#class lzba read bot/lzba.tt;say æ­¦åŠŸå†é«˜ä¹Ÿæ€•èœåˆ€};
 
-#nop Âò¸ÉÁ¸¾Æ´ü£»
-#alias dea {#class dea read bot/dea.tt}£»
+#nop ä¹°å¹²ç²®é…’è¢‹ï¼›
+#alias dea {#class dea read bot/dea.tt}ï¼›
 
-#nop Ñ§Ï°¼¼ÄÜ;
-#alias xgb {#class xsk read bot/xsk.tt;#var shifu %1;say Ø¤°ïµÜ×ÓÏòÊ¦¸µÇó½Ì};
-#alias xth {#class xsk read bot/xsk.tt;#var shifu %1;say ÌÒ»¨µÜ×ÓÏòÊ¦¸µÇó½Ì};
+#nop å­¦ä¹ æŠ€èƒ½;
+#alias xgb {#class xsk read bot/xsk.tt;#var shifu %1;say ä¸å¸®å¼Ÿå­å‘å¸ˆå‚…æ±‚æ•™};
+#alias xth {#class xsk read bot/xsk.tt;#var shifu %1;say æ¡ƒèŠ±å¼Ÿå­å‘å¸ˆå‚…æ±‚æ•™};
 
 #class ali close;

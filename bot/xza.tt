@@ -1,6 +1,6 @@
 #class xza open;
 
-#tic {xzaa} {#show <afa>¿ªÊ¼×¼±¸Ï´Ôè¡£<099>;#untic xzaa;xzaa} {2};
+#tic {xzaa} {#show <afa>å¼€å§‹å‡†å¤‡æ´—æ¾¡ã€‚<099>;#untic xzaa;xzaa} {2};
 
 #var xzaa 1;
 
@@ -14,7 +14,7 @@
     #elseif {$xzaa == 6} {gt bs};
 }};
 
-#act {^  µÖ´ïÄ¿µÄµØ ...$} {
+#act {^  æŠµè¾¾ç›®çš„åœ° ...$} {
   look;
   #if {$xzaa == 1} {
       #delay 1 {#var xzaa 2;
@@ -46,19 +46,19 @@
   #elseif {$xzaa == 5} {
      #delay 1 {#var xzaa 6;
       #delay 1 {
-        #showme ¡ıµÚÒ»´ÎÕÒµ½½úÑôÒ©ÆÌ£¬°´ÏÂÃæµÄÁ÷³Ì;
-        #showme ¡ıask hao about °ïÖú;
-       #showme ¡ıgive hao zi;ask hao about ½»¸öÅóÓÑ;
-        #showme ¡ıask hao about ¶ÀÃÅÃØ·½;
-       #showme ¡ıask hao ba about Ä¾Í°;
-       #showme ¡ıºóÃæÖ»ĞèÒªÒªÄ¾Í°,½»ÅóÓÑ1gold;
-      #delay 5 {e;s;s;e;e;s;ask hao ba about Ä¾Í°;
+        #showme â†“ç¬¬ä¸€æ¬¡æ‰¾åˆ°æ™‹é˜³è¯é“ºï¼ŒæŒ‰ä¸‹é¢çš„æµç¨‹;
+        #showme â†“ask hao about å¸®åŠ©;
+       #showme â†“give hao zi;ask hao about äº¤ä¸ªæœ‹å‹;
+        #showme â†“ask hao about ç‹¬é—¨ç§˜æ–¹;
+       #showme â†“ask hao ba about æœ¨æ¡¶;
+       #showme â†“åé¢åªéœ€è¦è¦æœ¨æ¡¶,äº¤æœ‹å‹1gold;
+      #delay 5 {e;s;s;e;e;s;ask hao ba about æœ¨æ¡¶;
       #delay 5 {n;w;w;n;n;w;
       #delay 5 {xzaa;
     }}}}}};
   #elseif {$xzaa == 6} {
       #delay 2 {
-         #showme {½øÈë¼ÒÀïºóÖ´ĞĞÏÂÁĞÖ¸Áî};
+         #showme {è¿›å…¥å®¶é‡Œåæ‰§è¡Œä¸‹åˆ—æŒ‡ä»¤};
          #showme {add zi;add pi;add gancao;do 3 add re shui};
         #showme {bath};xzx;
   }};

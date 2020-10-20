@@ -3,30 +3,30 @@
 #tic {tna} {tunaa} {77};
 #alias {tunaa} {tuna max};
 
-#act {ÄãÏÖÔÚ¾«Á¦½Ó½üÔ²Âú×´Ì¬¡£}{hpbrief;tuna 10};
+#act {ä½ çŽ°åœ¨ç²¾åŠ›æŽ¥è¿‘åœ†æ»¡çŠ¶æ€ã€‚}{hpbrief;tuna 10};
 
-#act {ÄãµÄ¾«Á¦ÉÏÏÞÔö¼ÓÁË£¡£¡}{hpbrief};
+#act {ä½ çš„ç²¾åŠ›ä¸Šé™å¢žåŠ äº†ï¼ï¼}{hpbrief};
 
-#act {ÄãµÄ¾«Á¦ÐÞÎªÒÑ¾­´ïµ½ÁËÆ¿¾±£¬¾«Á¦×î´óÖµÎª»ù±¾ÄÚ¹¦¼¼ÄÜµÄ15±¶¡£} {#untic tna;tnx;};
+#act {ä½ çš„ç²¾åŠ›ä¿®ä¸ºå·²ç»è¾¾åˆ°äº†ç“¶é¢ˆï¼Œç²¾åŠ›æœ€å¤§å€¼ä¸ºåŸºæœ¬å†…åŠŸæŠ€èƒ½çš„15å€ã€‚} {#untic tna;tnx;};
 
-#act {ÄãÍÂÄÉÍê±Ï} {tunaa};
+#act {ä½ åçº³å®Œæ¯•} {tunaa};
 
-#act {ÄãÏÖÔÚ¾«²»×ã£¬ÎÞ·¨ÐÞÐÐ¾«Á¦£¡} {exert regenerate;#delay 2 {tunaa}};
+#act {ä½ çŽ°åœ¨ç²¾ä¸è¶³ï¼Œæ— æ³•ä¿®è¡Œç²¾åŠ›ï¼} {exert regenerate;#delay 2 {tunaa}};
 
-#act {ÄãµÄÄÚÁ¦²»¹»} {sleep};
+#act {ä½ çš„å†…åŠ›ä¸å¤Ÿ} {sleep};
 
-#act {Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ý} {
+#act {ä½ åˆšåœ¨ä¸‰åˆ†é’Ÿå†…ç¡è¿‡} {
 #delay 15 {sleep};
 };
 
-#act {ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å¡£} {
+#act {ä½ ä¸€è§‰é†’æ¥ï¼Œç²¾ç¥žæŠ–æ“žåœ°æ´»åŠ¨äº†å‡ ä¸‹æ‰‹è„šã€‚} {
 #delay 1 {eat liang;
 #delay 1 {drink jiudai;
 #delay 1 {tunaa};
 }}};
 
-#act {ÄãÏÖÔÚ¾«ÑÏÖØ²»×ã£¬ÎÞ·¨Âú×ãÍÂÄÉ×îÐ¡ÒªÇó¡£}{exert regenerate;#delay 2 {tunaa}};
+#act {ä½ çŽ°åœ¨ç²¾ä¸¥é‡ä¸è¶³ï¼Œæ— æ³•æ»¡è¶³åçº³æœ€å°è¦æ±‚ã€‚}{exert regenerate;#delay 2 {tunaa}};
 
-#act {ÄãÏÖÔÚÉíÌå×´¿öÌ«²îÁË£¬ÎÞ·¨¼¯ÖÐ¾«Éñ£¡} {sleep};
+#act {ä½ çŽ°åœ¨èº«ä½“çŠ¶å†µå¤ªå·®äº†ï¼Œæ— æ³•é›†ä¸­ç²¾ç¥žï¼} {sleep};
 
 #class tna close;

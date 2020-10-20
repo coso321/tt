@@ -1,15 +1,15 @@
 #class lzba open;
 
-#nop sword¡¢blade¡¢whip¡¢staff¡¢dagger;
+#nop swordã€bladeã€whipã€staffã€dagger;
 #var wuqi3 sword;
 
-#act {^Äã%*Îä¹¦ÔÙ¸ßÒ²ÅÂ²Ëµ¶} {
+#act {^ä½ %*æ­¦åŠŸå†é«˜ä¹Ÿæ€•èœåˆ€} {
 sc;
 gt fds;
 #delay 5 {
-#if {"$mymenpai"=="Ø¤°ï"}
-{say ½µÁú´òÌìÏÂ};
-#elseif {"$mymenpai"=="ÌÒ»¨µº"}
+#if {"$mymenpai"=="ä¸å¸®"}
+{say é™é¾™æ‰“å¤©ä¸‹};
+#elseif {"$mymenpai"=="æ¡ƒèŠ±å²›"}
 {#2 {draw $wuqi3}};
 draw armor;
 draw head;

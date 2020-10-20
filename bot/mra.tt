@@ -5,19 +5,19 @@
 #alias  {mrd} {give pu xin};
 #alias  {mrf} {ask pu ren about fail};
 
-#act {ÆÍÈËÌ¾µÀ£º¼ÒÔôÄÑ·À£¬ÓĞÈËÍµ×ßÁËÉÙÒ¯µÄĞÅ¼ş£¬¾İ´«ÔøÔÚ¡º%1¡»¸½½ü³öÏÖ£¬ÄãÈ¥°ÑËüÕÒ»ØÀ´°É} {
-  #tic {mrq1} {#echo {%c%h} {light yellow} {Ä½ÈİĞÅ¼şÄ¿±êÔÚ%1´¦}} {15}};
+#act {ä»†äººå¹é“ï¼šå®¶è´¼éš¾é˜²ï¼Œæœ‰äººå·èµ°äº†å°‘çˆ·çš„ä¿¡ä»¶ï¼Œæ®ä¼ æ›¾åœ¨ã€%1ã€é™„è¿‘å‡ºç°ï¼Œä½ å»æŠŠå®ƒæ‰¾å›æ¥å§} {
+  #tic {mrq1} {#echo {%c%h} {light yellow} {æ…•å®¹ä¿¡ä»¶ç›®æ ‡åœ¨%1å¤„}} {15}};
 
-#act {%*Ä¿Ç°ÔÚ¡¾%1¡¿,¿ìÈ¥ŞôËÀËü°É!} {
+#act {%*ç›®å‰åœ¨ã€%1ã€‘,å¿«å»æ‘æ­»å®ƒå§!} {
   #tic {mrq2} {
-  #echo {%c%h} {light yellow} {Ä¿±êÕıÔÚ%1´¦} } {15}};
+  #echo {%c%h} {light yellow} {ç›®æ ‡æ­£åœ¨%1å¤„} } {15}};
 
-#act {%*·¢ÏÖµÄ%sÄ½ÈİÊÀ¼Ò¼ÒÔô(@capital{$myid}'s murong jiazei)} {wait;stopwalk;follow jiazei;jiali max;yun powerup;hit jiazei};
+#act {%*å‘ç°çš„%sæ…•å®¹ä¸–å®¶å®¶è´¼(@capital{$myid}'s murong jiazei)} {wait;stopwalk;follow jiazei;jiali max;yun powerup;hit jiazei};
 
-#act {Ä½ÈİÊÀ¼Ò¼ÒÔôËÀÁË¡£} {#delay 2 {get all from corpse}};
+#act {æ…•å®¹ä¸–å®¶å®¶è´¼æ­»äº†ã€‚} {#delay 2 {get all from corpse}};
 
-#act {ÓÉÓÚÄã³É¹¦µÄÕÒ»ØÄ½Èİ¸´Ğ´¸ø½­ºşºÀ½ÜµÄĞÅ¼ş} {#untic mrq1;#untic mrq2;mrx};
-#act {ÓÉÓÚÄãÃ»ÓĞÕÒ»ØÄ½Èİ¸´¶ªÊ§µÄĞÅ¼ş} {
+#act {ç”±äºä½ æˆåŠŸçš„æ‰¾å›æ…•å®¹å¤å†™ç»™æ±Ÿæ¹–è±ªæ°çš„ä¿¡ä»¶} {#untic mrq1;#untic mrq2;mrx};
+#act {ç”±äºä½ æ²¡æœ‰æ‰¾å›æ…•å®¹å¤ä¸¢å¤±çš„ä¿¡ä»¶} {
 #untic mrq1;#untic mrq2;mrx};
 
 

@@ -1,53 +1,53 @@
-#nop ==³£ÓÃaction==;
+#nop ==å¸¸ç”¨action==;
 
-#nop #act {1·ÖÖÓÄÚ»Ø´ğÒÔÏÂÎÊÌâ} {answer 1};
+#nop #act {1åˆ†é’Ÿå†…å›ç­”ä»¥ä¸‹é—®é¢˜} {answer 1};
 
 set wimpy 30;
-#act {Äã¶¯×÷ËÆºõ¿ªÊ¼ÓĞµã²»Ì«Áé¹â£¬µ«ÊÇÈÔÈ»ÓĞÌõ²»ÎÉ} {yun recover};
-#act {Äã¿´ÆğÀ´¿ÉÄÜÓĞĞ©ÀÛÁË} {yun recover};
-#act {ÄãËÆºõÊ®·ÖÆ£±¹£¬¿´À´ĞèÒªºÃºÃĞİÏ¢ÁË} {yun recover};
-#act {ÄãÆø´­ĞêĞê£¬¿´ÆğÀ´×´¿ö²¢²»Ì«ºÃ} {yun recover};
-#act {Äã¿´ÆğÀ´ÒÑ¾­Á¦²»´ÓĞÄÁË} {yun recover};
+#act {ä½ åŠ¨ä½œä¼¼ä¹å¼€å§‹æœ‰ç‚¹ä¸å¤ªçµå…‰ï¼Œä½†æ˜¯ä»ç„¶æœ‰æ¡ä¸ç´Š} {yun recover};
+#act {ä½ çœ‹èµ·æ¥å¯èƒ½æœ‰äº›ç´¯äº†} {yun recover};
+#act {ä½ ä¼¼ä¹ååˆ†ç–²æƒ«ï¼Œçœ‹æ¥éœ€è¦å¥½å¥½ä¼‘æ¯äº†} {yun recover};
+#act {ä½ æ°”å–˜å˜˜å˜˜ï¼Œçœ‹èµ·æ¥çŠ¶å†µå¹¶ä¸å¤ªå¥½} {yun recover};
+#act {ä½ çœ‹èµ·æ¥å·²ç»åŠ›ä¸ä»å¿ƒäº†} {yun recover};
 
-#act {^ÄãÓĞºÜ³¤Ò»¶ÎÊ±¼äÃ»ÓĞ±¸·İµµ°¸ÁË} {backup};
+#act {^ä½ æœ‰å¾ˆé•¿ä¸€æ®µæ—¶é—´æ²¡æœ‰å¤‡ä»½æ¡£æ¡ˆäº†} {backup};
 
-#act {^µõÇÅ»¹Ã»ÓĞÉıÆğÀ´£¬Äã¾ÍÕâÑù×ßÁË£¬¿ÉÄÜ»á¸øÍâµĞ¿É³ËÖ®»úµÄ¡£$} {sheng bridge};
+#act {^åŠæ¡¥è¿˜æ²¡æœ‰å‡èµ·æ¥ï¼Œä½ å°±è¿™æ ·èµ°äº†ï¼Œå¯èƒ½ä¼šç»™å¤–æ•Œå¯ä¹˜ä¹‹æœºçš„ã€‚$} {sheng bridge};
 
-#act {^ÄãÄÃ³öÒ»Á½»Æ½ğ(Gold)¸øÇ®ÀÏ±¾¡£$} {ask qian about ½ø¹¬};
+#act {^ä½ æ‹¿å‡ºä¸€ä¸¤é»„é‡‘(Gold)ç»™é’±è€æœ¬ã€‚$} {ask qian about è¿›å®«};
 
-#act {^Äã±ØĞëÏÈ°ÑÄ¾ÃÅ´ò¿ª£¡$} {open door};
+#act {^ä½ å¿…é¡»å…ˆæŠŠæœ¨é—¨æ‰“å¼€ï¼$} {open door};
 
-#act {^ÄãÔÚÕâÀïÕÒµ½ÁËÒ»±¾Îä¹¦ĞÄµÃ¡£$} {kan xinde};
+#act {^ä½ åœ¨è¿™é‡Œæ‰¾åˆ°äº†ä¸€æœ¬æ­¦åŠŸå¿ƒå¾—ã€‚$} {kan xinde};
 
-#act {^ÄãÕÒµ½ÁËÒ»Ğ©Ææ¹ÖµÄÏßË÷¡£$} {mess clue};
+#act {^ä½ æ‰¾åˆ°äº†ä¸€äº›å¥‡æ€ªçš„çº¿ç´¢ã€‚$} {mess clue};
 
-#nop #act {^Äã¸Ğ¾õĞÄÖĞµÄÉ±Æø½¥½¥ÏûÊ§} {#delay 1 {chanhui}};
+#nop #act {^ä½ æ„Ÿè§‰å¿ƒä¸­çš„æ€æ°”æ¸æ¸æ¶ˆå¤±} {#delay 1 {chanhui}};
 
-#act {^%sÖĞÄêÅ®Ó¶(Nvyong)} {ask nvyong about ¹ù´óÏÀ};
+#act {^%sä¸­å¹´å¥³ä½£(Nvyong)} {ask nvyong about éƒ­å¤§ä¾ };
 
-#act {^ %*ÎÄÍ­°å(Coin)$} {wait;get coin};
-#act {^ %*Á½°×Òø(Silver)$} {wait;get silver};
-#act {^ %*Á½»Æ½ğ(Gold)$} {wait;get gold};
-#act {^ %*ÒøÆ±(Cash)$} {wait;get cash};
+#act {^ %*æ–‡é“œæ¿(Coin)$} {wait;get coin};
+#act {^ %*ä¸¤ç™½é“¶(Silver)$} {wait;get silver};
+#act {^ %*ä¸¤é»„é‡‘(Gold)$} {wait;get gold};
+#act {^ %*é“¶ç¥¨(Cash)$} {wait;get cash};
 
-#act {^Äã´Ó%*{ËÑ³ö|ÄÃ³ö}Ò»±ú³¤½£¡£$} {drop changjian};
+#act {^ä½ ä»%*{æœå‡º|æ‹¿å‡º}ä¸€æŸ„é•¿å‰‘ã€‚$} {drop changjian};
 
-#nop #act {^Äã´Ó%*{ËÑ³ö|ÄÃ³ö}Ò»±ú³¤±Ş¡£$} {drop whip};
+#nop #act {^ä½ ä»%*{æœå‡º|æ‹¿å‡º}ä¸€æŸ„é•¿é­ã€‚$} {drop whip};
 
-#act {^Äã´Ó%*{³ıÏÂ|ÄÃ³ö|ËÑ³ö}Ò»¼ş²¼ÒÂ¡£$} {drop cloth};
+#act {^ä½ ä»%*{é™¤ä¸‹|æ‹¿å‡º|æœå‡º}ä¸€ä»¶å¸ƒè¡£ã€‚$} {drop cloth};
 
-#act {^Äã´Ó%*{ËÑ³ö|ÄÃ³ö}Ò»Ö»ÌúÂÖ¡£$} {drop falun};
+#act {^ä½ ä»%*{æœå‡º|æ‹¿å‡º}ä¸€åªé“è½®ã€‚$} {drop falun};
 
-#act {^ÎÀÊ¿¶ÔÄã´óºğÒ»Éù£ºÕ¾×¡£¬¸ÉÊ²Ã´µÄ£¿(answer)} {answer ËÍĞÅ};
+#act {^å«å£«å¯¹ä½ å¤§å¼ä¸€å£°ï¼šç«™ä½ï¼Œå¹²ä»€ä¹ˆçš„ï¼Ÿ(answer)} {answer é€ä¿¡};
 
-#act {^Ä¿Ç°È¨ÏŞ} {#delay 1 {hpbrief;sc}};
+#act {^ç›®å‰æƒé™} {#delay 1 {hpbrief;sc}};
 
-#act {^ÖØĞÂÁ¬ÏßÍê±Ï} {#delay 1 {hp;sc}};
-
-
+#act {^é‡æ–°è¿çº¿å®Œæ¯•} {#delay 1 {hp;sc}};
 
 
-#nop slink²é¿´mxpÁ´½Ó£¬termuxµ÷ÓÃä¯ÀÀÆ÷mxp;
+
+
+#nop slinkæŸ¥çœ‹mxpé“¾æ¥ï¼Œtermuxè°ƒç”¨æµè§ˆå™¨mxp;
 #alias {mxp} {#sys termux-open-url $link};
 #act {^http://pkuxkx.net/antirobot/robot.php?filename=%1}
 {

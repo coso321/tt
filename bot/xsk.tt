@@ -1,6 +1,6 @@
 #class xsk open;
 
-#act {Äã%*Ø¤°ïµÜ×ÓÏòÊ¦¸µÇó½Ì} {
+#act {ä½ %*ä¸å¸®å¼Ÿå­å‘å¸ˆå‚…æ±‚æ•™} {
     xue $shifu for begging 1;
     xue $shifu for stealing 1;
     xue $shifu for force 1;
@@ -24,7 +24,7 @@
     bei shexing-shou;
     #class xsk kill;
 };
-#act {Äã%*ÌÒ»¨µÜ×ÓÏòÊ¦¸µÇó½Ì} {
+#act {ä½ %*æ¡ƒèŠ±å¼Ÿå­å‘å¸ˆå‚…æ±‚æ•™} {
     xue $shifu for force 1;
     xue $shifu for dodge 1;
     xue $shifu for parry 1;
