@@ -31,6 +31,12 @@
         #delay 1 {drink jiudai;
         #delay 1 {skaa;
     }}}}};
+  #elseif {"$mymenpai"=="武当派"} {
+        #delay 1 {w;w;
+        #delay 2 {eat liang;
+        #delay 1 {drink jiudai;
+        #delay 1 {skaa;
+    }}}}};
    #else {
           eat liang;
          #delay 1 {drink jiudai;
@@ -41,6 +47,10 @@
 #act {^这里不是你能睡的地方！} {
    #if {"$mymenpai"=="桃花岛"} {
         #delay 1 {e;e;n;e;
+        #delay 2 {sleep;
+   }}};
+   #elseif {"$mymenpai"=="武当派"} {
+        #delay 1 {e;e
         #delay 2 {sleep;
    }}};
    #else {
