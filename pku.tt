@@ -2,5 +2,3 @@
 #nop #event {SCREEN RESIZE} {#split};
 #split;
 #ses pku mud.pkuxkx.net 8080
-2;
-

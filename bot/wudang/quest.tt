@@ -1,9 +1,5 @@
 #class wdquest open;
 
-#re bot/wudang/zhenfa.tt;
-#re bot/wudang/liandan.tt;
-#re bot/wudang/songjing.tt;
-
 #alias {AQ} {ask-quest};
 #alias {ask-quest} {
     ask chongxu about quest;
@@ -20,10 +16,12 @@
 };
 
 #alias {goto-liandan} {
+    #re bot/wudang/liandan.tt;
     liandan-start;
 };
 
 #alias {goto-zhenfa} {
+    #re bot/wudang/zhenfa.tt;
     zhenfa-start;
 };
 
@@ -32,6 +30,7 @@
 };
 
 #alias {goto-songjing} {
+    #re bot/wudang/songjing.tt;
     songjing.start {%1} {%2} {%3};
 }
 

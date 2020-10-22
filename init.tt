@@ -31,3 +31,7 @@
 #echo {%c%h} {light green} {【自定义命令帮助指令omg】};
 #echo {%c%h} {light green} {【逍遥行指令gt】};
 #echo {%c%h} {light yellow};
+#echo {};
+#echo {};
+
+lusers;
