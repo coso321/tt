@@ -2,6 +2,7 @@
 
 #re bot/wudang/zhenfa.tt;
 #re bot/wudang/liandan.tt;
+#re bot/wudang/songjing.tt;
 
 #alias {AQ} {ask-quest};
 #alias {ask-quest} {

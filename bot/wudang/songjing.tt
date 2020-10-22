@@ -1,7 +1,7 @@
 #class songjing open;
 #var {songjing.after-handler} {ask-quest};
 
-#alias {songjing-start} {
+#alias {songjing.start} {
     #var location %1;
     #var book %2;
     #regexp %3 {%!*·%!*·%*(%*)} {
@@ -20,13 +20,12 @@
 };
     
 #alias findpage {
+    #var page 1;
     #class findpage open;
-        #var page 1;
         #action {~^\e[0m\e[1;32m%%1(%%2)\e[0m} {
             #regexp %%1 $chapter {
                 #if {%%2 == ${chapter.page}} {
-                    chantpage $page;
-                    #class findpage kill;
+                    #delay 1 chantpage $page;
                 };
                 #else {
                     #math page {$page - (%%2 - ${chapter.page})};
@@ -42,16 +41,18 @@
 };
     
 #alias chantpage {
-    #class chantpage open;
     #var line {};
-    #action {^==%!{\ +}{[^ ]+}%!{\ +}==$} {
-        #showme line match;
-        #var line ${line}%%1;
-        #showme $line;
-    };
+    #class findpage kill;
+    #class chantpage open;
+        #action {^==%!{\ +}{[^ ]+}%!{\ +}==$} {
+            #var line ${line}%%1;
+        };
     #class chantpage close;
     page %1;
-    chanting %1 $line; 
+    #delay 3 {
+        #showme chanting %1 $line;
+        chanting %1 $line; 
+    };
 };
 
 #action {$myname拿起了%*慢慢的诵唱：} {
@@ -61,10 +62,12 @@
 #action {你做完了冲虚道长布置的功课，可以回去向他要奖赏了。} {
     #map run 复真观二层;
     give jing to zhike;
-    #map run 武当广场;
-    success-quest;
-    ${songjing.after-handler};
-    #delay 4 {#class songjing kill};
+    #delay 3 {
+        #map run 武当广场;
+        success-quest;
+        ${songjing.after-handler};
+        #delay 4 {#class songjing kill};
+    };
 }
      
 #class songjing close;
