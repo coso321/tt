@@ -48,11 +48,10 @@
         #class waitfor-chongxu-answer kill;
         goto-zhenfa;
     };
+
     #action {冲虚道长说道：「%*要在%%1熟读典籍，据说要诵唱%%2的%%3$} {
         #class waitfor-chongxu-answer kill;
-        #nop goto-songjing {%%1} {%%2} {%%3};
-        cancel-quest;
-        ask-quest;
+        goto-songjing {%%1} {%%2} {%%3};
     };
     #action {冲虚道长说道：「道家炼气最讲究时辰和地点} {
         #class waitfor-chongxu-answer kill;

@@ -1,69 +1,70 @@
+#class songjing open;
 #var {songjing.after-handler} {ask-quest};
 
 #alias {songjing-start} {
-    #if {"%1" != ""} {
-        #var {songjing.after-handler} %1;
+    #var location %1;
+    #var book %2;
+    #regexp %3 {%!*·%!*·%*(%*)} {
+        #var chapter &1;
+        #var chapter.page &2;
     };
-    east;
+    getbook;
 };
 
-#action {房间中已经有人在演习阵法，请等对方演习结束再进去吧} {
-    #delay 1 east;
+
+#alias getbook {
+    #map run 复真观二层;
+    jie $book; 
+    #map run $location;
+    findpage;
 };
-
-#var {zhenfa.type} {};
-#var {zhenfa.zouwei} {};
-
-#action {这是大石板铺地的广场一角，是武当弟子学习武功和演习阵法(zhenfa)的地点} {
-    zhenfa;
+    
+#alias findpage {
+    #class findpage open;
+        #var page 1;
+        #action {~^\e[0m\e[1;32m%%1(%%2)\e[0m} {
+            #regexp %%1 $chapter {
+                #if {%%2 == ${chapter.page}} {
+                    chantpage $page;
+                    #class findpage kill;
+                };
+                #else {
+                    #math page {$page - (%%2 - ${chapter.page})};
+                    page $page;
+                };
+            } {
+                #math page $page+10;
+                page $page;
+            };
+        };
+    #class findpage close;
+    page 1;
 };
-
-#action {放驴娃一会儿站在%1位} {
-    #var {zhenfa.zouwei} %1;
-    zouwei ${zhenfa.zouwei};
-};
-
-#action {按照『%1』的要求往下走一步} {
-    #var {zhenfa.type} %1;
-    #if { "${zhenfa.type}" == "正五行阵" } {
-        #if { "${zhenfa.zouwei}" == "金" } {
-            #var {zhenfa.zouwei} 水; zouwei 水;
-        };
-        #elseif { "${zhenfa.zouwei}" == "水" } {
-            #var {zhenfa.zouwei} 木; zouwei 木;
-        };
-        #elseif { "${zhenfa.zouwei}" == "木" } {
-            #var {zhenfa.zouwei} 火; zouwei 火;
-        };
-        #elseif { "${zhenfa.zouwei}" == "火" } {
-            #var {zhenfa.zouwei} 土; zouwei 土;
-        };
-        #elseif { "${zhenfa.zouwei}" == "土" } {
-            #var {zhenfa.zouwei} 金; zouwei 金;
-        };
+    
+#alias chantpage {
+    #class chantpage open;
+    #var line {};
+    #action {^==%!{\ +}{[^ ]+}%!{\ +}==$} {
+        #showme line match;
+        #var line ${line}%%1;
+        #showme $line;
     };
-    #elseif { "${zhenfa.type}" == "反五行阵" } {
-        #if { "${zhenfa.zouwei}" == "金" } {
-            #var {zhenfa.zouwei} 木; zouwei 木;
-        };
-        #elseif { "${zhenfa.zouwei}" == "木" } {
-            #var {zhenfa.zouwei} 土; zouwei 土;
-        };
-        #elseif { "${zhenfa.zouwei}" == "土" } {
-            #var {zhenfa.zouwei} 水; zouwei 水;
-        };
-        #elseif { "${zhenfa.zouwei}" == "水" } {
-            #var {zhenfa.zouwei} 火; zouwei 火;
-        };
-        #elseif { "${zhenfa.zouwei}" == "火" } {
-            #var {zhenfa.zouwei} 金; zouwei 金;
-        };
-    };
+    #class chantpage close;
+    page %1;
+    chanting %1 $line; 
 };
 
-#action {五行阵演练到此结束} {
-    west;
+#action {$myname拿起了%*慢慢的诵唱：} {
+    #class chantpage kill;
+}; 
+
+#action {你做完了冲虚道长布置的功课，可以回去向他要奖赏了。} {
+    #map run 复真观二层;
+    give jing to zhike;
+    #map run 武当广场;
     success-quest;
-    ${zhenfa.after-handler};
-    #delay 4 {#class {quest-zhenfa} kill};
-};
+    ${songjing.after-handler};
+    #delay 4 {#class songjing kill};
+}
+     
+#class songjing close;

@@ -1,6 +1,4 @@
 #class mapper open;
-#split 16 1;
-#map flag vtmap on;
 
 #var areaname {}; 
 
@@ -20,11 +18,31 @@
     %1;
 }
 
+#alias loadmap {
+    #class getmapname open;
+    #action {~\e[1;32m%%1\e[2;37;0m} {
+        #map goto %%1;
+        #map info;
+        #class getmapname kill;
+    };
+    #class getmapname close;
+    #map read map.tt;
+    #map goto 1;
+    #split 16 1;
+    #map flag vtmap on;
+    l;
+}
+    
 #alias map {
+    #if {$areaname == {}} {
+        #showme 当前地区为空;
+    };
     getmapname %1;
 };
 
-#alias savemap {#map write map.tt;}
+#alias savemap {#map write map.tt;};
+
+#alias run {#map run %1;};
 
 #class mapper close;
 

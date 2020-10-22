@@ -42,7 +42,7 @@ set wimpy 30;
 
 #act {^目前权限} {#delay 1 {hpbrief;sc}};
 
-#act {^重新连线完毕} {#delay 1 {hp;sc}};
+#act {^重新连线完毕} {#delay 1 {hp;sc}; loadmap};
 
 
 
@@ -54,6 +54,7 @@ set wimpy 30;
 	#var link {http://fullme.pkuxkx.net/robot.php?filename=%1};
   #nop mxp;
   	#system sh bot/fullme.sh $link;
+  	#split;
 };
 
 #act {^http://fullme.pkuxkx.com/robot.php?filename=%1}
@@ -61,5 +62,6 @@ set wimpy 30;
 	#var link {http://fullme.pkuxkx.com/robot.php?filename=%1};
   #nop mxp;
   	#system sh bot/fullme.sh $link;
+  	#split;
 };
 
