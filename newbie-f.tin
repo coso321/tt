@@ -246,7 +246,7 @@
 #action {你一觉醒来，精神抖擞地活动了几下手脚。} {
     #delay {3} {
         #if {$newbiesk == 2} {
-            e;ask you kunyi about 闯荡江湖;
+            w;ask you kunyi about 闯荡江湖;
         };
 
         #if {$newbiesk == 1} {
@@ -319,15 +319,17 @@
     #var newbiesk 4;
 }
 
-#action {把学到的功夫都激发起来吧！} {
-    sleep;#var newbiesk 3;
-}
-
 #action {趁热打铁去练习一级太乙剑法，一定能有收获的。} {
     #var newbiesk 1;
     s;e;
     lian sword 1
 };
+
+#action {慢慢地你终于又有了知觉....} {
+    #if {$newbiesk == 1} {
+    	#delay 2 {s;e;lian sword 1}
+    }
+}
 
 #action {你试着练习太乙神剑，获得了少许进步！} {
     lian sword 1;
@@ -341,7 +343,7 @@
 
 #action {你握了握手中的剑，感觉自己有点功夫了，去找找游鲲翼，再向他打听闯荡江湖的事！} {
     #delay {2} {
-        e;
+        w;
         ask you kunyi about 闯荡江湖;
     };
 };
@@ -433,6 +435,20 @@
     };
 };
 
+#action {恭喜你，游庄主成功为你改善先天资质！} {
+    chat* bye you;
+    s;
+    l paizi;
+    gu;
+    qu 扬州;
+    qu 扬州;
+};
+
+#action {大车停稳了下来，你可以下车(xia)了。} {
+    xia;
+    lzba; 
+};
+
 #action {你刚在三分钟内睡过一觉} {
     #delay {15} sleep;
 };
@@ -441,7 +457,7 @@
 
 #action {你怎么乱跑没跟着我呢，我先回正厅去了，你过来重新跟随我吧！} {
     #delay {2} {
-        e;
+        w;
         #delay {10} {
             follow a shu;
         };

@@ -7,10 +7,11 @@
     #showme {<efa>逍遥行使用方法:sethere {起点缩写};gt {目的地缩写};gt 帮助;};
     #showme {<efa>pg/pb 自动记录/返回路径};
     #showme {<efa>lzba 扬州自动领新手装备};
+    #showme {<efa>sda/sdx 捡垃圾};
     #showme {<efa>dea 扬州自动买吃喝};
-   #showme {<efa>tna/tnx 自动吐纳};
+    #showme {<efa>tna/tnx 自动吐纳};
     #showme {<efa>dza/dzx 自动打坐};
-   #echo {%c%h} {light green};
+    #echo {%c%h} {light green};
 }; 
 #nop 常用别名;
 #alias {zisha} {suicide -f};

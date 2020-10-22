@@ -1,6 +1,6 @@
 #! /bin/bash
 
-termux=$(which termmux-open-url)
+termux=$(which termux-open-url)
 
 if [ -z $termux ]; then
 	browser=links2

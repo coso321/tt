@@ -1,0 +1,32 @@
+#class wudang open;
+
+#var myname 查看status_me获取人名
+
+#alias getname {
+    #nop 　姓名：　慕容凝玉    　ＩＤ：　Yukiho      　级别：　零          　战斗力：　2870;
+    #class getname open;
+    #action {^　姓名：　%%1%s　ＩＤ} {
+        setname %%1;
+    };
+    #class getname close;
+    status_me;
+};
+
+#alias setname {
+    #var myname %1;
+    #showme 角色名称：$myname;
+    #class getname kill;
+};
+
+#alias wdquest {
+    getname;
+    #re bot/wudang/quest.tt;
+    AQ;
+};
+
+#alias wdquestx {
+    #class wdquest kill;
+};
+
+#class wudang close;
+

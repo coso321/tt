@@ -1,0 +1,30 @@
+#class mapper open;
+#split 16 1;
+#map flag vtmap on;
+
+#var areaname {}; 
+
+#alias setarea {
+    #var areaname %1;
+};
+
+#alias getmapname {
+    #class getmapname open;
+    #action {~\e[1;32m%%1\e[2;37;0m} {
+        #map set roomname %%1;
+        #map set roomarea $areaname;
+        #map info;
+        #class getmapname kill;
+    }
+    #class getmapname close;
+    %1;
+}
+
+#alias map {
+    getmapname %1;
+};
+
+#alias savemap {#map write map.tt;}
+
+#class mapper close;
+

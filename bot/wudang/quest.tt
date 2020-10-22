@@ -1,0 +1,77 @@
+#class wdquest open;
+
+#re bot/wudang/zhenfa.tt;
+#re bot/wudang/liandan.tt;
+
+#alias {AQ} {ask-quest};
+#alias {ask-quest} {
+    ask chongxu about quest;
+};
+
+#alias {CQ} {cancel-quest};
+#alias {cancel-quest} {
+    ask chongxu about cancel;
+};
+
+#alias {SQ} {success-quest};
+#alias {success-quest} {
+    ask chongxu about success;
+};
+
+#alias {goto-liandan} {
+    liandan-start;
+};
+
+#alias {goto-zhenfa} {
+    zhenfa-start;
+};
+
+#alias {goto-caiqi} {
+    caiqi.start;
+};
+
+#alias {goto-songjing} {
+    songjing.start {%1} {%2} {%3};
+}
+
+#action {冲虚道长说道：「我看你是机器人吧！」} {
+    #class wdquest kill;
+}
+
+#action {你向冲虚道长打听有关『quest』的消息。$} {
+    #class waitfor-chongxu-answer open;
+    #action {冲虚道长说道：「武当三侠最近迷上了炼丹} {
+        #class waitfor-chongxu-answer kill;
+        goto-liandan;
+    };
+    #action {冲虚道长说道：「武当派以真武七截阵闻名天下} {
+        #class waitfor-chongxu-answer kill;
+        goto-zhenfa;
+    };
+    #action {冲虚道长说道：「%*要在%%1熟读典籍，据说要诵唱%%2的%%3$} {
+        #class waitfor-chongxu-answer kill;
+        #nop goto-songjing {%%1} {%%2} {%%3};
+        cancel-quest;
+        ask-quest;
+    };
+    #action {冲虚道长说道：「道家炼气最讲究时辰和地点} {
+        #class waitfor-chongxu-answer kill;
+        #nop goto-caiqi;
+        cancel-quest;
+    };
+    #action {冲虚道长说道：「现在还没有新的工作可以分配给你} {
+        #class waitfor-chongxu-answer kill;
+        #delay 15 ask-quest;
+    };
+    #action {冲虚道长说道：「道兄还有任务在身} {
+        #class waitfor-chongxu-answer kill;
+    };
+    #action {冲虚道长说道：「} {
+        #class waitfor-chongxu-answer kill;
+        cancel-quest;
+        ask-quest;
+    }{10};
+    #class waitfor-chongxu-answer close;
+};
+
+#class wdquest close;
