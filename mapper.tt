@@ -1,5 +1,7 @@
 #class mapper open;
 
+#map read map.tt;
+
 #var areaname {}; 
 
 #alias setarea {
@@ -26,7 +28,6 @@
         #class getmapname kill;
     };
     #class getmapname close;
-    #map read map.tt;
     #map goto 1;
     #split 16 1;
     #map flag vtmap on;
@@ -34,15 +35,77 @@
 }
     
 #alias map {
-    #if {$areaname == {}} {
-        #showme 当前地区为空;
-    };
+    #regexp $areaname {{.+}} { #showme 当前地区：$areaname } {#showme 当前地区为空}; 
     getmapname %1;
 };
+
+#alias mi {#map info};
+#alias mm {#map move %1; mi};
 
 #alias savemap {#map write map.tt;};
 
 #alias run {#map run %1;};
+
+#alias mazeexit {
+    
+    #map exit %1 command {
+        #class mazewalk open;
+        #var fromdir[north] south;
+        #var fromdir[west] east;
+        #var fromdir[east] west;
+        #var fromdir[south] north;
+        #var fromdir[up] down;
+        #var fromdir[down] up;
+        #var fromdir[northup] southdown;
+        #var fromdir[westup] eastdown;
+        #var fromdir[eastup] westdown;
+        #var fromdir[southup] northdown;
+        #var fromdir[northdown] southup;
+        #var fromdir[westdown] eastup;
+        #var fromdir[eastdown] westup;
+        #var fromdir[southdown] northup;
+        #var fromdir[southeast] northwest;
+        #var fromdir[northwest] southeast;
+        #var fromdir[southwest] northeast;
+        #var fromdir[northeast] southwest;
+        #var lastdir %2;
+        #var found 0;
+            #action {你逃跑失败。} {
+                #delay 1 lastdir;
+            } 1;
+            #action {%3} {
+                #showme matched;
+                #var found 1;
+                #map flag nofollow off;
+                #class mazewalk kill;
+            } 2;
+            #action {这里明显的方向有 %%1、%%2 和 %%3。} {
+                #showme %%1 %%2 %%3;
+                #var found 1;
+                #map flag nofollow off;
+                #class mazewalk kill;
+            } 3;
+            #action {这里明显的方向有 %%1 和 %%2。} {
+                #if {$found == 0} {
+                    #regex %%1 {$fromdir[$lastdir]} {
+                        #showme going %%2;
+                        #var lastdir %%2;
+                        #delay 1 %%2;
+                    } {
+                        #showme going %%1;
+                        #var lastdir %%1;
+                        #delay 1 %%1;
+                    };
+                };
+            };
+        #class mazewalk close;
+        #map flag nofollow on;
+        set brief 1;
+        #delay 1 {
+            %1;
+        }; 
+    };
+};
 
 #class mapper close;
 

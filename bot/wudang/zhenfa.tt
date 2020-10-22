@@ -4,6 +4,11 @@
     #if {"%1" != ""} {
         #var {zhenfa.after-handler} %1;
     };
+    #class zhenfastart open;
+    #action {~\e[1;32m%%1\e[2;37;0m} {
+        zhenfa;
+    };
+    #class zhenfastart close;
     zouwei.setname;
     east;
 };
@@ -15,12 +20,9 @@
 #var {zhenfa.type} {};
 #var {zhenfa.zouwei} {};
 
-#action {这是大石板铺地的广场一角，是武当弟子学习武功和演习阵法(zhenfa)的地点} {
-    zhenfa;
-};
-
 #alias zouwei.setname {
     #action {${myname}一会儿站在%%1位} {
+        #class zhenfastart kill;
         #var {zhenfa.zouwei} %%1;
         zouwei ${zhenfa.zouwei};
     };

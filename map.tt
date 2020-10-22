@@ -8,7 +8,7 @@ CB
 
 F 10
 
-I 34
+I 48
 
 L ▪ ╹ ╺ ┗ ╻ ┃ ┏ ┣ ╸ ┛ ━ ┻ ┓ ┫ ┳ ╋ X
 
@@ -36,6 +36,7 @@ E {    7} {e} {e} {2} {0} {} {1.000}
 E {    8} {se} {se} {6} {0} {} {1.000}
 E {    1} {nw} {nw} {9} {0} {} {1.000}
 E {    2} {n} {n} {1} {0} {} {1.000}
+E {   35} {sd} {n;ask song about 下山;s;sd} {36} {0} {} {1.000}
 
 R {    5} {0} {} {小校场} { } {} {武当} {} {} {} {1.000}
 E {    4} {ne} {ne} {3} {0} {} {1.000}
@@ -157,3 +158,58 @@ E {   32} {e} {e} {2} {0} {} {1.000}
 
 R {   34} {0} {} {后门} { } {} {武当} {} {} {} {1.000}
 E {   26} {s} {s} {4} {0} {} {1.000}
+
+R {   35} {0} {} {紫霄宫} { } {} {武当} {} {} {} {1.000}
+E {    4} {nu} {nu} {17} {0} {} {1.000}
+E {   36} {eu} {eu} {18} {0} {} {1.000}
+
+R {   36} {0} {} {石阶} { } {} {武当} {} {} {} {1.000}
+E {   35} {wd} {wd} {40} {0} {} {1.000}
+E {   37} {e} {e} {2} {0} {} {1.000}
+
+R {   37} {0} {} {石阶} { } {} {武当} {} {} {} {1.000}
+E {   36} {w} {w} {8} {0} {} {1.000}
+E {   38} {e} {e} {2} {0} {} {1.000}
+
+R {   38} {0} {} {石阶} { } {} {武当} {} {} {} {1.000}
+E {   37} {w} {w} {8} {0} {} {1.000}
+E {   39} {e} {e} {2} {0} {} {1.000}
+
+R {   39} {0} {} {石阶} { } {} {武当} {} {} {} {1.000}
+E {   38} {w} {w} {8} {0} {} {1.000}
+E {   40} {eu} {eu} {18} {0} {} {1.000}
+
+R {   40} {0} {} {石阶} { } {} {武当} {} {} {} {1.000}
+E {   39} {wd} {wd} {40} {0} {} {1.000}
+E {   41} {eu} {eu} {18} {0} {} {1.000}
+
+R {   41} {0} {} {石阶} { } {} {武当} {} {} {} {1.000}
+E {   40} {wd} {wd} {40} {0} {} {1.000}
+E {   42} {eu} {eu} {18} {0} {} {1.000}
+
+R {   42} {0} {} {石阶} { } {} {武当} {} {} {} {1.000}
+E {   41} {wd} {wd} {40} {0} {} {1.000}
+E {   43} {e} {e} {2} {0} {} {1.000}
+
+R {   43} {0} {} {石阶} { } {} {武当} {} {} {} {1.000}
+E {   42} {w} {w} {8} {0} {} {1.000}
+E {   44} {e} {e} {2} {0} {} {1.000}
+
+R {   44} {0} {} {石阶} { } {} {武当} {} {} {} {1.000}
+E {   43} {w} {w} {8} {0} {} {1.000}
+E {   45} {e} {e} {2} {0} {} {1.000}
+
+R {   45} {0} {} {石阶} { } {} {武当} {} {} {} {1.000}
+E {   44} {w} {w} {8} {0} {} {1.000}
+E {   46} {eu} {eu} {18} {0} {} {1.000}
+
+R {   46} {0} {} {太子岩} { } {} {武当} {} {} {} {1.000}
+E {   45} {wd} {wd} {40} {0} {} {1.000}
+E {   47} {eu} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir e;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {你可以看看(look):lupai} {#showme matched;#var found 1;#map flag nofollow off;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme %1 %2 %3;#var found 1;#map flag nofollow off;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;#delay 1 %2;} {#showme going %1;#var lastdir %1;#delay 1 %1;};};};#class mazewalk close;#map flag nofollow on;set brief 1;#delay 1 {eu;};} {18} {0} {} {1.000}
+
+R {   47} {0} {} {石阶} { } {} {武当} {} {} {} {1.000}
+E {   46} {se} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir southeast;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {^太子岩} {#showme matched;#var found 1;#map flag nofollow off;#class mazewalk kill;} 2;#nop #action {这里明显的方向有 %1、%2 和 %3。} {#nop     #showme %1 %2 %3;#nop     #var found 1;#nop     #map flag nofollow off;#nop     #class mazewalk kill;#nop } 3;#action {这里明显的方向有 %1 和 %2。} {#showme %1 %2;#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;#delay 1 %2;} {#showme going %1;#var lastdir %1;#delay 1 %1;};};};#class mazewalk close;#map flag nofollow on;set brief 1;#delay 1 {se;};} {6} {0} {} {1.000}
+E {   48} {nu} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir northup;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {^雷神洞} {#showme matched;#var found 1;#map flag nofollow off;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme %1 %2 %3;#var found 1;#map flag nofollow off;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;#delay 1 %2;} {#showme going %1;#var lastdir %1;#delay 1 %1;};};};#class mazewalk close;#map flag nofollow on;set brief 1;#delay 1 {nu;};} {17} {0} {} {1.000}
+
+R {   48} {0} {} {} { } {} {} {} {} {} {1.000}
+E {   47} {sd} {sd} {36} {0} {} {1.000}
