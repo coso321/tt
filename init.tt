@@ -5,7 +5,6 @@
 #re goto.tt;
 #re emote.tt;
 #re colorpad.tt;
-#re mapper.tt;
 #re users.tt;
 
 #nop 断线事件;

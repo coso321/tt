@@ -18,7 +18,7 @@
     }
     #class getmapname close;
     %1;
-}
+};
 
 #alias loadmap {
     #class getmapname open;
@@ -32,7 +32,11 @@
     #split 16 1;
     #map flag vtmap on;
     l;
-}
+};
+
+#alias mapnof { #map flag nofollow on; };
+#alias mapf { #map flag nofollow off; };
+
     
 #alias map {
     #regexp $areaname {{.+}} { #showme 当前地区：$areaname } {#showme 当前地区为空}; 

@@ -42,7 +42,7 @@ set wimpy 30;
 
 #act {^目前权限} {#delay 1 {hpbrief;sc}};
 
-#act {^重新连线完毕} {#delay 1 {hp;sc}; loadmap};
+#act {^重新连线完毕} {#delay 1 {hp;sc}; #re mapper.tt; loadmap};
 
 
 
