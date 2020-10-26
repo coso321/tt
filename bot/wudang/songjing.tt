@@ -7,24 +7,72 @@
     #regexp %3 {%!*·%!*·%*(%*)} {
         #var chapter &1;
         #var chapter.page &2;
-    };
+    } {
+        #regexp %3 {%*(%*)} {
+            #showme <fca> 章节：%3;
+            #var chapter &1;
+            #var chapter.page &2;
+        } {
+            #var chapter %3;
+            #var chapter.page 0;
+        };
+    }
     getbook;
 };
 
 
+#action {任务诵经任务要求你拿着%*在%*诵唱%*} {
+    gotolocation;
+};
+
 #alias getbook {
+    #action {你先还上图书才能再往外借！} {
+        give jing to zhike;
+        #delay 1 jie $book;
+        #unaction {你先还上图书才能再往外借！};
+    };
+    #action {知客道长递给你一本} {
+        gotolocation;
+        #unaction {知客道长递给你一本};
+    };
+    #action {经验过2000点以后才能开通借书服务！} {
+        #map run 武当广场;
+        #delay 1 ask chongxu about cancel;
+        ask-quest;
+    };
     #map run 复真观二层;
     jie $book; 
-    #map run $location;
-    findpage;
 };
     
+#alias gotolocation {
+    #action {^$location} {
+        #ticker fp {findpage} 10;
+        findpage;
+        #unaction {^$location};
+    };
+    #action {到达目标地点：$location} {
+        #ticker fp {findpage} 10;
+        findpage;
+        #unaction {^$location};
+    };
+    #regexp $location {{两仪殿|飞升岩|后殿|南岩峰|乌鸦岭|雷神洞|潘神洞|三公山|升真岩|朝天宫|一天门|天柱峰下}} {
+        #action {^$location} {findpage; #unaction {^$location}};
+        #re bot/wudang/songjing-location.tt;
+        goto-location $location;
+    } {
+        #map run $location;
+    };
+};
+
 #alias findpage {
     #var page 1;
     #class findpage open;
+        #var skippage 10;
         #action {~^\e[0m\e[1;32m%%1(%%2)\e[0m} {
             #regexp %%1 $chapter {
+                #showme <fca> 有页码: %%1;
                 #if {%%2 == ${chapter.page}} {
+                    #unticker fp;
                     #delay 1 chantpage $page;
                 };
                 #else {
@@ -32,7 +80,18 @@
                     page $page;
                 };
             } {
-                #math page $page+10;
+                #math page $page+$skippage;
+                page $page;
+            };
+        };
+        #action {~^\e[0m\e[1;32m%%1\e[0m} {
+            #showme <fca> 无页码: %%1;
+            #var skippage 1;
+            #regexp %%1 $chapter {
+                #unticker fp;
+                #delay 1 chantpage $page;
+            } {
+                #math page $page+$skippage;
                 page $page;
             };
         };
@@ -44,9 +103,12 @@
     #var line {};
     #class findpage kill;
     #class chantpage open;
-        #action {^==%!{\ +}{[^ ]+}%!{\ +}==$} {
-            #var line ${line}%%1;
-        };
+    #action {看起来%%1想杀死你！} {
+        kill %%1;
+    };
+    #action {^==%!{\ +}{[^ ]+}%!{\ +}==$} {
+        #var line ${line}%%1;
+    };
     #class chantpage close;
     page %1;
     #delay 3 {
@@ -60,13 +122,22 @@
 }; 
 
 #action {你做完了冲虚道长布置的功课，可以回去向他要奖赏了。} {
-    #map run 复真观二层;
-    give jing to zhike;
-    #delay 3 {
-        #map run 武当广场;
-        success-quest;
-        ${songjing.after-handler};
-        #delay 4 {#class songjing kill};
+    #action {^复真观二层} {
+        #action {^武当广场} {
+            success-quest;
+            ${songjing.after-handler};
+            #unaction {^武当广场};
+            #class songjing kill;
+        };    
+        give jing to zhike;
+        #delay 3 {run 武当广场; #unaction {^复真观二层};};
+    };
+
+    #regex $location {{两仪殿|飞升岩|后殿|南岩峰|乌鸦岭|雷神洞|潘神洞|三公山|升真岩|朝天宫|一天门|天柱峰下}} {
+        #re bot/wudang/songjing-location.tt;
+        goback-from $location;
+    } {
+        #map run 复真观二层;
     };
 }
      

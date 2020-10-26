@@ -5,7 +5,7 @@
         #var {zhenfa.after-handler} %1;
     };
     #class zhenfastart open;
-    #action {~\e[1;32m%%1\e[2;37;0m} {
+    #action {^小校场 -} {
         zhenfa;
     };
     #class zhenfastart close;

@@ -2,8 +2,9 @@
 
 #var myname 查看status_me获取人名
 
+#alias runfzg {run 复真观二层};
+
 #alias getname {
-    #nop 　姓名：　慕容凝玉    　ＩＤ：　Yukiho      　级别：　零          　战斗力：　2870;
     #class getname open;
     #action {^　姓名：　%%1%s　ＩＤ} {
         setname %%1;

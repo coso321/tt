@@ -12,6 +12,8 @@
 
 #alias {SQ} {success-quest};
 #alias {success-quest} {
+    eat liang;
+    drink jiudai;
     ask chongxu about success;
 };
 
@@ -46,25 +48,11 @@
         goto-zhenfa;
     };
 
-        * 天柱峰下：走法同采气任务，需要过一个小迷宫。
-        * 太子岩、潘神洞、一天门：在天柱峰西一线。可走天柱峰线路。
-        * 五老峰、三老峰、虎头岩：在凌霄宫西一线。先取得宋远桥许可，ask
-          song about 下山，即可从凌霄宫向西走。也可以从后山走天柱峰路
-          线。注意路上有土匪，要快速通过，停留时间长会被攻击。
-        * 两仪殿、后殿：在五老峰西北。
-        * 桃国篱笆、桃国木门：在武当广场eastdown方向，顺路向东可到。注意
-          路上有小喽啰，要快速通过，停留时间长会被攻击。
-        * 竹林小院：从北侧门开始，w;sw;s;se;e;ne;n;nw;sw;s;e。北侧门有张
-          翠山挡路，100skill后可以用hit zhang慢慢把他磨晕，他不会记仇。
-          拜张三丰为师后，张翠山不再挡路。
-        * 小园：竹林小院向东。
-        * 小屋：竹林小院open door，向北。
-
-
     #action {冲虚道长说道：「%*要在%%1熟读典籍，据说要诵唱%%2的%%3$} {
         #class waitfor-chongxu-answer kill;
-        #regex %%1 {竹林小院|天柱峰下|太子岩|潘神洞|一天门|小园|小屋} {
+        #regex %%1 {{金顶|太和宫|竹林小院|二天门|三天门|小园|小屋|五老峰|三老峰|虎头岩}} {
             cancel-quest;
+            ask-quest;
         } {
             goto-songjing {%%1} {%%2} {%%3};
         };
@@ -73,10 +61,11 @@
         #class waitfor-chongxu-answer kill;
         #nop goto-caiqi;
         cancel-quest;
+        ask-quest;
     };
     #action {冲虚道长说道：「现在还没有新的工作可以分配给你} {
         #class waitfor-chongxu-answer kill;
-        #delay 15 ask-quest;
+        #delay 5 ask-quest;
     };
     #action {冲虚道长说道：「道兄还有任务在身} {
         #class waitfor-chongxu-answer kill;
