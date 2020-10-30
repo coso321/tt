@@ -1,0 +1,37 @@
+#class caiqi open;
+
+#alias caiqi.start {
+    #act {^天柱峰下} {caiqi; #unact {^天柱峰下};};
+    #map run {天柱峰下} {0.2};
+};
+
+#act {^仅子午两个时辰能够进行采气} {
+    #class dazuo open;
+    #action {你运功完毕，深深吸了口气，站了起来。} {caiqi};                                                                
+    #action {你现在内力接近圆满状态} {dazuo 10};
+    #action {你现在气血严重不足，无法满足打坐最小要求。} {
+        #action {^客房} {#delay 1 sleep;};
+        #map run {12} {0.2};
+    };
+    #action {你刚在三分钟内睡过一觉, 多睡对身体有害无益!} {#delay 15 sleep};                                                   
+    #action {你一觉醒来，精神抖擞地活动了几下手脚。} {
+        caiqi.start;
+    };
+
+     
+    #class dazuo close;
+    dazuo max;
+};
+
+#act {你的「太极神功」进步了！} {
+    #class dazuo kill;
+    #act {^武当广场 -} {
+        ask chongxu about success;
+        ask chongxu about quest;
+        #delay 3 class caiqi kill;
+    };
+    #delay 1 {
+        runwd;
+    };   
+};
+

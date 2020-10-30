@@ -35,19 +35,19 @@
 
 #alias goto-leishendong {
     #event {MAP ENTER ROOM 105} {
-        #delay 1 eu;
+        #delay 2 eu;
         #unevent {MAP ENTER ROOM 105};
     };
     #action {到达目标地点：太子岩迷宫石阶} {
-        #delay 1 nu;
+        #delay 2 nu;
         #unaction {到达目标地点：太子岩迷宫石阶};
     };
-    #map run 太子岩迷宫入口;
+    #map run {太子岩迷宫入口} {0.2};;
 };
 
 #alias goto-wuyaling {
     #action {到达目标地点：雷神洞} {
-        #delay 1 nu;
+        #delay 2 nu;
         #unaction {到达目标地点：雷神洞};
     };
     goto-leishendong;
@@ -56,7 +56,7 @@
 
 #alias goto-wuyaling-after {
     #action {到达目标地点：乌鸦岭} {
-        #delay 1 #map run %1; 
+        #delay 2 #map run %1; 
         #unaction {到达目标地点：乌鸦岭};
     };
     goto-wuyaling;
@@ -64,7 +64,7 @@
 
 #alias goto-panshendong-after {
     #action {到达目标地点：潘神洞} {
-        #delay 1 #map run %1; 
+        #delay 2 #map run %1; 
         #unaction {到达目标地点：潘神洞};
     };
     goto-panshendong;
@@ -72,11 +72,11 @@
 
 #alias goto-panshendong {
     #event {MAP ENTER ROOM 75} {
-        #delay 1 wu;
+        #delay 2 wu;
         #unevent {MAP ENTER ROOM 75};
     };
     #action {到达目标地点：乌鸦岭} {
-        #delay 1 {nu;}; 
+        #delay 2 {nu;}; 
         #unaction {到达目标地点：乌鸦岭};
     };
     goto-wuyaling;
@@ -84,11 +84,11 @@
 
 #alias goto-shengzhenyan {
     #event {MAP ENTER ROOM 75} {
-        #delay 1 ed;
+        #delay 2 ed;
         #unevent {MAP ENTER ROOM 75};
     };
     #action {到达目标地点：乌鸦岭} {
-        #delay 1 {nu;}; 
+        #delay 2 {nu;}; 
         #unaction {到达目标地点：乌鸦岭};
     };
     goto-wuyaling;
@@ -96,11 +96,11 @@
     
 #alias goto-sangongshan {
     #event {MAP ENTER ROOM 105} {
-        #delay 1 eu;
+        #delay 2 eu;
         #unevent {MAP ENTER ROOM 105};
     };
     #action {到达目标地点：太子岩迷宫石阶} {
-        #delay 1 ed;
+        #delay 2 ed;
         #unaction {到达目标地点：太子岩迷宫石阶};
     };
     #map run 太子岩迷宫入口;
@@ -108,7 +108,7 @@
     
 #alias goback-panshendong {
     #action {到达目标地点：南岩峰} {
-        #delay 1 {goback-wuyaling-after}; 
+        #delay 2 {goback-wuyaling-after}; 
         #unaction {到达目标地点：南岩峰};
     };
     ed;
@@ -116,7 +116,7 @@
 
 #alias goback-shengzhenyan {
     #action {到达目标地点：南岩峰} {
-        #delay 1 {goback-wuyaling-after}; 
+        #delay 2 {goback-wuyaling-after}; 
         #unaction {到达目标地点：南岩峰};
     };
     d;
@@ -124,7 +124,7 @@
 
 #alias goback-wuyaling-after {
     #event {MAP ENTER ROOM 74} {
-        #delay 1 goback-wuyaling;
+        #delay 2 goback-wuyaling;
         #unevent {MAP ENTER ROOM 74};
     };
     #map run 乌鸦岭;
@@ -132,7 +132,7 @@
 
 #alias goback-panshendong-after {
     #event {MAP ENTER ROOM 103} {
-        #delay 1 goback-panshendong;
+        #delay 2 goback-panshendong;
         #unevent {MAP ENTER ROOM 103};
     };
     #map run 潘神洞;
@@ -140,7 +140,7 @@
 
 #alias goback-wuyaling {
     #action {到达目标地点：雷神洞} {
-        #delay 1 goback-leishendong;
+        #delay 2 goback-leishendong;
         #unaction {到达目标地点：雷神洞};
     };
     sd;
@@ -148,11 +148,11 @@
 
 #alias goback-leishendong {
     #action {到达目标地点：太子岩迷宫石阶} {
-        #delay 1 se;
+        #delay 2 se;
         #unaction {到达目标地点：太子岩迷宫石阶};
     } 4;
     #action {到达目标地点：太子岩$} {
-        #delay 1 run 复真观二层;
+        #delay 2 run 复真观二层;
         #unaction {到达目标地点：太子岩$};
     };
     wd;
@@ -160,11 +160,11 @@
 
 #alias goback-sangongshan {
     #action {到达目标地点：太子岩迷宫石阶} {
-        #delay 1 se;
+        #delay 2 se;
         #unaction {到达目标地点：太子岩迷宫石阶};
     } 4;
     #action {到达目标地点：太子岩$} {
-        #delay 1 run 复真观二层;
+        #delay 2 run 复真观二层;
         #unaction {到达目标地点：太子岩$};
     };
     ed;

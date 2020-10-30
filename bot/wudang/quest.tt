@@ -28,16 +28,23 @@
 };
 
 #alias {goto-caiqi} {
+    #re bot/wudang/caiqi.tt;
     caiqi.start;
 };
 
 #alias {goto-songjing} {
     #re bot/wudang/songjing.tt;
     songjing.start {%1} {%2} {%3};
-}
+};
+
+#alias {goto-xiake} {
+    #re bot/wudang/xiake.tt;
+    xiake.start;
+};
 
 
 #action {你向冲虚道长打听有关『quest』的消息。$} {
+    #map goto 武当广场;
     #class waitfor-chongxu-answer open;
     #action {冲虚道长说道：「武当三侠最近迷上了炼丹} {
         #class waitfor-chongxu-answer kill;
@@ -59,25 +66,52 @@
     };
     #action {冲虚道长说道：「道家炼气最讲究时辰和地点} {
         #class waitfor-chongxu-answer kill;
-        #nop goto-caiqi;
-        cancel-quest;
-        ask-quest;
+        goto-caiqi;
+    };
+    #action {冲虚道长说道：「山下双井子村的崔老汉似乎有点麻烦，你现在下山一趟帮他解决麻烦。」} {
+        #class waitfor-chongxu-answer kill;
+        #nop goto-xiake;
+        ask chongxu about cancel;
+        ask chongxu about quest;
     };
     #action {冲虚道长说道：「现在还没有新的工作可以分配给你} {
         #class waitfor-chongxu-answer kill;
-        #delay 5 ask-quest;
+        
+        #action {^客房 -} {
+            #class dazuo open;
+            #action {你运功完毕，深深吸了口气，站了起来。} {dazuo max};
+            #action {你现在内力接近圆满状态} {dazuo 10};
+            #action {你现在气血严重不足，无法满足打坐最小要求。} {#delay 1 sleep};
+            #action {你现在的气太少了，无法产生内息运行全身经脉。} {#delay 1 sleep};
+            #action {你刚在三分钟内睡过一觉, 多睡对身体有害无益!} {#delay 15 sleep};
+            #action {你一觉醒来，精神抖擞地活动了几下手脚。} {
+                #map run 武当广场;
+                #action {^武当广场} {
+                    ask chongxu about quest;
+                    #class dazuo kill;
+                    #unaction {^客房 -};
+                    #unaction {^武当广场 -};
+                };
+            };
+            #class dazuo close;
+            #delay 1 dazuo max;
+        };
+        #delay 1 #map run 12;
     };
-    #action {冲虚道长说道：「道兄还有任务在身} {
+    #action {冲虚道长说道：「%*还有任务在身} {
         #class waitfor-chongxu-answer kill;
+        ask chongxu about cancel;
+        ask chongxu about quest;
     };
     #action {冲虚道长说道：「我看你是机器人吧！」} {
         #class waitfor-chongxu-answer kill;
-        #class wdquest kill;
+        #map run 12;
+        #delay 2 dza;
     };
-    #action {冲虚道长说道：「} {
+    #action {冲虚道长说道：「%%1} {
         #class waitfor-chongxu-answer kill;
-        cancel-quest;
-        ask-quest;
+        #var new-quest %%1;
+        #bell;
     }{10};
     #class waitfor-chongxu-answer close;
 };

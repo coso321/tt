@@ -1,11 +1,10 @@
 #class mapper open;
 
 #map read map.tt;
-
-#var areaname {}; 
+#read mapper-paths.tt;
 
 #alias setarea {
-    #var areaname %1;
+    #var roomarea %1;
 };
 
 #alias getmapname {
@@ -20,18 +19,71 @@
     %1;
 };
 
+#alias maphere {
+    #map get roomvnum roomvnum;
+    #map get roomname roomname;
+    #map get roomarea roomarea;
+    #map get roomdesc roomdesc;
+    #if {"%1" == "show"} {
+        #showme <fca>Room vnum: $roomvnum;
+        #showme <fca>Room name: $roomname;
+        #showme <fca>Room area: $roomarea;
+        #showme <fca>Room desc: $roomdesc;
+    };
+};
+
 #alias loadmap {
-    #class getmapname open;
+    #class loadmap open;
     #action {^%%1 -} {
         #map goto %%1;
-        #map info;
-        #class getmapname kill;
+        maphere;
+        #if {"$roomname" != ""} {
+            maphere show;
+        };
     };
-    #class getmapname close;
-    #map goto 1;
+    #action {船老大 何博康(He bokang)} {
+        #map goto 长江北岸渡口;
+        maphere show;
+    };
+    #action {    船老大 孙浑(Sun hun)} {
+        #map goto 长江南岸渡口;
+        maphere show;
+    };
+    #action {    船老大 施顺(Shi shun)} {
+        #map goto 黄河南岸渡口;
+        maphere show;
+    };
+    #action {船老大 蒋鼎民(Jiang dingmin)} {
+        #map goto 黄河北岸渡口;
+        maphere show;
+    };
+    #action {这里是南昌城的城中心} {
+        #map goto 南昌城中心;
+        maphere show;
+    };
+    #action {这里是襄阳的城中心。} {
+        #map goto 襄阳城中心;
+        maphere show;
+    };
+    #action {这里是信阳城的中心} {
+        #map goto 信阳小广场;
+        maphere show;
+    };
+    #action {泉州是一个安静的港城。} {
+        #map goto 泉州城中心;
+        maphere show;
+    };
+    #action {这里是西夏都城灵州的中心广场} {
+        #map goto 灵州城中心;
+        maphere show;
+    };
+    #action {Room name: %*} {
+        #class loadmap kill;
+    };
+    #class loadmap close;
     #split 10 1;
     #map flag vtmap on;
-    #delay 1 l;
+    l;
 };
 
 #alias unloadmap {
@@ -39,16 +91,13 @@
     #unsplit; #split;
 };
 
-#alias getarea {
-    #map get roomarea $areaname;
-};
-
 #alias mapnof { #map flag nofollow on; };
 #alias mapf { #map flag nofollow off; };
+#alias mapsize {#unsplit; #split %1 1};
 
     
 #alias map {
-    #regexp $areaname {{.+}} { #showme 当前地区：$areaname; getmapname %1} {#showme 当前地区为空; getarea; getmapname %1}; 
+    #regexp $areaname {{.+}} { #showme 当前地区：$areaname; getmapname %1} {#showme 当前地区为空; maphere; getmapname %1}; 
 };
 
 #alias mi {#map info};
@@ -56,6 +105,7 @@
 #alias mg {#map goto %1; mi};
 #alias ml {#map list %1};
 #alias mlarea {#map list {%*} {} {} {%1}};
+#alias mldesc {#map list {%*} {} {%*%1%*}};
 
 #alias mapnum {#map flag asciivnums};
 #alias mapvoid {#map insert %1 void};
@@ -185,10 +235,6 @@
         #ticker walkmaze {l} 0.6;
     };
 };
-#alias runyz {#map run {中央广场} {{0.2}};};
-#alias runwd {#map run {武当广场} {{0.2}};};
-#alias runxy {#map run {120} {{0.2}};};
-#alias runly {#map run {230} {{0.2}};};
-#alias runca {#map run {435} {{0.2}};};
+
 
 #class mapper close;

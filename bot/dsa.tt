@@ -30,6 +30,7 @@
 #act {这个东西不值得保存} {put $book in bag};
 #act {柜子里已经塞了太多的东西了} {put $book in bag};
 #act {这里没有这样东西。} {dsx;#show <faa>读书已停止，请随身携带包袱再运行dsa。<099>};
+#act {你的内力已经枯竭，不能施用内功。} {sleep};
 
 #act {你刚在三分钟内睡过一觉}
 {

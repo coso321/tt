@@ -6,9 +6,9 @@ CP <138>
 CR <178>
 CB 
 
-F 26
+F 10
 
-I 434
+I 92
 
 L ▪ ╹ ╺ ┗ ╻ ┃ ┏ ┣ ╸ ┛ ━ ┻ ┓ ┫ ┳ ╋ X
 
@@ -16,9 +16,10 @@ L ▪ ╹ ╺ ┗ ╻ ┃ ┏ ┣ ╸ ┛ ━ ┻ ┓ ┫ ┳ ╋ X
 R {    1} {0} {} {小校场} { } {} {武当} {} {} {} {1.000}
 E {    3} {s} {s} {4} {0} {} {1.000}
 E {    4} {se} {se} {6} {0} {} {1.000}
+E {  459} {e} {e} {2} {0} {} {1.000}
 
 R {    2} {0} {} {三清殿} { } {} {武当} {} {} {} {1.000}
-E {    4} {s} {s} {4} {0} {} {1.000}
+E {  458} {s} {s} {4} {0} {} {1.000}
 E {    9} {w} {w} {8} {0} {} {1.000}
 E {   11} {e} {e} {2} {0} {} {1.000}
 E {   13} {n} {n} {1} {0} {} {1.000}
@@ -35,19 +36,19 @@ E {    6} {ne} {ne} {3} {0} {} {1.000}
 E {    7} {e} {e} {2} {0} {} {1.000}
 E {    8} {se} {se} {6} {0} {} {1.000}
 E {    1} {nw} {nw} {9} {0} {} {1.000}
-E {    2} {n} {n} {1} {0} {} {1.000}
+E {  458} {n} {n} {1} {0} {} {1.000}
 E {   35} {sd} {n;ask song about 下山;s;sd} {36} {0} {} {1.000}
 E {   76} {ed} {ed} {34} {0} {} {1.000}
 
 R {    5} {0} {} {小校场} { } {} {武当} {} {} {} {1.000}
 E {    4} {ne} {ne} {3} {0} {} {1.000}
 E {    3} {n} {n} {1} {0} {} {1.000}
-E {    8} {e} {e} {2} {0} {} {1.000}
+E {  460} {e} {e} {2} {0} {} {1.000}
 
 R {    6} {0} {} {小校场} { } {} {武当} {} {} {} {1.000}
 E {    4} {sw} {sw} {12} {0} {} {1.000}
 E {    7} {s} {s} {4} {0} {} {1.000}
-E {    1} {w} {w} {8} {0} {} {1.000}
+E {  459} {w} {w} {8} {0} {} {1.000}
 
 R {    7} {0} {} {小校场} { } {} {武当} {} {} {} {1.000}
 E {    6} {n} {n} {1} {0} {} {1.000}
@@ -57,7 +58,7 @@ E {    8} {s} {s} {4} {0} {} {1.000}
 R {    8} {0} {} {小校场} { } {} {武当} {} {} {} {1.000}
 E {    4} {nw} {nw} {9} {0} {} {1.000}
 E {    7} {n} {n} {1} {0} {} {1.000}
-E {    5} {w} {w} {8} {0} {} {1.000}
+E {  460} {w} {w} {8} {0} {} {1.000}
 
 R {    9} {0} {} {左配殿} { } {} {武当} {} {} {} {1.000}
 E {    2} {e} {e} {2} {0} {} {1.000}
@@ -101,7 +102,7 @@ R {   19} {0} {} {前院} { } {} {武当} {} {} {} {1.000}
 E {   13} {s} {s} {4} {0} {} {1.000}
 E {   20} {w} {w} {8} {0} {} {1.000}
 E {   25} {e} {e} {2} {0} {} {1.000}
-E {   26} {n} {n} {1} {0} {} {1.000}
+E {  461} {n} {n} {1} {0} {} {1.000}
 
 R {   20} {0} {} {西侧门} { } {} {武当} {} {} {} {1.000}
 E {   19} {e} {e} {2} {0} {} {1.000}
@@ -126,7 +127,7 @@ R {   25} {0} {} {龟泉} { } {} {武当} {} {} {} {1.000}
 E {   19} {w} {w} {8} {0} {} {1.000}
 
 R {   26} {0} {} {后院} { } {} {武当} {} {} {} {1.000}
-E {   19} {s} {s} {4} {0} {} {1.000}
+E {  461} {s} {s} {4} {0} {} {1.000}
 E {   27} {e} {e} {2} {0} {} {1.000}
 E {   32} {w} {w} {8} {0} {} {1.000}
 E {   34} {n} {n} {1} {0} {} {1.000}
@@ -211,13 +212,12 @@ E {   45} {wd} {wd} {40} {0} {} {1.000}
 E {  105} {eu} {eu} {18} {0} {} {1.000}
 
 R {   47} {0} {} {太子岩迷宫石阶} { } {} {武当} {} {} {} {1.000}
-E {   71} {nu} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir northup;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {^雷神洞} {#showme <fca>到达目标地点：雷神洞;#var found 1;#map goto 雷神洞;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 雷神洞;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 1;nu;} {17} {0} {} {1.000}
 E {   96} {se} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir southeast;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {^太子岩} {#showme <fca>到达目标地点：太子岩;#var found 1;#map goto 太子岩;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 太子岩;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 1;se;} {6} {0} {} {1.000}
 E {   99} {ed} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir eastdown;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {^三公山} {#showme <fca>到达目标地点：三公山;#var found 1;#map goto 三公山;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 三公山;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 1;ed;} {34} {0} {} {1.000}
 
 R {   48} {0} {} {雷神洞} { } {} {武当} {} {} {} {1.000}
-E {   71} {wd} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir westdown;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {lupai} {#showme <fca>到达目标地点：太子岩迷宫石阶;#var found 1;#map goto 太子岩迷宫石阶;#unticker walkmaze;set brief 1;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 太子岩迷宫石阶;#unticker walkmaze;set brief 1;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 3;wd;#ticker walkmaze {l} 0.6;} {40} {0} {} {1.000}
-E {   73} {nu} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir northup;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {^乌鸦岭} {#showme <fca>到达目标地点：乌鸦岭;#var found 1;#map goto 乌鸦岭;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 乌鸦岭;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 1;nu;} {17} {0} {} {1.000}
+E {  660} {wd} {wd} {40} {0} {} {1.000}
+E {  673} {nu} {nu} {17} {0} {} {1.000}
 
 R {   49} {0} {} {玄武门} { } {} {武当} {} {} {} {1.000}
 E {   35} {nu} {nu} {17} {0} {} {1.000}
@@ -266,6 +266,7 @@ E {   58} {n} {n} {1} {0} {} {1.000}
 R {   60} {0} {} {黄土路} { } {} {武当} {} {} {} {1.000}
 E {   58} {w} {w} {8} {0} {} {1.000}
 E {   61} {e} {e} {2} {0} {} {1.000}
+E {  750} {s} {s} {4} {0} {} {1.000}
 
 R {   61} {0} {} {黄土路} { } {} {武当} {} {} {} {1.000}
 E {   60} {w} {w} {8} {0} {} {1.000}
@@ -304,24 +305,28 @@ E {   68} {w} {w} {8} {0} {} {1.000}
 E {   70} {n} {n} {1} {0} {} {1.000}
 E {  109} {e} {e} {2} {0} {} {1.000}
 
-R {   70} {0} {} {[1\;36m荆西镖局} { } {} {} {} {} {} {1.000}
+R {   70} {0} {} {荆西镖局} { } {} {武当} {} {} {} {1.000}
 E {   69} {s} {s} {4} {0} {} {1.000}
 
-R {   71} {16} {} {雷神洞迷宫} { } {} {武当} {} {} {} {1.000}
+R {   71} {0} {} {} { } {} {} {} {} {} {1.000}
+E {   74} {nu} {nu} {17} {0} {} {1.000}
+E {   73} {d} {d} {32} {0} {} {1.000}
 
 R {   72} {0} {} {} { } {} {} {} {} {} {1.000}
 
-R {   73} {16} {} {乌鸦岭迷宫} { } {} {武当} {} {} {} {1.000}
+R {   73} {0} {} {} { } {} {} {} {} {} {1.000}
+E {   71} {u} {u} {16} {0} {} {1.000}
+E {  661} {ed} {ed} {34} {0} {} {1.000}
 
 R {   74} {0} {} {乌鸦岭} { } {} {} {} {} {} {1.000}
 E {   75} {nu} {nu} {17} {0} {} {1.000}
-E {   73} {sd} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir southdown;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {^雷神洞} {#showme <fca>到达目标地点：雷神洞;#var found 1;#map goto 雷神洞;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 雷神洞;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 1;sd;} {36} {0} {} {1.000}
+E {   71} {sd} {sd} {36} {0} {} {1.000}
 
 R {   75} {0} {} {南岩峰} { } {} {武当} {} {} {} {1.000}
 E {   74} {sd} {sd} {36} {0} {} {1.000}
 E {  106} {nu} {nu} {17} {0} {} {1.000}
-E {   97} {wu} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir westup;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {^潘神洞} {#showme <fca>到达目标地点：潘神洞;#var found 1;#map goto 潘神洞;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 潘神洞;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 1;wu;} {24} {0} {} {1.000}
-E {  104} {ed} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir eastdown;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {^升真岩} {#showme <fca>到达目标地点：升真岩;#var found 1;#map goto 升真岩;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 升真岩;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 1;ed;} {34} {0} {} {1.000}
+E {   97} {wu} {wu} {24} {0} {} {1.000}
+E {  104} {ed} {ed} {34} {0} {} {1.000}
 
 R {   76} {0} {} {石阶} { } {} {武当} {} {} {} {1.000}
 E {    4} {wu} {wu} {24} {0} {} {1.000}
@@ -386,7 +391,7 @@ E {   91} {eu} {eu} {18} {0} {} {1.000}
 R {   91} {0} {} {断恩岭} { } {} {武当} {} {} {} {1.000}
 E {   90} {wd} {wd} {40} {0} {} {1.000}
 
-R {   92} {16} {} {密林迷宫} { } {} {武当} {} {} {} {1.000}
+R {   92} {17} {} {密林迷宫} { } {} {武当} {} {} {} {1.000}
 
 R {   93} {16} {} {后门迷宫密林} { } {} {武当} {} {} {} {1.000}
 E {   92} {sd} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir southdown;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {^后门} {#showme 到达目标地点：后门;#var found 1;#map goto 后门;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 后门;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 1;sd;} {36} {0} {} {1.000}
@@ -402,7 +407,9 @@ E {   98} {nu} {nu} {17} {0} {} {1.000}
 
 R {   96} {16} {} {太子岩迷宫} { } {} {武当} {} {} {} {1.000}
 
-R {   97} {0} {} {潘神洞迷宫} { } {} {} {} {} {} {1.000}
+R {   97} {0} {} {} { } {} {} {} {} {} {1.000}
+E {   75} {ed} {ed} {34} {0} {} {1.000}
+E {  674} {nu} {nu} {17} {0} {} {1.000}
 
 R {   98} {0} {} {} { } {} {} {} {} {} {1.000}
 E {   95} {sd} {sd} {36} {0} {} {1.000}
@@ -422,13 +429,15 @@ E {   94} {nu} {nu} {17} {0} {} {1.000}
 
 R {  103} {0} {} {潘神洞} { } {} {武当} {} {} {} {1.000}
 E {  102} {sw} {sw} {12} {0} {} {1.000}
-E {   97} {ed} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir eastdown;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {^南岩峰} {#showme <fca>到达目标地点：南岩峰;#var found 1;#map goto 南岩峰;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 南岩峰;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 1;ed;} {34} {0} {} {1.000}
+E {  700} {ed} {ed} {34} {0} {} {1.000}
 
-R {  104} {16} {} {升真岩迷宫} { } {} {武当} {} {} {} {1.000}
+R {  104} {0} {} {} { } {} {} {} {} {} {1.000}
+E {   75} {wu} {wu} {24} {0} {} {1.000}
+E {  257} {sd} {sd} {36} {0} {} {1.000}
 
-R {  105} {0} {} {太子岩迷宫入口} { } {} {武当} {} {} {} {1.000}
+R {  105} {0} {} {} { } {} {} {} {} {} {1.000}
 E {   46} {wd} {wd} {40} {0} {} {1.000}
-E {   96} {eu} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir eastup;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {lupai} {#showme <fca>到达目标地点：太子岩迷宫石阶;#var found 1;#map goto 太子岩迷宫石阶;#unticker walkmaze;set brief 1;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 太子岩迷宫石阶;#unticker walkmaze;set brief 1;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 3;eu;#ticker walkmaze {l} 0.6;} {18} {0} {} {1.000}
+E {  647} {eu} {eu} {18} {0} {} {1.000}
 
 R {  106} {0} {} {两仪殿} { } {} {武当} {} {} {} {1.000}
 E {   75} {sd} {sd} {36} {0} {} {1.000}
@@ -488,7 +497,7 @@ E {  120} {e} {e} {2} {0} {} {1.000}
 E {  184} {n} {n} {1} {0} {} {1.000}
 E {  185} {s} {s} {4} {0} {} {1.000}
 
-R {  120} {0} {} {[33m城中心} { } {} {襄阳} {} {} {} {1.000}
+R {  120} {0} {} {襄阳城中心} { } {} {襄阳} {} {} {} {1.000}
 E {  119} {w} {w} {8} {0} {} {1.000}
 E {  121} {e} {e} {2} {0} {} {1.000}
 E {  186} {s} {s} {4} {0} {} {1.000}
@@ -526,9 +535,11 @@ R {  128} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  127} {w} {w} {8} {0} {} {1.000}
 E {  129} {e} {e} {2} {0} {} {1.000}
 
-R {  129} {0} {} {} { } {} {} {} {} {} {1.000}
+R {  129} {0} {} {信阳小广场} { } {} {信阳} {} {} {} {1.000}
 E {  128} {w} {w} {8} {0} {} {1.000}
 E {  130} {e} {e} {2} {0} {} {1.000}
+E {  463} {s} {s} {4} {0} {} {1.000}
+E {  603} {n} {n} {1} {0} {} {1.000}
 
 R {  130} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  129} {w} {w} {8} {0} {} {1.000}
@@ -545,6 +556,7 @@ E {  133} {e} {e} {2} {0} {} {1.000}
 R {  133} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  132} {w} {w} {8} {0} {} {1.000}
 E {  134} {e} {e} {2} {0} {} {1.000}
+E {  606} {se} {se} {6} {0} {} {1.000}
 
 R {  134} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  133} {w} {w} {8} {0} {} {1.000}
@@ -568,20 +580,24 @@ R {  138} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  137} {w} {w} {8} {0} {} {1.000}
 E {  139} {e} {e} {2} {0} {} {1.000}
 
-R {  139} {0} {} {中央广场} { } {} {} {} {} {} {1.000}
+R {  139} {0} {} {中央广场} { } {} {扬州} {} {} {} {1.000}
 E {  138} {w} {w} {8} {0} {} {1.000}
-E {  140} {n} {n} {1} {0} {} {1.000}
-E {  149} {s} {s} {4} {0} {} {1.000}
+E {  538} {n} {n} {1} {0} {} {1.000}
+E {  536} {s} {s} {4} {0} {} {1.000}
 E {  207} {enter} {enter shudong} {62} {0} {} {1.000}
+E {  540} {e} {e} {2} {0} {} {1.000}
+E {  753} {d} {d} {32} {0} {} {1.000}
+E {  754} {u} {u} {16} {0} {} {1.000}
 
 R {  140} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  139} {s} {s} {4} {0} {} {1.000}
+E {  538} {s} {s} {4} {0} {} {1.000}
 E {  141} {e} {e} {2} {0} {} {1.000}
 E {  142} {n} {n} {1} {0} {} {1.000}
 E {  147} {w} {w} {8} {0} {} {1.000}
 
 R {  141} {0} {} {客店} { } {} {扬州} {} {} {} {1.000}
 E {  140} {w} {w} {8} {0} {} {1.000}
+E {  645} {u} {u} {16} {0} {} {1.000}
 
 R {  142} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  140} {s} {s} {4} {0} {} {1.000}
@@ -606,11 +622,11 @@ R {  147} {0} {} {扬州钱庄} { } {} {扬州} {} {} {} {1.000}
 E {  140} {e} {e} {2} {0} {} {1.000}
 E {  148} {s} {s} {4} {0} {} {1.000}
 
-R {  148} {0} {} {[1\;36m扬州金店} { } {} {扬州} {} {} {} {1.000}
+R {  148} {0} {} {扬州金店} { } {} {扬州} {} {} {} {1.000}
 E {  147} {n} {n} {1} {0} {} {1.000}
 
 R {  149} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  139} {n} {n} {1} {0} {} {1.000}
+E {  536} {n} {n} {1} {0} {} {1.000}
 E {  150} {e} {e} {2} {0} {} {1.000}
 E {  153} {w} {w} {8} {0} {} {1.000}
 E {  160} {s} {s} {4} {0} {} {1.000}
@@ -619,8 +635,9 @@ R {  150} {0} {} {当铺} { } {} {扬州} {} {} {} {1.000}
 E {  149} {w} {w} {8} {0} {} {1.000}
 E {  151} {s} {s} {4} {0} {} {1.000}
 E {  152} {e} {e} {2} {0} {} {1.000}
+E {  462} {n} {n} {1} {0} {} {1.000}
 
-R {  151} {0} {} {[1\;33m荣宝斋} { } {} {扬州} {} {} {} {1.000}
+R {  151} {0} {} {荣宝斋} { } {} {} {} {} {} {1.000}
 E {  150} {n} {n} {1} {0} {} {1.000}
 
 R {  152} {0} {} {库房} { } {} {扬州} {} {} {} {1.000}
@@ -657,13 +674,13 @@ R {  160} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  149} {n} {n} {1} {0} {} {1.000}
 E {  161} {w} {w} {8} {0} {} {1.000}
 E {  166} {e} {e} {2} {0} {} {1.000}
-E {  167} {s} {s} {4} {0} {} {1.000}
+E {  639} {s} {s} {4} {0} {} {1.000}
 
 R {  161} {0} {} {春来茶馆} { } {} {扬州} {} {} {} {1.000}
 E {  160} {e} {e} {2} {0} {} {1.000}
 E {  162} {w} {w} {8} {0} {} {1.000}
 
-R {  162} {0} {} {[33m中原马车行} { } {} {扬州} {} {} {} {1.000}
+R {  162} {0} {} {中原马车行} { } {} {扬州} {} {} {} {1.000}
 E {  161} {e} {e} {2} {0} {} {1.000}
 E {  163} {nw} {nw} {9} {0} {} {1.000}
 
@@ -671,9 +688,10 @@ R {  163} {0} {} {西巷} { } {} {扬州} {} {} {} {1.000}
 E {  162} {se} {se} {6} {0} {} {1.000}
 E {  164} {nw} {nw} {9} {0} {} {1.000}
 
-R {  164} {0} {} {[31m红娘庄大门} { } {} {扬州} {} {} {} {1.000}
+R {  164} {0} {} {红娘庄大门} { } {} {扬州} {} {} {} {1.000}
 E {  163} {se} {se} {6} {0} {} {1.000}
 E {  136} {n} {n} {1} {0} {} {1.000}
+E {  742} {e} {e} {2} {0} {} {1.000}
 
 R {  165} {0} {} {飞龙帮总部} { } {} {扬州} {} {} {} {1.000}
 E {  136} {s} {s} {4} {0} {} {1.000}
@@ -682,15 +700,17 @@ R {  166} {0} {} {丽春院} { } {} {扬州} {} {} {} {1.000}
 E {  160} {w} {w} {8} {0} {} {1.000}
 
 R {  167} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  160} {n} {n} {1} {0} {} {1.000}
+E {  639} {n} {n} {1} {0} {} {1.000}
 E {  168} {w} {w} {8} {0} {} {1.000}
 E {  171} {e} {e} {2} {0} {} {1.000}
 E {  174} {s} {s} {4} {0} {} {1.000}
 
-R {  168} {0} {} {[32m盛昌总行} { } {} {扬州} {} {} {} {1.000}
+R {  168} {0} {} {盛昌总行} { } {牙人} {扬州} {} {} {} {1.000}
 E {  167} {e} {e} {2} {0} {} {1.000}
 E {  169} {w} {w} {8} {0} {} {1.000}
 E {  170} {s} {s} {4} {0} {} {1.000}
+E {  640} {n} {n} {1} {0} {} {1.000}
+E {  644} {enter} {enter $myid} {62} {0} {} {1.000}
 
 R {  169} {0} {} {贵妃浴场} { } {} {扬州} {} {} {} {1.000}
 E {  168} {e} {e} {2} {0} {} {1.000}
@@ -835,23 +855,25 @@ E {  206} {n} {n} {1} {0} {} {1.000}
 R {  206} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  205} {s} {s} {4} {0} {} {1.000}
 
-R {  207} {0} {} {树洞内部} { } {} {扬州} {} {} {} {1.000}
+R {  207} {0} {} {树洞内部} { } {} {丐帮} {} {} {} {1.000}
 E {  139} {out} {out} {61} {0} {} {1.000}
 E {  208} {d} {say 天堂有路你不走呀;d} {32} {0} {} {1.000}
 
-R {  208} {0} {} {树洞下} { } {} {扬州} {} {} {} {1.000}
+R {  208} {0} {} {树洞下} { } {} {丐帮} {} {} {} {1.000}
 E {  207} {u} {u} {16} {0} {} {1.000}
 E {  209} {n} {1} {1} {0} {} {1.000}
+E {  559} {w} {4} {8} {0} {} {1.000}
+E {  608} {e} {7} {2} {0} {} {1.000}
 
-R {  209} {0} {} {扬州-洛阳暗道} { } {} {} {} {} {} {1.000}
+R {  209} {0} {} {扬州-洛阳暗道} { } {} {丐帮} {} {} {} {1.000}
 E {  208} {s} {s} {4} {0} {} {1.000}
 E {  210} {n} {n} {1} {0} {} {1.000}
 
-R {  210} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  209} {s} {s} {4} {0} {} {1.000}
+R {  210} {0} {} {暗道} { } {} {丐帮} {} {} {} {1.000}
 E {  211} {nw} {nw} {9} {0} {} {1.000}
+E {  209} {s} {s} {4} {0} {} {1.000}
 
-R {  211} {0} {} {} { } {} {} {} {} {} {1.000}
+R {  211} {0} {} {暗道} { } {} {丐帮} {} {} {} {1.000}
 E {  210} {se} {se} {6} {0} {} {1.000}
 E {  212} {nw} {nw} {9} {0} {} {1.000}
 
@@ -877,14 +899,15 @@ E {  215} {enter} {enter dong} {62} {0} {} {1.000}
 
 R {  217} {0} {} {小广场} { } {} {麒麟村} {} {} {} {1.000}
 E {  216} {w} {w} {8} {0} {} {1.000}
-E {  218} {e} {e} {2} {0} {} {1.000}
+E {  746} {e} {e} {2} {0} {} {1.000}
+E {  743} {s} {s} {4} {0} {} {1.000}
 
 R {  218} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  217} {w} {w} {8} {0} {} {1.000}
-E {  219} {s} {s} {4} {0} {} {1.000}
+E {  746} {w} {w} {8} {0} {} {1.000}
+E {  748} {s} {s} {4} {0} {} {1.000}
 
 R {  219} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  218} {n} {n} {1} {0} {} {1.000}
+E {  744} {n} {n} {1} {0} {} {1.000}
 E {  220} {sw} {sw} {12} {0} {} {1.000}
 
 R {  220} {0} {} {} { } {} {} {} {} {} {1.000}
@@ -1051,8 +1074,9 @@ E {  256} {nu} {nu} {17} {0} {} {1.000}
 R {  256} {0} {} {天柱峰下} { } {} {武当} {} {} {} {1.000}
 E {  255} {sd} {sd} {36} {0} {} {1.000}
 
-R {  257} {0} {} {升真岩} { } {} {武当} {} {} {} {1.000}
-E {  104} {d} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir down;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {^南岩峰} {#showme <fca>到达目标地点：南岩峰;#var found 1;#map goto 南岩峰;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 南岩峰;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 1;d;} {32} {0} {} {1.000}
+R {  257} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  104} {nu} {nu} {17} {0} {} {1.000}
+E {  701} {se} {se} {6} {0} {} {1.000}
 
 R {  258} {0} {} {庙会} { } {} {洛阳} {} {} {} {1.000}
 E {  229} {s} {s} {4} {0} {} {1.000}
@@ -1804,6 +1828,7 @@ E {  441} {w} {w} {8} {0} {} {1.000}
 
 R {  441} {0} {} {安远门} { } {} {长安} {} {} {} {1.000}
 E {  440} {e} {e} {2} {0} {} {1.000}
+E {  643} {w} {w} {8} {0} {} {1.000}
 
 R {  442} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  421} {e} {e} {2} {0} {} {1.000}
@@ -1867,3 +1892,1175 @@ E {  449} {e} {e} {2} {0} {} {1.000}
 R {  457} {8} {} {} { } {} {} {} {} {} {1.000}
 E {  429} {s} {s} {4} {0} {} {1.000}
 E {  434} {n} {n} {1} {0} {} {1.000}
+
+R {  458} {8} {} {} { } {} {} {} {} {} {1.000}
+E {    2} {n} {n} {1} {0} {} {1.000}
+E {    4} {s} {s} {4} {0} {} {1.000}
+
+R {  459} {8} {} {} { } {} {} {} {} {} {1.000}
+E {    6} {e} {e} {2} {0} {} {1.000}
+E {    1} {w} {w} {8} {0} {} {1.000}
+
+R {  460} {8} {} {} { } {} {} {} {} {} {1.000}
+E {    5} {w} {w} {8} {0} {} {1.000}
+E {    8} {e} {e} {2} {0} {} {1.000}
+
+R {  461} {8} {} {} { } {} {} {} {} {} {1.000}
+E {   26} {n} {n} {1} {0} {} {1.000}
+E {   19} {s} {s} {4} {0} {} {1.000}
+
+R {  462} {0} {} {拍卖行} { } {} {扬州} {} {} {} {1.000}
+E {  150} {s} {s} {4} {0} {} {1.000}
+
+R {  463} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  129} {n} {n} {1} {0} {} {1.000}
+E {  464} {s} {s} {4} {0} {} {1.000}
+
+R {  464} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  463} {n} {n} {1} {0} {} {1.000}
+E {  465} {s} {s} {4} {0} {} {1.000}
+
+R {  465} {0} {} {鸡公山} { } {} {信阳} {} {} {} {1.000}
+E {  464} {n} {n} {1} {0} {} {1.000}
+E {  466} {sd} {sd} {36} {0} {} {1.000}
+
+R {  466} {0} {} {鸡公山下} { } {} {信阳} {} {} {} {1.000}
+E {  465} {nu} {nu} {17} {0} {} {1.000}
+E {  467} {se} {se} {6} {0} {} {1.000}
+
+R {  467} {0} {} {小池镇} { } {} {信阳} {} {} {} {1.000}
+E {  466} {nw} {nw} {9} {0} {} {1.000}
+E {  468} {s} {s} {4} {0} {} {1.000}
+
+R {  468} {0} {} {长江北岸渡口} { } {} {长江北岸} {} {} {} {1.000}
+E {  467} {n} {n} {1} {0} {} {1.000}
+E {  469} {s} {#class guojiang open;#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {艄公把踏脚板收起来，说了一声“坐稳喽”，竹篙一点，扁舟向江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {$in_boat == 1} {#var in_boat 0;out;#map goto 长江南岸渡口;#showme <fca>到达目标地点：长江南岸渡口;#class guojiang kill;};};ask shao gong about 过江;#class guojiang close;} {4} {0} {} {1.000}
+
+R {  469} {16} {} {长江渡船} { } {} {长江北岸} {} {} {} {1.000}
+
+R {  470} {0} {} {长江南岸渡口} { } {} {长江南岸} {} {} {} {1.000}
+E {  469} {n} {#class guojiang open;#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {艄公把踏脚板收起来，说了一声“坐稳喽”，竹篙一点，扁舟向江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {$in_boat == 1} {#var in_boat 0;out;#map goto 长江北岸渡口;#showme <fca>到达目标地点：长江北岸渡口;#class guojiang kill;};};ask shao gong about 过江;#class guojiang close;} {1} {0} {} {1.000}
+E {  471} {nw} {nw} {9} {0} {} {1.000}
+E {  496} {se} {se} {6} {0} {} {1.000}
+
+R {  471} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  470} {se} {se} {6} {0} {} {1.000}
+E {  472} {w} {w} {8} {0} {} {1.000}
+
+R {  472} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  471} {e} {e} {2} {0} {} {1.000}
+E {  473} {w} {w} {8} {0} {} {1.000}
+
+R {  473} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  472} {e} {e} {2} {0} {} {1.000}
+E {  474} {sw} {sw} {12} {0} {} {1.000}
+
+R {  474} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  473} {ne} {ne} {3} {0} {} {1.000}
+E {  475} {sw} {sw} {12} {0} {} {1.000}
+
+R {  475} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  474} {ne} {ne} {3} {0} {} {1.000}
+E {  476} {sw} {sw} {12} {0} {} {1.000}
+
+R {  476} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  475} {ne} {ne} {3} {0} {} {1.000}
+E {  477} {sw} {sw} {12} {0} {} {1.000}
+
+R {  477} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  476} {ne} {ne} {3} {0} {} {1.000}
+E {  478} {s} {s} {4} {0} {} {1.000}
+
+R {  478} {0} {} {北门} { } {} {岳阳} {} {} {} {1.000}
+E {  477} {n} {n} {1} {0} {} {1.000}
+E {  479} {s} {s} {4} {0} {} {1.000}
+
+R {  479} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  478} {n} {n} {1} {0} {} {1.000}
+E {  480} {e} {e} {2} {0} {} {1.000}
+E {  493} {s} {s} {4} {0} {} {1.000}
+
+R {  480} {0} {} {计氏马车分行} { } {} {岳阳} {} {} {} {1.000}
+E {  479} {w} {w} {8} {0} {} {1.000}
+
+R {  481} {0} {} {城中心} { } {} {岳阳} {} {} {} {1.000}
+E {  493} {n} {n} {1} {0} {} {1.000}
+E {  482} {s} {s} {4} {0} {} {1.000}
+E {  486} {w} {w} {8} {0} {} {1.000}
+E {  492} {e} {e} {2} {0} {} {1.000}
+
+R {  482} {0} {} {南门内大街} { } {} {岳阳} {} {} {} {1.000}
+E {  481} {n} {n} {1} {0} {} {1.000}
+E {  483} {w} {w} {8} {0} {} {1.000}
+E {  484} {e} {e} {2} {0} {} {1.000}
+E {  485} {s} {s} {4} {0} {} {1.000}
+
+R {  483} {0} {} {李保长家} { } {} {岳阳} {} {} {} {1.000}
+E {  482} {e} {e} {2} {0} {} {1.000}
+
+R {  484} {0} {} {杂货铺} { } {} {岳阳} {} {} {} {1.000}
+E {  482} {w} {w} {8} {0} {} {1.000}
+
+R {  485} {0} {} {南门} { } {} {岳阳} {} {} {} {1.000}
+E {  482} {n} {n} {1} {0} {} {1.000}
+
+R {  486} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  481} {e} {e} {2} {0} {} {1.000}
+E {  487} {n} {n} {1} {0} {} {1.000}
+E {  488} {w} {w} {8} {0} {} {1.000}
+
+R {  487} {0} {} {月记票号} { } {} {岳阳} {} {} {} {1.000}
+E {  486} {s} {s} {4} {0} {} {1.000}
+
+R {  488} {0} {} {西门} { } {} {岳阳} {} {} {} {1.000}
+E {  486} {e} {e} {2} {0} {} {1.000}
+E {  489} {w} {w} {8} {0} {} {1.000}
+
+R {  489} {0} {} {岳阳楼} { } {} {岳阳} {} {} {} {1.000}
+E {  488} {e} {e} {2} {0} {} {1.000}
+E {  490} {u} {u} {16} {0} {} {1.000}
+E {  491} {s} {s} {4} {0} {} {1.000}
+
+R {  490} {0} {} {岳阳楼二层} { } {} {岳阳} {} {} {} {1.000}
+E {  489} {d} {d} {32} {0} {} {1.000}
+
+R {  491} {0} {} {洞庭湖} { } {} {岳阳} {} {} {} {1.000}
+E {  489} {n} {n} {1} {0} {} {1.000}
+
+R {  492} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  481} {w} {w} {8} {0} {} {1.000}
+E {  494} {n} {n} {1} {0} {} {1.000}
+E {  495} {e} {e} {2} {0} {} {1.000}
+
+R {  493} {8} {} {} { } {} {} {} {} {} {1.000}
+E {  479} {n} {n} {1} {0} {} {1.000}
+E {  481} {s} {s} {4} {0} {} {1.000}
+
+R {  494} {0} {} {将军府} { } {} {岳阳} {} {} {} {1.000}
+E {  492} {s} {s} {4} {0} {} {1.000}
+
+R {  495} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  492} {w} {w} {8} {0} {} {1.000}
+
+R {  496} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  470} {nw} {nw} {9} {0} {} {1.000}
+E {  497} {se} {se} {6} {0} {} {1.000}
+
+R {  497} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  496} {nw} {nw} {9} {0} {} {1.000}
+E {  498} {s} {s} {4} {0} {} {1.000}
+
+R {  498} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  497} {n} {n} {1} {0} {} {1.000}
+E {  499} {sw} {sw} {12} {0} {} {1.000}
+
+R {  499} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  498} {ne} {ne} {3} {0} {} {1.000}
+E {  500} {sw} {sw} {12} {0} {} {1.000}
+
+R {  500} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  499} {ne} {ne} {3} {0} {} {1.000}
+E {  501} {sw} {sw} {12} {0} {} {1.000}
+
+R {  501} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  500} {ne} {ne} {3} {0} {} {1.000}
+E {  502} {sw} {sw} {12} {0} {} {1.000}
+
+R {  502} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  501} {ne} {ne} {3} {0} {} {1.000}
+E {  503} {s} {s} {4} {0} {} {1.000}
+
+R {  503} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  502} {n} {n} {1} {0} {} {1.000}
+E {  504} {s} {s} {4} {0} {} {1.000}
+
+R {  504} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  503} {n} {n} {1} {0} {} {1.000}
+E {  505} {s} {s} {4} {0} {} {1.000}
+
+R {  505} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  504} {n} {n} {1} {0} {} {1.000}
+E {  506} {s} {s} {4} {0} {} {1.000}
+
+R {  506} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  505} {n} {n} {1} {0} {} {1.000}
+E {  507} {s} {s} {4} {0} {} {1.000}
+
+R {  507} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  506} {n} {n} {1} {0} {} {1.000}
+E {  508} {su} {su} {20} {0} {} {1.000}
+
+R {  508} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  507} {nd} {nd} {33} {0} {} {1.000}
+E {  509} {se} {se} {6} {0} {} {1.000}
+
+R {  509} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  508} {nw} {nw} {9} {0} {} {1.000}
+E {  510} {s} {s} {4} {0} {} {1.000}
+
+R {  510} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  509} {n} {n} {1} {0} {} {1.000}
+E {  511} {s} {s} {4} {0} {} {1.000}
+
+R {  511} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  510} {n} {n} {1} {0} {} {1.000}
+E {  512} {s} {s} {4} {0} {} {1.000}
+E {  533} {e} {e} {2} {0} {} {1.000}
+E {  534} {w} {w} {8} {0} {} {1.000}
+
+R {  512} {0} {} {南昌城中心} { } {} {南昌} {} {} {} {1.000}
+E {  511} {n} {n} {1} {0} {} {1.000}
+E {  531} {e} {e} {2} {0} {} {1.000}
+E {  529} {w} {w} {8} {0} {} {1.000}
+E {  528} {s} {s} {4} {0} {} {1.000}
+
+R {  513} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  531} {w} {w} {8} {0} {} {1.000}
+E {  514} {n} {n} {1} {0} {} {1.000}
+E {  515} {s} {s} {4} {0} {} {1.000}
+E {  516} {e} {e} {2} {0} {} {1.000}
+
+R {  514} {0} {} {白家} { } {} {南昌} {} {} {} {1.000}
+E {  513} {s} {s} {4} {0} {} {1.000}
+
+R {  515} {0} {} {宁王府大门} { } {} {南昌} {} {} {} {1.000}
+E {  513} {n} {n} {1} {0} {} {1.000}
+
+R {  516} {0} {} {南昌东门} { } {} {南昌} {} {} {} {1.000}
+E {  513} {w} {w} {8} {0} {} {1.000}
+
+R {  517} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  529} {e} {e} {2} {0} {} {1.000}
+E {  518} {n} {n} {1} {0} {} {1.000}
+E {  519} {s} {s} {4} {0} {} {1.000}
+E {  520} {w} {w} {8} {0} {} {1.000}
+
+R {  518} {0} {} {计氏马车总行} { } {} {南昌} {} {} {} {1.000}
+E {  517} {s} {s} {4} {0} {} {1.000}
+
+R {  519} {0} {} {对月居} { } {} {南昌} {} {} {} {1.000}
+E {  517} {n} {n} {1} {0} {} {1.000}
+
+R {  520} {0} {} {南昌西门} { } {} {南昌} {} {} {} {1.000}
+E {  517} {e} {e} {2} {0} {} {1.000}
+E {  521} {w} {w} {8} {0} {} {1.000}
+
+R {  521} {0} {} {青石官道} { } {} {南昌} {} {} {} {1.000}
+E {  520} {e} {e} {2} {0} {} {1.000}
+E {  522} {wu} {wu} {24} {0} {} {1.000}
+
+R {  522} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  521} {ed} {ed} {34} {0} {} {1.000}
+E {  523} {wu} {wu} {24} {0} {} {1.000}
+
+R {  523} {0} {} {城西山路} { } {} {南昌} {} {} {} {1.000}
+E {  522} {ed} {ed} {34} {0} {} {1.000}
+E {  524} {nu} {nu} {17} {0} {} {1.000}
+
+R {  524} {0} {} {书院正门} { } {} {南昌} {} {} {} {1.000}
+E {  523} {sd} {sd} {36} {0} {} {1.000}
+E {  525} {enter} {enter} {62} {0} {} {1.000}
+
+R {  525} {0} {} {岳麓书院} { } {} {南昌} {} {} {} {1.000}
+E {  524} {out} {out} {61} {0} {} {1.000}
+E {  526} {n} {n} {1} {0} {} {1.000}
+E {  527} {e} {e} {2} {0} {} {1.000}
+E {  535} {w} {w} {8} {0} {} {1.000}
+
+R {  526} {0} {} {古井} { } {} {南昌} {} {} {} {1.000}
+E {  525} {s} {s} {4} {0} {} {1.000}
+
+R {  527} {0} {} {休息室} { } {} {南昌} {} {} {} {1.000}
+E {  525} {w} {w} {8} {0} {} {1.000}
+
+R {  528} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  512} {n} {n} {1} {0} {} {1.000}
+E {  530} {w} {w} {8} {0} {} {1.000}
+E {  532} {e} {e} {2} {0} {} {1.000}
+
+R {  529} {8} {} {} { } {} {} {} {} {} {1.000}
+E {  517} {w} {w} {8} {0} {} {1.000}
+E {  512} {e} {e} {2} {0} {} {1.000}
+
+R {  530} {0} {} {当铺} { } {} {南昌} {} {} {} {1.000}
+E {  528} {e} {e} {2} {0} {} {1.000}
+
+R {  531} {8} {} {} { } {} {} {} {} {} {1.000}
+E {  513} {e} {e} {2} {0} {} {1.000}
+E {  512} {w} {w} {8} {0} {} {1.000}
+
+R {  532} {0} {} {月记银号} { } {} {南昌} {} {} {} {1.000}
+E {  528} {w} {w} {8} {0} {} {1.000}
+
+R {  533} {0} {} {飞虎镖局} { } {} {南昌} {} {} {} {1.000}
+E {  511} {w} {w} {8} {0} {} {1.000}
+
+R {  534} {0} {} {偃月楼} { } {} {南昌} {} {} {} {1.000}
+E {  511} {e} {e} {2} {0} {} {1.000}
+
+R {  535} {0} {} {食堂} { } {} {南昌} {} {} {} {1.000}
+E {  525} {e} {e} {2} {0} {} {1.000}
+
+R {  536} {8} {} {} { } {} {} {} {} {} {1.000}
+E {  149} {s} {s} {4} {0} {} {1.000}
+E {  139} {n} {n} {1} {0} {} {1.000}
+
+R {  537} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  540} {w} {w} {8} {0} {} {1.000}
+E {  539} {n} {n} {1} {0} {} {1.000}
+E {  543} {e} {e} {2} {0} {} {1.000}
+E {  558} {s} {s} {4} {0} {} {1.000}
+
+R {  538} {8} {} {} { } {} {} {} {} {} {1.000}
+E {  140} {n} {n} {1} {0} {} {1.000}
+E {  139} {s} {s} {4} {0} {} {1.000}
+
+R {  539} {0} {} {书院} { } {} {扬州} {} {} {} {1.000}
+E {  537} {s} {s} {4} {0} {} {1.000}
+E {  541} {w} {w} {8} {0} {} {1.000}
+E {  542} {n} {n} {1} {0} {} {1.000}
+
+R {  540} {8} {} {} { } {} {} {} {} {} {1.000}
+E {  139} {w} {w} {8} {0} {} {1.000}
+E {  537} {e} {e} {2} {0} {} {1.000}
+
+R {  541} {0} {} {天月书肆} { } {} {扬州} {} {} {} {1.000}
+E {  539} {e} {e} {2} {0} {} {1.000}
+
+R {  542} {0} {} {敬师堂} { } {} {扬州} {} {} {} {1.000}
+E {  539} {s} {s} {4} {0} {} {1.000}
+
+R {  543} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  537} {w} {w} {8} {0} {} {1.000}
+E {  544} {n} {n} {1} {0} {} {1.000}
+E {  546} {s} {s} {4} {0} {} {1.000}
+E {  556} {e} {e} {2} {0} {} {1.000}
+
+R {  544} {0} {} {药铺} { } {} {扬州} {} {} {} {1.000}
+E {  543} {s} {s} {4} {0} {} {1.000}
+E {  545} {n} {n} {1} {0} {} {1.000}
+
+R {  545} {0} {} {配药房} { } {} {扬州} {} {} {} {1.000}
+E {  544} {s} {s} {4} {0} {} {1.000}
+
+R {  546} {0} {} {打铁铺} { } {} {扬州} {} {} {} {1.000}
+E {  543} {n} {n} {1} {0} {} {1.000}
+E {  547} {s} {s} {4} {0} {} {1.000}
+
+R {  547} {0} {} {打铁铺内室} { } {} {扬州} {} {} {} {1.000}
+E {  546} {n} {n} {1} {0} {} {1.000}
+
+R {  548} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  556} {w} {w} {8} {0} {} {1.000}
+E {  549} {s} {s} {4} {0} {} {1.000}
+E {  550} {n} {n} {1} {0} {} {1.000}
+E {  552} {e} {e} {2} {0} {} {1.000}
+
+R {  549} {0} {} {宠物店} { } {} {扬州} {} {} {} {1.000}
+E {  548} {n} {n} {1} {0} {} {1.000}
+
+R {  550} {0} {} {市集} { } {} {扬州} {} {} {} {1.000}
+E {  548} {s} {s} {4} {0} {} {1.000}
+E {  551} {n} {n} {1} {0} {} {1.000}
+
+R {  551} {0} {} {荣昌交易行} { } {} {扬州} {} {} {} {1.000}
+E {  550} {s} {s} {4} {0} {} {1.000}
+
+R {  552} {0} {} {东门} { } {} {扬州} {} {} {} {1.000}
+E {  548} {w} {w} {8} {0} {} {1.000}
+E {  553} {s} {s} {4} {0} {} {1.000}
+
+R {  553} {0} {} {正气山庄的大门} { } {} {扬州} {} {} {} {1.000}
+E {  552} {n} {n} {1} {0} {} {1.000}
+E {  554} {s} {s} {4} {0} {} {1.000}
+
+R {  554} {0} {} {正气山庄} { } {} {扬州} {} {} {} {1.000}
+E {  553} {n} {n} {1} {0} {} {1.000}
+E {  555} {w} {w} {8} {0} {} {1.000}
+
+R {  555} {0} {} {看台} { } {} {扬州} {} {} {} {1.000}
+E {  554} {e} {e} {2} {0} {} {1.000}
+E {  557} {w} {w} {8} {0} {} {1.000}
+
+R {  556} {8} {} {} { } {} {} {} {} {} {1.000}
+E {  543} {w} {w} {8} {0} {} {1.000}
+E {  548} {e} {e} {2} {0} {} {1.000}
+
+R {  557} {0} {} {较技场} { } {} {扬州} {} {} {} {1.000}
+E {  555} {e} {e} {2} {0} {} {1.000}
+
+R {  558} {0} {} {杂货铺} { } {} {扬州} {} {} {} {1.000}
+E {  537} {n} {n} {1} {0} {} {1.000}
+
+R {  559} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  208} {e} {e} {2} {0} {} {1.000}
+E {  560} {w} {w} {8} {0} {} {1.000}
+
+R {  560} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  559} {e} {e} {2} {0} {} {1.000}
+E {  561} {w} {w} {8} {0} {} {1.000}
+
+R {  561} {0} {} {沙丘小洞} { } {} {丐帮} {} {} {} {1.000}
+E {  560} {e} {e} {2} {0} {} {1.000}
+E {  562} {w} {w} {8} {0} {} {1.000}
+
+R {  562} {0} {} {小山坡} { } {} {回族小镇} {} {} {} {1.000}
+E {  563} {nw} {nw} {9} {0} {} {1.000}
+E {  641} {se} {se} {6} {0} {} {1.000}
+
+R {  563} {0} {} {小镇} { } {} {回族小镇} {} {} {} {1.000}
+E {  562} {se} {se} {6} {0} {} {1.000}
+E {  564} {nu} {nu} {17} {0} {} {1.000}
+
+R {  564} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  563} {sd} {sd} {36} {0} {} {1.000}
+E {  565} {n} {n} {1} {0} {} {1.000}
+
+R {  565} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  564} {s} {s} {4} {0} {} {1.000}
+E {  566} {w} {w} {8} {0} {} {1.000}
+
+R {  566} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  565} {e} {e} {2} {0} {} {1.000}
+E {  567} {w} {w} {8} {0} {} {1.000}
+
+R {  567} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  566} {e} {e} {2} {0} {} {1.000}
+E {  568} {w} {w} {8} {0} {} {1.000}
+
+R {  568} {0} {} {灵州东门} { } {} {灵州} {} {} {} {1.000}
+E {  567} {e} {e} {2} {0} {} {1.000}
+E {  569} {w} {w} {8} {0} {} {1.000}
+
+R {  569} {0} {} {东大街} { } {} {灵州} {} {} {} {1.000}
+E {  568} {e} {e} {2} {0} {} {1.000}
+E {  576} {w} {w} {8} {0} {} {1.000}
+E {  571} {s} {s} {4} {0} {} {1.000}
+E {  572} {n} {n} {1} {0} {} {1.000}
+
+R {  570} {0} {} {灵州城中心} { } {} {灵州} {} {} {} {1.000}
+E {  578} {e} {e} {2} {0} {} {1.000}
+E {  573} {n} {n} {1} {0} {} {1.000}
+E {  575} {s} {s} {4} {0} {} {1.000}
+
+R {  571} {0} {} {大将军府} { } {} {灵州} {} {} {} {1.000}
+E {  569} {n} {n} {1} {0} {} {1.000}
+
+R {  572} {0} {} {衙门} { } {} {灵州} {} {} {} {1.000}
+E {  569} {s} {s} {4} {0} {} {1.000}
+
+R {  573} {0} {} {北大街} { } {} {灵州} {} {} {} {1.000}
+E {  570} {s} {s} {4} {0} {} {1.000}
+E {  574} {n} {n} {1} {0} {} {1.000}
+
+R {  574} {0} {} {皇宫大门} { } {} {灵州} {} {} {} {1.000}
+E {  573} {s} {s} {4} {0} {} {1.000}
+
+R {  575} {0} {} {南大街} { } {} {灵州} {} {} {} {1.000}
+E {  570} {n} {n} {1} {0} {} {1.000}
+E {  577} {e} {e} {2} {0} {} {1.000}
+E {  580} {s} {s} {4} {0} {} {1.000}
+E {  581} {w} {w} {8} {0} {} {1.000}
+
+R {  576} {8} {} {} { } {} {} {} {} {} {1.000}
+E {  578} {w} {w} {8} {0} {} {1.000}
+E {  569} {e} {e} {2} {0} {} {1.000}
+
+R {  577} {0} {} {车马店} { } {} {灵州} {} {} {} {1.000}
+E {  575} {w} {w} {8} {0} {} {1.000}
+E {  579} {e} {e} {2} {0} {} {1.000}
+
+R {  578} {8} {} {} { } {} {} {} {} {} {1.000}
+E {  576} {e} {e} {2} {0} {} {1.000}
+E {  570} {w} {w} {8} {0} {} {1.000}
+
+R {  579} {0} {} {马厩} { } {} {灵州} {} {} {} {1.000}
+E {  577} {w} {w} {8} {0} {} {1.000}
+
+R {  580} {0} {} {灵州南门} { } {} {灵州} {} {} {} {1.000}
+E {  575} {n} {n} {1} {0} {} {1.000}
+E {  583} {s} {s} {4} {0} {} {1.000}
+
+R {  581} {0} {} {酒馆} { } {} {灵州} {} {} {} {1.000}
+E {  575} {e} {e} {2} {0} {} {1.000}
+E {  582} {w} {w} {8} {0} {} {1.000}
+
+R {  582} {0} {} {关中马车行} { } {} {灵州} {} {} {} {1.000}
+E {  581} {e} {e} {2} {0} {} {1.000}
+
+R {  583} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  580} {n} {n} {1} {0} {} {1.000}
+E {  584} {s} {s} {4} {0} {} {1.000}
+
+R {  584} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  583} {n} {n} {1} {0} {} {1.000}
+E {  585} {s} {s} {4} {0} {} {1.000}
+
+R {  585} {0} {} {黄羊滩} { } {} {灵州} {} {} {} {1.000}
+E {  584} {n} {n} {1} {0} {} {1.000}
+E {  586} {sw} {sw} {12} {0} {} {1.000}
+
+R {  586} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  585} {ne} {#action {^黄羊滩 -} {#map flag nofollow off;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};#unaction {^黄羊滩 -};};#action {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。} {#delay 1 ne;};#action {^牧场 -} {#map flag nofollow off;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};#unaction {^黄羊滩 -};};#map flag nofollow on;ne;} {3} {0} {} {1.000}
+E {  587} {s} {#action {^黄羊滩 -} {#map flag nofollow off;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};#unaction {^黄羊滩 -};};#action {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。} {#delay 1 s;};#action {^牧场 -} {#map flag nofollow off;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};#unaction {^黄羊滩 -};};#map flag nofollow on;s;} {4} {0} {} {1.000}
+
+R {  587} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  586} {n} {n} {1} {0} {} {1.000}
+E {  588} {sw} {#action {^黄羊滩 -} {#map flag nofollow off;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};#unaction {^黄羊滩 -};};#action {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。} {#delay 1 sw;};#action {^牧场 -} {#map flag nofollow off;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};#unaction {^黄羊滩 -};};#map flag nofollow on;sw;} {12} {0} {} {1.000}
+
+R {  588} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  587} {ne} {#action {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。} {#delay 1 ne;};#action {^牧场 -} {#map flag nofollow off;n;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};};#map flag nofollow on;ne;} {3} {0} {} {1.000}
+E {  589} {s} {#action {^黄羊滩 -} {#map flag nofollow off;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};#unaction {^黄羊滩 -};};#action {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。} {#delay 1 s;};#action {^牧场 -} {#map flag nofollow off;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};#unaction {^黄羊滩 -};};#map flag nofollow on;s;} {4} {0} {} {1.000}
+
+R {  589} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  588} {n} {n} {1} {0} {} {1.000}
+E {  590} {w} {w} {8} {0} {} {1.000}
+
+R {  590} {0} {} {藏民村落} { } {} {大轮寺} {} {} {} {1.000}
+E {  589} {e} {e} {2} {0} {} {1.000}
+E {  591} {s} {s} {4} {0} {} {1.000}
+
+R {  591} {0} {} {藏民部落} { } {} {大轮寺} {} {} {} {1.000}
+E {  590} {n} {n} {1} {0} {} {1.000}
+E {  592} {su} {su} {20} {0} {} {1.000}
+
+R {  592} {0} {} {采石场} { } {} {大轮寺} {} {} {} {1.000}
+E {  591} {nd} {nd} {33} {0} {} {1.000}
+E {  593} {w} {w} {8} {0} {} {1.000}
+
+R {  593} {0} {} {天云马场} { } {} {大轮寺} {} {} {} {1.000}
+E {  592} {e} {e} {2} {0} {} {1.000}
+E {  594} {sw} {sw} {12} {0} {} {1.000}
+
+R {  594} {0} {} {巨水门} { } {} {大轮寺} {} {} {} {1.000}
+E {  593} {ne} {ne} {3} {0} {} {1.000}
+E {  595} {s} {s} {4} {0} {} {1.000}
+
+R {  595} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  594} {n} {n} {1} {0} {} {1.000}
+E {  596} {s} {s} {4} {0} {} {1.000}
+
+R {  596} {0} {} {赞普广场} { } {} {大轮寺} {} {} {} {1.000}
+E {  595} {n} {n} {1} {0} {} {1.000}
+E {  597} {w} {w} {8} {0} {} {1.000}
+
+R {  597} {0} {} {佛照门} { } {} {大轮寺} {} {} {} {1.000}
+E {  596} {e} {e} {2} {0} {} {1.000}
+E {  598} {w} {w} {8} {0} {} {1.000}
+
+R {  598} {0} {} {湖边小路} { } {} {大轮寺} {} {} {} {1.000}
+E {  597} {e} {e} {2} {0} {} {1.000}
+E {  599} {w} {w} {8} {0} {} {1.000}
+
+R {  599} {0} {} {湖边小路} { } {} {大轮寺} {} {} {} {1.000}
+E {  598} {e} {e} {2} {0} {} {1.000}
+E {  600} {nw} {nw} {9} {0} {} {1.000}
+
+R {  600} {0} {} {湖边小路} { } {} {大轮寺} {} {} {} {1.000}
+E {  599} {se} {se} {6} {0} {} {1.000}
+E {  601} {ne} {ne} {3} {0} {} {1.000}
+
+R {  601} {0} {} {天湖} { } {} {大轮寺} {} {} {} {1.000}
+E {  600} {sw} {sw} {12} {0} {} {1.000}
+E {  602} {n} {n} {1} {0} {} {1.000}
+
+R {  602} {0} {} {天溪} { } {甘草} {大轮寺} {} {} {} {1.000}
+E {  601} {s} {s} {4} {0} {} {1.000}
+
+R {  603} {0} {} {镇淮桥} { } {} {信阳} {} {} {} {1.000}
+E {  129} {s} {s} {4} {0} {} {1.000}
+E {  604} {n} {n} {1} {0} {} {1.000}
+
+R {  604} {0} {} {北市} { } {} {信阳} {} {} {} {1.000}
+E {  603} {s} {s} {4} {0} {} {1.000}
+E {  605} {n} {n} {1} {0} {} {1.000}
+
+R {  605} {0} {} {北门} { } {} {信阳} {} {} {} {1.000}
+E {  604} {s} {s} {4} {0} {} {1.000}
+
+R {  606} {0} {} {金刚台} { } {} {信阳} {} {} {} {1.000}
+E {  133} {nw} {nw} {9} {0} {} {1.000}
+E {  607} {sd} {sd} {36} {0} {} {1.000}
+
+R {  607} {0} {} {汤泉池} { } {} {信阳} {} {} {} {1.000}
+E {  606} {nu} {nu} {17} {0} {} {1.000}
+
+R {  608} {0} {} {暗道} { } {} {丐帮} {} {} {} {1.000}
+E {  208} {w} {w} {8} {0} {} {1.000}
+E {  609} {n} {n} {1} {0} {} {1.000}
+
+R {  609} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  608} {s} {s} {4} {0} {} {1.000}
+E {  610} {ne} {ne} {3} {0} {} {1.000}
+
+R {  610} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  609} {sw} {sw} {12} {0} {} {1.000}
+E {  611} {ne} {ne} {3} {0} {} {1.000}
+
+R {  611} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  610} {sw} {sw} {12} {0} {} {1.000}
+E {  612} {n} {n} {1} {0} {} {1.000}
+
+R {  612} {0} {} {堤坝下} { } {} {丐帮} {} {} {} {1.000}
+E {  611} {s} {s} {4} {0} {} {1.000}
+E {  613} {out} {out} {61} {0} {} {1.000}
+
+R {  613} {0} {} {黄河南岸} { } {} {黄河南岸} {} {} {} {1.000}
+E {  612} {enter} {enter} {62} {0} {} {1.000}
+E {  614} {e} {e} {2} {0} {} {1.000}
+
+R {  614} {0} {} {黄河南岸渡口} { } {} {黄河南岸} {} {} {} {1.000}
+E {  613} {w} {w} {8} {0} {} {1.000}
+E {  615} {n} {#class guojiang open;#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {艄公把踏脚板收起来，说了一声“坐稳喽”，竹篙一点，扁舟向江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {$in_boat == 1} {#var in_boat 0;out;#map goto 黄河北岸渡口;#showme <fca>到达目标地点：黄河北岸渡口;#class guojiang kill;};};ask shao gong about 过河;#class guojiang close;} {1} {0} {} {1.000}
+
+R {  615} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  617} {enter} {enter} {62} {0} {} {1.000}
+
+R {  616} {0} {} {黄河北岸渡口} { } {} {黄河北岸} {} {} {} {1.000}
+E {  615} {s} {#class guojiang open;#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {艄公把踏脚板收起来，说了一声“坐稳喽”，竹篙一点，扁舟向江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {$in_boat == 1} {#var in_boat 0;out;#map goto 黄河南岸渡口;#showme <fca>到达目标地点：黄河南岸渡口;#class guojiang kill;};};ask shao gong about 过河;#class guojiang close;} {4} {0} {} {1.000}
+E {  618} {e} {e} {2} {0} {} {1.000}
+E {  620} {w} {w} {8} {0} {} {1.000}
+
+R {  617} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  615} {out} {out} {61} {0} {} {1.000}
+
+R {  618} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  616} {w} {w} {8} {0} {} {1.000}
+E {  619} {ne} {ne} {3} {0} {} {1.000}
+
+R {  619} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  618} {sw} {sw} {12} {0} {} {1.000}
+
+R {  620} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  616} {e} {e} {2} {0} {} {1.000}
+E {  621} {nw} {nw} {9} {0} {} {1.000}
+
+R {  621} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  620} {se} {se} {6} {0} {} {1.000}
+E {  622} {w} {w} {8} {0} {} {1.000}
+
+R {  622} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  621} {e} {e} {2} {0} {} {1.000}
+E {  623} {n} {n} {1} {0} {} {1.000}
+
+R {  623} {0} {} {风陵渡} { } {} {} {} {} {} {1.000}
+E {  622} {s} {s} {4} {0} {} {1.000}
+E {  624} {n} {n} {1} {0} {} {1.000}
+
+R {  624} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  623} {s} {s} {4} {0} {} {1.000}
+E {  625} {ne} {ne} {3} {0} {} {1.000}
+
+R {  625} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  624} {sw} {sw} {12} {0} {} {1.000}
+E {  626} {ne} {ne} {3} {0} {} {1.000}
+
+R {  626} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  625} {sw} {sw} {12} {0} {} {1.000}
+E {  627} {ne} {ne} {3} {0} {} {1.000}
+
+R {  627} {0} {} {金肃门} { } {} {晋阳} {} {} {} {1.000}
+E {  626} {sw} {sw} {12} {0} {} {1.000}
+E {  628} {e} {e} {2} {0} {} {1.000}
+
+R {  628} {0} {} {金肃门内街} { } {} {晋阳} {} {} {} {1.000}
+E {  627} {w} {w} {8} {0} {} {1.000}
+E {  629} {n} {n} {1} {0} {} {1.000}
+E {  636} {e} {e} {2} {0} {} {1.000}
+
+R {  629} {0} {} {唐明镇南门} { } {} {晋阳} {} {} {} {1.000}
+E {  628} {s} {s} {4} {0} {} {1.000}
+E {  630} {n} {n} {1} {0} {} {1.000}
+
+R {  630} {0} {} {唐明镇} { } {} {晋阳} {} {} {} {1.000}
+E {  629} {s} {s} {4} {0} {} {1.000}
+E {  631} {w} {w} {8} {0} {} {1.000}
+E {  632} {n} {n} {1} {0} {} {1.000}
+
+R {  631} {0} {} {萧府} { } {} {晋阳} {} {} {} {1.000}
+E {  630} {e} {e} {2} {0} {} {1.000}
+
+R {  632} {0} {} {唐明镇北门} { } {} {晋阳} {} {} {} {1.000}
+E {  630} {s} {s} {4} {0} {} {1.000}
+E {  633} {n} {n} {1} {0} {} {1.000}
+
+R {  633} {0} {} {贫民窟} { } {} {晋阳} {} {} {} {1.000}
+E {  632} {s} {s} {4} {0} {} {1.000}
+E {  634} {e} {e} {2} {0} {} {1.000}
+
+R {  634} {0} {} {怀德门大街} { } {} {晋阳} {} {} {} {1.000}
+E {  633} {w} {w} {8} {0} {} {1.000}
+E {  635} {n} {n} {1} {0} {} {1.000}
+
+R {  635} {0} {} {怀德门} { } {} {晋阳} {} {} {} {1.000}
+E {  634} {s} {s} {4} {0} {} {1.000}
+
+R {  636} {0} {} {米市} { } {} {晋阳} {} {} {} {1.000}
+E {  628} {w} {w} {8} {0} {} {1.000}
+E {  637} {e} {e} {2} {0} {} {1.000}
+
+R {  637} {0} {} {东大街} { } {} {晋阳} {} {} {} {1.000}
+E {  636} {w} {w} {8} {0} {} {1.000}
+E {  638} {s} {s} {4} {0} {} {1.000}
+
+R {  638} {0} {} {药铺} { } {郝巴} {晋阳} {} {} {} {1.000}
+E {  637} {n} {n} {1} {0} {} {1.000}
+
+R {  639} {8} {} {} { } {} {} {} {} {} {1.000}
+E {  160} {n} {n} {1} {0} {} {1.000}
+E {  167} {s} {s} {4} {0} {} {1.000}
+
+R {  640} {0} {} {礼品店} { } {} {扬州} {} {} {} {1.000}
+E {  168} {s} {s} {4} {0} {} {1.000}
+
+R {  641} {0} {} {六盘山} { } {} {回族小镇} {} {} {} {1.000}
+E {  562} {nw} {nw} {9} {0} {} {1.000}
+E {  642} {sd} {#action {^大道 -} {#map flag nofollow off;#unaction {你还在山中跋涉，一时半会恐怕走不出这六盘山！};#unaction {大道};};#action {你还在山中跋涉，一时半会恐怕走不出这六盘山！} {#delay 1 sd;};#map flag nofollow on;sd;} {36} {0} {} {1.000}
+
+R {  642} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  641} {nu} {nu} {17} {0} {} {1.000}
+E {  643} {e} {e} {2} {0} {} {1.000}
+
+R {  643} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  642} {w} {w} {8} {0} {} {1.000}
+E {  441} {e} {e} {2} {0} {} {1.000}
+
+R {  644} {0} {} {储物柜} { } {} {扬州} {} {} {} {1.000}
+E {  168} {out} {out} {61} {0} {} {1.000}
+
+R {  645} {0} {} {客店二楼} { } {} {扬州} {} {} {} {1.000}
+E {  141} {d} {d} {32} {0} {} {1.000}
+E {  646} {enter} {enter} {62} {0} {} {1.000}
+
+R {  646} {0} {} {客店二楼} { } {} {扬州} {} {} {} {1.000}
+E {  645} {out} {out} {61} {0} {} {1.000}
+
+R {  647} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  105} {wd} {wd} {40} {0} {} {1.000}
+E {  648} {ne} {ne} {3} {0} {} {1.000}
+
+R {  648} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  647} {sw} {sw} {12} {0} {} {1.000}
+E {  649} {nu} {nu} {17} {0} {} {1.000}
+
+R {  649} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  648} {sd} {sd} {36} {0} {} {1.000}
+E {  650} {nw} {nw} {9} {0} {} {1.000}
+
+R {  650} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  649} {se} {se} {6} {0} {} {1.000}
+E {  651} {nu} {nu} {17} {0} {} {1.000}
+
+R {  651} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  650} {sd} {sd} {36} {0} {} {1.000}
+E {  652} {ne} {ne} {3} {0} {} {1.000}
+
+R {  652} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  651} {sw} {sw} {12} {0} {} {1.000}
+E {  653} {eu} {eu} {18} {0} {} {1.000}
+
+R {  653} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  652} {wd} {wd} {40} {0} {} {1.000}
+E {  654} {se} {se} {6} {0} {} {1.000}
+
+R {  654} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  653} {nw} {nw} {9} {0} {} {1.000}
+E {  655} {u} {u} {16} {0} {} {1.000}
+
+R {  655} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  654} {d} {d} {32} {0} {} {1.000}
+E {  656} {nu} {nu} {17} {0} {} {1.000}
+
+R {  656} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  655} {sd} {sd} {36} {0} {} {1.000}
+E {  657} {eu} {eu} {18} {0} {} {1.000}
+
+R {  657} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  656} {wd} {wd} {40} {0} {} {1.000}
+E {  658} {su} {su} {20} {0} {} {1.000}
+
+R {  658} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  657} {nd} {nd} {33} {0} {} {1.000}
+E {  659} {wu} {wu} {24} {0} {} {1.000}
+
+R {  659} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  658} {ed} {ed} {34} {0} {} {1.000}
+E {  660} {u} {u} {16} {0} {} {1.000}
+
+R {  660} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  659} {d} {d} {32} {0} {} {1.000}
+E {   48} {eu} {eu} {18} {0} {} {1.000}
+
+R {  661} {0} {} {} { } {} {} {} {} {} {1.000}
+E {   73} {wu} {wu} {24} {0} {} {1.000}
+E {  662} {nd} {nd} {33} {0} {} {1.000}
+
+R {  662} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  661} {su} {su} {20} {0} {} {1.000}
+E {  663} {wd} {wd} {40} {0} {} {1.000}
+
+R {  663} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  662} {eu} {eu} {18} {0} {} {1.000}
+E {  664} {sd} {sd} {36} {0} {} {1.000}
+
+R {  664} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  663} {nu} {nu} {17} {0} {} {1.000}
+E {  665} {d} {d} {32} {0} {} {1.000}
+
+R {  665} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  664} {u} {u} {16} {0} {} {1.000}
+E {  666} {nw} {nw} {9} {0} {} {1.000}
+
+R {  666} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  665} {se} {se} {6} {0} {} {1.000}
+E {  667} {wd} {wd} {40} {0} {} {1.000}
+
+R {  667} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  666} {eu} {eu} {18} {0} {} {1.000}
+E {  668} {sw} {sw} {12} {0} {} {1.000}
+
+R {  668} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  667} {ne} {ne} {3} {0} {} {1.000}
+E {  669} {sd} {sd} {36} {0} {} {1.000}
+
+R {  669} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  668} {nu} {nu} {17} {0} {} {1.000}
+E {  670} {se} {se} {6} {0} {} {1.000}
+
+R {  670} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  669} {nw} {nw} {9} {0} {} {1.000}
+E {  671} {sd} {sd} {36} {0} {} {1.000}
+
+R {  671} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  670} {nu} {nu} {17} {0} {} {1.000}
+E {  672} {sw} {sw} {12} {0} {} {1.000}
+
+R {  672} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  671} {ne} {ne} {3} {0} {} {1.000}
+E {  673} {wd} {wd} {40} {0} {} {1.000}
+
+R {  673} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  672} {eu} {eu} {18} {0} {} {1.000}
+E {   48} {sd} {sd} {36} {0} {} {1.000}
+
+R {  674} {0} {} {} { } {} {} {} {} {} {1.000}
+E {   97} {sd} {sd} {36} {0} {} {1.000}
+E {  675} {nw} {nw} {9} {0} {} {1.000}
+
+R {  675} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  674} {se} {se} {6} {0} {} {1.000}
+E {  676} {wu} {wu} {24} {0} {} {1.000}
+
+R {  676} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  675} {ed} {ed} {34} {0} {} {1.000}
+E {  677} {sw} {sw} {12} {0} {} {1.000}
+
+R {  677} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  676} {ne} {ne} {3} {0} {} {1.000}
+E {  678} {nu} {nu} {17} {0} {} {1.000}
+
+R {  678} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  677} {sd} {sd} {36} {0} {} {1.000}
+E {  679} {eu} {eu} {18} {0} {} {1.000}
+
+R {  679} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  678} {wd} {wd} {40} {0} {} {1.000}
+E {  680} {su} {su} {20} {0} {} {1.000}
+
+R {  680} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  679} {nd} {nd} {33} {0} {} {1.000}
+E {  681} {wu} {wu} {24} {0} {} {1.000}
+
+R {  681} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  680} {ed} {ed} {34} {0} {} {1.000}
+E {  682} {u} {u} {16} {0} {} {1.000}
+
+R {  682} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  681} {d} {d} {32} {0} {} {1.000}
+E {  683} {nu} {nu} {17} {0} {} {1.000}
+
+R {  683} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  682} {sd} {sd} {36} {0} {} {1.000}
+E {  684} {nw} {nw} {9} {0} {} {1.000}
+
+R {  684} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  683} {se} {se} {6} {0} {} {1.000}
+E {  685} {wu} {wu} {24} {0} {} {1.000}
+
+R {  685} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  684} {ed} {ed} {34} {0} {} {1.000}
+E {  686} {sw} {sw} {12} {0} {} {1.000}
+
+R {  686} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  685} {ne} {ne} {3} {0} {} {1.000}
+E {  687} {nu} {nu} {17} {0} {} {1.000}
+
+R {  687} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  686} {sd} {sd} {36} {0} {} {1.000}
+E {  688} {eu} {eu} {18} {0} {} {1.000}
+
+R {  688} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  687} {wd} {wd} {40} {0} {} {1.000}
+E {  689} {su} {su} {20} {0} {} {1.000}
+
+R {  689} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  688} {nd} {nd} {33} {0} {} {1.000}
+E {  690} {wu} {wu} {24} {0} {} {1.000}
+
+R {  690} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  689} {ed} {ed} {34} {0} {} {1.000}
+E {  691} {u} {u} {16} {0} {} {1.000}
+
+R {  691} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  690} {d} {d} {32} {0} {} {1.000}
+E {  692} {nu} {nu} {17} {0} {} {1.000}
+
+R {  692} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  691} {sd} {sd} {36} {0} {} {1.000}
+E {  693} {nw} {nw} {9} {0} {} {1.000}
+
+R {  693} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  692} {se} {se} {6} {0} {} {1.000}
+E {  694} {wu} {wu} {24} {0} {} {1.000}
+
+R {  694} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  693} {ed} {ed} {34} {0} {} {1.000}
+E {  695} {sw} {sw} {12} {0} {} {1.000}
+
+R {  695} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  694} {ne} {ne} {3} {0} {} {1.000}
+E {  696} {nu} {nu} {17} {0} {} {1.000}
+
+R {  696} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  695} {sd} {sd} {36} {0} {} {1.000}
+E {  697} {eu} {eu} {18} {0} {} {1.000}
+
+R {  697} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  696} {wd} {wd} {40} {0} {} {1.000}
+E {  698} {su} {su} {20} {0} {} {1.000}
+
+R {  698} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  697} {nd} {nd} {33} {0} {} {1.000}
+E {  699} {wu} {wu} {24} {0} {} {1.000}
+
+R {  699} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  698} {ed} {ed} {34} {0} {} {1.000}
+E {  700} {u} {u} {16} {0} {} {1.000}
+
+R {  700} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  699} {d} {d} {32} {0} {} {1.000}
+E {  103} {wu} {wu} {24} {0} {} {1.000}
+
+R {  701} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  257} {nw} {nw} {9} {0} {} {1.000}
+E {  702} {ed} {ed} {34} {0} {} {1.000}
+
+R {  702} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  701} {wu} {wu} {24} {0} {} {1.000}
+E {  703} {ne} {ne} {3} {0} {} {1.000}
+
+R {  703} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  702} {sw} {sw} {12} {0} {} {1.000}
+E {  704} {ed} {ed} {34} {0} {} {1.000}
+
+R {  704} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  703} {wu} {wu} {24} {0} {} {1.000}
+E {  705} {sd} {sd} {36} {0} {} {1.000}
+
+R {  705} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  704} {nu} {nu} {17} {0} {} {1.000}
+E {  706} {wd} {wd} {40} {0} {} {1.000}
+
+R {  706} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  705} {eu} {eu} {18} {0} {} {1.000}
+E {  707} {nd} {nd} {33} {0} {} {1.000}
+
+R {  707} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  706} {su} {su} {20} {0} {} {1.000}
+E {  708} {d} {d} {32} {0} {} {1.000}
+
+R {  708} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  707} {u} {u} {16} {0} {} {1.000}
+E {  709} {sd} {sd} {36} {0} {} {1.000}
+
+R {  709} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  708} {nu} {nu} {17} {0} {} {1.000}
+E {  710} {se} {se} {6} {0} {} {1.000}
+
+R {  710} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  709} {nw} {nw} {9} {0} {} {1.000}
+E {  711} {ed} {ed} {34} {0} {} {1.000}
+
+R {  711} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  710} {wu} {wu} {24} {0} {} {1.000}
+E {  712} {ne} {ne} {3} {0} {} {1.000}
+
+R {  712} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  711} {sw} {sw} {12} {0} {} {1.000}
+E {  713} {sd} {sd} {36} {0} {} {1.000}
+
+R {  713} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  712} {nu} {nu} {17} {0} {} {1.000}
+E {  714} {wd} {wd} {40} {0} {} {1.000}
+
+R {  714} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  713} {eu} {eu} {18} {0} {} {1.000}
+E {  715} {nd} {nd} {33} {0} {} {1.000}
+
+R {  715} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  714} {su} {su} {20} {0} {} {1.000}
+E {  716} {ed} {ed} {34} {0} {} {1.000}
+
+R {  716} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  715} {wu} {wu} {24} {0} {} {1.000}
+E {  717} {d} {d} {32} {0} {} {1.000}
+
+R {  717} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  716} {u} {u} {16} {0} {} {1.000}
+E {  718} {sd} {sd} {36} {0} {} {1.000}
+
+R {  718} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  717} {nu} {nu} {17} {0} {} {1.000}
+E {  719} {se} {se} {6} {0} {} {1.000}
+
+R {  719} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  718} {nw} {nw} {9} {0} {} {1.000}
+E {  720} {ed} {ed} {34} {0} {} {1.000}
+
+R {  720} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  719} {wu} {wu} {24} {0} {} {1.000}
+E {  721} {ne} {ne} {3} {0} {} {1.000}
+
+R {  721} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  720} {sw} {sw} {12} {0} {} {1.000}
+E {  722} {eu} {eu} {18} {0} {} {1.000}
+
+R {  722} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  721} {wd} {wd} {40} {0} {} {1.000}
+E {  723} {su} {su} {20} {0} {} {1.000}
+
+R {  723} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  722} {nd} {nd} {33} {0} {} {1.000}
+E {  724} {wu} {wu} {24} {0} {} {1.000}
+
+R {  724} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  723} {ed} {ed} {34} {0} {} {1.000}
+E {  725} {nu} {nu} {17} {0} {} {1.000}
+
+R {  725} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  724} {sd} {sd} {36} {0} {} {1.000}
+E {  726} {u} {u} {16} {0} {} {1.000}
+
+R {  726} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  725} {d} {d} {32} {0} {} {1.000}
+E {  727} {eu} {eu} {18} {0} {} {1.000}
+
+R {  727} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  726} {wd} {wd} {40} {0} {} {1.000}
+E {  728} {ne} {ne} {3} {0} {} {1.000}
+
+R {  728} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  727} {sw} {sw} {12} {0} {} {1.000}
+E {  729} {nu} {nu} {17} {0} {} {1.000}
+
+R {  729} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  728} {sd} {sd} {36} {0} {} {1.000}
+E {  730} {nw} {nw} {9} {0} {} {1.000}
+
+R {  730} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  729} {se} {se} {6} {0} {} {1.000}
+E {  731} {nu} {nu} {17} {0} {} {1.000}
+
+R {  731} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  730} {sd} {sd} {36} {0} {} {1.000}
+E {  732} {eu} {eu} {18} {0} {} {1.000}
+
+R {  732} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  731} {wd} {wd} {40} {0} {} {1.000}
+E {  733} {su} {su} {20} {0} {} {1.000}
+
+R {  733} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  732} {nd} {nd} {33} {0} {} {1.000}
+E {  734} {wu} {wu} {24} {0} {} {1.000}
+
+R {  734} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  733} {ed} {ed} {34} {0} {} {1.000}
+E {  735} {u} {u} {16} {0} {} {1.000}
+
+R {  735} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  734} {d} {d} {32} {0} {} {1.000}
+E {  736} {eu} {eu} {18} {0} {} {1.000}
+
+R {  736} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  735} {wd} {wd} {40} {0} {} {1.000}
+E {  737} {su} {su} {20} {0} {} {1.000}
+
+R {  737} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  736} {nd} {nd} {33} {0} {} {1.000}
+E {  738} {wu} {wu} {24} {0} {} {1.000}
+
+R {  738} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  737} {ed} {ed} {34} {0} {} {1.000}
+E {  739} {nu} {nu} {17} {0} {} {1.000}
+
+R {  739} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  738} {sd} {sd} {36} {0} {} {1.000}
+E {  740} {u} {u} {16} {0} {} {1.000}
+
+R {  740} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  739} {d} {d} {32} {0} {} {1.000}
+E {  741} {u} {u} {16} {0} {} {1.000}
+
+R {  741} {0} {} {升真岩} { } {} {武当} {} {} {} {1.000}
+E {  740} {d} {d} {32} {0} {} {1.000}
+
+R {  742} {0} {} {红娘庄走廊} { } {} {扬州} {} {} {} {1.000}
+E {  164} {w} {w} {8} {0} {} {1.000}
+
+R {  743} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  217} {n} {n} {1} {0} {} {1.000}
+E {  745} {w} {w} {8} {0} {} {1.000}
+E {  747} {e} {e} {2} {0} {} {1.000}
+E {  749} {s} {s} {4} {0} {} {1.000}
+
+R {  744} {8} {} {} { } {} {} {} {} {} {1.000}
+E {  748} {n} {n} {1} {0} {} {1.000}
+E {  219} {s} {s} {4} {0} {} {1.000}
+
+R {  745} {0} {} {岳飞家} { } {} {麒麟村} {} {} {} {1.000}
+E {  743} {e} {e} {2} {0} {} {1.000}
+
+R {  746} {8} {} {} { } {} {} {} {} {} {1.000}
+E {  218} {e} {e} {2} {0} {} {1.000}
+E {  217} {w} {w} {8} {0} {} {1.000}
+
+R {  747} {0} {} {学馆} { } {周侗} {麒麟村} {} {} {} {1.000}
+E {  743} {w} {w} {8} {0} {} {1.000}
+
+R {  748} {8} {} {} { } {} {} {} {} {} {1.000}
+E {  744} {s} {s} {4} {0} {} {1.000}
+E {  218} {n} {n} {1} {0} {} {1.000}
+
+R {  749} {0} {} {民宅} { } {} {麒麟村} {} {} {} {1.000}
+E {  743} {n} {n} {1} {0} {} {1.000}
+
+R {  750} {0} {} {村口} { } {} {武当} {} {} {} {1.000}
+E {   60} {n} {n} {1} {0} {} {1.000}
+E {  751} {se} {se} {6} {0} {} {1.000}
+
+R {  751} {0} {} {小路} { } {} {武当} {} {} {} {1.000}
+E {  750} {nw} {nw} {9} {0} {} {1.000}
+E {  752} {w} {w} {8} {0} {} {1.000}
+
+R {  752} {0} {} {草屋} { } {崔老汉} {武当} {} {} {} {1.000}
+E {  751} {e} {e} {2} {0} {} {1.000}
+
+R {  753} {0} {} {销金窟} { } {} {扬州} {} {} {} {1.000}
+E {  139} {u} {u} {16} {0} {} {1.000}
+E {  755} {out} {out} {61} {0} {} {1.000}
+
+R {  754} {0} {} {赏月台} { } {} {扬州} {} {} {} {1.000}
+E {  139} {d} {d} {32} {0} {} {1.000}
+
+R {  755} {16} {} {发呆室} { } {} {扬州} {} {} {} {1.000}
+E {  753} {enter} {enter} {62} {0} {} {1.000}

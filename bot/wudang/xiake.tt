@@ -1,0 +1,10 @@
+#class xiake open;
+
+#alias xiake.start {
+    #action {^草屋 -} {
+        ask cui about 麻烦;
+        #unaction {^草屋 -};
+    };
+    #map run 草屋 0.2;
+};
+

@@ -44,7 +44,7 @@
 #alias {zl} {yun lifeheal $myid};
 #alias {home} {enter $myid};
 #alias {lm} {localmaps};
-#alias {fm} {fullme};
+#alias {fm} {fullme;#split};
 #alias {slink} {#show $link};
 #alias {st} {status_me};
 #alias {sh} {sethere};

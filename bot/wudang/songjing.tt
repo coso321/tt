@@ -25,8 +25,30 @@
     gotolocation;
 };
 
+#action {你太疲劳了，请休息一会儿再诵经吧。} {
+    #action {^复真观二层} {
+        #action {你一觉醒来，精神抖擞地活动了几下手脚。} {
+            gotolocation;
+            #unaction {你一觉醒来，精神抖擞地活动了几下手脚。};
+            #unaction {^复真观二层};
+        };    
+        #map run 12;
+        #delay 3 sleep;
+    };
+    #map run {复真观二层} {0.3};
+};
+
 #alias getbook {
     #action {你先还上图书才能再往外借！} {
+        #action {你身上没有 jing 这样东西。} {
+            #action {^武当广场} {
+                ask chongxu about cancel;
+                ${songjing.after-handler};
+                #unaction {^武当广场};
+                #class songjing kill;
+            };    
+            #delay 1 run 武当广场;
+        };
         give jing to zhike;
         #delay 1 jie $book;
         #unaction {你先还上图书才能再往外借！};
@@ -55,13 +77,7 @@
         findpage;
         #unaction {^$location};
     };
-    #regexp $location {{两仪殿|飞升岩|后殿|南岩峰|乌鸦岭|雷神洞|潘神洞|三公山|升真岩|朝天宫|一天门|天柱峰下}} {
-        #action {^$location} {findpage; #unaction {^$location}};
-        #re bot/wudang/songjing-location.tt;
-        goto-location $location;
-    } {
-        #map run $location;
-    };
+    #map run {$location} {0.3};
 };
 
 #alias findpage {
@@ -73,6 +89,7 @@
                 #showme <fca> 有页码: %%1;
                 #if {%%2 == ${chapter.page}} {
                     #unticker fp;
+                    #unaction {到达目标地点%*};
                     #delay 1 chantpage $page;
                 };
                 #else {
@@ -89,6 +106,7 @@
             #var skippage 1;
             #regexp %%1 $chapter {
                 #unticker fp;
+                #unaction {到达目标地点%*};
                 #delay 1 chantpage $page;
             } {
                 #math page $page+$skippage;
@@ -132,13 +150,7 @@
         give jing to zhike;
         #delay 3 {run 武当广场; #unaction {^复真观二层};};
     };
-
-    #regex $location {{两仪殿|飞升岩|后殿|南岩峰|乌鸦岭|雷神洞|潘神洞|三公山|升真岩|朝天宫|一天门|天柱峰下}} {
-        #re bot/wudang/songjing-location.tt;
-        goback-from $location;
-    } {
-        #map run 复真观二层;
-    };
+    #map run {复真观二层} {0.3};
 }
      
 #class songjing close;

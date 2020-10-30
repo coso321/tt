@@ -1,0 +1,41 @@
+#var changjiang-north {长江北岸|扬州|襄阳|武当|洛阳|长安};
+#var changjiang-south {长江南岸|南昌};
+
+#alias runnc {
+    #class runnc open;
+    #event {MAP ENTER ROOM 468} {#delay 2 s; #unevent {MAP ENTER ROOM 468};};
+    #action {到达目标地点：长江南岸渡口} {
+        #delay 2 #map run {512} {0.25};
+    };
+    #event {MAP ENTER ROOM 512} {maphere;#unaction {到达目标地点：%*}; #class kill runnc};
+    #class runnc close;
+    maphere;
+    #if {"$roomname" == "长江北岸渡口"} {
+        s;
+    } {
+        #regexp $roomarea {{$changjiang-north}} {
+            #showme <fca>即将前往长江北岸渡口;
+            #map run {长江北岸渡口} {0.25};
+        } {
+            #map run {512} {0.25};
+        };
+    };
+};
+
+#alias runzx {
+    #event {MAP ENTER ROOM 525} {#unaction {Room name: %*}; #unevent {MAP ENTER ROOM 525};};
+    maphere;
+    #regex $roomarea {{$changjiang-north}} {
+        #action {Room name: 南昌城中心} {#map run 岳麓书院};
+        runnc;
+    } {
+        #map run {岳麓书院} {0.25};
+    };
+};
+
+#alias runyz {#map run {中央广场} {0.2};};
+#alias runwd {#map run {武当广场} {0.2};};
+#alias runxy {#map run {120} {0.2};};
+#alias runly {#map run {230} {0.2};};
+#alias runca {#map run {435} {0.2};};
+

@@ -24,6 +24,8 @@
 
 #act {^你的内力不够。} {sleep};
 
+#act {( 你的内力已经枯竭，不能施用内功。)} {sleep};
+
 #act {^你一觉醒来} {
   #if {"$mymenpai"=="桃花岛"} {
         #delay 1 {w;s;w;w;
@@ -50,7 +52,7 @@
         #delay 2 {sleep;
    }}};
    #elseif {"$mymenpai"=="武当派"} {
-        #delay 1 {e;e
+        #delay 1 {e;e;
         #delay 2 {sleep;
    }}};
    #else {
