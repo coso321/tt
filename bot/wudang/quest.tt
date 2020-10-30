@@ -1,5 +1,7 @@
 #class wdquest open;
 
+#prompt {当前进度：%1} {当前进度：%1};
+
 #alias {AQ} {ask-quest};
 #alias {ask-quest} {
     ask chongxu about quest;
@@ -47,15 +49,18 @@
     #map goto 武当广场;
     #class waitfor-chongxu-answer open;
     #action {冲虚道长说道：「武当三侠最近迷上了炼丹} {
+        #showme 当前进度：炼丹;
         #class waitfor-chongxu-answer kill;
         goto-liandan;
     };
     #action {冲虚道长说道：「武当派以真武七截阵闻名天下} {
+        #showme 当前进度：阵法;
         #class waitfor-chongxu-answer kill;
         goto-zhenfa;
     };
 
     #action {冲虚道长说道：「%*要在%%1熟读典籍，据说要诵唱%%2的%%3$} {
+        #showme 当前进度：诵经;
         #class waitfor-chongxu-answer kill;
         #regex %%1 {{金顶|太和宫|竹林小院|二天门|三天门|小园|小屋|五老峰|三老峰|虎头岩}} {
             cancel-quest;
@@ -65,38 +70,20 @@
         };
     };
     #action {冲虚道长说道：「道家炼气最讲究时辰和地点} {
+        #showme 当前进度：采气;
         #class waitfor-chongxu-answer kill;
         goto-caiqi;
     };
     #action {冲虚道长说道：「山下双井子村的崔老汉似乎有点麻烦，你现在下山一趟帮他解决麻烦。」} {
+        #showme 当前进度：侠客;
         #class waitfor-chongxu-answer kill;
         #nop goto-xiake;
-        ask chongxu about cancel;
-        ask chongxu about quest;
+        dza;
     };
     #action {冲虚道长说道：「现在还没有新的工作可以分配给你} {
+        #showme 当前进度：等待任务;
         #class waitfor-chongxu-answer kill;
-        
-        #action {^客房 -} {
-            #class dazuo open;
-            #action {你运功完毕，深深吸了口气，站了起来。} {dazuo max};
-            #action {你现在内力接近圆满状态} {dazuo 10};
-            #action {你现在气血严重不足，无法满足打坐最小要求。} {#delay 1 sleep};
-            #action {你现在的气太少了，无法产生内息运行全身经脉。} {#delay 1 sleep};
-            #action {你刚在三分钟内睡过一觉, 多睡对身体有害无益!} {#delay 15 sleep};
-            #action {你一觉醒来，精神抖擞地活动了几下手脚。} {
-                #map run 武当广场;
-                #action {^武当广场} {
-                    ask chongxu about quest;
-                    #class dazuo kill;
-                    #unaction {^客房 -};
-                    #unaction {^武当广场 -};
-                };
-            };
-            #class dazuo close;
-            #delay 1 dazuo max;
-        };
-        #delay 1 #map run 12;
+        waiting.${waiting.action};
     };
     #action {冲虚道长说道：「%*还有任务在身} {
         #class waitfor-chongxu-answer kill;
@@ -104,9 +91,9 @@
         ask chongxu about quest;
     };
     #action {冲虚道长说道：「我看你是机器人吧！」} {
+        #showme 当前进度：等待fullme;
         #class waitfor-chongxu-answer kill;
-        #map run 12;
-        #delay 2 dza;
+        waiting.${waiting.action};
     };
     #action {冲虚道长说道：「%%1} {
         #class waitfor-chongxu-answer kill;
@@ -114,6 +101,53 @@
         #bell;
     }{10};
     #class waitfor-chongxu-answer close;
+};
+
+#action {你一觉醒来，精神抖擞地活动了几下手脚。} {
+    #map run 武当广场;
+    #action {^武当广场} {
+        ask chongxu about quest;
+        #class waiting kill;
+        #unaction {^客房 -};
+        #unaction {^武当广场 -};
+    };
+};
+
+#alias {waiting.dazuo} {
+    #class waiting open;
+    #action {^客房 -} {
+        #delay 1 dazuo max;
+    };
+    #action {你运功完毕，深深吸了口气，站了起来。} {dazuo max};
+    #action {你现在内力接近圆满状态} {dazuo 10};
+    #action {你现在气血严重不足，无法满足打坐最小要求。} {#delay 1 sleep};
+    #action {你现在的气太少了，无法产生内息运行全身经脉。} {#delay 1 sleep};
+    #action {你刚在三分钟内睡过一觉, 多睡对身体有害无益!} {#delay 15 sleep};
+    #class waiting close;
+    #delay 1 #map run {12} {0.2};
+};
+
+#alias {waiting.dushu} {
+    #var book %1;
+    #class waiting open;
+    #action {^客房 -} {#delay 1 du $book for 5;};
+    #action {你研读了%*次有关读书写字的技巧，似乎有点心得。} {
+        du $book for 5;
+    };
+    #action {你现在过于疲倦，无法专心下来研读新知。} {
+        sleep;
+    };
+    #action {你刚在三分钟内睡过一觉, 多睡对身体有害无益!} {
+        dazuo 10;
+    };
+    #action {你现在精不够，无法控制内息的流动！} {
+        #delay 10 sleep;
+    };
+    #action {你运功完毕，深深吸了口气，站了起来。} {
+        du %1 for 5;
+    };
+    #class waiting close;
+    #map run {12} {0.2};
 };
 
 #class wdquest close;

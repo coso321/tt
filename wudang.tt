@@ -1,7 +1,5 @@
 #class wudang open;
 
-#var myname 查看status_me获取人名
-
 #alias runfzg {run 复真观二层};
 
 #alias getname {
@@ -20,6 +18,7 @@
 };
 
 #alias wdquest {
+    #var waiting.action %0;
     getname;
     #re bot/wudang/quest.tt;
     AQ;

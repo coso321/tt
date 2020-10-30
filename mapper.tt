@@ -11,8 +11,8 @@
     #class getmapname open;
     #action {^%%1 -} {
         #map set roomname %%1;
-        #map set roomarea $areaname;
-        #map info;
+        #map set roomarea $roomarea;
+        maphere show;
         #class getmapname kill;
     }
     #class getmapname close;
@@ -23,65 +23,40 @@
     #map get roomvnum roomvnum;
     #map get roomname roomname;
     #map get roomarea roomarea;
-    #map get roomdesc roomdesc;
     #if {"%1" == "show"} {
         #showme <fca>Room vnum: $roomvnum;
         #showme <fca>Room name: $roomname;
         #showme <fca>Room area: $roomarea;
-        #showme <fca>Room desc: $roomdesc;
     };
 };
 
+#function mapaction {
+    #action {%1} {%2} 1;
+};
+    
+#var mapdesc {
+    {^    %1。%2}{%1。%2}
+    {^    船老大 %1(%*)}{%1}
+};
+
 #alias loadmap {
+    #map leave;
+    #var roomname {};
     #class loadmap open;
     #action {^%%1 -} {
-        #map goto %%1;
-        maphere;
-        #if {"$roomname" != ""} {
-            maphere show;
+        #class tmp open;
+        #foreach {*mapdesc[%*]} {desc} {@mapaction{{$desc} {mgdesc $mapdesc[$desc];#if {"$roomname" != ""} {maphere show;}}}};
+        #class tmp close;
+        #delay 1 {
+            #if {"$roomname" == ""} {
+                #map goto %%1;
+                maphere show;
+            };
         };
     };
-    #action {船老大 何博康(He bokang)} {
-        #map goto 长江北岸渡口;
-        maphere show;
-    };
-    #action {    船老大 孙浑(Sun hun)} {
-        #map goto 长江南岸渡口;
-        maphere show;
-    };
-    #action {    船老大 施顺(Shi shun)} {
-        #map goto 黄河南岸渡口;
-        maphere show;
-    };
-    #action {船老大 蒋鼎民(Jiang dingmin)} {
-        #map goto 黄河北岸渡口;
-        maphere show;
-    };
-    #action {这里是南昌城的城中心} {
-        #map goto 南昌城中心;
-        maphere show;
-    };
-    #action {这里是襄阳的城中心。} {
-        #map goto 襄阳城中心;
-        maphere show;
-    };
-    #action {这里是信阳城的中心} {
-        #map goto 信阳小广场;
-        maphere show;
-    };
-    #action {泉州是一个安静的港城。} {
-        #map goto 泉州城中心;
-        maphere show;
-    };
-    #action {这里是西夏都城灵州的中心广场} {
-        #map goto 灵州城中心;
-        maphere show;
-    };
-    #action {Room name: %*} {
-        #class loadmap kill;
-    };
+    #action {Room name: %S} {#class tmp kill; #class loadmap kill;};
     #class loadmap close;
-    #split 10 1;
+    #split 7 2;
     #map flag vtmap on;
     l;
 };
@@ -97,21 +72,49 @@
 
     
 #alias map {
-    #regexp $areaname {{.+}} { #showme 当前地区：$areaname; getmapname %1} {#showme 当前地区为空; maphere; getmapname %1}; 
+    #regexp $roomarea {{.+}} { getmapname %1} {#showme <fca>当前地区为空; getmapname %1}; 
 };
+
+#alias mapdesc {
+    #class tmp open;
+    #action {^%%1 -} {
+        #class tmp2 open;
+        #foreach {*mapdesc[%*]} {desc} {
+           @mapaction{{$desc} {
+               maphere; 
+               #regexp {$desc} {{\^(    「.*)|\^(    这里明显的方向有.*)}} {} {
+                   mapdesc $mapdesc[$desc]};
+               };
+           };
+        };
+        #nop #action {^    %%%1。%%%2} {mapdesc %%%1。%%%2;};
+        #class tmp2 close;
+    };
+    #class tmp close;
+    maphere;
+    #if {"%1" == ""} {
+        l;
+        #delay 1 {#class tmp2 kill; #class tmp kill;};
+    } {
+        #map set roomname $roomname|%1;
+        maphere show;
+    };
+};
+
 
 #alias mi {#map info};
 #alias mm {#map move %1; mi};
 #alias mg {#map goto %1; mi};
-#alias ml {#map list %1};
+#alias mgdesc {#map goto %*%1%*;};
+#alias ml {#map list %*%1%*};
 #alias mlarea {#map list {%*} {} {} {%1}};
-#alias mldesc {#map list {%*} {} {%*%1%*}};
 
 #alias mapnum {#map flag asciivnums};
 #alias mapvoid {#map insert %1 void};
 #alias savemap {#map write map.tt;};
 
 #alias run {#map run {%1} {{%2}};};
+#alias rundesc {#map run {%*%1%*} {{%2}};};
 
 
 #alias mazeexit {
@@ -236,5 +239,43 @@
     };
 };
 
-
+#alias guojiang-exit {
+    #map exit %1 command {
+        #action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {
+            #class tmp open;
+            #action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};
+            #class tmp close;
+        };
+        #action {^你使出吃奶的力气喊了一声：“船家”$} {
+            #class tmp open;
+            #action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};
+            #class tmp close;
+        };
+        #var in_boat 0;
+        #action {江心驶去。} {
+            #var in_boat 1;
+        };
+        #action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {
+            #if {$${in_boat} == 1} {
+                #var in_boat 0;
+                out;
+                #map goto %*%3%*;
+                #showme <fca>到达目标地点：%3;
+            };
+        };
+        #action {正等着你呢，上来吧。} {#class tmp kill;enter};
+        #action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};
+        #action {^%*接过你递给的船资} {
+            #class tmp open;
+            #action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};
+            #class tmp close;
+        };
+        #action {^你的车船通账上还剩%S，这一趟的船资%S。} {
+            #class tmp open;
+            #action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};
+            #class tmp close;
+        };
+        ask shao gong about %2;
+    };
+};
 #class mapper close;
