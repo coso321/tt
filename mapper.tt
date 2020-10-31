@@ -66,6 +66,7 @@
     };
     #action {Room name: %S} {#class tmp kill; #class loadmap kill;};
     #class loadmap close;
+    #unsplit; 
     #split 7 2;
     #map flag vtmap on;
     l;
@@ -127,7 +128,9 @@
 #alias mgdesc {#map goto %*%1%*;};
 #alias ml {#map list %*%1%*};
 #alias mldesc {#map list {%*} {} {%1}};
-#alias mlarea {#map list {%*} {} {} {%1}};
+#alias mlarea {
+    #if {"%1" == ""} {maphere; mlarea $roomarea} {#map list {%*} {} {} {%1}};
+};
 
 #alias mapnum {#map flag asciivnums};
 #alias mapvoid {#map insert %1 void};

@@ -9,7 +9,7 @@ gt fds;
 #delay 5 {
 #if {"$mymenpai"=="丐帮"}
 {say 降龙打天下};
-#elseif {"$mymenpai"=="桃花岛"}
+#elseif {"$mymenpai"=="桃花岛" || "$mymenpai"=="武当派"}
 {#2 {draw $wuqi3}};
 draw armor;
 draw head;

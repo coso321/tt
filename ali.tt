@@ -20,6 +20,9 @@
     #re init.tt;
     #event {SCREEN RESIZE} {#split}
 };
+#alias {pfm} {perform %0};
+#alias {pda} {#re bot/pda.tt; pingdiao.start};
+#alias {pdx} {pingdiao.stop};
 #alias {dck} {dz -check};
 #alias {dqa} {#tic {duoqi} {duo} {1}};
 #alias {dqx} {#untic duoqi};

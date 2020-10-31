@@ -1,0 +1,10 @@
+#class pda open;
+
+#alias pingdiao.start {
+    #act {^岳  飞  墓 -} {pingdiao;#unact {^岳  飞  墓 -}};
+    runywm;
+};
+#alias pingdiao.stop {#class pda kill};
+#action {你凭吊完毕,站起身来} {eat liang; drink jiudai; pingdiao};
+
+#class pda close;

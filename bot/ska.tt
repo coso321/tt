@@ -21,6 +21,7 @@
 #act {^你的%*进步了} {verify $gong};
 
 #act {你略一凝神，精神看起来好多了。} {skaa};
+#act {你现在精力充沛。} {skaa};
 
 #act {^你的内力不够。} {sleep};
 

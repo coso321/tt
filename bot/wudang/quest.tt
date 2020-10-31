@@ -2,6 +2,8 @@
 
 #prompt {当前进度：%1} {当前进度：%1};
 
+#var equip-drop 0;
+
 #alias {AQ} {ask-quest};
 #alias {ask-quest} {
     ask chongxu about quest;
@@ -108,13 +110,28 @@
     #class waitfor-chongxu-answer close;
 };
 
+#act {从冲虚道长身上掉了出来一} {#math {equip-drop} {${equip-drop}+1};};
+
 #alias waiting.continue {
-    #action {^武当广场 -} {
-        ask chongxu about quest;
-        #class waiting kill;
-        #unaction {^武当广场 -};
+    #if {${equip-drop} > 0} {
+        #action {^荣宝斋 -} {
+            #action {^扬州钱庄 -} {cun 1 gold; #delay 3 #map run {武当广场%*} {0.2}; #unaction {^扬州钱庄 -};};
+            #action {^武当广场 -} {
+                ask chongxu about quest;
+                #unaction {^武当广场 -};
+            };
+            sell all; 
+            #delay 3 #map run {扬州钱庄%*} {0.2};
+            #unaction {^荣宝斋 -};
+        };
+        #map run {荣宝斋%*} {0.2};
+    } {
+        #action {^武当广场 -} {
+            ask chongxu about quest;
+            #unaction {^武当广场 -};
+        };
+        #map run 武当广场;
     };
-    #map run 武当广场;
 };
 
 #alias waiting.wait {
