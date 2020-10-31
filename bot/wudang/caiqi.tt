@@ -5,6 +5,17 @@
     #map run {天柱峰下} {0.2};
 };
 
+#act {^你一点内功修炼要诀都不懂，怎么进行采气？} {
+    #act {^武当广场 -} {
+        ask chongxu about cancel;
+        ask chongxu about quest;
+        #delay 3 class caiqi kill;
+    };
+    #delay 1 {
+        runwd;
+    };   
+};
+
 #act {^仅子午两个时辰能够进行采气} {
     #class dazuo open;
     #action {你运功完毕，深深吸了口气，站了起来。} {caiqi};                                                                

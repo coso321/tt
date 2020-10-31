@@ -18,7 +18,8 @@
 };
 
 #alias wdquest {
-    #var waiting.action %0;
+    #var waiting.action {%1 %2};
+    #var do-xiake %3;
     getname;
     #re bot/wudang/quest.tt;
     AQ;

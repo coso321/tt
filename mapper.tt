@@ -23,10 +23,12 @@
     #map get roomvnum roomvnum;
     #map get roomname roomname;
     #map get roomarea roomarea;
+    #map get roomdesc roomdesc;
     #if {"%1" == "show"} {
         #showme <fca>Room vnum: $roomvnum;
         #showme <fca>Room name: $roomname;
         #showme <fca>Room area: $roomarea;
+        #showme <fca>Room desc: $roomdesc;
     };
 };
 
@@ -36,8 +38,10 @@
     
 #var mapdesc {
     {^    %1。%2}{%1。%2}
-    {^    船老大 %1(%*)}{%1}
+    {^    船老大 %1(%*)}{船老大 %1}
 };
+
+#var mapdesc-exclude {\^(    「.*)|\^(    这里明显的方向有.*)|\^(    这里唯一的出口有.*)|\^(    这里明显的出口有.*)}
 
 #alias loadmap {
     #map leave;
@@ -45,7 +49,13 @@
     #class loadmap open;
     #action {^%%1 -} {
         #class tmp open;
-        #foreach {*mapdesc[%*]} {desc} {@mapaction{{$desc} {mgdesc $mapdesc[$desc];#if {"$roomname" != ""} {maphere show;}}}};
+        #foreach {*mapdesc[%*]} {desc} {@mapaction{{$desc} {
+               #regexp {$desc} {{$${mapdesc-exclude}}} {} {
+                   mgdesc {${mapdesc[$desc]}};
+                   maphere;
+                   #if {"$$roomname" != ""} {maphere show;}
+               };
+        }}};
         #class tmp close;
         #delay 1 {
             #if {"$roomname" == ""} {
@@ -82,8 +92,8 @@
         #foreach {*mapdesc[%*]} {desc} {
            @mapaction{{$desc} {
                maphere; 
-               #regexp {$desc} {{\^(    「.*)|\^(    这里明显的方向有.*)}} {} {
-                   mapdesc $mapdesc[$desc]};
+               #regexp {$desc} {{$${mapdesc-exclude}}} {} {
+                   mapdesc {$mapdesc[$desc]}};
                };
            };
         };
@@ -101,19 +111,32 @@
     };
 };
 
+#alias roomdesc {
+    maphere;
+    #if {"$roomdesc" == ""} {
+        #map set roomdesc %1;
+    } {
+        #map set roomname $roomname|%1;
+    };
+    maphere show;
+};
 
 #alias mi {#map info};
 #alias mm {#map move %1; mi};
-#alias mg {#map goto %1; mi};
+#alias mg {#map goto %1%*; mi};
 #alias mgdesc {#map goto %*%1%*;};
 #alias ml {#map list %*%1%*};
+#alias mldesc {#map list {%*} {} {%1}};
 #alias mlarea {#map list {%*} {} {} {%1}};
 
 #alias mapnum {#map flag asciivnums};
 #alias mapvoid {#map insert %1 void};
 #alias savemap {#map write map.tt;};
 
-#alias run {#map run {%1} {{%2}};};
+#alias run {
+    #if {"%1" == "%d"} {#map run {%1} {{%2}};} {#map run {%1%*} {{%2}};};
+};
+
 #alias rundesc {#map run {%*%1%*} {{%2}};};
 
 
@@ -241,6 +264,7 @@
 
 #alias guojiang-exit {
     #map exit %1 command {
+        #class guojiang open;
         #action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {
             #class tmp open;
             #action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};
@@ -261,6 +285,7 @@
                 out;
                 #map goto %*%3%*;
                 #showme <fca>到达目标地点：%3;
+                #class guojiang kill;
             };
         };
         #action {正等着你呢，上来吧。} {#class tmp kill;enter};
@@ -275,6 +300,7 @@
             #action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};
             #class tmp close;
         };
+        #class guojiang close;
         ask shao gong about %2;
     };
 };

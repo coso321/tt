@@ -14,8 +14,6 @@
 
 #alias {SQ} {success-quest};
 #alias {success-quest} {
-    eat liang;
-    drink jiudai;
     ask chongxu about success;
 };
 
@@ -77,12 +75,18 @@
     #action {冲虚道长说道：「山下双井子村的崔老汉似乎有点麻烦，你现在下山一趟帮他解决麻烦。」} {
         #showme 当前进度：侠客;
         #class waitfor-chongxu-answer kill;
-        #nop goto-xiake;
-        dza;
+        #if {${do-xiake} == 1} {
+            #var waiting.next waiting.wait;
+            waiting.${waiting.action};
+        #else
+            ask chongxu about cancel;
+            ask chongxu about quest;
+        };
     };
     #action {冲虚道长说道：「现在还没有新的工作可以分配给你} {
         #showme 当前进度：等待任务;
         #class waitfor-chongxu-answer kill;
+        #var waiting.next waiting.continue;
         waiting.${waiting.action};
     };
     #action {冲虚道长说道：「%*还有任务在身} {
@@ -93,6 +97,7 @@
     #action {冲虚道长说道：「我看你是机器人吧！」} {
         #showme 当前进度：等待fullme;
         #class waitfor-chongxu-answer kill;
+        #var waiting.next waiting.wait;
         waiting.${waiting.action};
     };
     #action {冲虚道长说道：「%%1} {
@@ -103,14 +108,36 @@
     #class waitfor-chongxu-answer close;
 };
 
-#action {你一觉醒来，精神抖擞地活动了几下手脚。} {
-    #map run 武当广场;
-    #action {^武当广场} {
+#alias waiting.continue {
+    #action {^武当广场 -} {
         ask chongxu about quest;
         #class waiting kill;
-        #unaction {^客房 -};
         #unaction {^武当广场 -};
     };
+    #map run 武当广场;
+};
+
+#alias waiting.wait {
+    waiting.${waiting.action};
+};
+
+#action {你一觉醒来，精神抖擞地活动了几下手脚。} {
+    #class waiting kill;
+    #class tmp open;
+    #act {^膳房 -} {
+        get zhou;
+        get hulu;
+        eat zhou;
+        drink hulu;
+        drop zhou;
+        drop hulu;
+    };
+    #act {{你丢下一个清水葫芦。|你身上没有 hulu 这样东西。}} {
+        ${waiting.next};
+        #class tmp kill;
+    };
+    #class tmp close;
+    #map run 14;
 };
 
 #alias {waiting.dazuo} {
@@ -136,6 +163,9 @@
     };
     #action {你现在过于疲倦，无法专心下来研读新知。} {
         sleep;
+    };
+    #action {你必须先用 enable 选择你要用的内功心法。} {
+        #delay 10 sleep;
     };
     #action {你刚在三分钟内睡过一觉, 多睡对身体有害无益!} {
         dazuo 10;

@@ -1,5 +1,25 @@
-#var changjiang-north {长江北岸|扬州|襄阳|武当|洛阳|长安};
-#var changjiang-south {长江南岸|南昌|苏州|嘉兴|镇江};
+#var changjiang-north {长江北岸|扬州|襄阳|武当|洛阳|长安|信阳|曲阜};
+#var changjiang-south {长江南岸|南昌|苏州|嘉兴|镇江|泉州|岳王墓};
+#var huanghe-north {黄河北岸|晋阳};
+#var huanghe-south {黄河南岸|$changjiang-north};
+
+#alias changjiang-south {
+    #class changjiang open;
+    #act {^    船老大} {s; #unact {^    船老大}};
+    #act {到达目标地点：%*} {#showme <fca>到达长江南岸; #class changjiang kill};
+    #class changjiang close;
+    #map run {%*这里是长江北岸的渡口%*船老大%*} {0.2}
+};
+
+#alias runjx {
+    #class runjx open;
+    #act {到达长江南岸} {#delay 1 #map run {嘉兴城%*} {0.2}};
+    #class runjx close;
+    maphere;
+    #if {"$roomname" == "%*船老大%*"} {s;} {
+        #regexp $roomarea {{${changjiang-north}}} {changjiang-south} {#map run {嘉兴城%*} {0.2};};
+    };
+};
 
 #alias runnc {
     #class runnc open;
@@ -7,13 +27,13 @@
     #action {到达目标地点：长江南岸渡口} {
         #delay 2 #map run {512} {0.25};
     };
-    #event {MAP ENTER ROOM 512} {maphere;#unaction {到达目标地点：%*}; #class kill runnc};
+    #event {MAP ENTER ROOM 512} {maphere;#unaction {到达目标地点：%*}; #class runnc kill};
     #class runnc close;
     maphere;
     #if {"$roomname" == "长江北岸渡口"} {
         s;
     } {
-        #regexp $roomarea {{$changjiang-north}} {
+        #regexp $roomarea {{${changjiang-north}}} {
             #showme <fca>即将前往长江北岸渡口;
             #map run {长江北岸渡口} {0.25};
         } {
@@ -34,28 +54,54 @@
 };
 
 #alias runyz {
-    #class tmp open;
-    #event {MAP ENTER ROOM 468} {#delay 2 s; #unevent {MAP ENTER ROOM 468};};
-    #action {到达目标地点：长江南岸渡口} {
-        #delay 2 #map run {512} {0.25};
+    #class runyz open;
+    #event {MAP ENTER ROOM 616} {#delay 2 s; #unevent {MAP ENTER ROOM 616};};
+    #action {到达目标地点：施顺} {
+        #delay 2 #map run {中央广场} {0.2};
     };
-    #event {MAP ENTER ROOM 512} {maphere;#unaction {到达目标地点：%*}; #class kill runnc};
-    #class runnc close;
+    #event {MAP ENTER ROOM 139} {maphere;#unaction {到达目标地点：%*}; #class runyz kill};
+    #class runyz close;
     maphere;
-    #if {"$roomname" == "%*何博康%*"} {
+    #if {"$roomname" == "%*蒋鼎民%*"} {
         s;
     } {
-        #regexp $roomarea {{$changjiang-north}} {
-            #showme <fca>即将前往长江北岸渡口;
-            #map run {%*何博康%*} {0.25};
+        #regexp $roomarea {{${huanghe-north}}} {
+            #showme <fca>即将前往黄河北岸渡口;
+            #map run {616} {0.2};
         } {
-            #map run {512} {0.25};
+            #map run {中央广场} {0.2};
         };
     };
-#map run {中央广场} {0.2};};
+};
+
 #alias runwd {#map run {武当广场} {0.2};};
 #alias runxy {#map run {120} {0.2};};
 #alias runly {#map run {230} {0.2};};
 #alias runca {#map run {435} {0.2};};
+#alias runlz {#map run {570} {0.2};};
 #alias runhome {#map run {储物柜} {0.2};}
 
+#alias runjy {
+    #class tmp open;
+    #event {MAP ENTER ROOM 614} {#showme <fca>entered room 614;#delay 2 {n; #unevent {MAP ENTER ROOM 614}};};
+    #action {到达目标地点：蒋鼎民} {
+        #delay 2 #map run {631} {0.2};
+    };
+    #event {MAP ENTER ROOM 631} {maphere;#unaction {到达目标地点：%*}; #class tmp kill};
+    #class tmp close;
+    maphere;
+    #if {"$roomname" == "%*施顺%*"} {
+        n;
+    } {
+        #regexp $roomarea {{$huanghe-south}} {
+            #map run {%*施顺%*} {0.2};
+        } {
+            #map run {631} {0.2};
+        };
+    };
+};
+    
+
+#alias runxinyang {
+    #map run {129} {0.2};
+};
