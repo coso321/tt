@@ -1,6 +1,7 @@
 #class wdquest open;
 
 #prompt {当前进度：%1} {当前进度：%1};
+#ticker {looking} {l} {30};
 
 #var equip-drop 0;
 
@@ -46,7 +47,7 @@
 
 
 #action {你向冲虚道长打听有关『quest』的消息。$} {
-    #map goto 武当广场;
+    #class waitfor-chongxu-drop kill;
     #class waitfor-chongxu-answer open;
     #action {冲虚道长说道：「武当三侠最近迷上了炼丹} {
         #showme 当前进度：炼丹;
@@ -79,8 +80,10 @@
         #class waitfor-chongxu-answer kill;
         #if {${do-xiake} == 1} {
             #var waiting.next waiting.wait;
-            waiting.${waiting.action};
-        #else
+            #map goto 武当广场;
+            #delay 1 waiting.${waiting.action};
+        };
+        #else {
             ask chongxu about cancel;
             ask chongxu about quest;
         };
@@ -89,7 +92,8 @@
         #showme 当前进度：等待任务;
         #class waitfor-chongxu-answer kill;
         #var waiting.next waiting.continue;
-        waiting.${waiting.action};
+        #map goto 武当广场;
+        #delay 1 waiting.${waiting.action};
     };
     #action {冲虚道长说道：「%*还有任务在身} {
         #class waitfor-chongxu-answer kill;
@@ -100,7 +104,8 @@
         #showme 当前进度：等待fullme;
         #class waitfor-chongxu-answer kill;
         #var waiting.next waiting.wait;
-        waiting.${waiting.action};
+        #map goto 武当广场;
+        #delay 1 waiting.${waiting.action};
     };
     #action {冲虚道长说道：「%%1} {
         #class waitfor-chongxu-answer kill;
@@ -110,32 +115,40 @@
     #class waitfor-chongxu-answer close;
 };
 
-#act {从冲虚道长身上掉了出来一} {#math {equip-drop} {${equip-drop}+1};};
+#act {你向冲虚道长打听有关『success』的消息。} {
+    #class waitfor-chongxu-drop open;
+        #act {^从冲虚道长身上掉了出来一件} {#math {equip-drop} {${equip-drop}+1};};
+        #act {^从冲虚道长身上掉了出来一柄} {#math {equip-drop} {${equip-drop}+1};};
+    #class waitfor-chongxu-drop close;
+};
 
 #alias waiting.continue {
     #if {${equip-drop} > 0} {
         #action {^荣宝斋 -} {
-            #action {^扬州钱庄 -} {cun 1 gold; #delay 3 #map run {武当广场%*} {0.2}; #unaction {^扬州钱庄 -};};
+            #action {^扬州钱庄 -} {#delay 1 {cun 1 gold; #delay 3 #map run {武当广场%*} {0.2}; #unaction {^扬州钱庄 -};}};
             #action {^武当广场 -} {
-                ask chongxu about quest;
+                set brief 1;
+                #delay 1 ask chongxu about quest;
                 #unaction {^武当广场 -};
             };
-            sell all; 
+            #var equip-drop 0;
+            #delay 1 sell all; 
             #delay 3 #map run {扬州钱庄%*} {0.2};
             #unaction {^荣宝斋 -};
         };
+        set brief 3;
         #map run {荣宝斋%*} {0.2};
     } {
         #action {^武当广场 -} {
             ask chongxu about quest;
             #unaction {^武当广场 -};
         };
-        #map run 武当广场;
+        #delay 1 #map run 武当广场;
     };
 };
 
 #alias waiting.wait {
-    waiting.${waiting.action};
+    #delay 1 waiting.${waiting.action};
 };
 
 #action {你一觉醒来，精神抖擞地活动了几下手脚。} {
@@ -161,6 +174,7 @@
     #class waiting open;
     #action {^客房 -} {
         #delay 1 dazuo max;
+        #unaction {^客房 -};
     };
     #action {你运功完毕，深深吸了口气，站了起来。} {dazuo max};
     #action {你现在内力接近圆满状态} {dazuo 10};
@@ -168,18 +182,22 @@
     #action {你现在的气太少了，无法产生内息运行全身经脉。} {#delay 1 sleep};
     #action {你刚在三分钟内睡过一觉, 多睡对身体有害无益!} {#delay 15 sleep};
     #class waiting close;
-    #delay 1 #map run {12} {0.2};
+    #map run {12} {0.2};
 };
 
 #alias {waiting.dushu} {
     #var book %1;
     #class waiting open;
-    #action {^客房 -} {#delay 1 du $book for 5;};
+    #action {^客房 -} {
+        #delay 1 du $book for 5;
+        #unaction {^客房 -};
+    };
+     
     #action {你研读了%*次有关读书写字的技巧，似乎有点心得。} {
         du $book for 5;
     };
     #action {你现在过于疲倦，无法专心下来研读新知。} {
-        sleep;
+        #delay 1 sleep;
     };
     #action {你必须先用 enable 选择你要用的内功心法。} {
         #delay 10 sleep;

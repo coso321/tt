@@ -48,10 +48,14 @@
 	#if {$myage<18}
 	{
 		put $book in bag;
+                dza;
+                #class dsa kill;
 	};
 	#else
 	{
 		store $book;
+                dza;
+                #class dsa kill;
 	};
 };
 

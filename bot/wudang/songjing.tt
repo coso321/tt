@@ -47,15 +47,17 @@
                 ${songjing.after-handler};
                 #unaction {^武当广场};
                 #class songjing kill;
+                #unaction {你先还上图书才能再往外借！};
+                #unaction {你身上没有 jing 这样东西。};
             };    
             #delay 1 run 武当广场;
         };
+        #action {你给知客道长一本%*} {jie $book; #unaction {你给知客道长一本%*}};
         give jing to zhike;
-        #delay 1 jie $book;
         #unaction {你先还上图书才能再往外借！};
     };
     #action {知客道长递给你一本} {
-        gotolocation;
+        #delay 1 gotolocation;
         #unaction {知客道长递给你一本};
     };
     #action {经验过2000点以后才能开通借书服务！} {

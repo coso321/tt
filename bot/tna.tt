@@ -7,11 +7,13 @@
 
 #act {你的精力上限增加了！！}{hpbrief};
 
-#act {你的精力修为已经达到了瓶颈，精力最大值为基本内功技能的15倍。} {#untic tna;tnx;};
+#act {你的精力修为已经达到了瓶颈，精力最大值为基本内功技能的15倍。} {#untic tna;tnx;quit;};
 
 #act {你吐纳完毕} {tunaa};
 
-#act {你现在精不足，无法修行精力！} {exert regenerate;#delay 2 {tunaa}};
+#act {你现在精不足，无法修行精力！} {exert regenerate;};
+#act {你略一凝神，精神看起来好多了。} {tunaa};
+#act {( 你的内力已经枯竭，不能施用内功。)} {sleep};
 
 #act {你的内力不够} {sleep};
 

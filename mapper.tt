@@ -1,5 +1,6 @@
 #class mapper open;
 
+
 #map read map.tt;
 #read mapper-paths.tt;
 
@@ -32,42 +33,52 @@
     };
 };
 
+#alias mapdone {#map roomflag static on};
 #function mapaction {
     #action {%1} {%2} 1;
 };
     
+
 #var mapdesc {
     {^    %1。%2}{%1。%2}
     {^    船老大 %1(%*)}{船老大 %1}
+    {^┌───%1─}{%1}
 };
 
-#var mapdesc-exclude {\^(    「.*)|\^(    这里明显的方向有.*)|\^(    这里唯一的出口有.*)|\^(    这里明显的出口有.*)}
+#function getmapdesc {
+    #class getmapdesc open;
+    #foreach {*mapdesc[%*]} {desc} {@mapaction{{$desc} {
+           #regexp {$desc} {{$${mapdesc-exclude}}} {#return} {
+               %1 {${mapdesc[$desc]}};
+           };
+    }}};
+    #action {^    你可以看看(look):<node>}{l <node>};
+    #class getmapdesc close;
+};
+
+
+#var mapdesc-exclude {\^(    「.*)|\^(    这里明显的方向有.*)|\^(    这里唯一的出口有.*)|\^(    这里明显的出口有.*)|\^(    这里唯一的方向有.*)}
 
 #alias loadmap {
     #map leave;
     #var roomname {};
     #class loadmap open;
     #action {^%%1 -} {
-        #class tmp open;
-        #foreach {*mapdesc[%*]} {desc} {@mapaction{{$desc} {
-               #regexp {$desc} {{$${mapdesc-exclude}}} {} {
-                   mgdesc {${mapdesc[$desc]}};
-                   maphere;
-                   #if {"$$roomname" != ""} {maphere show;}
-               };
-        }}};
-        #class tmp close;
+        #regexp {%%1} {{.*}的储物柜} {#map goto 644;} {
+            @getmapdesc{mgdesc};
+        };
         #delay 1 {
+            maphere;
             #if {"$roomname" == ""} {
                 #map goto %%1;
-                maphere show;
             };
+            maphere show;
         };
     };
-    #action {Room name: %S} {#class tmp kill; #class loadmap kill;};
+    #action {Room name: %S} {#class getmapdesc kill; #class loadmap kill;};
     #class loadmap close;
     #unsplit; 
-    #split 7 2;
+    #split 10 2;
     #map flag vtmap on;
     l;
 };
@@ -79,7 +90,7 @@
 
 #alias mapnof { #map flag nofollow on; };
 #alias mapf { #map flag nofollow off; };
-#alias mapsize {#unsplit; #split %1 1};
+#alias mapsize {#unsplit; #split %1 2};
 
     
 #alias map {
@@ -87,28 +98,20 @@
 };
 
 #alias mapdesc {
-    #class tmp open;
-    #action {^%%1 -} {
-        #class tmp2 open;
-        #foreach {*mapdesc[%*]} {desc} {
-           @mapaction{{$desc} {
-               maphere; 
-               #regexp {$desc} {{$${mapdesc-exclude}}} {} {
-                   mapdesc {$mapdesc[$desc]}};
-               };
-           };
-        };
-        #nop #action {^    %%%1。%%%2} {mapdesc %%%1。%%%2;};
-        #class tmp2 close;
-    };
-    #class tmp close;
     maphere;
     #if {"%1" == ""} {
+        #class tmp open;
+        #action {^%%1 -} {
+            @getmapdesc{mapdesc};
+        };
+        #class tmp close;
         l;
-        #delay 1 {#class tmp2 kill; #class tmp kill;};
+        #delay 1 {#class getmapdesc kill; #class tmp kill;};
     } {
-        #map set roomname $roomname|%1;
-        maphere show;
+        #regexp {$roomname} {{.*%1.*}} {#return} {
+            #map set roomname $roomname|%1;
+            maphere show;
+        };
     };
 };
 
@@ -129,7 +132,7 @@
 #alias ml {#map list %*%1%*};
 #alias mldesc {#map list {%*} {} {%1}};
 #alias mlarea {
-    #if {"%1" == ""} {maphere; mlarea $roomarea} {#map list {%*} {} {} {%1}};
+    #if {"%1" == ""} {maphere; #if {"$roomarea" != "" } {mlarea $roomarea}} {#map list {%*} {} {} {%1}};
 };
 
 #alias mapnum {#map flag asciivnums};
@@ -137,10 +140,9 @@
 #alias savemap {#map write map.tt;};
 
 #alias run {
-    #if {"%1" == "%d"} {#map run {%1} {{%2}};} {#map run {%1%*} {{%2}};};
+    #if {"%1" == "%d"} {#map run {%1} {{%2}};} {#map run {%*%1%*} {{%2}};};
 };
 
-#alias rundesc {#map run {%*%1%*} {{%2}};};
 
 
 #alias mazeexit {
@@ -265,7 +267,10 @@
     };
 };
 
-#alias guojiang-exit {
+#alias guojiang-exit {boat-exit %1 过江};
+#alias guohe-exit {boat-exit %1 过河};
+
+#alias boat-exit {
     #map exit %1 command {
         #class guojiang open;
         #action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {
@@ -286,8 +291,8 @@
             #if {$${in_boat} == 1} {
                 #var in_boat 0;
                 out;
-                #map goto %*%3%*;
-                #showme <fca>到达目标地点：%3;
+                maphere;
+                #showme <fca>到达目标地点：$$roomname;
                 #class guojiang kill;
             };
         };
@@ -305,6 +310,18 @@
         };
         #class guojiang close;
         ask shao gong about %2;
+    };
+    #map exitflag %1 avoid on;
+};
+
+#alias wait-exit {
+    #map exit %1 command {
+        #class tmp open;
+        #action {%2} {#delay 1 %1};
+        #action {%3} {#map flag nofollow off;#showme <fca>等待结束;#class tmp kill};
+        #class tmp close;
+        %1;
+        #map flag nofollow on;
     };
 };
 #class mapper close;

@@ -19,7 +19,7 @@ wield all;
 sethere fds;
 #delay 1 {gt kd;
 #delay 3 {wear all;
-#delay 1 {drop xue;drop shoes;wear all;
+#delay 1 {drop xie;drop shoes;wear all;
 #class lzba kill;
 }}}}};
 

@@ -7,11 +7,10 @@
     #class zhenfastart open;
     #action {小校场 -} {
         zhenfa;
-        #delay stuck {w;ask chongxu about cancel; #undelay stuck;} 180;
+        #delay stuck {w;ask chongxu about cancel; #undelay stuck;} 300;
     };
     #class zhenfastart close;
     zouwei.setname;
-    mapnof;
     e;
 };
 
@@ -71,7 +70,6 @@
 #action {五行阵演练到此结束} {
     #undelay stuck;
     w;
-    mapf;
     success-quest;
     ${zhenfa.after-handler};
     #delay 4 {#class {quest-zhenfa} kill};

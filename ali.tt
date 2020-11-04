@@ -20,6 +20,8 @@
     #re init.tt;
     #event {SCREEN RESIZE} {#split}
 };
+
+#alias {reloadmap} {#re mapper.tt; loadmap};
 #alias {pfm} {perform %0};
 #alias {pda} {#re bot/pda.tt; pingdiao.start};
 #alias {pdx} {pingdiao.stop};

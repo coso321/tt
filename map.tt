@@ -8,12 +8,12 @@ CB
 
 F 10
 
-I 124
+I 34
 
 L ▪ ╹ ╺ ┗ ╻ ┃ ┏ ┣ ╸ ┛ ━ ┻ ┓ ┫ ┳ ╋ X
 
 
-R {    1} {0} {} {小校场} { } {} {武当} {} {} {} {1.000}
+R {    1} {0} {} {} { } {} {武当} {} {} {} {1.000}
 E {    3} {s} {s} {4} {0} {} {1.000}
 E {    4} {se} {se} {6} {0} {} {1.000}
 E {  459} {e} {e} {2} {0} {} {1.000}
@@ -24,7 +24,7 @@ E {    9} {w} {w} {8} {0} {} {1.000}
 E {   11} {e} {e} {2} {0} {} {1.000}
 E {   13} {n} {n} {1} {0} {} {1.000}
 
-R {    3} {0} {} {小校场} { } {} {武当} {} {} {} {1.000}
+R {    3} {16} {} {小校场} { } {} {武当} {} {} {} {1.000}
 E {    1} {n} {n} {1} {0} {} {1.000}
 E {    4} {e} {e} {2} {0} {} {1.000}
 E {    5} {s} {s} {4} {0} {} {1.000}
@@ -40,22 +40,22 @@ E {  458} {n} {n} {1} {0} {} {1.000}
 E {   35} {sd} {n;ask song about 下山;s;sd} {36} {0} {} {1.000}
 E {   76} {ed} {ed} {34} {0} {} {1.000}
 
-R {    5} {0} {} {小校场} { } {} {武当} {} {} {} {1.000}
+R {    5} {0} {} {} { } {} {武当} {} {} {} {1.000}
 E {    4} {ne} {ne} {3} {0} {} {1.000}
 E {    3} {n} {n} {1} {0} {} {1.000}
 E {  460} {e} {e} {2} {0} {} {1.000}
 
-R {    6} {0} {} {小校场} { } {} {武当} {} {} {} {1.000}
+R {    6} {0} {} {} { } {} {武当} {} {} {} {1.000}
 E {    4} {sw} {sw} {12} {0} {} {1.000}
 E {    7} {s} {s} {4} {0} {} {1.000}
 E {  459} {w} {w} {8} {0} {} {1.000}
 
-R {    7} {0} {} {小校场} { } {} {武当} {} {} {} {1.000}
+R {    7} {16} {} {小校场} { } {} {武当} {} {} {} {1.000}
 E {    6} {n} {n} {1} {0} {} {1.000}
 E {    4} {w} {w} {8} {0} {} {1.000}
 E {    8} {s} {s} {4} {0} {} {1.000}
 
-R {    8} {0} {} {小校场} { } {} {武当} {} {} {} {1.000}
+R {    8} {0} {} {} { } {} {武当} {} {} {} {1.000}
 E {    4} {nw} {nw} {9} {0} {} {1.000}
 E {    7} {n} {n} {1} {0} {} {1.000}
 E {  460} {w} {w} {8} {0} {} {1.000}
@@ -71,7 +71,7 @@ R {   11} {0} {} {右配殿} { } {} {武当} {} {} {} {1.000}
 E {    2} {w} {w} {8} {0} {} {1.000}
 E {   12} {e} {e} {2} {0} {} {1.000}
 
-R {   12} {0} {} {客房|这里是武当派招待远来客人暂时休息的地方。屋子里很暗，只能依稀看见一张大床，床上东倒西歪的睡着几个人，让人顿时觉得睡意朦胧，只想躺下好好的睡他一觉。} { } {} {武当} {} {} {} {1.000}
+R {   12} {16} {} {客房|这里是武当派招待远来客人暂时休息的地方。屋子里很暗，只能依稀看见一张大床，床上东倒西歪的睡着几个人，让人顿时觉得睡意朦胧，只想躺下好好的睡他一觉。} { } {} {武当} {} {} {} {1.000}
 E {   11} {w} {w} {8} {0} {} {1.000}
 
 R {   13} {0} {} {后堂} { } {} {武当} {} {} {} {1.000}
@@ -160,7 +160,7 @@ E {   32} {e} {e} {2} {0} {} {1.000}
 
 R {   34} {0} {} {后门} { } {} {武当} {} {} {} {1.000}
 E {   26} {s} {s} {4} {0} {} {1.000}
-E {   92} {nu} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir northup;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {^密林} {#showme 到达目标地点：后门迷宫密林;#var found 1;#map goto 后门迷宫密林;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 后门迷宫密林;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 1;nu;} {17} {0} {} {1.000}
+E {   92} {nu} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir northup;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {^密林} {#showme 到达目标地点：后门迷宫密林;#var found 1;#map goto 后门迷宫密林;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 后门迷宫密林;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 1;nu;} {17} {2} {} {1.000}
 
 R {   35} {0} {} {紫霄宫} { } {} {武当} {} {} {} {1.000}
 E {    4} {nu} {nu} {17} {0} {} {1.000}
@@ -213,7 +213,6 @@ E {  105} {eu} {eu} {18} {0} {} {1.000}
 
 R {   47} {0} {} {太子岩迷宫石阶} { } {} {武当} {} {} {} {1.000}
 E {   96} {se} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir southeast;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {^太子岩} {#showme <fca>到达目标地点：太子岩;#var found 1;#map goto 太子岩;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 太子岩;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 1;se;} {6} {0} {} {1.000}
-E {   99} {ed} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir eastdown;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {^三公山} {#showme <fca>到达目标地点：三公山;#var found 1;#map goto 三公山;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 三公山;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 1;ed;} {34} {0} {} {1.000}
 
 R {   48} {0} {} {雷神洞} { } {} {武当} {} {} {} {1.000}
 E {  660} {wd} {wd} {40} {0} {} {1.000}
@@ -415,15 +414,17 @@ R {   98} {0} {} {} { } {} {} {} {} {} {1.000}
 E {   95} {sd} {sd} {36} {0} {} {1.000}
 E {  252} {nu} {nu} {17} {0} {} {1.000}
 
-R {   99} {0} {} {三公山迷宫} { } {} {武当} {} {} {} {1.000}
+R {   99} {0} {} {牧场} { } {} {大轮寺} {} {} {} {1.000}
+E {  591} {w} {w} {8} {0} {} {1.000}
+E {  589} {n} {n} {1} {0} {} {1.000}
 
 R {  100} {0} {} {三公山} { } {} {武当} {} {} {} {1.000}
-E {   99} {ed} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir eastdown;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {lupai} {#showme <fca>到达目标地点：太子岩迷宫石阶;#var found 1;#map goto 太子岩迷宫石阶;#unticker walkmaze;set brief 1;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme <fca> 岔路自动停止;#var found 1;#map goto 太子岩迷宫石阶;#unticker walkmaze;set brief 1;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 3;ed;#ticker walkmaze {l} 0.6;} {34} {0} {} {1.000}
+E {  861} {ed} {ed} {34} {0} {} {1.000}
 
 R {  101} {17} {} {朝天宫迷宫} { } {} {武当} {} {} {} {1.000}
 
 R {  102} {0} {} {朝天宫} { } {} {武当} {} {} {} {1.000}
-E {  101} {sd} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir southdown;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {林中阴森森的，除了几声鸟叫外再没有其他的声音，四周都是参天大树，遮天蔽日。脚下是厚厚的落叶，仿佛可以辨出北边有一条被枯枝落叶掩盖的小路，歪歪曲曲的不知通向何处} {#showme matched;#var found 1;#map goto 100;#unticker walkmaze;set brief 1;l;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme %1 %2 %3;#var found 1;#map goto 100;#unticker walkmaze;set brief 1;l;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 3;sd;#ticker walkmaze {l} 1;} {36} {0} {} {1.000}
+E {  101} {sd} {#class mazewalk open;#var fromdir[north] south;#var fromdir[west] east;#var fromdir[east] west;#var fromdir[south] north;#var fromdir[up] down;#var fromdir[down] up;#var fromdir[northup] southdown;#var fromdir[westup] eastdown;#var fromdir[eastup] westdown;#var fromdir[southup] northdown;#var fromdir[northdown] southup;#var fromdir[westdown] eastup;#var fromdir[eastdown] westup;#var fromdir[southdown] northup;#var fromdir[southeast] northwest;#var fromdir[northwest] southeast;#var fromdir[southwest] northeast;#var fromdir[northeast] southwest;#var lastdir southdown;#var found 0;#action {你逃跑失败。} {#delay 1 lastdir;} 1;#action {林中阴森森的，除了几声鸟叫外再没有其他的声音，四周都是参天大树，遮天蔽日。脚下是厚厚的落叶，仿佛可以辨出北边有一条被枯枝落叶掩盖的小路，歪歪曲曲的不知通向何处} {#showme matched;#var found 1;#map goto 100;#unticker walkmaze;set brief 1;l;#class mazewalk kill;} 2;#action {这里明显的方向有 %1、%2 和 %3。} {#showme %1 %2 %3;#var found 1;#map goto 100;#unticker walkmaze;set brief 1;l;#class mazewalk kill;} 3;#action {这里明显的方向有 %1 和 %2。} {#if {$found == 0} {#regex %1 {$fromdir[$lastdir]} {#showme going %2;#var lastdir %2;%2;} {#showme going %1;#var lastdir %1;%1;};};};#class mazewalk close;set brief 3;sd;#ticker walkmaze {l} 1;} {36} {2} {} {1.000}
 E {  103} {ne} {ne} {3} {0} {} {1.000}
 E {   94} {nu} {nu} {17} {0} {} {1.000}
 
@@ -506,6 +507,7 @@ E {  195} {n} {n} {1} {0} {} {1.000}
 R {  121} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  120} {w} {w} {8} {0} {} {1.000}
 E {  122} {e} {e} {2} {0} {} {1.000}
+E {  868} {n} {n} {1} {0} {} {1.000}
 
 R {  122} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  121} {w} {w} {8} {0} {} {1.000}
@@ -515,7 +517,7 @@ R {  123} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  122} {w} {w} {8} {0} {} {1.000}
 E {  124} {e} {e} {2} {0} {} {1.000}
 
-R {  124} {0} {} {襄阳东门} { } {} {襄阳} {} {} {} {1.000}
+R {  124} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  123} {w} {w} {8} {0} {} {1.000}
 E {  125} {e} {e} {2} {0} {} {1.000}
 
@@ -670,7 +672,7 @@ E {  155} {w} {w} {8} {0} {} {1.000}
 R {  159} {0} {} {拱猪房} { } {} {扬州} {} {} {} {1.000}
 E {  155} {n} {n} {1} {0} {} {1.000}
 
-R {  160} {0} {} {} { } {} {} {} {} {} {1.000}
+R {  160} {0} {} {南大街|你走在一条繁华的街道上，向南北两头延伸。南边通往南城门，北边通往中央广场，西边是一家顾客众多的茶馆，三教九流人士都在那里谈天说地。东边一座两层的楼房传来阵阵浪笑，那就是天下闻名的丽春院。} { } {} {扬州} {} {} {} {1.000}
 E {  149} {n} {n} {1} {0} {} {1.000}
 E {  161} {w} {w} {8} {0} {} {1.000}
 E {  166} {e} {e} {2} {0} {} {1.000}
@@ -698,15 +700,15 @@ E {  136} {s} {s} {4} {0} {} {1.000}
 
 R {  166} {0} {} {丽春院} { } {} {扬州} {} {} {} {1.000}
 E {  160} {w} {w} {8} {0} {} {1.000}
-E {  843} {d} {d} {32} {0} {} {1.000}
 
 R {  167} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  639} {n} {n} {1} {0} {} {1.000}
 E {  168} {w} {w} {8} {0} {} {1.000}
 E {  171} {e} {e} {2} {0} {} {1.000}
 E {  174} {s} {s} {4} {0} {} {1.000}
+E {  813} {out} {out} {61} {0} {} {1.000}
 
-R {  168} {0} {} {盛昌总行} { } {牙人} {扬州} {} {} {} {1.000}
+R {  168} {16} {} {盛昌总行} { } {牙人} {扬州} {} {} {} {1.000}
 E {  167} {e} {e} {2} {0} {} {1.000}
 E {  169} {w} {w} {8} {0} {} {1.000}
 E {  170} {s} {s} {4} {0} {} {1.000}
@@ -920,6 +922,7 @@ E {  221} {nw} {nw} {9} {0} {} {1.000}
 R {  221} {0} {} {[36m虎牢关} { } {} {洛阳} {} {} {} {1.000}
 E {  220} {se} {se} {6} {0} {} {1.000}
 E {  222} {w} {w} {8} {0} {} {1.000}
+E {  613} {ne} {ne} {3} {0} {} {1.000}
 
 R {  222} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  221} {e} {e} {2} {0} {} {1.000}
@@ -990,7 +993,7 @@ E {  241} {w} {w} {8} {0} {} {1.000}
 E {  244} {s} {s} {4} {0} {} {1.000}
 E {  263} {e} {e} {2} {0} {} {1.000}
 
-R {  236} {0} {} {镖局大门} { } {} {洛阳} {} {} {} {1.000}
+R {  236} {0} {} {镖局大门|这里原来是一家书店，店主家道中落，把这里卖给了一家镖局，现在在这家镖局做了一个看门小厮。} { } {} {洛阳} {} {} {} {1.000}
 E {  231} {s} {s} {4} {0} {} {1.000}
 E {  237} {enter} {enter} {62} {0} {} {1.000}
 
@@ -1166,6 +1169,7 @@ E {  280} {w} {w} {8} {0} {} {1.000}
 R {  279} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  290} {s} {s} {4} {0} {} {1.000}
 E {  286} {n} {n} {1} {0} {} {1.000}
+E {  863} {w} {w} {8} {0} {} {1.000}
 
 R {  280} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  286} {s} {s} {4} {0} {} {1.000}
@@ -1175,6 +1179,7 @@ E {  282} {w} {w} {8} {0} {} {1.000}
 
 R {  281} {0} {} {洛阳北门} { } {} {洛阳} {} {} {} {1.000}
 E {  280} {s} {s} {4} {0} {} {1.000}
+E {  911} {nu} {nu} {17} {0} {} {1.000}
 
 R {  282} {0} {} {唐记水果} { } {} {洛阳} {} {} {} {1.000}
 E {  280} {e} {e} {2} {0} {} {1.000}
@@ -1936,17 +1941,20 @@ R {  467} {0} {} {小池镇} { } {} {信阳} {} {} {} {1.000}
 E {  466} {nw} {nw} {9} {0} {} {1.000}
 E {  468} {s} {s} {4} {0} {} {1.000}
 
-R {  468} {0} {} {长江渡口|这里是长江北岸的渡口。|船老大 何博康} { } {} {长江北岸} {} {} {} {1.000}
+R {  468} {0} {} {长江渡口|这里是长江北岸的渡口。|船老大 赵风|信阳长江渡口} { } {} {长江北岸} {} {} {} {1.000}
 E {  467} {n} {n} {1} {0} {} {1.000}
-E {  469} {s} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;#map goto %*孙浑%*;#showme <fca>到达目标地点：孙浑;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {4} {0} {} {1.000}
 E {  805} {se} {se} {6} {0} {} {1.000}
+E {  469} {d} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;maphere;#showme <fca>到达目标地点：长江渡口|这里是长江北岸的渡口。|船老大 赵风|信阳长江渡口;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {32} {0} {} {1.000}
+E {  872} {nw} {nw} {9} {0} {} {1.000}
 
-R {  469} {16} {} {长江渡船} { } {} {长江北岸} {} {} {} {1.000}
+R {  469} {25} {} {} { } {} {} {} {} {} {1.000}
+E {  470} {d} {d} {32} {0} {} {1.000}
+E {  468} {u} {u} {16} {0} {} {1.000}
 
-R {  470} {0} {} {长江渡口|这里是长江南岸的渡口。|船老大 孙浑} { } {} {长江南岸} {} {} {} {1.000}
-E {  469} {n} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;#map goto %*何博康%*;#showme <fca>到达目标地点：何博康;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {1} {0} {} {1.000}
+R {  470} {0} {} {长江渡口|这里是长江南岸的渡口。|一片浓雾中，什么也看不清。|船老大 卢横民|江州长江渡口} { } {} {长江南岸} {} {} {} {1.000}
 E {  471} {nw} {nw} {9} {0} {} {1.000}
 E {  496} {se} {se} {6} {0} {} {1.000}
+E {  469} {u} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;maphere;#showme <fca>到达目标地点：长江渡口|这里是长江南岸的渡口。|一片浓雾中，什么也看不清。|船老大 卢横民|江州长江渡口;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {16} {2} {} {1.000}
 
 R {  471} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  470} {se} {se} {6} {0} {} {1.000}
@@ -1975,6 +1983,7 @@ E {  477} {sw} {sw} {12} {0} {} {1.000}
 R {  477} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  476} {ne} {ne} {3} {0} {} {1.000}
 E {  478} {s} {s} {4} {0} {} {1.000}
+E {  886} {w} {w} {8} {0} {} {1.000}
 
 R {  478} {0} {} {北门} { } {} {岳阳} {} {} {} {1.000}
 E {  477} {n} {n} {1} {0} {} {1.000}
@@ -2054,6 +2063,7 @@ E {  497} {se} {se} {6} {0} {} {1.000}
 R {  497} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  496} {nw} {nw} {9} {0} {} {1.000}
 E {  498} {s} {s} {4} {0} {} {1.000}
+E {  871} {e} {e} {2} {0} {} {1.000}
 
 R {  498} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  497} {n} {n} {1} {0} {} {1.000}
@@ -2405,29 +2415,33 @@ R {  585} {0} {} {黄羊滩} { } {} {灵州} {} {} {} {1.000}
 E {  584} {n} {n} {1} {0} {} {1.000}
 E {  586} {sw} {sw} {12} {0} {} {1.000}
 
-R {  586} {1} {} {} { } {} {} {} {} {} {1.000}
-E {  585} {ne} {#action {^黄羊滩 -} {#map flag nofollow off;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};#unaction {^黄羊滩 -};};#action {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。} {#delay 1 ne;};#action {^牧场 -} {#map flag nofollow off;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};#unaction {^黄羊滩 -};};#map flag nofollow on;ne;} {3} {0} {} {1.000}
-E {  587} {s} {#action {^黄羊滩 -} {#map flag nofollow off;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};#unaction {^黄羊滩 -};};#action {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。} {#delay 1 s;};#action {^牧场 -} {#map flag nofollow off;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};#unaction {^黄羊滩 -};};#map flag nofollow on;s;} {4} {0} {} {1.000}
+R {  586} {16} {} {} { } {} {} {} {} {} {1.000}
+E {  585} {ne} {#class tmp open;#action {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。} {#delay 1 ne};#action {^黄羊滩 -} {#map flag nofollow off;#showme <fca>等待结束;#class tmp kill};#class tmp close;ne;#map flag nofollow on;} {3} {0} {} {1.000}
+E {  587} {s} {#class tmp open;#action {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。} {#delay 1 s};#action {^牧场 -} {#map flag nofollow off;#showme <fca>等待结束;#class tmp kill};#class tmp close;s;#map flag nofollow on;} {4} {0} {} {1.000}
 
-R {  587} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  586} {n} {n} {1} {0} {} {1.000}
-E {  588} {sw} {#action {^黄羊滩 -} {#map flag nofollow off;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};#unaction {^黄羊滩 -};};#action {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。} {#delay 1 sw;};#action {^牧场 -} {#map flag nofollow off;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};#unaction {^黄羊滩 -};};#map flag nofollow on;sw;} {12} {0} {} {1.000}
+R {  587} {17} {} {} { } {} {} {} {} {} {1.000}
+E {  586} {n} {#class tmp open;#action {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。} {#delay 1 n};#action {^牧场 -} {#map flag nofollow off;#showme <fca>等待结束;#class tmp kill};#class tmp close;n;#map flag nofollow on;} {1} {0} {} {1.000}
+E {  588} {sw} {#class tmp open;#action {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。} {#delay 1 sw};#action {^牧场 -} {#map flag nofollow off;#showme <fca>等待结束;#class tmp kill};#class tmp close;sw;#map flag nofollow on;} {12} {0} {} {1.000}
 
-R {  588} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  587} {ne} {#action {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。} {#delay 1 ne;};#action {^牧场 -} {#map flag nofollow off;n;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};};#map flag nofollow on;ne;} {3} {0} {} {1.000}
+R {  588} {0} {} {牧场|这里是一片茫茫无际的牧场，一眼望不到边的草原，远处能看到高耸的雪山。附近能看到藏民们正在放牧牛马，小孩子们在奔跑玩耍。} { } {} {大轮寺} {} {} {} {1.000}
+E {  587} {ne} {ne} {3} {0} {} {1.000}
 E {  589} {s} {#action {^黄羊滩 -} {#map flag nofollow off;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};#unaction {^黄羊滩 -};};#action {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。} {#delay 1 s;};#action {^牧场 -} {#map flag nofollow off;#unaction {青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。};#unaction {^牧场 -};#unaction {^黄羊滩 -};};#map flag nofollow on;s;} {4} {0} {} {1.000}
+E {  862} {w} {w} {8} {0} {} {1.000}
 
-R {  589} {0} {} {} { } {} {} {} {} {} {1.000}
+R {  589} {0} {} {牧场} { } {} {大轮寺} {} {} {} {1.000}
 E {  588} {n} {n} {1} {0} {} {1.000}
 E {  590} {w} {w} {8} {0} {} {1.000}
+E {   99} {s} {s} {4} {0} {} {1.000}
 
 R {  590} {0} {} {藏民村落|面前这几座帐篷里没人，显得静悄悄地，看来人们都出去干活了，想打听个路都没处问。帐篷帘门虚掩着，这里地广人稀，民风质朴，看来没有小偷强盗什么的。远处传来牧民的吆喝声和牛羊的啼叫，还是到那里找找吧。|这里明显的出口有} { } {} {大轮寺} {} {} {} {1.000}
 E {  589} {e} {e} {2} {0} {} {1.000}
 E {  591} {s} {s} {4} {0} {} {1.000}
+E {  862} {n} {n} {1} {0} {} {1.000}
 
 R {  591} {0} {} {藏民部落} { } {} {大轮寺} {} {} {} {1.000}
 E {  590} {n} {n} {1} {0} {} {1.000}
 E {  592} {su} {su} {20} {0} {} {1.000}
+E {   99} {e} {e} {2} {0} {} {1.000}
 
 R {  592} {0} {} {采石场} { } {} {大轮寺} {} {} {} {1.000}
 E {  591} {nd} {nd} {33} {0} {} {1.000}
@@ -2513,21 +2527,27 @@ E {  613} {out} {out} {61} {0} {} {1.000}
 R {  613} {0} {} {黄河南岸} { } {} {黄河南岸} {} {} {} {1.000}
 E {  612} {enter} {enter} {62} {0} {} {1.000}
 E {  614} {e} {e} {2} {0} {} {1.000}
+E {  221} {sw} {sw} {12} {0} {} {1.000}
+E {  907} {nw} {nw} {9} {0} {} {1.000}
 
-R {  614} {0} {} {黄河渡口|这里是黄河南岸的渡口，往南通向曲阜。渡过黄河向北就是濮阳。|施顺} { } {} {黄河南岸} {} {} {} {1.000}
+R {  614} {16} {} {黄河渡口|这里是黄河南岸的渡口，往南通向曲阜。渡过黄河向北就是濮阳。|船老大 燕子|曲阜黄河渡口} { } {} {黄河南岸} {} {} {} {1.000}
 E {  613} {w} {w} {8} {0} {} {1.000}
-E {  615} {n} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;#map goto %*蒋鼎民%*;#showme <fca>到达目标地点：蒋鼎民;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过河;} {1} {0} {} {1.000}
 E {  819} {se} {se} {6} {0} {} {1.000}
+E {  615} {u} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;maphere;#showme <fca>到达目标地点：$roomname;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过河;} {16} {2} {} {1.000}
+E {  903} {e} {e} {2} {0} {} {1.000}
 
-R {  615} {17} {} {} { } {} {} {} {} {} {1.000}
+R {  615} {25} {} {} { } {} {} {} {} {} {1.000}
+E {  616} {u} {u} {16} {0} {} {1.000}
+E {  614} {d} {d} {32} {0} {} {1.000}
 
-R {  616} {0} {} {黄河渡口|这里是黄河北岸的渡口，往北通向濮阳。渡过河去就是山东地界了。|蒋鼎民} { } {} {黄河北岸} {} {} {} {1.000}
-E {  615} {s} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;#map goto %*施顺%*;#showme <fca>到达目标地点：施顺;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过河;} {4} {0} {} {1.000}
+R {  616} {0} {} {黄河渡口|这里是黄河北岸的渡口，往北通向濮阳。渡过河去就是山东地界了。|船老大 封超颖|濮阳黄河渡口} { } {} {黄河北岸} {} {} {} {1.000}
 E {  618} {e} {e} {2} {0} {} {1.000}
 E {  620} {w} {w} {8} {0} {} {1.000}
+E {  615} {d} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;maphere;#showme <fca>到达目标地点：$roomname;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过河;} {32} {2} {} {1.000}
 
-R {  617} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  821} {enter} {enter} {62} {0} {} {1.000}
+R {  617} {9} {} {} { } {} {} {} {} {} {1.000}
+E {  770} {d} {d} {32} {0} {} {1.000}
+E {  811} {u} {u} {16} {0} {} {1.000}
 
 R {  618} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  616} {w} {w} {8} {0} {} {1.000}
@@ -2548,9 +2568,10 @@ R {  622} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  621} {e} {e} {2} {0} {} {1.000}
 E {  623} {n} {n} {1} {0} {} {1.000}
 
-R {  623} {0} {} {风陵渡} { } {} {} {} {} {} {1.000}
+R {  623} {0} {} {风陵渡|这里是黄河北岸的渡口，东北通向晋阳。渡过黄河就是洛阳了。|船老大 方晓颖|晋阳黄河渡口} { } {} {黄河北岸} {} {} {} {1.000}
 E {  622} {s} {s} {4} {0} {} {1.000}
 E {  624} {n} {n} {1} {0} {} {1.000}
+E {  904} {d} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;maphere;#showme <fca>到达目标地点：$roomname;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过河;} {32} {2} {} {1.000}
 
 R {  624} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  623} {s} {s} {4} {0} {} {1.000}
@@ -2652,9 +2673,10 @@ R {  649} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  648} {sd} {sd} {36} {0} {} {1.000}
 E {  650} {nw} {nw} {9} {0} {} {1.000}
 
-R {  650} {0} {} {} { } {} {} {} {} {} {1.000}
+R {  650} {0} {} {石阶|你走在一条坚实的石阶上，不时地有进香客从你的身边走过。一边是峭壁，一边是悬崖，抬头隐约可见笼罩在云雾中的天柱峰，听着流水淙淙，令人心旷神怡。} { } {} {武当} {} {} {} {1.000}
 E {  649} {se} {se} {6} {0} {} {1.000}
 E {  651} {nu} {nu} {17} {0} {} {1.000}
+E {  844} {ed} {ed} {34} {0} {} {1.000}
 
 R {  651} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  650} {sd} {sd} {36} {0} {} {1.000}
@@ -3086,16 +3108,18 @@ R {  759} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  757} {nd} {nd} {33} {0} {} {1.000}
 E {  760} {e} {e} {2} {0} {} {1.000}
 
-R {  760} {0} {} {扬子津|这里是长江北岸的渡口，扼守扬州的门户。|船老大 宋牛} { } {宋牛} {长江北岸} {} {} {} {1.000}
-E {  761} {s} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;#map goto %*吴峰杰%*;#showme <fca>到达目标地点：吴峰杰;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {4} {0} {} {1.000}
+R {  760} {0} {} {扬子津|这里是长江北岸的渡口，扼守扬州的门户。|船老大|长江扬州东渡口} { } {} {长江北岸} {} {} {} {1.000}
 E {  818} {w} {w} {8} {0} {} {1.000}
+E {  761} {d} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;maphere;#showme <fca>到达目标地点：燕子矶|这里是长江南岸的渡口，南边就是重镇建康府了。|船老大;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {32} {2} {} {1.000}
+E {  869} {enter} {enter} {62} {0} {} {1.000}
 
-R {  761} {17} {} {} { } {} {} {} {} {} {1.000}
+R {  761} {25} {} {} { } {} {} {} {} {} {1.000}
+E {  760} {u} {u} {16} {0} {} {1.000}
+E {  762} {d} {d} {32} {0} {} {1.000}
 
-R {  762} {0} {} {长江渡口|这里是长江南岸的渡口，扼守镇江门户。|船老大 吴峰杰} { } {吴峰杰} {长江南岸} {} {} {} {1.000}
+R {  762} {0} {} {长江渡口|这里是长江南岸的渡口，扼守镇江门户。|船老大|镇江长江渡口} { } {吴峰杰} {长江南岸} {} {} {} {1.000}
 E {  763} {w} {w} {8} {0} {} {1.000}
-E {  761} {n} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;#map goto %*宋牛%*;#showme <fca>到达目标地点：宋牛;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {1} {0} {} {1.000}
-E {  850} {e} {e} {2} {0} {} {1.000}
+E {  761} {u} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;maphere;#showme <fca>到达目标地点：燕子矶|这里是长江南岸的渡口，南边就是重镇建康府了。|船老大;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {16} {2} {} {1.000}
 
 R {  763} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  762} {e} {e} {2} {0} {} {1.000}
@@ -3118,19 +3142,20 @@ R {  767} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  766} {se} {se} {6} {0} {} {1.000}
 E {  768} {w} {w} {8} {0} {} {1.000}
 
-R {  768} {0} {} {燕子矶|这里是长江南岸的渡口，南边就是重镇建康府了。|船老大 雷威波} { } {} {长江南岸} {} {} {} {1.000}
+R {  768} {16} {} {燕子矶|这里是长江南岸的渡口，南边就是重镇建康府了。|船老大} { } {} {长江南岸} {} {} {} {1.000}
 E {  767} {e} {e} {2} {0} {} {1.000}
 E {  769} {w} {w} {8} {0} {} {1.000}
-E {  851} {n} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;#map goto %*贾英云%*;#showme <fca>到达目标地点：贾英云;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {1} {0} {} {1.000}
+E {  870} {u} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;maphere;#showme <fca>到达目标地点：采石矶|这里是长江南岸的渡口，南边就是重镇建康府了，大宋水师在这里放了几艘快船(boat)。|船老大 吕惠宜;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {16} {2} {} {1.000}
 
-R {  769} {0} {} {长江渡口|这里是长江南岸的渡口，南边就是重镇建康府了。} { } {} {长江南岸} {} {} {} {1.000}
+R {  769} {0} {} {长江渡口} { } {} {长江南岸} {} {} {} {1.000}
 E {  768} {e} {e} {2} {0} {} {1.000}
 E {  770} {w} {w} {8} {0} {} {1.000}
 
-R {  770} {0} {} {采石矶|这里是长江南岸的渡口，南边就是重镇建康府了，大宋水师在这里放了几艘快船(boat)。|船老大 令狐二} { } {} {长江南岸} {} {} {} {1.000}
+R {  770} {0} {} {采石矶|这里是长江南岸的渡口，南边就是重镇建康府了，大宋水师在这里放了几艘快船(boat)。|船老大 吕惠宜} { } {} {长江南岸} {} {} {} {1.000}
 E {  769} {e} {e} {2} {0} {} {1.000}
-E {  617} {n} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;#map goto %*傅有剑%*;#showme <fca>到达目标地点：傅有剑;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {1} {0} {} {1.000}
-E {  853} {w} {w} {8} {0} {} {1.000}
+E {  617} {u} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;maphere;#showme <fca>到达目标地点：采石矶|这里是长江南岸的渡口，南边就是重镇建康府了，大宋水师在这里放了几艘快船(boat)。|船老大 吕惠宜;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {16} {2} {} {1.000}
+E {  821} {enter} {enter} {62} {0} {} {1.000}
+E {  894} {w} {w} {8} {0} {} {1.000}
 
 R {  771} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  763} {nw} {nw} {9} {0} {} {1.000}
@@ -3188,7 +3213,6 @@ E {  784} {se} {se} {6} {0} {} {1.000}
 R {  784} {0} {} {青石官道|你走在一条青石大道上，人来人往非常繁忙，不时地有人骑着马匆匆而过。} { } {} {镇江} {} {} {} {1.000}
 E {  783} {nw} {nw} {9} {0} {} {1.000}
 E {  785} {s} {s} {4} {0} {} {1.000}
-E {  847} {ne} {ne} {3} {0} {} {1.000}
 
 R {  785} {0} {} {青石官道|你走在一条青石大道上，人来人往非常繁忙，不时地有人骑着马匆匆而过。} { } {} {苏州} {} {} {} {1.000}
 E {  784} {n} {n} {1} {0} {} {1.000}
@@ -3233,11 +3257,15 @@ E {  795} {s} {s} {4} {0} {} {1.000}
 
 R {  795} {0} {} {沧浪亭|沧浪亭在苏州的北大街南侧，因为环境相对幽雅，使得男女老少都喜爱在这里闲庭散步。在亭中放眼望去，四周一片碧绿的草坪，亭子翼然于耸翠之中，飞檐凌空琵琶形牌科，布满檐口四周，亭上的额匾和石柱上的楹联(lian)使人更加喜爱这里。} { } {} {苏州} {} {} {} {1.000}
 E {  794} {n} {n} {1} {0} {} {1.000}
-E {  796} {s} {s} {4} {0} {} {1.000}
+E {  898} {s} {s} {4} {0} {} {1.000}
+E {  895} {sw} {sw} {12} {0} {} {1.000}
+E {  899} {se} {se} {6} {0} {} {1.000}
 
-R {  796} {0} {} {宝带桥|宝带桥横跨于苏州的运河之上，又因桥形宛若长带，被称为长桥。桥面宽阔，行人在桥上来往，桥边有城里的小贩吆喝、叫卖着，熙熙攘攘，热闹非凡。宝带桥卧于碧波之上，相应生辉，分外多娇。这里是中秋赏月的一处绝佳之地。} { } {} {苏州} {} {} {} {1.000}
-E {  795} {n} {n} {1} {0} {} {1.000}
+R {  796} {0} {} {宝带桥} { } {} {苏州} {} {} {} {1.000}
+E {  898} {n} {n} {1} {0} {} {1.000}
 E {  797} {s} {s} {4} {0} {} {1.000}
+E {  895} {nw} {nw} {9} {0} {} {1.000}
+E {  899} {ne} {ne} {3} {0} {} {1.000}
 
 R {  797} {0} {} {南大街|南大街乃是城里的繁华地段，一到晚上，一派灯红酒绿，尤为热闹。笑声、歌声、琴声、箫声，汇成一片送入了你的耳朵，你不禁心猿意马，很想就此停步享受一番。苏州的城里秀丽景色此时已使你心旷神怡，此时此刻只想与这大自然秀丽的景色融为一体。从这里看去，苏州南城的街景是一片喧闹。在街的东北面是一个茶馆，正东望去是一座苏州园林。} { } {} {苏州} {} {} {} {1.000}
 E {  796} {n} {n} {1} {0} {} {1.000}
@@ -3262,6 +3290,7 @@ E {  822} {s} {s} {4} {0} {} {1.000}
 
 R {  802} {0} {} {嘉兴南湖|这里是嘉兴南湖。节近中秋，荷叶渐残，莲肉饱实。一阵轻柔婉转的歌声传来，飘在烟水蒙蒙的湖面上。湖边一个道姑在一排柳树下悄立已久。} { } {} {嘉兴} {} {} {} {1.000}
 E {  801} {w} {w} {8} {0} {} {1.000}
+E {  843} {n} {n} {1} {0} {} {1.000}
 
 R {  803} {0} {} {南门|这里是义兴县的南门，城墙上贴着几张官府告示(gaoshi)。} { } {} {镇江} {} {} {} {1.000}
 E {  785} {se} {se} {6} {0} {} {1.000}
@@ -3293,19 +3322,19 @@ R {  810} {0} {} {长江岸边} { } {} {长江北岸} {} {} {} {1.000}
 E {  809} {sw} {sw} {12} {0} {} {1.000}
 E {  811} {e} {e} {2} {0} {} {1.000}
 
-R {  811} {0} {} {长江渡口|这里是长江北岸的渡口，扼守建康府的门户，大宋水师在这里放了几艘快船(boat)。|船老大 傅有剑} { } {} {长江北岸} {} {} {} {1.000}
+R {  811} {0} {} {长江渡口|这里是长江北岸的渡口，扼守建康府的门户，大宋水师在这里放了几艘快船(boat)。|船老大 危立航} { } {} {长江北岸} {} {} {} {1.000}
 E {  810} {w} {w} {8} {0} {} {1.000}
 E {  812} {e} {e} {2} {0} {} {1.000}
-E {  617} {s} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;#map goto %*令狐二%*;#showme <fca>到达目标地点：令狐二;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {4} {0} {} {1.000}
+E {  617} {d} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;maphere;#showme <fca>到达目标地点：采石矶|这里是长江南岸的渡口，南边就是重镇建康府了，大宋水师在这里放了几艘快船(boat)。|船老大 吕惠宜;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {32} {2} {} {1.000}
 
 R {  812} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  811} {w} {w} {8} {0} {} {1.000}
 E {  813} {e} {e} {2} {0} {} {1.000}
 
-R {  813} {0} {} {长江渡口|这里是长江北岸的渡口，扼守建康府的门户。|船老大 贾英云} { } {} {长江北岸} {} {} {} {1.000}
+R {  813} {0} {} {长江渡口|这里是长江北岸的渡口，扼守建康府的门户。|船老大|长江扬州西渡口} { } {} {长江北岸} {} {} {} {1.000}
 E {  812} {w} {w} {8} {0} {} {1.000}
 E {  814} {e} {e} {2} {0} {} {1.000}
-E {  851} {s} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;#map goto %*雷威波%*;#showme <fca>到达目标地点：雷威波;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {4} {0} {} {1.000}
+E {  870} {d} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;maphere;#showme <fca>到达目标地点：采石矶|这里是长江南岸的渡口，南边就是重镇建康府了，大宋水师在这里放了几艘快船(boat)。|船老大 吕惠宜;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {32} {2} {} {1.000}
 
 R {  814} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  813} {w} {w} {8} {0} {} {1.000}
@@ -3319,11 +3348,11 @@ R {  816} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  815} {w} {w} {8} {0} {} {1.000}
 E {  817} {e} {e} {2} {0} {} {1.000}
 
-R {  817} {0} {} {长江岸边} { } {} {长江北岸} {} {} {} {1.000}
+R {  817} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  816} {w} {w} {8} {0} {} {1.000}
 E {  818} {e} {e} {2} {0} {} {1.000}
 
-R {  818} {0} {} {扬子津} { } {} {长江北岸} {} {} {} {1.000}
+R {  818} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  817} {w} {w} {8} {0} {} {1.000}
 E {  760} {e} {e} {2} {0} {} {1.000}
 
@@ -3333,7 +3362,7 @@ E {  614} {nw} {nw} {9} {0} {} {1.000}
 R {  820} {0} {} {} { } {} {} {} {} {} {1.000}
 
 R {  821} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  617} {out} {out} {61} {0} {} {1.000}
+E {  770} {out} {out} {61} {0} {} {1.000}
 
 R {  822} {0} {} {嘉兴南门} { } {} {嘉兴} {} {} {} {1.000}
 E {  801} {n} {n} {1} {0} {} {1.000}
@@ -3416,63 +3445,274 @@ E {  842} {n} {n} {1} {0} {} {1.000}
 R {  842} {0} {} {蒙古金帐} { } {} {襄阳} {} {} {} {1.000}
 E {  841} {s} {s} {4} {0} {} {1.000}
 
-R {  843} {0} {} {丽春院密室} { } {} {扬州} {} {} {} {1.000}
-E {  166} {u} {u} {16} {0} {} {1.000}
-E {  844} {ed} {ed} {34} {0} {} {1.000}
+R {  843} {0} {} {嘉兴钱庄} { } {} {嘉兴} {} {} {} {1.000}
+E {  802} {s} {s} {4} {0} {} {1.000}
 
-R {  844} {0} {} {地下城东大街} { } {} {扬州} {} {} {} {1.000}
-E {  843} {wu} {wu} {24} {0} {} {1.000}
-E {  845} {n} {n} {1} {0} {} {1.000}
-E {  846} {s} {s} {4} {0} {} {1.000}
+R {  844} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  650} {wu} {wu} {24} {0} {} {1.000}
+E {  845} {sd} {sd} {36} {0} {} {1.000}
 
-R {  845} {0} {} {地下城铁铺} { } {} {扬州} {} {} {} {1.000}
-E {  844} {s} {s} {4} {0} {} {1.000}
+R {  845} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  844} {nu} {nu} {17} {0} {} {1.000}
+E {  846} {se} {se} {6} {0} {} {1.000}
 
-R {  846} {0} {} {虫二的地下城铁铺} { } {} {扬州} {} {} {} {1.000}
-E {  844} {n} {n} {1} {0} {} {1.000}
+R {  846} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  845} {nw} {nw} {9} {0} {} {1.000}
+E {  847} {ed} {ed} {34} {0} {} {1.000}
 
 R {  847} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  784} {sw} {sw} {12} {0} {} {1.000}
+E {  846} {wu} {wu} {24} {0} {} {1.000}
 E {  848} {ne} {ne} {3} {0} {} {1.000}
 
 R {  848} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  847} {sw} {sw} {12} {0} {} {1.000}
-E {  849} {nw} {nw} {9} {0} {} {1.000}
+E {  849} {wu} {wu} {24} {0} {} {1.000}
 
 R {  849} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  848} {se} {se} {6} {0} {} {1.000}
-E {  850} {nw} {nw} {9} {0} {} {1.000}
+E {  848} {ed} {ed} {34} {0} {} {1.000}
+E {  850} {sw} {sw} {12} {0} {} {1.000}
 
 R {  850} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  849} {se} {se} {6} {0} {} {1.000}
-E {  762} {w} {w} {8} {0} {} {1.000}
+E {  849} {ne} {ne} {3} {0} {} {1.000}
+E {  851} {su} {su} {20} {0} {} {1.000}
 
 R {  851} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  852} {enter} {enter} {62} {0} {} {1.000}
+E {  850} {nd} {nd} {33} {0} {} {1.000}
+E {  852} {se} {se} {6} {0} {} {1.000}
 
 R {  852} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  851} {out} {out} {61} {0} {} {1.000}
+E {  851} {nw} {nw} {9} {0} {} {1.000}
+E {  853} {wu} {wu} {24} {0} {} {1.000}
 
 R {  853} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  770} {e} {e} {2} {0} {} {1.000}
-E {  854} {sw} {sw} {12} {0} {} {1.000}
+E {  852} {ed} {ed} {34} {0} {} {1.000}
+E {  854} {nu} {nu} {17} {0} {} {1.000}
 
 R {  854} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  853} {ne} {ne} {3} {0} {} {1.000}
-E {  855} {sw} {sw} {12} {0} {} {1.000}
+E {  853} {sd} {sd} {36} {0} {} {1.000}
+E {  855} {eu} {eu} {18} {0} {} {1.000}
 
 R {  855} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  854} {ne} {ne} {3} {0} {} {1.000}
-E {  856} {sw} {sw} {12} {0} {} {1.000}
+E {  854} {wd} {wd} {40} {0} {} {1.000}
+E {  856} {su} {su} {20} {0} {} {1.000}
 
 R {  856} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  855} {ne} {ne} {3} {0} {} {1.000}
-E {  857} {w} {w} {8} {0} {} {1.000}
+E {  855} {nd} {nd} {33} {0} {} {1.000}
+E {  857} {u} {u} {16} {0} {} {1.000}
 
 R {  857} {0} {} {} { } {} {} {} {} {} {1.000}
-E {  856} {e} {e} {2} {0} {} {1.000}
+E {  856} {d} {d} {32} {0} {} {1.000}
 E {  858} {nw} {nw} {9} {0} {} {1.000}
 
 R {  858} {0} {} {} { } {} {} {} {} {} {1.000}
 E {  857} {se} {se} {6} {0} {} {1.000}
-E {  470} {nw} {nw} {9} {0} {} {1.000}
+E {  859} {wu} {wu} {24} {0} {} {1.000}
+
+R {  859} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  858} {ed} {ed} {34} {0} {} {1.000}
+E {  860} {sw} {sw} {12} {0} {} {1.000}
+
+R {  860} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  859} {ne} {ne} {3} {0} {} {1.000}
+E {  861} {su} {su} {20} {0} {} {1.000}
+
+R {  861} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  860} {nd} {nd} {33} {0} {} {1.000}
+E {  100} {wu} {wu} {24} {0} {} {1.000}
+
+R {  862} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  588} {e} {e} {2} {0} {} {1.000}
+E {  590} {s} {s} {4} {0} {} {1.000}
+
+R {  863} {0} {} {望星楼} { } {} {洛阳} {} {} {} {1.000}
+E {  279} {e} {e} {2} {0} {} {1.000}
+E {  864} {u} {u} {16} {0} {} {1.000}
+
+R {  864} {0} {} {望星楼二层} { } {} {洛阳} {} {} {} {1.000}
+E {  863} {d} {d} {32} {0} {} {1.000}
+E {  865} {u} {u} {16} {0} {} {1.000}
+
+R {  865} {0} {} {望星楼三层} { } {} {洛阳} {} {} {} {1.000}
+E {  864} {d} {d} {32} {0} {} {1.000}
+E {  866} {u} {u} {16} {0} {} {1.000}
+
+R {  866} {0} {} {望星楼四层} { } {} {洛阳} {} {} {} {1.000}
+E {  865} {d} {d} {32} {0} {} {1.000}
+E {  867} {w} {w} {8} {0} {} {1.000}
+
+R {  867} {0} {} {宴客厅门厅} { } {} {洛阳} {} {} {} {1.000}
+E {  866} {e} {e} {2} {0} {} {1.000}
+
+R {  868} {0} {} {药铺|这是扬州药铺的分店，战乱时期，伤者剧增，这里可发了大财，价钱也比内地高得多。掌柜的坐在茶几旁，一名小伙计站在柜台后招呼着顾客。柜台上贴着一张发黄的字条(zitiao)。} { } {} {襄阳} {} {} {} {1.000}
+E {  121} {s} {s} {4} {0} {} {1.000}
+
+R {  869} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  760} {out} {out} {61} {0} {} {1.000}
+
+R {  870} {25} {} {} { } {} {} {} {} {} {1.000}
+E {  813} {u} {u} {16} {0} {} {1.000}
+E {  768} {d} {d} {32} {0} {} {1.000}
+
+R {  871} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  497} {w} {w} {8} {0} {} {1.000}
+E {  885} {ne} {ne} {3} {0} {} {1.000}
+
+R {  872} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  468} {se} {se} {6} {0} {} {1.000}
+E {  873} {w} {w} {8} {0} {} {1.000}
+
+R {  873} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  872} {e} {e} {2} {0} {} {1.000}
+E {  874} {w} {w} {8} {0} {} {1.000}
+
+R {  874} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  873} {e} {e} {2} {0} {} {1.000}
+E {  875} {sw} {sw} {12} {0} {} {1.000}
+
+R {  875} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  874} {ne} {ne} {3} {0} {} {1.000}
+E {  876} {sw} {sw} {12} {0} {} {1.000}
+
+R {  876} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  875} {ne} {ne} {3} {0} {} {1.000}
+E {  877} {sw} {sw} {12} {0} {} {1.000}
+
+R {  877} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  876} {ne} {ne} {3} {0} {} {1.000}
+E {  878} {sw} {sw} {12} {0} {} {1.000}
+
+R {  878} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  877} {ne} {ne} {3} {0} {} {1.000}
+E {  879} {w} {w} {8} {0} {} {1.000}
+
+R {  879} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  878} {e} {e} {2} {0} {} {1.000}
+E {  880} {w} {w} {8} {0} {} {1.000}
+
+R {  880} {0} {} {陵矶|这里是长江北岸的渡口。东面不远就是华容道，关羽义释曹操的地方。|船老大 独孤弘莘|荆州长江渡口} { } {} {长江北岸} {} {} {} {1.000}
+E {  879} {e} {e} {2} {0} {} {1.000}
+E {  881} {d} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;maphere;#showme <fca>到达目标地点：陵矶|这里是长江北岸的渡口。东面不远就是华容道，关羽义释曹操的地方。|船老大 独孤弘莘|荆州长江渡口;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {32} {0} {} {1.000}
+E {  884} {enter} {enter} {62} {0} {} {1.000}
+E {  890} {w} {w} {8} {0} {} {1.000}
+
+R {  881} {25} {} {} { } {} {} {} {} {} {1.000}
+E {  880} {u} {u} {16} {0} {} {1.000}
+E {  882} {d} {d} {32} {0} {} {1.000}
+
+R {  882} {0} {} {陵矶|这里是长江南岸的渡口。南面就是江汉通黔贵的要冲——岳阳。|船老大 蒋仪|岳阳长江渡口} { } {} {长江南岸} {} {} {} {1.000}
+E {  881} {u} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;maphere;#showme <fca>到达目标地点：长江渡口|这里是长江南岸的渡口。|一片浓雾中，什么也看不清。|船老大 卢横民|江州长江渡口;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过江;} {16} {2} {} {1.000}
+E {  883} {enter} {enter} {62} {0} {} {1.000}
+E {  886} {e} {e} {2} {0} {} {1.000}
+E {  887} {w} {w} {8} {0} {} {1.000}
+
+R {  883} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  882} {out} {out} {61} {0} {} {1.000}
+
+R {  884} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  880} {out} {out} {61} {0} {} {1.000}
+
+R {  885} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  871} {sw} {sw} {12} {0} {} {1.000}
+E {  893} {ne} {ne} {3} {0} {} {1.000}
+
+R {  886} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  477} {e} {e} {2} {0} {} {1.000}
+E {  882} {w} {w} {8} {0} {} {1.000}
+
+R {  887} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  882} {e} {e} {2} {0} {} {1.000}
+E {  888} {w} {w} {8} {0} {} {1.000}
+
+R {  888} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  887} {e} {e} {2} {0} {} {1.000}
+E {  889} {nw} {nw} {9} {0} {} {1.000}
+
+R {  889} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  888} {se} {se} {6} {0} {} {1.000}
+
+R {  890} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  880} {e} {e} {2} {0} {} {1.000}
+E {  891} {w} {w} {8} {0} {} {1.000}
+
+R {  891} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  890} {e} {e} {2} {0} {} {1.000}
+E {  892} {nw} {nw} {9} {0} {} {1.000}
+
+R {  892} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  891} {se} {se} {6} {0} {} {1.000}
+
+R {  893} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  885} {sw} {sw} {12} {0} {} {1.000}
+E {  894} {ne} {ne} {3} {0} {} {1.000}
+
+R {  894} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  893} {sw} {sw} {12} {0} {} {1.000}
+E {  770} {e} {e} {2} {0} {} {1.000}
+
+R {  895} {0} {} {西大街|这是一条宽阔的青石板街道，向东西两头延伸。西大街是衙门所在，行人变得稀少，静悄悄地很是冷清。东边是沧浪亭和宝带桥，南边是兵营，北边就是衙门了。} { } {} {苏州} {} {} {} {1.000}
+E {  796} {se} {se} {6} {0} {} {1.000}
+E {  896} {w} {w} {8} {0} {} {1.000}
+E {  795} {ne} {ne} {3} {0} {} {1.000}
+
+R {  896} {0} {} {西大街|你走在西大街上，感到这里的街面要比别处的干净、整洁。大概因为靠近衙门、兵营可受保护的缘故，富人们都喜欢住在这里。东边静悄悄地没有几个行人，西边是西城门通往郊外。南边是玄妙观，北边是一个书堂。} { } {} {苏州} {} {} {} {1.000}
+E {  895} {e} {e} {2} {0} {} {1.000}
+E {  897} {w} {w} {8} {0} {} {1.000}
+
+R {  897} {0} {} {西门|这里是苏州西城门，城门正上方刻着“西门”两个大字，城墙上贴着几张官府告示(gaoshi)。西门外通向寒山寺一条笔直的青石板大道向东西两边延伸，东边是城里。} { } {} {苏州} {} {} {} {1.000}
+E {  896} {e} {e} {2} {0} {} {1.000}
+
+R {  898} {8} {} {} { } {} {} {} {} {} {1.000}
+E {  796} {s} {s} {4} {0} {} {1.000}
+E {  795} {n} {n} {1} {0} {} {1.000}
+
+R {  899} {0} {} {东大街|你走在东大街上，踩着坚实的青石板地面。东边是东大街的延伸，南面是苏州城里一个老字号的当铺，北面是一条小胡同。} { } {} {苏州} {} {} {} {1.000}
+E {  795} {nw} {nw} {9} {0} {} {1.000}
+E {  796} {sw} {sw} {12} {0} {} {1.000}
+E {  900} {s} {s} {4} {0} {} {1.000}
+E {  901} {e} {e} {2} {0} {} {1.000}
+
+R {  900} {0} {} {宝和记|这是一家以买卖公平著称的当铺，五尺高的柜台挡在你的面前，柜台上摆着一个牌子(paizi)。} { } {} {苏州} {} {} {} {1.000}
+E {  899} {n} {n} {1} {0} {} {1.000}
+
+R {  901} {0} {} {东大街|你走在东大街上，踩着坚实的青石板地面。东边是东城门，可以听到守城官兵的吆喝声，北边是一家老字号的药铺，南边是打铁铺，叮叮当当的声音老远就能听到。} { } {} {苏州} {} {} {} {1.000}
+E {  899} {w} {w} {8} {0} {} {1.000}
+E {  902} {n} {n} {1} {0} {} {1.000}
+
+R {  902} {0} {} {立春堂|这是一家药铺，一股浓浓的药味让你几欲窒息，那是从药柜上的几百个小抽屉里散发出来的。药房先生却不在店内。一名小伙计站在柜台后招呼着顾客。|这里唯一的方向有 south。} { } {} {苏州} {} {} {} {1.000}
+E {  901} {s} {s} {4} {0} {} {1.000}
+
+R {  903} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  614} {w} {w} {8} {0} {} {1.000}
+
+R {  904} {24} {} {} { } {} {} {} {} {} {1.000}
+E {  623} {u} {u} {16} {0} {} {1.000}
+E {  905} {d} {d} {32} {0} {} {1.000}
+
+R {  905} {16} {} {孟津渡|这里是黄河南岸的渡口，南面通向洛阳。渡过河就进入晋阳了。|船老大 尉迟顺|洛阳黄河渡口} { } {} {黄河南岸} {} {} {} {1.000}
+E {  904} {u} {#class guojiang open;#action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你使出吃奶的力气喊了一声：“船家”$} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#var in_boat 0;#action {江心驶去。} {#var in_boat 1;};#action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {#if {${in_boat} == 1} {#var in_boat 0;out;maphere;#showme <fca>到达目标地点：$roomname;#class guojiang kill;};};#action {正等着你呢，上来吧。} {#class tmp kill;enter};#action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};#action {^%*接过你递给的船资} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#action {^你的车船通账上还剩%S，这一趟的船资%S。} {#class tmp open;#action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};#class tmp close;};#class guojiang close;ask shao gong about 过河;} {16} {2} {} {1.000}
+E {  907} {e} {e} {2} {0} {} {1.000}
+E {  906} {w} {w} {8} {0} {} {1.000}
+E {  909} {sd} {sd} {36} {0} {} {1.000}
+
+R {  906} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  905} {e} {e} {2} {0} {} {1.000}
+
+R {  907} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  905} {w} {w} {8} {0} {} {1.000}
+E {  613} {se} {se} {6} {0} {} {1.000}
+
+R {  908} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  909} {n} {n} {1} {0} {} {1.000}
+E {  910} {s} {s} {4} {0} {} {1.000}
+
+R {  909} {0} {} {洛水} { } {} {黄河南岸} {} {} {} {1.000}
+E {  905} {nu} {nu} {17} {0} {} {1.000}
+E {  908} {s} {s} {4} {0} {} {1.000}
+
+R {  910} {0} {} {} { } {} {} {} {} {} {1.000}
+E {  908} {n} {n} {1} {0} {} {1.000}
+E {  911} {su} {su} {20} {0} {} {1.000}
+
+R {  911} {0} {} {城北桥} { } {} {洛阳} {} {} {} {1.000}
+E {  910} {nd} {nd} {33} {0} {} {1.000}
+E {  281} {sd} {sd} {36} {0} {} {1.000}
