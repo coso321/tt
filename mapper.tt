@@ -52,7 +52,7 @@
                %1 {${mapdesc[$desc]}};
            };
     }}};
-    #action {^    你可以看看(look):<node>}{l <node>};
+    #action {^    你可以看看(look):%*<node>}{l <node>};
     #class getmapdesc close;
 };
 

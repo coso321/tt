@@ -1,0 +1,27 @@
+#class climb open;
+
+#gag {%*走了过来。$};
+#gag {%*走了进去。$};
+#gag {%*离开。$};
+#gag {%*离去。$};
+#gag {^一道身影出现在场间};
+
+#alias climb.start {#var book %1; climb tree};
+#alias climb.stop {#class climb kill;};
+#action {你小心翼翼的往上爬了一点，觉得头晕眼花，就赶紧爬了下来．} {#delay 2 {yun recover;}};
+#action {慢慢地你终于又有了知觉....} {#delay 2 {yun recover;}};
+#action {你深深吸了几口气，脸色看起来好多了。} {climb tree};
+#action {你身子发虚，一头栽了下来，哎呀！} {#delay 2 {yun recover}};
+#action {^你一觉醒来} {du $book for 50; runyz; #delay 2 climb tree};
+#action {( 你的内力已经枯竭，不能施用内功。)} {eat liang; drink jiudai; #delay 1 {run 646; #delay 2 {du $book for 50; sleep;}};};
+#action {你的内力不够。} {eat liang; drink jiudai; #delay 2 {climb tree}};
+#action {你刚在三分钟内睡过一觉, 多睡对身体有害无益!} {#delay 10 {du $book for 50; sleep}};
+#action {你运功完毕，深深吸了口气，站了起来。} {n; yun recover; climb tree};
+#action {你战胜了地痞} {climb tree};
+
+#action {你像只小猴子一样在树上窜上窜下} {#delay 2 {run 646; #delay 2 {dza; #class climb kill;}}};
+
+
+
+#class climb close;
+

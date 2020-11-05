@@ -7,7 +7,7 @@
     #class zhenfastart open;
     #action {小校场 -} {
         zhenfa;
-        #delay stuck {w;ask chongxu about cancel; #undelay stuck;} 300;
+        #unaction {小校场 -};
     };
     #class zhenfastart close;
     zouwei.setname;

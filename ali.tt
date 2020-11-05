@@ -24,6 +24,12 @@
 #alias {reloadmap} {#re mapper.tt; loadmap};
 #alias {pfm} {perform %0};
 #alias {pda} {#re bot/pda.tt; pingdiao.start};
+#nop 扬州爬树;
+#alias {psa} {#re bot/psa.tt; climb.start %1};
+#alias {psx} {climb.stop};
+#nop 凌霄看雪;
+#alias {kxa} {#re bot/kxa.tt; kanxue.start};
+#alias {kxx} {kanxue.stop};
 #alias {pdx} {pingdiao.stop};
 #alias {dck} {dz -check};
 #alias {dqa} {#tic {duoqi} {duo} {1}};
@@ -170,7 +176,7 @@
 #alias {gdx} {#class gda kill};
 
 #nop 练习;
-#alias {lxa} {#class lxa read bot/lxa.tt;#var skname %1};
+#alias {lxa} {#class lxa read bot/lxa.tt;#var skname %1;#var book %2};
 #alias {lxx} {#class lxa kill};
 
 #nop 领悟;
@@ -185,16 +191,17 @@
 #alias {nfuli} {pick guo;eat guo;up;ask lver about 月饼;#delay {5} {answer 咸月饼;eat yuebing;d}};
 
 #nop 读书说文解字射雕等;
-#alias {dsa} {#class dsa read bot/dsa.tt;#var book %1};
+#alias {dsa} {#class dsa read bot/dsa.tt;#var book %1; #var skill %2};
 #alias {dsx} {#class dsa kill};
 
 #nop 自动吐纳;
-#alias {tna} {#class tna read bot/tna.tt;tunaa};
+#alias {tna} {#class tna read bot/tna.tt; #var skill %1; tunaa};
 #alias {tnx} {#class tna kill;#untic tna};
 
 #nop 自动打坐；
 #alias {dza} {#class dza read bot/dza.tt;
-     #switch {"%1"} {
+     #var skill %1;
+     #switch {"%2"} {
         #case {"dz"} {
               #ali dzaa dz;
               #echo 开始dz...};
@@ -213,6 +220,7 @@
     #class ska read bot/ska.tt;
     #var shi %1;
     #var gong %2;
+    #var lianskill %3;
 };
 #alias {skx} {#class ska kill};
 

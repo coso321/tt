@@ -21,6 +21,8 @@
 #event {GAG SESSION DISCONNECTED} {#0};
 #event {GAG SESSION TIMED OUT} {#0};
 
+#config {PACKET PATCH} {0.5};
+
 #class tmp open;
 #alias pku {#class tmp kill;#re pku.tt};
 #class tmp close;

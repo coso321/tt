@@ -18,10 +18,11 @@
 #act {你的内力不够} {sleep};
 
 #act {你刚在三分钟内睡过} {
-#delay 15 {sleep};
+#delay 15 {du $book for 50; sleep};
 };
 
 #act {你一觉醒来，精神抖擞地活动了几下手脚。} {
+du $book for 50;
 #delay 1 {eat liang;
 #delay 1 {drink jiudai;
 #delay 1 {tunaa};

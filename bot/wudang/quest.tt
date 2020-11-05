@@ -125,7 +125,7 @@
 #alias waiting.continue {
     #if {${equip-drop} > 0} {
         #action {^荣宝斋 -} {
-            #action {^扬州钱庄 -} {#delay 1 {cun 1 gold; #delay 3 #map run {武当广场%*} {0.2}; #unaction {^扬州钱庄 -};}};
+            #action {^扬州钱庄 -} {#delay 1 {cun 1 gold; #delay 3 {#map run {武当广场%*} {0.2}; #unaction {^扬州钱庄 -};}}};
             #action {^武当广场 -} {
                 set brief 1;
                 #delay 1 ask chongxu about quest;
@@ -143,7 +143,7 @@
             ask chongxu about quest;
             #unaction {^武当广场 -};
         };
-        #delay 1 #map run 武当广场;
+        #delay 1 {l;#map run 武当广场;};
     };
 };
 
@@ -170,6 +170,7 @@
     #map run 14;
 };
 
+#alias {waiting.fadai} {#class waiting open;#delay 10 waiting.continue; #class waiting close;};
 #alias {waiting.dazuo} {
     #class waiting open;
     #action {^客房 -} {
@@ -189,28 +190,23 @@
     #var book %1;
     #class waiting open;
     #action {^客房 -} {
-        #delay 1 du $book for 5;
-        #unaction {^客房 -};
+        #delay 1 {du $book for 5; yun regenerate};
     };
-     
-    #action {你研读了%*次有关读书写字的技巧，似乎有点心得。} {
-        du $book for 5;
-    };
-    #action {你现在过于疲倦，无法专心下来研读新知。} {
-        #delay 1 sleep;
-    };
+    #action {这里不是你能睡的地方} {reloadmap; #delay 3; run 12 0.2;};
     #action {你必须先用 enable 选择你要用的内功心法。} {
         #delay 10 sleep;
     };
     #action {你刚在三分钟内睡过一觉, 多睡对身体有害无益!} {
-        dazuo 10;
+        #delay 3 yun regenerate
     };
-    #action {你现在精不够，无法控制内息的流动！} {
-        #delay 10 sleep;
+    #action {你略一凝神，精神看起来好多了。} {
+        du $book for 5; yun regenerate;
     };
-    #action {你运功完毕，深深吸了口气，站了起来。} {
-        du %1 for 5;
+    #action {( 你的内力已经枯竭，不能施用内功。)} {
+        sleep;
     };
+    #action {你现在精力充沛} {du $book for 5; yun regenerate};
+    #action {你的内力不够。} {sleep;};
     #class waiting close;
     #map run {12} {0.2};
 };

@@ -103,9 +103,7 @@
     #else {#map run {%1%*} {0.2}};
 };
 
-#alias runjx {
-    run.changjiang-south 嘉兴城;
-};
+#alias runjx {run.changjiang-south 嘉兴城;};
 
 #alias runywm {
     #event {MAP ENTER ROOM 796} {#map run {831} {0.2}; #unevent {MAP ENTER ROOM 796};};
@@ -174,7 +172,7 @@
 #alias runzp {
     #class runzp open;
     #event {MAP ENTER ROOM 570} {#map run {黄羊滩} {0.2}; #unevent {MAP ENTER ROOM 570}};
-    #action {^黄羊滩 -} {#var step 1; sw; #delay 1 s};
+    #action {^到达目标地点：黄羊滩} {#var step 1; sw; #delay 1 s};
     #action {^等待结束} {
         #switch {$step} {
             #case 1 {#var step 2; #delay 1 sw;};
