@@ -30,5 +30,7 @@
     #class wdquest kill;
 };
 
+#alias chan {perform sword.chan};
+#alias plian {perform sword.lian};
 #class wudang close;
 

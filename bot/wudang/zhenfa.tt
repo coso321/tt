@@ -5,6 +5,7 @@
         #var {zhenfa.after-handler} %1;
     };
     #class zhenfastart open;
+    #delay {stuck} {w;ask chongxu about cancel} {300};
     #action {小校场 -} {
         zhenfa;
         #unaction {小校场 -};

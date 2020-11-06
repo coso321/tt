@@ -176,7 +176,7 @@
 #alias {gdx} {#class gda kill};
 
 #nop 练习;
-#alias {lxa} {#class lxa read bot/lxa.tt;#var skname %1;#var book %2};
+#alias {lxa} {#class lxa read bot/lxa.tt;#var skname %1;#var book %2; lxaa};
 #alias {lxx} {#class lxa kill};
 
 #nop 领悟;
@@ -203,10 +203,12 @@
      #var skill %1;
      #switch {"%2"} {
         #case {"dz"} {
-              #ali dzaa dz;
-              #echo 开始dz...};
+              #ali dzaa {dz max};
+              #echo 开始dz...;
+              dzaa;};
         #default {
-              #echo 开始打坐...};
+              #echo 开始打坐...;
+              dzaa;};
      };
 };
 #alias {dzx} {#class dza kill;#untic dza};
