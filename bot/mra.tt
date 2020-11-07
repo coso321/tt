@@ -1,7 +1,7 @@
 #class mra open;
 
 #tic {mra} {#untic mra;mraa}{2};
-#alias {mraa} {ask pu ren about job};
+#alias {mraa} {eat liang; drink jiudai; ask pu ren about job};
 #alias  {mrd} {give pu xin};
 #alias  {mrf} {ask pu ren about fail};
 
@@ -12,9 +12,9 @@
   #tic {mrq2} {
   #echo {%c%h} {light yellow} {目标正在%1处} } {15}};
 
-#act {%*发现的%s慕容世家家贼(@capital{$myid}'s murong jiazei)} {wait;stopwalk;follow jiazei;jiali max;yun powerup;hit jiazei};
+#act {%*发现的%s慕容世家家贼(@capital{$myid}'s murong jiazei)} {#undelay PATH %d; #path stop; follow jiazei;jiali max;yun powerup;kill jiazei};
 
-#act {慕容世家家贼死了。} {#delay 2 {get all from corpse}};
+#act {慕容世家家贼死了。} {loadmap; #delay 2 {get all from corpse}};
 
 #act {由于你成功的找回慕容复写给江湖豪杰的信件} {#untic mrq1;#untic mrq2;mrx};
 #act {由于你没有找回慕容复丢失的信件} {
