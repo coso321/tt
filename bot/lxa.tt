@@ -19,6 +19,7 @@
 {
 eat liang;
 drink jiudai;
+cha;
 lxaa;
 };
 #act {你刚在三分钟内睡过一觉}{#delay 10 {ds; lian $skname 50; sleep}}
