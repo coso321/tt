@@ -1,4 +1,4 @@
-#CONFIG           {CHARSET}  {BIG}
+#CONFIG           {CHARSET}  {UTF-8}
 #CONFIG           {COLOR PATCH}  {ON}
 #CONFIG           {PACKET PATCH}  {0.8}
 #CONFIG           {WORDWRAP}  {ON}
