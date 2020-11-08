@@ -109,7 +109,7 @@
         #class waitfor-chongxu-answer kill;
         #var new-quest %%1;
         #bell;
-    }{10};
+    }{9};
     #class waitfor-chongxu-answer close;
 };
 

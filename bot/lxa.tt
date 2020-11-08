@@ -11,6 +11,7 @@
 #act {你装备%*作武器} {lxaa};
 #act {你身上没有这样东西。}{lxx};
 #act {{你的%*的级别还没有%*的级别高|你需要提高基本功}} {skills;lxx;dza};
+#act {你的%*火候太浅。} {skills;lxx;dza};
 #act {牛皮酒袋已经被喝得一滴也不剩了。} {drop jiudai};
 
 
@@ -45,7 +46,7 @@ lxaa;
 
 #act {你现在气血虚浮，练习不了%*} {yun recover};
 
-#act {你的内功还没有达到那个境界你至少需要十点的气来打坐} {#delay 10 {dazuo max}}；
+#act {你的内功还没有达到那个境界你至少需要十点的气来打坐} {#delay 10 {dazuo max}} 9；
 #act {( 你的内力已经枯竭，不能施用内功。)} {ds;sleep;};
 #nop #act {你太累了，还是先休息一下吧。} {exert recover};
 
