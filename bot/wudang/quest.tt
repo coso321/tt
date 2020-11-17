@@ -63,7 +63,7 @@
     #action {冲虚道长说道：「%*要在%%1熟读典籍，据说要诵唱%%2的%%3$} {
         #showme 当前进度：诵经;
         #class waitfor-chongxu-answer kill;
-        #regex %%1 {{金顶|太和宫|竹林小院|二天门|三天门|小园|小屋|五老峰|三老峰|虎头岩}} {
+        #regex %%1 {{小园|竹林小院|小屋|金顶|太和宫|二天门|三天门|五老峰|三老峰|虎头岩}} {
             cancel-quest;
             ask-quest;
         } {
@@ -117,6 +117,7 @@
     #class waitfor-chongxu-drop open;
         #act {^从冲虚道长身上掉了出来一件} {#math {equip-drop} {${equip-drop}+1};};
         #act {^从冲虚道长身上掉了出来一柄} {#math {equip-drop} {${equip-drop}+1};};
+        #act {从冲虚道长身上掉了出%*孽龙丹} {eat dan};
     #class waitfor-chongxu-drop close;
 };
 
@@ -183,8 +184,9 @@
         #delay 10 sleep;
     };
     #action {你刚在三分钟内睡过一觉, 多睡对身体有害无益!} {
-        #delay 10 yun regenerate
+        #delay 10 {du $book for 50; yun regenerate}; 
     };
+    #action {你身上没有 $book 这种东西} {#delay 10 sleep};
     #action {你略一凝神，精神看起来好多了。} {
         du $book for 50; yun regenerate;
     };
@@ -200,15 +202,14 @@
 #alias {waiting.lian} {
     #var skill %1;
     #class waiting open;
+    #action {你使用的武器不对。} {unwield all; wield $skill; lian $skill 50; yun recover};
+    #action {练%*必须空手} {unwield all; lian $skill 50; yun recover};
     #action {^客房 -} {
         #delay 1 {lian $skill 50; yun recover};
     };
     #action {这里不是你能睡的地方} {reloadmap; #delay 3; run 12 0.2;};
-    #action {你必须先用 enable 选择你要用的内功心法。} {
-        #delay 10 sleep;
-    };
     #action {你刚在三分钟内睡过一觉, 多睡对身体有害无益!} {
-        #delay 10 yun regenerate
+        #delay 10 yun recover; 
     };
     #action {你深深吸了几口气，脸色看起来好多了。} {lian $skill 50; yun recover};
     #action {( 你的内力已经枯竭，不能施用内功。)} {
@@ -218,5 +219,28 @@
     #action {你的内力不够。} {sleep;};
     #class waiting close;
     #map run {12} {0.2};
+};
+#alias {waiting.xue} {
+    #var skill %1;
+    #class waiting open;
+    #action {│  读书写字                │literate                  │%*    │%d.%*       │-} {
+        #if {"$skill" == "literate" && %%2 >= 50} {wdquest dushu shu 2};
+        #else {n; xue %2 for $skill 50; yun regenerate; };
+    };
+    #action {你略一凝神，精神看起来好多了。} {xue %2 for $skill 50; yun regenerate};
+    #action {^客房 -} {
+        sleep;
+    };
+    #action {这里不是你能睡的地方} {reloadmap; #delay 3 #map run 12;};
+    #action {你刚在三分钟内睡过一觉, 多睡对身体有害无益!} {
+        #delay 10 {w;w;xue %2 for $skill 50; #delay 1 {e;e; }}
+    };
+    #action {你现在气力充沛} {lian $skill 50; yun recover};
+    #action {你现在精力充沛} {sleep};
+    #action {你的内力不够。} {e;e;};
+    #action {( 你的内力已经枯竭，不能施用内功。)} {e;e;};
+    #action {你的潜能已经发挥到极限了，没有办法再成长了。} {e;e};
+    #class waiting close;
+    cha;
 };
 #class wdquest close;

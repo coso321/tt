@@ -363,29 +363,28 @@
                         w;
                         #delay {2} {
                             #action {看起来老虎想杀死你！} {
-                            kill lao hu;
-                            #delay {2} {
-                                perform sword.bafang;
-                                #delay {3} {
+                                kill lao hu;
+                                #delay {2} {
                                     perform sword.bafang;
+                                    #delay {3} {
+                                        perform sword.bafang;
+                                    };
+                                    #delay {5} {
+                                        perform sword.bafang;
+                                    };
+                                    #delay {8} {
+                                        perform sword.bafang;
+                                    };
+                                    #delay {10} {
+                                        perform sword.bafang;
+                                    };
+                                    #delay {12} {
+                                        perform sword.bafang;
+                                    };
+                                    #delay {14} {
+                                        perform sword.bafang;
+                                    };
                                 };
-                                #delay {5} {
-                                    perform sword.bafang;
-                                };
-                                #delay {8} {
-                                    perform sword.bafang;
-                                };
-                                #delay {10} {
-                                    perform sword.bafang;
-                                };
-                                #delay {12} {
-                                    perform sword.bafang;
-                                };
-                                #delay {14} {
-                                    perform sword.bafang;
-                                };
-                            };
-                            #unaction {看起来老虎想杀死你！};
                             };
                         };
                     };
@@ -396,6 +395,7 @@
 };
 
 #action {手刃了恶虎，你感觉自己威风凛凛！回去再向游鲲翼问问能不能闯荡江湖了吧！} {
+    #unaction {看起来老虎想杀死你！};
     #delay {10} {
         e;
         #delay {2} {

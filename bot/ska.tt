@@ -1,17 +1,12 @@
 #class ska open;
 
-#tic {ska} {skaa} {77};
-#tic {skaa} {
-      #echo {%c%h} {light yellow}{【指令格式:ska [师傅] [技能] 向师傅学技能】};
-      set brief 1;
-     #untic skaa;
-     skaa;
-} {2};
-
+maphere;
+#var skloc $roomvnum;
 #alias {skaa} {
-  do 2 xue $shi for $gong 50;
+  xue $shi for $gong 50;
   exert regenerate;
 };
+#alias gosleep {#map run $bedroom; #delay 1 sleep};
 
 #act {^也许是缺乏实战经验，你对宋远桥的回答总是无法领会。} {skx;dza};
 #act {^你和师父切磋了%*消耗了大量潜能} {skx;dza};
@@ -24,30 +19,19 @@
 #act {你略一凝神，精神看起来好多了。} {skaa};
 #act {你现在精力充沛。} {skaa};
 
-#act {^你的内力不够。} {sleep};
+#act {^你的内力不够。} {gosleep};
 
-#act {( 你的内力已经枯竭，不能施用内功。)} {sleep};
+#act {( 你的内力已经枯竭，不能施用内功。)} {gosleep};
 
 #act {^你一觉醒来} {
-  lian $lianskill 50;
-  #delay 2 {
-      #if {"$mymenpai"=="桃花岛"} {
-            #delay 1 {w;s;w;w;
-            #delay 2 {eat liang;
-            #delay 1 {drink jiudai;
-            #delay 1 {skaa;
-        }}}}};
-      #elseif {"$mymenpai"=="武当派"} {
-            #delay 1 {w;w;
-            #delay 2 {eat liang;
-            #delay 1 {drink jiudai;
-            #delay 1 {skaa;
-        }}}}};
-       #else {
-              eat liang;
-             #delay 1 {drink jiudai;
-             #delay 1 {skaa;
-         }}};
+    lian $lianskill 50;
+    #map run $kitchen;
+    #delay 1 { 
+        get $food; get $drink;
+        eat $food; drink $drink; 
+        drop $food; drop $drink;
+        #map run $skloc;
+        #delay 1 {skaa};
     };
 };
 

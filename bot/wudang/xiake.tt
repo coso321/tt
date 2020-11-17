@@ -9,5 +9,38 @@
 };
 
 #action {崔老汉说到：前几天村子里面来了几个土匪，把过世的老伴留给我的银镯子给抢走了，一定要帮我拿回来！} {
-    run 954;
+    run 751;
+    unwield all; wields;
+    #delay 1 {enter; tufei.start; l};
 };
+
+#action {{你的内力不足|你的内力已经枯竭}} {tufei.stop; #action {土匪死了} {dazuo max; #unaction {土匪死了};}; #action {你运功完毕，深深吸了口气，站了起来。} {yun recover; tufei.start; l; #showme 当前进度：侠客; #unaction {你运功完毕，深深吸了口气，站了起来。};};#showme 当前进度：侠客-内力不足;};
+
+#action {土匪把路一挡，狞笑道：怎么，想溜，没那么容易！} {kill robber; kill tufei; kill louluo};
+
+#action {你暗伤发作，不由自主地瑟瑟抖了起来。} {#var yunheal 1};
+
+#alias {tufei.start} {
+    #class tufei open;
+    #action {土匪死了。} {
+        xq; #if {$yunheal == 1} {do 3 yun heal; #var yunheal 0; #delay 3 l;} {#delay 3 l};
+    };
+    #action {    这里明显的方向有 %%1 和 %%2。} {#if {"%%1" != "{enter|out|.*、.*}"} {%%1} {%%2} };
+    #class tufei close; 
+};
+
+#alias {tufei.stop} {#class tufei kill};        
+
+#action {你寡不敌众被抓到土匪窝里} {tufei.stop; #delay 10 {s;#map goto 1398;s;#delay 3 {kill tufei; kill louluo}}};
+
+#action {^山寨 -} {w;};
+#action {^竹楼 -} {#unaction {^山寨 -}; #unaction {^竹楼 -}};
+
+#action {^土匪头死了。} {#delay 1 gc};
+
+#action {崔老汉紧紧地抓住你的手，老泪纵横，抽泣地说道：『太感谢了！』} {
+    #action {^武当广场 -} {success-quest; ask-quest; #class xiake kill; #unaction {^武当广场 -};} {1};
+    reloadmap; #delay 1 runwd;
+};
+
+#class xiake close;

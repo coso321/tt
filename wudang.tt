@@ -1,5 +1,11 @@
 #class wudang open;
 
+#var bedroom 12;
+#var kitchen 14;
+#var lwroom 17;
+#var food zhou;
+#var drink hulu;
+
 #alias runfzg {run 复真观二层};
 
 #alias getname {
@@ -30,7 +36,28 @@
     #class wdquest kill;
 };
 
-#alias chan {perform sword.chan};
-#alias plian {perform sword.lian};
+/*
+#act {^你在攻击中不断积蓄攻势。(气势：%d} {
+    #if {%1 >= 8} {perform sword.chan};
+};
+*/
+
+#act {^你眼前一花，但见四面八方都是%*的人影} {
+    #class pfm open;
+    #act {^你在攻击中不断积蓄攻势。(气势：%d} {
+        #if {%1 >= 8} {perform sword.chan};
+    };
+    #class pfm close;
+};
+
+#alias lifepfm {pchan};
+
+#act {( 只听见「啪」地一声，你手中的%*已经断为两截！ )} { wield sword};
+#act {你的太极神功运行完毕，将内力收回丹田。} {yun powerup};
+
+#alias wields {unwield all; wield sword; #delay 1 wield blade}
+#alias pchan {wield sword; perform sword.chan};
+#alias plian {wield sword; perform sword.lian};
+#alias pzhen {unwield all; perform cuff.zhen; wield sword; #delay 1 wield blade;};
 #class wudang close;
 

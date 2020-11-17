@@ -36,6 +36,7 @@
         #map run 12;
         #delay 3 sleep;
     };
+    set brief 3;
     #map run {复真观二层} {0.3};
 };
 
@@ -71,14 +72,16 @@
     
 #alias gotolocation {
     #action {^$location} {
+        set brief 1;
         #ticker fp {findpage} 10;
         findpage;
-        #unaction {^$location};
+        #unaction {^$$location};
     };
     #action {到达目标地点：$location} {
+        set brief 1;
         #ticker fp {findpage} 10;
         findpage;
-        #unaction {^$location};
+        #unaction {到达目标地点：$location};
     };
     #map run {$location} {0.3};
 };
@@ -86,36 +89,36 @@
 #alias findpage {
     #var page 1;
     #class findpage open;
-        #var skippage 10;
-        #action {~^\e[0m\e[1;32m%%1(%%2)\e[0m} {
-            #regexp %%1 $chapter {
-                #showme <fca> 有页码: %%1;
-                #if {%%2 == ${chapter.page}} {
-                    #unticker fp;
-                    #unaction {到达目标地点%*};
-                    #delay 1 chantpage $page;
-                };
-                #else {
-                    #math page {$page - (%%2 - ${chapter.page})};
-                    page $page;
-                };
-            } {
-                #math page $page+$skippage;
-                page $page;
-            };
-        };
-        #action {~^\e[0m\e[1;32m%%1\e[0m} {
-            #showme <fca> 无页码: %%1;
-            #var skippage 1;
-            #regexp %%1 $chapter {
+    #var skippage 10;
+    #action {~^\e[0m\e[1;32m%%1(%%2)\e[0m} {
+        #regexp %%1 $chapter {
+            #showme <fca> 有页码: %%1;
+            #if {%%2 == ${chapter.page}} {
                 #unticker fp;
                 #unaction {到达目标地点%*};
                 #delay 1 chantpage $page;
-            } {
-                #math page $page+$skippage;
+            };
+            #else {
+                #math page {$page - (%%2 - ${chapter.page})};
                 page $page;
             };
+        } {
+            #math page $page+$skippage;
+            page $page;
         };
+    };
+    #action {~^\e[0m\e[1;32m%%1\e[0m} {
+        #showme <fca> 无页码: %%1;
+        #var skippage 1;
+        #regexp %%1 $chapter {
+            #unticker fp;
+            #unaction {到达目标地点%*};
+            #delay 1 chantpage $page;
+        } {
+            #math page $page+$skippage;
+            page $page;
+        };
+    };
     #class findpage close;
     page 1;
 };
@@ -124,9 +127,6 @@
     #var line {};
     #class findpage kill;
     #class chantpage open;
-    #action {看起来%%1想杀死你！} {
-        kill %%1;
-    };
     #action {^==%!{\ +}{[^ ]+}%!{\ +}==$} {
         #var line ${line}%%1;
     };
@@ -140,19 +140,22 @@
 
 #action {$myname拿起了%*慢慢的诵唱：} {
     #class chantpage kill;
+    #unticker fp;
 }; 
 
 #action {你做完了冲虚道长布置的功课，可以回去向他要奖赏了。} {
     #action {^复真观二层} {
         #action {^武当广场} {
+            #unticker fp;
             success-quest;
             ${songjing.after-handler};
-            #unaction {^武当广场};
             #class songjing kill;
-        };    
+            #unaction {%*武当广场%*};
+        } {1};    
         give jing to zhike;
         #delay 3 {run 武当广场; #unaction {^复真观二层};};
     };
+    #unticker fp;
     #map run {复真观二层} {0.3};
 }
      

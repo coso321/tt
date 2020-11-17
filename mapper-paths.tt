@@ -1,12 +1,10 @@
-#var changjiang-north {大轮寺|长江北岸|扬州|襄阳|武当|洛阳|长安|信阳|曲阜|灵州|凌霄城|回族小镇};
+#var changjiang-north {黄河南岸|大轮寺|长江北岸|扬州|襄阳|武当|洛阳|长安|信阳|曲阜|灵州|凌霄城|回族小镇};
 #var changjiang-south {长江南岸|南昌|苏州.*|嘉兴|镇江|泉州|岳王墓|牙山|临安|建康.*};
-#var huanghe-north {黄河北岸|晋阳};
-#var huanghe-south {黄河南岸|${changjiang-north}};
+#var huanghe-north {黄河北岸|晋阳|日月神教};
 
 #alias cross-river {
     #class river open;
     #act {^    船老大} {%2; #unact {^    船老大}};
-    #act {到达目标地点：%*} {#class river kill};
     #class river close;
     #var river @gettarget{{} 船老大 {%1}};
     #map run {$river[vnum]} {0.2}
@@ -20,23 +18,22 @@
 #alias run.cross-river {
     #var target @gettarget{%1};
     maphere;
-    #if {$target[vnum] == $roomvnum} {#showme <fca>到达目标地点：$target[name]};
+    #if {$target[vnum] == $roomvnum} {#showme <fca>到达目标地点：$target[name]; #class runlocation kill};
     #else {
         #class runlocation open;
         #act {^到达目标地点：} {#delay 1 {run.%3 {%1}; }};
-        #if {"%1" == "%d"} {
-            #event {MAP ENTER ROOM %1} {#unact {^到达目标地点：}; set brief 1;#showme <fca>到达目标地点：$target[name];#class runlocation kill;#unevent {MAP ENTER ROOM %1}}; };
-        #else {#act {^%*%1%* -} {#unact {^到达目标地点：}; set brief 1;#showme <fca>到达目标地点：$target[name]; #class runlocation kill;#unact {^%*%1%* -}};};
+        #act {^$target[name] -} {#unact {^到达目标地点：}; set brief 1;#showme <fca>到达目标地点：$target[name]; #class runlocation kill;};
         #class runlocation close;
         #showme <fca>即将前往：$target[name];
         set brief 3;
         #regexp $roomarea {{${changjiang-north}}} {#var cjnorth 1} {#var cjnorth 0};
         #regexp $roomarea {{${changjiang-south}}} {#var cjsouth 1} {#var cjsouth 0};
         #regexp $roomarea {{${huanghe-north}}} {#var hhnorth 1} {#var hhnorth 0};
-        #if {"%*$roomarea%*" == "{%2}" && "$roomdesc" == "%*船老大%*"} {#if {"$roomarea" == "%*北岸"} {d} {u};};
+        #if {"$roomarea" == "{%2}" && "$roomdesc" == "%*船老大%*"} {#if {"$roomarea" == "%*北岸"} {d} {u};};
         #elseif {"%3" == "changjiang-south" && $cjnorth == 1} {changjiang-south};
         #elseif {"%3" == "{changjiang-south|changjiang-north}" && $hhnorth == 1} {huanghe-south};
-        #elseif {"%3" == "changjiang-north" && $cjsouth == 1} {changjiang-north};
+        #elseif {"%3" == "{changjiang-north|huanghe-north}" && $cjsouth == 1} {changjiang-north};
+        #elseif {"%3" == "huanghe-north" && $cjnorth == 1} {huanghe-north};
         #else {#map run {$target[vnum]} {0.2}};
     };
 };
@@ -44,33 +41,12 @@
 
 #alias run.changjiang-south {run.cross-river {%1} {长江北岸|黄河北岸} {changjiang-south}};
 #alias run.changjiang-north {run.cross-river {%1} {长江南岸|黄河北岸} {changjiang-north}};
+#alias run.huanghe-north {run.cross-river {%1} {黄河南岸|长江南岸} {huanghe-north}};
 
-
-#alias run.huanghe-north {
-    #showme <fca>即将前往：%1;
-    set brief 3;
-    #class runlocation open;
-    #act {^到达目标地点：} {#delay 1 {run.huanghe-north {%1}; }};
-    #if {"%1" == "%d"} {
-        #event {MAP ENTER ROOM %1} {#unact {^到达目标地点：}; set brief 1;#showme <fca>到达目标地点：%1;#class runlocation kill;#unevent {MAP ENTER ROOM %1}}; };
-    #class runlocation close;
-    maphere;
-    #regexp $roomarea {{${changjiang-south}}} {#var cjsouth 1} {#var cjsouth 0};
-    #regexp $roomarea {{${huanghe-south}}} {#var hhsouth 1} {#var hhsouth 0};
-    #if {"$roomarea" == "黄河南岸" && "$roomname" == "%*船老大%*"} {u;};
-    #elseif {"$roomarea" == "长江南岸" && "$roomname" == "%*船老大%*"} {u;};
-    #elseif {$cjsouth == 1} {changjiang-north};
-    #elseif {$hhsouth == 1} {huanghe-north};
-    #else {#map run {%1%*} {0.2}};
-};
 
 #alias runjx {run.changjiang-south 嘉兴城;};
 
-#alias runywm {
-    #event {MAP ENTER ROOM 796} {#map run {831} {0.2}; #unevent {MAP ENTER ROOM 796};};
-    runsz;
-};
-
+#alias runywm {run.changjiang-south 831;}; 
 #alias runnc {run.changjiang-south 512};
 #alias runzx {run.changjiang-south 岳麓书院};
 
@@ -95,7 +71,7 @@
 #alias runfz {run.changjiang-south 1194};
 #alias runjz {run.changjiang-south 502};
 
-#alias runhome {run.changjiang-north {储物柜} };
+#alias runhome {run {储物柜} };
 #alias runbk {#map run {%*{钱庄|票号|银号}} {0.2}};
 #alias rundp {#map run {%*当铺%*} {0.2}};
 

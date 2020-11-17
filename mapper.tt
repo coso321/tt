@@ -7,13 +7,13 @@
 #function gettarget {
     #map get roomvnum vnum;
     mg %0;
-    #map get all target;
+    #map get all tmp;
     #map goto $vnum;
-    #return $target
+    #return $tmp
 };
 
 #alias setarea {
-    #action {^【%%1地图】} {#var roomarea %%1; #unaction {^【%*地图】}};
+    #action {^【%%1地图%*】} {#var roomarea %%1; #unaction {^【%*地图】}};
     lm; q;
 };
 
@@ -43,6 +43,7 @@
     {^    %1。%2}{%1。%2}
     {^    船老大 %1(%*)}{船老大 %1}
     {^┌───%1─}{%1}
+    {^这条路%1}{这条路%1}
 };
 
 #function getmapdesc {
@@ -53,8 +54,10 @@
                };
            };
     }};
-    #action {^    你可以看看(look):%*<node>}{l <node>};
+    #action {^    你可以看看(look):%*<node>} {l <node>};
+    #action {^    你可以看看(look):lupai} {l lupai};
     #class getmapdesc close;
+    #return {};
 };
 
 
@@ -64,6 +67,8 @@
     #map leave;
     #var roomname {};
     #class tmp open;
+    #gag {^>};
+    #gag {^$};
     #action {^%%1 -} {
         #regexp {%%1} {{.*}的储物柜} {#map goto 644;} {
             @getmapdesc{mg %%1};
@@ -96,6 +101,8 @@
     
 #alias map {
     #class tmp open;
+    #gag {^>};
+    #gag {^$};
     #action {^%%1 -} {
         #map set roomarea $roomarea;
         #map set roomname %%1;
@@ -128,7 +135,7 @@
 #alias mi {#map info};
 #alias mm {#map move %1; mi};
 #alias mg {
-    #if {"%1" == "{.d+}"} {#map goto %1};
+    #if {"%1" == "{\d+}"} {#map goto %1};
     #else {#map goto {%1%*} {} {%*%2%*} {%3%*}};
 };
 

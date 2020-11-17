@@ -1,18 +1,24 @@
 #class dsa open;
 
-#tic {dsa}{dsaa}{77};
+#alias {dushu.start} {
+    #map goto $bedroom; maphere; #var bedroomname $roomname;
+    #map goto $kitchen; maphere; #var kitchenname $roomname;
+    loadmap;
+    #delay 1 {
+        maphere;
+        #if {$roomvnum != $bedroom} {
+            #act {^$bedroomname -} {dsaa; #unact {^$$bedroomname -}};
+            #map run {$bedroom} {0.2};
+        };
+        #else {
+            dsaa;
+        };
+    };
+};
 
-#tic {dsaa}{#echo {%c%h} {light yellow}{【指令格式:dsa [书名]进行读书，i2查看书id。】};#show <afa> 开始读书...;#untic dsaa;dsaa} {1};
-
-#gag {^你思索着小说中关于%*，对%*有一些新的理解。$};
-#gag {^你现在过于疲倦，无法专心下来研读新知。}
-#gag {^你研读了%*似乎有点心得。}
 #act {^{你运功完毕，深深吸了口气，站了起来。|你将内息走了个小周天，流回丹田，收功站了起来。|你只觉神元归一，全身精力弥漫，无以复加，忍不住长啸一声，徐徐站了起来。|你将真气在体内沿脉络运行了一圈}} {dsaa};
 #act {^你的精神太差，读不下去了。$} {exert regenerate};
-#act {^你的内力不够。} {
-   eat liang;
-	#delay 1 {drink jiudai;#delay 1 {sleep}};
-};
+#act {^你的内力不够。} {sleep};
 
 #gag {^你已经很累了，歇歇再读吧，身体要紧};
 
@@ -34,13 +40,23 @@
 
 #act {你刚在三分钟内睡过一觉}
 {
-#delay {10} {yun regenerate;};
+#delay {10} {dsaa;};
 };
 
 #act {你略一凝神，精神看起来好多了。} {dsaa};
 #act {你现在精力充沛。} {#ticker dushu {#unticker dushu;dsaa} {3}};
-#act {你一觉醒来，精神抖擞地活动了几下手脚。}
-{dazuo max};
+#act {你一觉醒来，精神抖擞地活动了几下手脚。} {
+    #act {^$kitchenname -} {
+        get $food; get $drink; eat $food; drink $drink; drop $food; drop $drink;
+        #map run $bedroom;
+        #unact {^$$kitchenname -};
+    };
+    #act {^$bedroomname -} {
+        dsaa;
+        #unact {^$$bedroomname -};
+    };
+    #map run $kitchen;
+};
 
 #alias cunbook
 {
