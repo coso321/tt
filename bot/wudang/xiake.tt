@@ -14,7 +14,7 @@
     #delay 1 {enter; tufei.start; l};
 };
 
-#action {{你的内力不足|你的内力已经枯竭}} {tufei.stop; #action {土匪死了} {dazuo max; #unaction {土匪死了};}; #action {你运功完毕，深深吸了口气，站了起来。} {yun recover; tufei.start; l; #showme 当前进度：侠客; #unaction {你运功完毕，深深吸了口气，站了起来。};};#showme 当前进度：侠客-内力不足;};
+#action {{你的内力不够|你的内力不足|你的内力已经枯竭}} {tufei.stop; #action {土匪死了} {dazuo max; #unaction {土匪死了};}; #action {你运功完毕，深深吸了口气，站了起来。} {yun recover; tufei.start; l; #showme 当前进度：侠客; #unaction {你运功完毕，深深吸了口气，站了起来。};};#showme 当前进度：侠客-内力不足;};
 
 #action {土匪把路一挡，狞笑道：怎么，想溜，没那么容易！} {kill robber; kill tufei; kill louluo};
 
@@ -22,18 +22,39 @@
 
 #alias {tufei.start} {
     #class tufei open;
+    #var laststep none;
     #action {土匪死了。} {
         xq; #if {$yunheal == 1} {do 3 yun heal; #var yunheal 0; #delay 3 l;} {#delay 3 l};
     };
-    #action {    这里明显的方向有 %%1 和 %%2。} {#if {"%%1" != "{enter|out|.*、.*}"} {%%1} {%%2} };
+    #action {    这里明显的方向有 %%1 和 %%2。} {
+        #var fromdir[north] south;
+        #var fromdir[west] east;
+        #var fromdir[east] west;
+        #var fromdir[south] north;
+        #var fromdir[up] down;
+        #var fromdir[down] up;
+        #var fromdir[northup] southdown;
+        #var fromdir[westup] eastdown;
+        #var fromdir[eastup] westdown;
+        #var fromdir[southup] northdown;
+        #var fromdir[northdown] southup;
+        #var fromdir[westdown] eastup;
+        #var fromdir[eastdown] westup;
+        #var fromdir[southdown] northup;
+        #var fromdir[southeast] northwest;
+        #var fromdir[northwest] southeast;
+        #var fromdir[southwest] northeast;
+        #var fromdir[northeast] southwest;
+        #if { "$laststep" != "$fromdir[%%1]" && "%%1" != "{enter|out|.*、.*}"} {#var laststep %%1; %%1} {#var laststep %%2; %%2};
+    };
     #class tufei close; 
 };
 
 #alias {tufei.stop} {#class tufei kill};        
 
-#action {你寡不敌众被抓到土匪窝里} {tufei.stop; #delay 10 {s;#map goto 1398;s;#delay 3 {kill tufei; kill louluo}}};
+#action {你寡不敌众被抓到土匪窝里} {tufei.stop; #delay 10 {s;#map goto 1398;s;#delay 5 {kill tufei; kill louluo}}};
 
-#action {^山寨 -} {w;};
+#action {^山寨 -} {tufei.stop; w;};
 #action {^竹楼 -} {#unaction {^山寨 -}; #unaction {^竹楼 -}};
 
 #action {^土匪头死了。} {#delay 1 gc};

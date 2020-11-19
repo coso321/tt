@@ -1,0 +1,31 @@
+#nop ==自定函数==;
+#function {numitems} {#list %1 size result};
+#function {ismember} {#list %2 find {%1} result};
+#function {item} {#list %1 get %2 result};
+#nop 列表包装;
+#function {wrap} {#format result {%w} {%1}};
+#nop 普通字符串;
+#function {string} {#format result {%s} {%1}};
+#nop 数学运算;
+#function {eval} {#math result {%1}};
+#nop 小写文本;
+#function {lower} {#format result {%l} {%1}};
+#nop 取整数;
+#function {int} {#format result {%d} {%1}};
+#nop 大写文本;
+#function {upper} {#format result {%u} {%1}};
+#nop 大写第一个字母;
+#function {capital} {#format result {%n} {%1}};
+#nop 字符串长度;
+#function {len} {#format result {%L} {%1}};
+#nop  剥离前后空格;
+#function {trim} {#format result {%p} {%1}};
+#nop 屏幕宽度;
+#function {screenw} {#format result {%C}};
+#nop 屏幕高度;
+#function {screenh} {#format result {%R}};
+#nop 替换中文数字为阿拉伯数字;
+#function {replace} {#var result %1;#replace result {%2} {%3}};
+#function {ctd} {
+    #math result {@replace{@replace{{0+@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{@replace{%1;{零};{*0+}};{十};{*10+}};{百};{*100+}};{千};{*1000+}};{万};{*10000+}};{六};{6}};{一};{1}};{二};{2}};{三};{3}};{四};{4}};{五};{5}};{七};{7}};{八};{8}};{九};{9}}+0};{++};{+}};{+*};{+}}}
+};

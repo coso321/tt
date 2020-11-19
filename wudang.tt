@@ -1,33 +1,24 @@
 #class wudang open;
 
 #var bedroom 12;
-#var kitchen 14;
+#var kitchen 28;
 #var lwroom 17;
-#var food zhou;
-#var drink hulu;
+#var food tao;
+#var drink wan;
 
-#alias runfzg {run 复真观二层};
+#alias runfzg {#map run 复真观二层};
+#alias runjxg {#map run $lwroom};
 
-#alias getname {
-    #class getname open;
-    #action {^　姓名：　%%1%s　ＩＤ} {
-        setname %%1;
-    };
-    #class getname close;
-    status_me;
-};
-
-#alias setname {
-    #var myname %1;
-    #showme 角色名称：$myname;
-    #class getname kill;
+#alias getfood {
+    #map get roomname {kitchenname} {$kitchen};
+    #act {^$kitchenname -} {sit chair; knock table; get $food; get $drink; eat $food; drop $food; drink $drink; drop $drink; #delay 2 {%1}; #unact {^$$kitchenname -}};
+    #map run $kitchen; 
 };
 
 #alias wdquest {
     #var waiting.action {%1 %2};
     #var do-xiake %3;
-    getname;
-    #re bot/wudang/quest.tt;
+    #read bot/wudang/quest.tt;
     AQ;
 };
 
@@ -53,7 +44,6 @@
 #alias lifepfm {pchan};
 
 #act {( 只听见「啪」地一声，你手中的%*已经断为两截！ )} { wield sword};
-#act {你的太极神功运行完毕，将内力收回丹田。} {yun powerup};
 
 #alias wields {unwield all; wield sword; #delay 1 wield blade}
 #alias pchan {wield sword; perform sword.chan};

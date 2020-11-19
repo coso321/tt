@@ -26,9 +26,7 @@
 #nop 扬州爬树;
 #alias {psa} {#re bot/psa.tt; climb.start %1};
 #alias {psx} {climb.stop};
-#nop 凌霄看雪;
-#alias {kxa} {#re bot/kxa.tt; kanxue.start};
-#alias {kxx} {kanxue.stop};
+#nop 岳王墓凭吊
 #alias {pdx} {pingdiao.stop};
 #alias {dck} {dz -check};
 #alias {dqa} {#tic {duoqi} {duo} {1}};
@@ -113,7 +111,7 @@
 #alias {pg} {
 #path new;
 #class pgtmp open;
-#act {%*这个方向没有出路。} {#path del};
+#act {%*这个方向没有出路。} {#path stop;#path del};
 #class pgtmp close;
 #echo {%c%h} {light yellow}{【开始记录路径，指令pb返回】}};
 #alias {pb} {

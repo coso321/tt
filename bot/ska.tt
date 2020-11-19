@@ -2,17 +2,32 @@
 
 maphere;
 #var skloc $roomvnum;
+#map goto $bedroom; maphere; #var bedroomname $roomname;
+#map goto $kitchen; maphere; #var kitchenname $roomname;
+loadmap;
 #alias {skaa} {
   xue $shi for $gong 50;
   exert regenerate;
 };
-#alias gosleep {#map run $bedroom; #delay 1 sleep};
+
+#alias gosleep {
+    #class tmp open;
+    #act {^$bedroomname -} {sleep};
+    #class tmp close;
+    #map run $bedroom; 
+};
+
+#gag {%*走了过来。$};
+#gag {%*走了进去。$};
+#gag {%*离开。$};
+#gag {%*离去。$};
+#gag {^一道身影出现在场间};
 
 #act {^也许是缺乏实战经验，你对宋远桥的回答总是无法领会。} {skx;dza};
 #act {^你和师父切磋了%*消耗了大量潜能} {skx;dza};
 #act {^你的潜能已经发挥到极限} {skx;dza};
 
-#act {^你刚在三分钟内睡过} {#delay 10 {lian $lianskill 50; sleep};};
+#act {^你刚在三分钟内睡过} {lian $lianskill 50; #map run $skloc; #delay 10 {skaa}};
 
 #act {^你的%*进步了} {verify $gong};
 
@@ -24,12 +39,15 @@ maphere;
 #act {( 你的内力已经枯竭，不能施用内功。)} {gosleep};
 
 #act {^你一觉醒来} {
+    #class tmp kill;
+    cha;
     lian $lianskill 50;
     #map run $kitchen;
     #delay 1 { 
+        sit chair; knock table;
         get $food; get $drink;
-        eat $food; drink $drink; 
-        drop $food; drop $drink;
+        eat $food; drop $food;
+        drink $drink; drop $drink;
         #map run $skloc;
         #delay 1 {skaa};
     };

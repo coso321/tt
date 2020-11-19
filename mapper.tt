@@ -4,16 +4,8 @@
 #map read map.tt;
 #read mapper-paths.tt;
 
-#function gettarget {
-    #map get roomvnum vnum;
-    mg %0;
-    #map get all tmp;
-    #map goto $vnum;
-    #return $tmp
-};
-
 #alias setarea {
-    #action {^【%%1地图%*】} {#var roomarea %%1; #unaction {^【%*地图】}};
+    #action {^【%%1地图%*】} {#var roomarea %%1; #unaction {^【%*地图%*】}};
     lm; q;
 };
 
@@ -23,67 +15,52 @@
     #map get roomarea roomarea;
     #map get roomdesc roomdesc;
     #map get roomnote roomnote;
-    #if {"%1" == "show"} {
-        #showme <fca>Room vnum: $roomvnum;
-        #showme <fca>Room name: $roomname;
-        #showme <fca>Room area: $roomarea;
-        #showme <fca>Room desc: $roomdesc;
-        #showme <fca>Room note: $roomnote;
-    };
+    #showme <fca>Room vnum: $roomvnum;
+    #showme <fca>Room name: $roomname;
+    #showme <fca>Room area: $roomarea;
+    #showme <fca>Room desc: $roomdesc;
+    #showme <fca>Room note: $roomnote;
 };
 
 #alias mapdone {#map roomflag static on};
-#function mapaction {
-    #action {%1} {%2} 1;
-    #return;
-};
-    
 
 #var mapdesc {
-    {^    %1。%2}{%1。%2}
+    {^    {(?!(「|这里(唯一|明显)的(方向|出口)有)).*(?!正盘膝坐在地下修炼内力)}。%2}{%1。%2}
     {^    船老大 %1(%*)}{船老大 %1}
     {^┌───%1─}{%1}
     {^这条路%1}{这条路%1}
 };
 
-#function getmapdesc {
-    #class getmapdesc open;
-    #foreach {*mapdesc[%*]} {desc} {@mapaction{{$desc} {
-           #regexp {$desc} {{$${mapdesc-exclude}}} {#return} {
-               %1 {${mapdesc[$desc]}};
-               };
-           };
-    }};
+#alias mapaction {
+    #action {%1} {%2} 1;
+};
+    
+#alias getmapdesc {
+    #class mapaction open;
     #action {^    你可以看看(look):%*<node>} {l <node>};
     #action {^    你可以看看(look):lupai} {l lupai};
-    #class getmapdesc close;
-    #return {};
+    #foreach {*mapdesc[%*]} {desc} {mapaction {$desc} {%1 {${mapdesc[$desc]}}; }; };
+    #class mapaction close;
 };
 
-
-#var mapdesc-exclude {\^(    「.*)|\^(    这里明显的方向有.*)|\^(    这里唯一的出口有.*)|\^(    这里明显的出口有.*)|\^(    这里唯一的方向有.*)}
-
 #alias loadmap {
-    #map leave;
+    #map goto 1;
     #var roomname {};
-    #class tmp open;
+    #class loadmap open;
     #gag {^>};
     #gag {^$};
     #action {^%%1 -} {
-        #regexp {%%1} {{.*}的储物柜} {#map goto 644;} {
-            @getmapdesc{mg %%1};
-        };
-        #delay 1 {
-            maphere;
-            #if {"$roomname" == ""} {
-                #map goto %%1;
-            };
-            maphere show;
+        #map list {%%1} {variable} {vnums};
+        #if {"%%1" == "%*的储物柜"} {#map goto 644; maphere};  
+        #elseif {&{vnums[]} == 1} {#map goto %%1; maphere};
+        #elseif {&{vnums[]} == 0} {#showme <fca>房间不存在，将在移动后重试。};
+        #else { 
+            getmapdesc {mg %%1};
+            #delay 1 #class mapaction kill;
         };
     };
-    #action {Room name: %S} {#class getmapdesc kill; #class tmp kill;};
-    #class tmp close;
-    #unsplit; 
+    #action {Room name: %S} {#class mapaction kill; #class loadmap kill;};
+    #class loadmap close;
     #split 10 2;
     #map flag vtmap on;
     l;
@@ -94,8 +71,6 @@
     #unsplit; #split;
 };
 
-#alias mapnof { #map flag nofollow on; };
-#alias mapf { #map flag nofollow off; };
 #alias mapsize {#unsplit; #split %1 2};
 
     
@@ -106,30 +81,30 @@
     #action {^%%1 -} {
         #map set roomarea $roomarea;
         #map set roomname %%1;
-        @getmapdesc{mapdesc};
+        getmapdesc {mapdesc};
     };
     #class tmp close;
     setarea;
     l;
-    #delay 1 {#class getmapdesc kill; #class tmp kill;};
+    #delay 1 {#class mapaction kill; #class tmp kill;};
 };
 
 #alias mapdesc {
-    maphere;
-    #if {"$roomdesc" == ""} {#map set roomdesc %1;maphere show};
+    #map get roomdesc roomdesc;
+    #if {"$roomdesc" == ""} {#map set roomdesc %1;maphere};
     #else {
-       #regexp {$roomdesc} {{.*}%1{.*}} {maphere show} {#map set roomdesc $roomdesc|%1; maphere show};
+       #regexp {$roomdesc} {{.*}%1{.*}} {maphere} {#map set roomdesc $roomdesc|%1; maphere};
     };
 };
 
 #alias mapnote {
-    maphere;
+    #map get roomnote roomnote;
     #if {"$roomnote" == ""} {
         #map set roomnote %1;
     } {
         #map set roomnote $roomnote|%1;
     };
-    maphere show;
+    maphere;
 };
 
 #alias mi {#map info};
@@ -137,6 +112,7 @@
 #alias mg {
     #if {"%1" == "{\d+}"} {#map goto %1};
     #else {#map goto {%1%*} {} {%*%2%*} {%3%*}};
+    maphere;
 };
 
 #alias ml {#map list {%*%1%*} {} {%*%2%*} {%3%*}};
@@ -149,16 +125,6 @@
 #alias mapvoid {#map insert %1 void};
 #alias savemap {#map write map.tt;};
 
-#alias run {
-    #var target @gettarget{%0};
-    #event {MAP ENTER ROOM $target[vnum]} {
-        set brief 1;
-        #showme <fca>到达目标地点：$target[name];
-        #unevent {MAP ENTER ROOM $target[vnum]}
-    };
-    set brief 3;
-    #map run {$target[vnum]} {0.2};  
-};
 
 
 #alias mazeexit {

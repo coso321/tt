@@ -1,13 +1,12 @@
 #class tna open;
 
 #alias {tuna.start} {
-    #map goto $bedroom; maphere; #var bedroomname $roomname;
-    #map goto $kitchen; maphere; #var kitchenname $roomname;
-    loadmap;
-    #delay 1 {
-        maphere;
+    reloadmap;
+    #delay 2 {
+        #map get roomname {lwroomname} {$lwroom};
+        #map get roomname {bedroomname} {$bedroom};
         #if {$roomvnum != $bedroom} {
-            #act {^$bedroomname -} {tunaa; #unact {^&bedroomname -}};
+            #act {^$bedroomname -} {tunaa; #unact {^$$bedroomname -}};
             #map run $bedroom;
         };
         #else {
@@ -37,17 +36,15 @@
 };
 
 #act {你一觉醒来，精神抖擞地活动了几下手脚。} {
-    #act {^$kitchenname -} {
-        get $food; get $drink; eat $food; drink $drink; drop $food; drop $drink;
-        #map run $bedroom;
-        #unact {^$kitchenname -};
-    };
+    #class tmp open;
+    #var tmp {#map run $bedroom};
     #act {^$bedroomname -} {
         tunaa;
-        #unact {^$bedroomname -};
+        #class tmp kill;
     };
+    #class tmp close;
     lian $skill 50;
-    #map run $kitchen;
+    getfood {$tmp};
 };
 
 #act {你现在精严重不足，无法满足吐纳最小要求。}{exert regenerate;#delay 2 {tunaa}};

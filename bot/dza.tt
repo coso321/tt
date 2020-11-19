@@ -1,10 +1,10 @@
 #class dza open;
 
 #alias {dazuo.start} {
-    #map goto $bedroom; maphere; #var bedroomname $roomname;
-    #map goto $kitchen; maphere; #var kitchenname $roomname;
-    loadmap;
-    #delay 1 {
+    reloadmap;
+    #delay 2 {
+        #map get roomname {lwroomname} {$lwroom};
+        #map get roomname {bedroomname} {$bedroom};
         maphere;
         #if {$roomvnum != $bedroom} {
             #act {^$bedroomname -} {dzaa; #unact {^$$bedroomname -}};
@@ -49,17 +49,15 @@
 };
 
 #act {你一觉醒来，精神抖擞地活动了几下手脚。} {
-    #act {^$kitchenname -} {
-        get $food; get $drink; eat $food; drink $drink; drop $food; drop $drink;
-        #map run $bedroom;
-        #unact {^$$kitchenname -};
-    };
+    #class tmp open;
+    #var tmp {#map run $bedroom};
     #act {^$bedroomname -} {
         dzaa;
-        #unact {^$$bedroomname -};
+        #class tmp kill;
     };
+    #class tmp close;
     lian $skill 50;
-    #map run $kitchen;
+    getfood {$tmp};
 };
 
 #class dza close;
