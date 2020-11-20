@@ -11,7 +11,7 @@
 
 #alias getfood {
     #map get roomname {kitchenname} {$kitchen};
-    #act {^$kitchenname -} {sit chair; knock table; get $food; get $drink; eat $food; drop $food; drink $drink; drop $drink; #delay 2 {%1}; #unact {^$$kitchenname -}};
+    #act {^$kitchenname -} {sit chair; knock table; get $food; get $drink; eat $food; drop $food; drink $drink; drop $drink; #delay 2 {%1; #unact {^$$kitchenname -};};};
     #map run $kitchen; 
 };
 

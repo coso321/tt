@@ -5,7 +5,7 @@
 
 #act {^你%*武功再高也怕菜刀} {
 sc;
-gt fds;
+#map run 发呆室;
 #delay 5 {
 #if {"$mymenpai"=="丐帮"}
 {say 降龙打天下};
@@ -19,7 +19,7 @@ draw surcoat;
 draw boots;
 wield all;
 sethere fds;
-#delay 1 {gt kd;
+#delay 1 {gt 客店;
 #delay 3 {wear all;
 #delay 1 {drop xie;drop shoes;wear all;
 #class lzba kill;

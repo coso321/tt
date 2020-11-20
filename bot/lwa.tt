@@ -111,7 +111,7 @@
 };
 
 
-#alias getfood {
+#alias gogetfood {
     #class getfood open;
     #var tmp {#map run $lwroom};
     #act {^$lwroomname -} {lwaa; #class getfood kill;}; 
@@ -119,9 +119,10 @@
     getfood {$tmp};
 };
 
-#act {{你运功完毕，深深吸了口气，站了起来。|你将内息走了个小周天，流回丹田，收功站了起来。|你只觉神元归一，全身精力弥漫，无以复加，忍不住长啸一声，徐徐站了起来。|你将真气在体内沿脉络运行了一圈}} {#delay 1 getfood};
+#act {{你运功完毕，深深吸了口气，站了起来。|你将内息走了个小周天，流回丹田，收功站了起来。|你只觉神元归一，全身精力弥漫，无以复加，忍不住长啸一声，徐徐站了起来。|你将真气在体内沿脉络运行了一圈}} {#delay 1 gogetfood};
 
 #act {你现在精不够，无法控制内息的流动！} {exert regenerate};
+#act {你的内力不够练} {#unact {你现在{精力|气力}充沛。}; gosleep; #delay 2 {#act {你的内力不够练虎爪手};}};
 #act {你现在{精力|气力}充沛。} {#delay 1 lwaa};
 
 #act {你现在的气太少了，无法产生内息运行全身经脉。} {yun recover};

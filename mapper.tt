@@ -25,7 +25,7 @@
 #alias mapdone {#map roomflag static on};
 
 #var mapdesc {
-    {^    {(?!(「|这里(唯一|明显)的(方向|出口)有)).*(?!正盘膝坐在地下修炼内力)}。%2}{%1。%2}
+    {^    {(?!(「|这里(唯一|明显)的(方向|出口)有)).*(?!正盘膝坐在地下修炼内力)}。%*}{%0}
     {^    船老大 %1(%*)}{船老大 %1}
     {^┌───%1─}{%1}
     {^这条路%1}{这条路%1}
@@ -39,7 +39,7 @@
     #class mapaction open;
     #action {^    你可以看看(look):%*<node>} {l <node>};
     #action {^    你可以看看(look):lupai} {l lupai};
-    #foreach {*mapdesc[%*]} {desc} {mapaction {$desc} {%1 {${mapdesc[$desc]}}; }; };
+    #foreach {*mapdesc[%*]} {desc} {mapaction {$desc} {%1 {@@replace{{${mapdesc[$desc]}} {    } {}}}}};
     #class mapaction close;
 };
 
