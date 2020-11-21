@@ -171,7 +171,8 @@
     #map run 14;
 };
 
-#alias {waiting.fadai} {#class waiting open;#delay 10 waiting.continue; #class waiting close;};
+#alias {waiting.fadai} {getfood {#delay 10 waiting.continue}; };
+
 
 #alias {waiting.dushu} {
     #var book %1;

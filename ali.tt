@@ -34,7 +34,7 @@
     #class gag close;
 };
 
-#alias logchat { #act {^【闲聊】%*} {#system echo '%%0' >> chat.log};};
+#alias logchat { #act {^{【闲聊】|【北侠QQ群】}%*} {#system echo '%%0' >> chat.log};};
 
 #alias {reloadmap} {#re mapper.tt; loadmap};
 #alias {pda} {#re bot/pda.tt; pingdiao.start};
