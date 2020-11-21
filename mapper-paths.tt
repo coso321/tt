@@ -104,6 +104,7 @@
 #alias runhome {run {储物柜} };
 #alias runbk {#map run {%*{钱庄|票号|银号}} {0.2}};
 #alias rundp {#map run {%*当铺%*} {0.2}};
+#alias runrbz {#map run {荣宝斋} {0.2}};
 
 #alias runlx {run 949};
 #alias runzp {run 赞普广场};

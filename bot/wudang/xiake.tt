@@ -61,9 +61,20 @@
 #action {你寡不敌众被抓到土匪窝里} {tufei.stop; #delay 10 {s;#map goto 1398;s;#delay 5 {kill tufei; kill louluo}}};
 
 #action {^山寨 -} {tufei.stop; w;};
-#action {^竹楼 -} {#unaction {^山寨 -}; #unaction {^竹楼 -}};
+#action {^竹楼 -} {#unaction {^山寨 -}; kill ${myid}'s tufeitou; #unaction {^竹楼 -}};
 
-#action {^土匪头死了。} {#delay 1 gc};
+#action {^土匪头死了。} {
+    #action {^黄土路 -} {
+        #unticker move;   
+        #action {^草屋 -} {
+            give cui zhuozi;
+            #unaction {^黄土路 -};
+            #unaction {^草屋 -};
+        };
+        #map run {752} {0.2};
+    };
+    #delay 1 {gc;#delay 2 {e;eu;n;nd;#ticker move {n;nd} {5}}};
+};
 
 #action {崔老汉紧紧地抓住你的手，老泪纵横，抽泣地说道：『太感谢了！』} {
     #action {^武当广场 -} {success-quest; ask-quest; #class xiake kill; #unaction {^武当广场 -};} {1};
