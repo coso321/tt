@@ -19,7 +19,7 @@ draw surcoat;
 draw boots;
 wield all;
 sethere fds;
-#delay 1 {gt 客店;
+#delay 1 {run 客店;
 #delay 3 {wear all;
 #delay 1 {drop xie;drop shoes;wear all;
 #class lzba kill;

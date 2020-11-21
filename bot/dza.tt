@@ -2,6 +2,8 @@
 
 #alias {dazuo.start} {
     reloadmap;
+    set brief 3;
+    gaglines;
     #delay 2 {
         #map get roomname {lwroomname} {$lwroom};
         #map get roomname {bedroomname} {$bedroom};
@@ -16,6 +18,7 @@
     };
 };
 
+#alias {dazuo.stop} {set brief 1; #class gag kill; #class dza kill;};
 #alias {dzaa} {dazuo max};
 
 #act {你现在内力接近圆满状态。} {dazuo 10};

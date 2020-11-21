@@ -1,15 +1,14 @@
 #class lwa open;
 
-#ticker look {l} {30};
-
 #alias {lingwu.start} {
+    set brief 3;
+    gaglines;
     #var lian 0;
     reloadmap;
     getskills;
     #delay 2 {
         #map get roomname {lwroomname} {$lwroom};
         #map get roomname {bedroomname} {$bedroom};
-        #list skills insert 1 cuff;
         #var idx 1;
         #list skills get $idx lwname;
         #list skills size numskills;
@@ -24,54 +23,54 @@
     };
 };
 
-#gag {%*走了过来。$};
-#gag {%*走了进去。$};
-#gag {%*离开。$};
-#gag {%*离去。$};
-#gag {^一道身影出现在场间};
+#alias {lingwu.stop} {set brief 1; #class gag kill; #class lwa kill;};
+
 
 #alias getskills {
     #var skills {};
     #class tmp open; 
-    #act {^│  基本%*%s│%%1%s│%*│%*│%*│$} {#if {"%%1" != "{force|parry}"} {#list skills add %%1}; };
+    #act {^│招架 (parry)              │%%1%s│有效等级%*│$} {#var parry %%1;};
+    #act {^│%* (%%1)%s│$parry%*│有效等级%*│$} {#var parryskill %%1; cha; #unact {%*$$parry%*}};
+    #act {^│  基本%*%s│%%1%s│%*│%*│%*│$} {#list skills add %%1;};
+    #act {^├───%*项特殊功夫} { #class tmp kill; #unact {├───%*项特殊功夫} };
     #class tmp close;
-    #act {├───%*项特殊功夫} {#class tmp kill; #unact {├───%*项特殊功夫}};
-    cha;
+    jifa;
 };
 
 #alias {lwaa} {#showme <fca>$lwname; #if {$lian == 0} {lingwu $lwname 100; yun regenerate} {lian $lwname 50; yun recover}};
 
 #alias {gosleep} {
+    #undelay %*;
     #class tmp open;
     #act {^$bedroomname -} {sleep; #unact {^$$bedroomname -}};
     #class tmp close;
     #map run $bedroom; 
 };
 
-#act {你的内力不够。} {
-   #echo {当前$lwname领悟进度:};
-   skbrief $lwname;
-   #delay 1 gosleep;
+
+#act {{你的内力不够。|( 你的内力已经枯竭，不能施用内功。)|你的内力不够练}} {
+    #unact {你现在{精力|气力}充沛。} ;
+    #undelay %*;
+    #echo {当前$lwname领悟进度:};
+    skbrief $lwname;
+    #delay 1 {
+        gosleep;
+        #act {你现在{精力|气力}充沛。} {#undelay %*; #delay 1 lwaa};
+    }
 };
+
 #gag {^> $};
 #gag {^$};
 
-#act {^你必须空手才能练习%*} {unwield all; lwaa};
-#act {^你要装备 %1 类武器才能练习%*} {unwield all; wield %1; lwaa};
+#act {^你必须空手才能练习%*} {unwield all;};
+#act {^你要装备 %1 类武器才能练习%*} {unwield all; wield %1;};
+#act {^你使用的武器不对。$} {unwield all; #if {"$lwname" == "parry"} {wield $parryskill} {wield $lwskill}};
 
 /*
 #action {{你的基本功夫比你的高级功夫还高|你已经达到你的技能等级极限！}}{
     #echo {领悟已停止...};lwx;#echo {开始打坐...};dza};
 #action {^%*你的%*进步了} {verify $lwname};
 */
-
-#act {^{你的太极拳火候太浅。|你需要提高基本功}} {
-    #if {$idx < $numskills} {
-        #math idx {$idx + 1};
-        #list skills get $idx lwname;
-    };
-    #else {#var lian 0; #var idx 1; #list skills get $idx lwname;};
-};
 
 #act {^{你的基本功夫比你的高级功夫还高}} {
     #if {$idx < $numskills} {
@@ -84,8 +83,9 @@
 #ali removeskill {
     #list skills delete $idx; 
     #list skills size numskills;
-    #if {$idx > $numskills} {#math idx {$idx - 1};};
-    #list skills get $idx lwname;
+    #if {$idx > $numskills && $idx > 1} {#math idx {$idx - 1};};
+    #elseif {$numskills == 0} {lwx; dza};
+    #else {#list skills get $idx lwname;};
 };
 
 #act {^{你只能练习用 enable 指定的特殊技能。|你只能领悟 enable 了高级技能的基本技能。}} {
@@ -93,23 +93,31 @@
 };
     
 #act {你已经达到你的技能等级极限！} {
-    #if {$lian == 1} {removeskill};
+    #if {"$lwname" == "{force|parry}"} {removeskill};
+    #elseif {$numskills == 0} {lwx; dza;};
+    #else {#var lian 1; #var remove 1; #var idx 1};
+};
+
+#act {^{你的太极拳火候太浅。|你需要提高基本功|特殊内功无法练习}} {
+    #if {$remove == 1} {#var remove 0; removeskill};
     #elseif {$idx < $numskills} {
         #math idx {$idx + 1};
         #list skills get $idx lwname;
     };
-    #else {lwx; dza cuff;};
+    #else {#var lian 0; #var idx 1; #list skills get $idx lwname;};
 };
 
-#act {( 你的内力已经枯竭，不能施用内功。)} {#delay 1 gosleep};
+
 #act {你刚在三分钟内睡过一觉}{#delay 10 {#if {$lian == 1} {lian $lwname 50}; sleep}};
 
-#act {{你略一凝神，精神看起来好多了。|你深深吸了几口气，脸色看起来好多了}} {#delay 1 lwaa};
+#act {{你略一凝神，精神看起来好多了。|你深深吸了几口气，脸色看起来好多了}} {#undelay %*; #delay 1 lwaa};
+#act {你现在{精力|气力}充沛。} {#undelay %*; #delay 1 lwaa};
+
 #act {你一觉醒来，精神抖擞地活动了几下手脚。} {
     #class tmp kill;
-    dazuo max;
+    #if {$lian == 0} { dazuo max;};
+    #else {gogetfood};
 };
-
 
 #alias gogetfood {
     #class getfood open;
@@ -122,8 +130,6 @@
 #act {{你运功完毕，深深吸了口气，站了起来。|你将内息走了个小周天，流回丹田，收功站了起来。|你只觉神元归一，全身精力弥漫，无以复加，忍不住长啸一声，徐徐站了起来。|你将真气在体内沿脉络运行了一圈}} {#delay 1 gogetfood};
 
 #act {你现在精不够，无法控制内息的流动！} {exert regenerate};
-#act {你的内力不够练} {#unact {你现在{精力|气力}充沛。}; gosleep; #delay 2 {#act {你的内力不够练虎爪手};}};
-#act {你现在{精力|气力}充沛。} {#delay 1 lwaa};
 
 #act {你现在的气太少了，无法产生内息运行全身经脉。} {yun recover};
 #act {你的内功还没有达到那个境界你至少需要十点的气来打坐！} {dazuo 10};

@@ -11,18 +11,23 @@
 
 #alias getfood {
     #map get roomname {kitchenname} {$kitchen};
-    #act {^$kitchenname -} {sit chair; knock table; get $food; get $drink; eat $food; drop $food; drink $drink; drop $drink; #delay 2 {%1; #unact {^$$kitchenname -};};};
+    #act {^$kitchenname -} {get tea; do 5 drink tea; drop tea; sit chair; knock table; get $food; get $drink; do 5 eat $food; drop $food; do 5 drink $drink; drop $drink; #delay 2 {%1; #unact {^$$kitchenname -};};};
     #map run $kitchen; 
 };
 
 #alias wdquest {
-    #var waiting.action {%1 %2};
-    #var do-xiake %3;
+    gaglines;
+    set brief 3;
+    #var waiting.action %1;
+    #var do-xiake %2;
+    #var sell-equip %3;
     #read bot/wudang/quest.tt;
     AQ;
 };
 
 #alias wdquestx {
+    #class gag kill;
+    set brief 1;
     #class waiting kill;
     #class wdquest kill;
 };

@@ -122,7 +122,7 @@
 };
 
 #alias waiting.continue {
-    #if {${equip-drop} > 0} {
+    #if {${sell-equip} == 1 && ${equip-drop} > 0} {
         #unticker {looking};
         #action {^荣宝斋 -} {
             #action {^扬州钱庄 -} {#delay 1 {cun 1 gold; #delay 3 {#map run {武当广场%*} {0.2}; #unaction {^扬州钱庄 -};}}};

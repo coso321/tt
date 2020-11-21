@@ -20,6 +20,21 @@
     #re init.tt;
     #event {SCREEN RESIZE} {#split}
 };
+#alias {gaglines} {
+    #class gag open;
+    #gag {%*走了过来。$};
+    #gag {%*走了进去。$};
+    #gag {%*离开。$};
+    #gag {%*离去。$};
+    #gag {^一道身影出现在场间};
+    #gag {%*一歪身，倒在床上，不一会便鼾声大作，进入了梦乡。$};
+    #gag {%*一觉醒来，精神抖擞地活动了几下手脚。$};
+    #gag {%*睁开双眼，站了起来。$};
+    #gag {%*盘膝坐下，开始};
+    #class gag close;
+};
+
+#alias logchat { #act {^【闲聊】%*} {#system echo '%%0' >> chat.log};};
 
 #alias {reloadmap} {#re mapper.tt; loadmap};
 #alias {pda} {#re bot/pda.tt; pingdiao.start};
@@ -178,7 +193,7 @@
 
 #nop 领悟;
 #alias {lwa} {#class lwa read bot/lwa.tt;#var lwname %1;lingwu.start};
-#alias {lwx} {#class lwa kill};
+#alias {lwx} {lingwu.stop};
 
 #nop 看雪轻功;
 #alias {sna} {#class sna read bot/sna.tt;l snow;}
@@ -193,7 +208,7 @@
 
 #nop 自动吐纳;
 #alias {tna} {#class tna read bot/tna.tt; #var skill %1; tuna.start};
-#alias {tnx} {#class tna kill;};
+#alias {tnx} {tuna.stop;};
 
 #nop 自动打坐；
 #alias {dza} {#class dza read bot/dza.tt;
@@ -208,7 +223,7 @@
               dazuo.start;};
      };
 };
-#alias {dzx} {#class dza kill;#untic dza};
+#alias {dzx} {dazuo.stop};
 
 #nop 自动修炼；
 #alias {xla} {#echo {%c%h} {light yellow}{【指令格式:xla [huntian-qigong]修炼混天气功】};#class xla read bot/xla.tt;#var xgong %1;xlaa};

@@ -1,12 +1,19 @@
 #var changjiang-north {(黄河南岸|大轮寺|长江北岸|扬州|襄阳|武当|洛阳|长安|信阳|曲阜|灵州|凌霄城|回族小镇).*};
-#var changjiang-south {(长江南岸|南昌|苏州|嘉兴|镇江|泉州|岳王墓|牙山|临安|建康).*};
+#var changjiang-south {(长江南岸|南昌|苏州|嘉兴|镇江|泉州|岳王墓|牙山|临安|建康|岳阳).*};
 #var huanghe-north {(黄河北岸|晋阳|日月神教).*};
 
 #function gettarget {
     #if {"%1" == "{\d+}"} {#map get all {tmp} {%1}};
     #else {
         #map list {%1} {} {%*%3%*} {%2%*} {} {} {} {variable} {vnums};
-        #map get all {tmp} {*vnums[+1]};
+        #list vnums size tgtsize;
+        #if {$tgtsize == 1} {#map get all {tmp} {*vnums[+1]};};
+        #else {
+            #var mindist 50000;
+            #var minidx 0;
+            #foreach {*vnums[%*]} {i} {#if {$vnums[$i][distance] < $mindist} {#var mindist $vnums[$i][distance]; #var minidx $i};};
+            #map get all {tmp} {$minidx};
+        };
     };
     #return $tmp
 };
@@ -30,8 +37,8 @@
     #class river open;
     #act {^    船老大} {%2; #unact {^    船老大}};
     #class river close;
-    #var river @gettarget{{} {%1} {船老大}};
-    #map run {$river[vnum]} {0.2}
+    #map find {%*} {} {%*船老大%*} {%1};
+    #path run 0.2;
 };
 
 #alias changjiang-south {cross-river 长江北岸 d};

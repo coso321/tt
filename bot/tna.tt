@@ -2,6 +2,8 @@
 
 #alias {tuna.start} {
     reloadmap;
+    set brief 3;
+    gaglines;
     #delay 2 {
         #map get roomname {lwroomname} {$lwroom};
         #map get roomname {bedroomname} {$bedroom};
@@ -14,6 +16,8 @@
         };
     };
 }; 
+
+#alias {tuna.stop} {set brief 1; #class gag kill; #class tna kill};
 
 #alias {tunaa} {tuna max};
 
