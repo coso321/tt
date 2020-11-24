@@ -19,7 +19,7 @@
 #action {你运功完毕，深深吸了口气，站了起来。} {n; yun recover; climb tree};
 #action {你战胜了地痞} {climb tree};
 
-#action {你像只小猴子一样在树上窜上窜下} {#delay 2 {run 646; #delay 2 {dza; #class climb kill;}}};
+#action {你像只小猴子一样在树上窜上窜下} {#delay 2 {dsa $book; #class climb kill;}};
 
 
 

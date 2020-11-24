@@ -1,5 +1,6 @@
 #class lwa open;
 
+#ticker look {l} 30;
 #alias {lingwu.start} {
     set brief 3;
     gaglines;
@@ -55,8 +56,10 @@
     skbrief $lwname;
     #delay 1 {
         gosleep;
+        #class lwa open;
         #act {你现在{精力|气力}充沛。} {#undelay %*; #delay 1 lwaa};
-    }
+        #class lwa close;
+    };
 };
 
 #gag {^> $};
@@ -83,9 +86,11 @@
 #ali removeskill {
     #list skills delete $idx; 
     #list skills size numskills;
-    #if {$idx > $numskills && $idx > 1} {#math idx {$idx - 1};};
+    #if {$idx > $numskills && $idx > 1} {#math idx {$idx - 1}; #list skills get $idx lwname;};
     #elseif {$numskills == 0} {lwx; dza};
     #else {#list skills get $idx lwname;};
+
+    #var skills;
 };
 
 #act {^{你只能练习用 enable 指定的特殊技能。|你只能领悟 enable 了高级技能的基本技能。}} {
@@ -95,11 +100,11 @@
 #act {你已经达到你的技能等级极限！} {
     #if {"$lwname" == "{force|parry}"} {removeskill};
     #elseif {$numskills == 0} {lwx; dza;};
-    #else {#var lian 1; #var remove 1; #var idx 1};
+    #else {#var lian 1; #var remove 1; };
 };
 
-#act {^{你的太极拳火候太浅。|你需要提高基本功|特殊内功无法练习}} {
-    #if {$remove == 1} {#var remove 0; removeskill};
+#act {^{你需要提高基本功|特殊内功无法练习}} {
+    #if {$remove == 1} {#var remove 0; #var lian 0; removeskill};
     #elseif {$idx < $numskills} {
         #math idx {$idx + 1};
         #list skills get $idx lwname;
@@ -107,16 +112,21 @@
     #else {#var lian 0; #var idx 1; #list skills get $idx lwname;};
 };
 
-
-#act {你刚在三分钟内睡过一觉}{#delay 10 {#if {$lian == 1} {lian $lwname 50}; sleep}};
+#act {^你的太极拳火候太浅。} {
+    #if {$idx < $numskills} {
+        #math idx {$idx + 1};
+        #list skills get $idx lwname;
+    };
+    #else {#var lian 0; #var idx 1; #list skills get $idx lwname;};
+};
+#act {你刚在三分钟内睡过一觉}{#delay 10 sleep};
 
 #act {{你略一凝神，精神看起来好多了。|你深深吸了几口气，脸色看起来好多了}} {#undelay %*; #delay 1 lwaa};
 #act {你现在{精力|气力}充沛。} {#undelay %*; #delay 1 lwaa};
 
 #act {你一觉醒来，精神抖擞地活动了几下手脚。} {
     #class tmp kill;
-    #if {$lian == 0} { dazuo max;};
-    #else {gogetfood};
+    dazuo max;
 };
 
 #alias gogetfood {

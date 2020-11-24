@@ -114,6 +114,8 @@
 };
 
 #act {你向冲虚道长打听有关『success』的消息。} {
+    #class xiake kill;
+    #class songjing kill;
     #class waitfor-chongxu-drop open;
         #act {^从冲虚道长身上掉了出来一件} {#math {equip-drop} {${equip-drop}+1};};
         #act {^从冲虚道长身上掉了出来一柄} {#math {equip-drop} {${equip-drop}+1};};
@@ -152,26 +154,9 @@
     #delay 1 waiting.${waiting.action};
 };
 
-#action {你一觉醒来，精神抖擞地活动了几下手脚。} {
-    #class waiting kill;
-    #class tmp open;
-    #act {^膳房 -} {
-        get zhou;
-        get hulu;
-        eat zhou;
-        drink hulu;
-        drop zhou;
-        drop hulu;
-    };
-    #act {{你丢下一个清水葫芦。|你身上没有 hulu 这样东西。}} {
-        ${waiting.next};
-        #class tmp kill;
-    };
-    #class tmp close;
-    #map run 14;
-};
+#action {你一觉醒来，精神抖擞地活动了几下手脚。} { getfood {#delay 10 ${waiting.next}}; };
 
-#alias {waiting.fadai} {getfood {#delay 10 waiting.continue}; };
+#alias {waiting.fadai} {getfood {#delay 30 waiting.continue}; };
 
 
 #alias {waiting.dushu} {

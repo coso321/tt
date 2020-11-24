@@ -7,8 +7,8 @@
 #act {你对着残局研究了一会,似乎有些心得。} {watch canju};
 #act {你精力不够，无法领悟残局。} {exert regenerate};
 #act {你略一凝神，精神看起来好多了。} {watch canju};
-#act {你的内力不够。} {verify literate;sleep};
-
+#act {{你的内力不够。|( 你的内力已经枯竭，不能施用内功。)}} {eat liang; drink jiudai; verify literate; #delay 10 watch canju};
+#act {你看了半天，发现残局对你太浅了。} {cjx};
 #act {你一觉醒来，精神抖擞地活动了几下手脚。} {watch canju};
 
 #act {你刚在三分钟内睡过一觉} {

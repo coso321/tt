@@ -32,7 +32,9 @@
 };
 
 #alias mapaction {
+    #class mapaction open;
     #action {%1} {%2} 1;
+    #class mapaction close;
 };
     
 #alias getmapdesc {

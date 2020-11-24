@@ -22,6 +22,8 @@
 };
 #alias {gaglines} {
     #class gag open;
+    #gag {^>$};
+    #gag {^$};
     #gag {%*走了过来。$};
     #gag {%*走了进去。$};
     #gag {%*离开。$};
@@ -31,6 +33,9 @@
     #gag {%*一觉醒来，精神抖擞地活动了几下手脚。$};
     #gag {%*睁开双眼，站了起来。$};
     #gag {%*盘膝坐下，开始};
+    #gag {%*从玄幻之境回过神来，顿觉内功修为增进不小。$};
+    #gag {%*盘膝坐下，运起丹田之气，开始修炼%*......$};
+    #gag {%*正专心地研读%*。$};
     #class gag close;
 };
 
@@ -189,7 +194,7 @@
 
 #nop 练习;
 #alias {lxa} {#class lxa read bot/lxa.tt;#var skname %1;#var book %2; lianxi.start};
-#alias {lxx} {#class lxa kill};
+#alias {lxx} {lianxi.stop};
 
 #nop 领悟;
 #alias {lwa} {#class lwa read bot/lwa.tt;#var lwname %1;lingwu.start};

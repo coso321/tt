@@ -22,10 +22,21 @@
     #class tufei open;
     #var found 0;
     #var laststep enter;
-    #action {{你的内力不够|你的内力不足|你的内力已经枯竭}} {tufei.stop; #action {土匪死了} {dazuo max; #unaction {土匪死了};}; #action {你运功完毕，深深吸了口气，站了起来。} {yun recover; tufei.start; l; #showme 当前进度：侠客; #unaction {你运功完毕，深深吸了口气，站了起来。};};#showme 当前进度：侠客-内力不足;};
+    #action {{你的内力不够|你的内力不足|你的内力已经枯竭}} {
+        tufei.stop;
+        #action {土匪死了} {dazuo max; #unaction {土匪死了};}; 
+        #action {你运功完毕，深深吸了口气，站了起来。} {yun recover; dazuo max;}; 
+        #act {你现在内力接近圆满状态。} {
+            tufei.start; l; 
+            #showme 当前进度：侠客; 
+            #unaction {你运功完毕，深深吸了口气，站了起来。};
+            #unact {你现在内力接近圆满状态。}
+        };
+    #showme 当前进度：侠客-内力不足;
+};
 
     #action {土匪死了。} {
-        xq; #if {$yunheal == 1} {do 3 yun heal; #var yunheal 0; #delay 3 l;} {#delay 3 l};
+        xq; #if {$yunheal == 1} {yun heal; #var yunheal 0; #delay 3 l;} {#delay 3 l};
     };
     #action {    这里明显的方向有 %%1 和 %%2。} {
         #var fromdir[enter] out;
@@ -49,8 +60,11 @@
         #var fromdir[southwest] northeast;
         #var fromdir[northeast] southwest;
          
-        #if { "$laststep" != "$fromdir[%%1]" && $found == 0 && "%%1" != "{out|.*、.*}"} {#var laststep %%1; %%1}; 
-        #elseif { "$laststep" != "$fromdir[%%1]" && found == 1 && "%%1" != "{enter|out|.*、.*}"} {#var laststep %%1; %%1};
+        #regexp {%%1} {%*、%*} {#var step &1};
+
+        #if {{"$laststep" != "$fromdir[%%1]" && $found == 0 && "%%1" != "{out|.*、.*}" }} {#var laststep %%1; %%1}; 
+        #elseif {{ "$laststep" != "$fromdir[%%1]" && found == 1 && "%%1" != "{enter|out|.*、.*}"}} {#var laststep %%1; %%1};
+        #elseif { "%%2" == "{out|enter}" } {#if {"%%1" == "%*、%*"} {#var laststep $step; $step} {%%1};};
         #else {#var laststep %%2; %%2};
     };
     #class tufei close; 

@@ -1,20 +1,20 @@
 #class lxa open;
 
 #alias {lianxi.start} {
-    #map goto $bedroom; maphere; #var bedroomname $roomname;
-    #map goto $kitchen; maphere; #var kitchenname $roomname;
-    loadmap;
-    #delay 2 {
-        maphere;
-        #if {$roomvnum != $bedroom} {
-            #act {^$bedroomname -} {lxaa; #unact {^$$bedroomname -}};
-            #map run {$bedroom} {0.2};
-        };
-        #else {
-            lxaa;
-        };
+    set brief 3;
+    gaglines;
+    #map get roomname {bedroomname} {$bedroom};
+    #map get roomvnum roomvnum;
+    #if {$roomvnum != $bedroom} {
+        #act {^$bedroomname -} {lxaa; #unact {^$$bedroomname -}};
+        #map run {$bedroom} {0.2};
+    };
+    #else {
+        lxaa;
     };
 };
+
+#alias {lianxi.stop} {set brief 1; #class gag kill;#class lxa kill};
 
 #alias {lxaa} {lian $skname 50; yun recover};
 #alias {ds} {
@@ -34,29 +34,19 @@
 
 #act {你现在内力不足，练习不了『%*』。} {ds; sleep};
 #act {你一觉醒来，精神抖擞地活动了几下手脚。} {
-    #act {^$kitchenname -} {
-        get $food; get $drink; eat $food; drink $drink; drop $food; drop $drink;
-        #map run $bedroom;
-        #unact {^$$kitchenname -};
-    };
     #act {^$bedroomname -} {
         lxaa;
         #unact {^$$bedroomname -};
     };
     ds;
-    #map run $kitchen;
+    getfood {#map run {$bedroom} {0.2}};
 };
 
 #act {你刚在三分钟内睡过一觉}{#delay 10 {ds; lian $skname 50; sleep}}
 
-#act {{你运功完毕，深深吸了口气，站了起来。|你只觉神元归一，全身精力弥漫，无以复加，忍不住长啸一声，徐徐站了起来。|你将内息走了个小周天，流回丹田，收功站了起来。|你将真气在体内沿脉络运行了一圈}}
-{
-	lxaa;
-};
-#act {你精血不足，翻来覆去无法入眠}
-{
-	dazuo max;
-};
+#act {{你运功完毕，深深吸了口气，站了起来。|你只觉神元归一，全身精力弥漫，无以复加，忍不住长啸一声，徐徐站了起来。|你将内息走了个小周天，流回丹田，收功站了起来。|你将真气在体内沿脉络运行了一圈}} { lxaa; };
+
+#act {你精血不足，翻来覆去无法入眠} { dazuo max; };
 
 #act {你太累了，没有办法练习%*} {ds; sleep};
 

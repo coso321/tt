@@ -1,11 +1,12 @@
 #class dsa open;
 
 #alias {dushu.start} {
-    #map goto $bedroom; maphere; #var bedroomname $roomname;
-    #map goto $kitchen; maphere; #var kitchenname $roomname;
-    loadmap;
+    set brief 3;
+    gaglines;
+    #map get roomname {lwroomname} {$lwroom};
+    #map get roomname {bedroomname} {$bedroom};
+    #map get roomvnum roomvnum;
     #delay 1 {
-        maphere;
         #if {$roomvnum != $bedroom} {
             #act {^$bedroomname -} {dsaa; #unact {^$$bedroomname -}};
             #map run {$bedroom} {0.2};
@@ -52,16 +53,11 @@
 #act {你略一凝神，精神看起来好多了。} {dsaa};
 #act {你现在精力充沛。} {#ticker dushu {#unticker dushu;dsaa} {3}};
 #act {你一觉醒来，精神抖擞地活动了几下手脚。} {
-    #act {^$kitchenname -} {
-        get $food; get $drink; eat $food; drink $drink; drop $food; drop $drink;
-        #map run $bedroom;
-        #unact {^$$kitchenname -};
-    };
     #act {^$bedroomname -} {
         dsaa;
         #unact {^$$bedroomname -};
     };
-    #map run $kitchen;
+    getfood {#map run $bedroom};
 };
 
 #alias cunbook

@@ -1,6 +1,55 @@
-#var changjiang-north {(黄河南岸|大轮寺|长江北岸|扬州|襄阳|武当|洛阳|长安|信阳|曲阜|灵州|凌霄城|回族小镇).*};
+#var changjiang-north {(黄河南岸|大轮寺|长江北岸|扬州|襄阳|武当|洛阳|长安|信阳|曲阜|灵州|凌霄城|回族小镇|少林|天龙|成都|无量).*};
 #var changjiang-south {(长江南岸|南昌|苏州|嘉兴|镇江|泉州|岳王墓|牙山|临安|建康|岳阳).*};
 #var huanghe-north {(黄河北岸|晋阳|日月神教).*};
+
+#var walk-location {
+    {1647}{1650}
+    {1687}{1689}
+};
+
+#var walk-reverse {
+    {1649}{1456}
+    {1688}{1686}
+};
+
+#alias {wait-event} {
+    #event {MAP ENTER ROOM %1} {
+        #class %3 kill;
+        #class wait-event open;
+        #event {MAP ENTER ROOM %2} {
+            #class wait-event open;
+            #unact {^等待结束};
+            #act {^等待结束} {
+                #undelay %*;
+                run $target[vnum];
+                #unevent {MAP ENTER ROOM %2};
+                #unact {^等待结束}
+            };
+            #class wait-event close;
+            #unevent {MAP ENTER ROOM %1};
+        };
+        #class wait-event close;
+        #path stop; #delay 1 {#path walk; };
+    };
+};
+
+#alias {walk-event} {
+    #class wait-event open;
+    #act {^等待结束} {#undelay %*; #delay 1 #path walk};
+    #class wait-event close;
+    #foreach {*{walk-location[%*]}} {vnum} {
+        #class walk-location open;
+        wait-event $vnum ${walk-location[$vnum]} walk-reverse;
+        #class walk-location close;
+    };
+    #foreach {*{walk-reverse[%*]}} {vnum} {
+        #class walk-reverse open;
+        wait-event $vnum ${walk-reverse[$vnum]} walk-location;
+        #class walk-reverse close;
+    };
+};
+       
+    
 
 #function gettarget {
     #if {"%1" == "{\d+}"} {#map get all {tmp} {%1}};
@@ -21,7 +70,9 @@
 #alias run {
     #var target @gettarget{{%1} {%2} {%3}};
     set brief 3;
+    walk-event;
     #event {MAP ENTER ROOM $target[vnum]} {
+        #class wait-event kill;
         #class runlocation kill;
         set brief 1;
         #showme <fca>到达目标地点：$target[name];
@@ -73,7 +124,9 @@
 #alias run.changjiang-north {run.cross-river {%1} {长江南岸|黄河北岸} {changjiang-north}};
 #alias run.huanghe-north {run.cross-river {%1} {黄河南岸|长江南岸} {huanghe-north}};
 
-
+#alias runtl {run 1690};
+#alias runwl {run 琅缳福地};
+#alias runcd {run 1658};
 #alias runjx {run 嘉兴城;};
 
 #alias runywm {run 831;}; 
@@ -90,8 +143,10 @@
 #alias runwd {run 武当广场};
 #alias runxy {run 120};
 #alias runly {#map run {230} {0.2}};
-#alias runca {#map run {435} {0.2}};
+#alias runca {run 435};
 #alias runlz {run 570};
+#alias runlj {run 1609};
+#alias runsl {run 1300};
 
 #alias runqz {run 960};
 #alias runla {run 1091};
