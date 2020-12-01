@@ -23,11 +23,13 @@
 #var {zhenfa.zouwei} {};
 
 #alias zouwei.setname {
+    #class zhenfa open;
     #action {${myname}一会儿站在%%1位} {
         #class zhenfastart kill;
         #var {zhenfa.zouwei} %%1;
         zouwei ${zhenfa.zouwei};
     };
+    #class zhenfa close;
 };
 
 #action {按照『%1』的要求往下走一步} {

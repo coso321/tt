@@ -3,15 +3,18 @@
 #var bedroom 12;
 #var kitchen 28;
 #var lwroom 17;
+#var menzhong 13;
+#var menzhongnpc zhang;
 #var food tao;
 #var drink wan;
 
 #alias runfzg {#map run 复真观二层};
 #alias runjxg {#map run $lwroom};
+#alias runmz {run 13};
 
 #alias getfood {
     #map get roomname {kitchenname} {$kitchen};
-    #act {^$kitchenname -} {get tea; sit chair; knock table; #delay 1 {get $food; get $drink; do 5 eat $food; drop $food; do 5 drink; drop $drink; drop tea; #delay 2 {%1; #unact {^$$kitchenname -};};}};
+    #act {^$kitchenname -} {get tea; sit chair; knock table; #delay 1 {get $food; get $drink; do 5 eat $food; drop $food; do 5 drink $drink; do 5 drink tea; drop $drink; drop tea; #delay 2 {%1; #unact {^$$kitchenname -};};}};
     #map run $kitchen; 
 };
 
@@ -38,15 +41,9 @@
 };
 */
 
-#act {^你眼前一花，但见四面八方都是%*的人影} {
-    #class pfm open;
-    #act {^你在攻击中不断积蓄攻势。(气势：%d} {
-        #if {%1 >= 8} {perform sword.chan};
-    };
-    #class pfm close;
-};
 
-#alias lifepfm {pchan};
+#alias lifepfm {pchan; #delay 2 perform dodge.zong};
+#alias powerup {yun powerup;};
 
 #act {( 只听见「啪」地一声，你手中的%*已经断为两截！ )} { wield sword};
 
@@ -54,5 +51,6 @@
 #alias pchan {wield sword; perform sword.chan};
 #alias plian {wield sword; perform sword.lian};
 #alias pzhen {unwield all; perform cuff.zhen; wield sword; #delay 1 wield blade;};
+#alias pzong {perform dodge.zong};
 #class wudang close;
 

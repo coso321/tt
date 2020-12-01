@@ -5,6 +5,7 @@
     set brief 3;
     gaglines;
     #var lian 0;
+    #var remove 0; 
     reloadmap;
     getskills;
     #delay 2 {
@@ -16,7 +17,7 @@
         maphere;
         #if {$roomvnum != $lwroom} {
             #act {^$lwroomname -} {lwaa; #unact {^$$lwroomname -}};
-            #map run {$lwroom} {0.2};
+            run {$lwroom} {0.2};
         };
         #else {
             lwaa;
@@ -76,7 +77,8 @@
 */
 
 #act {^{你的基本功夫比你的高级功夫还高}} {
-    #if {$idx < $numskills} {
+    #if {"$lwname" == "force"} {removeskill};
+    #elseif {$idx < $numskills} {
         #math idx {$idx + 1};
         #list skills get $idx lwname;
     };
@@ -113,13 +115,15 @@
 };
 
 #act {^你的太极拳火候太浅。} {
-    #if {$idx < $numskills} {
+    #list skills find cuff tmp;
+    #if {$idx < $numskills && $tmp > 0} {
         #math idx {$idx + 1};
         #list skills get $idx lwname;
     };
-    #else {#var lian 0; #var idx 1; #list skills get $idx lwname;};
+    #elseif {$tmp == 0} {removeskill;};
+    #else {#var lian 0; #var remove 0; #var idx 1; #list skills get $idx lwname;};
 };
-#act {你刚在三分钟内睡过一觉}{#delay 10 sleep};
+#act {^你{刚刚|刚在三分钟内}睡过一觉}{#delay 10 sleep};
 
 #act {{你略一凝神，精神看起来好多了。|你深深吸了几口气，脸色看起来好多了}} {#undelay %*; #delay 1 lwaa};
 #act {你现在{精力|气力}充沛。} {#undelay %*; #delay 1 lwaa};
@@ -130,9 +134,14 @@
 };
 
 #alias gogetfood {
+    #untick look;
     #class getfood open;
     #var tmp {#map run $lwroom};
-    #act {^$lwroomname -} {lwaa; #class getfood kill;}; 
+    #act {^$lwroomname -} {
+        #ticker look {l} 30;
+        lwaa; 
+        #class getfood kill;
+    }; 
     #class getfood close;
     getfood {$tmp};
 };

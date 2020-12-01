@@ -30,12 +30,15 @@
     #gag {%*离去。$};
     #gag {^一道身影出现在场间};
     #gag {%*一歪身，倒在床上，不一会便鼾声大作，进入了梦乡。$};
+    #gag {%*解去衣衫鞋袜，睡到床上，不一会只听得微微的鼻息，已然甜甜入梦。$};
     #gag {%*一觉醒来，精神抖擞地活动了几下手脚。$};
-    #gag {%*睁开双眼，站了起来。$};
-    #gag {%*盘膝坐下，开始};
+    #gag {^{[^你]}%*站了起来。$};
+    #gag {^{[^你]}%*盘膝坐下，开始};
     #gag {%*从玄幻之境回过神来，顿觉内功修为增进不小。$};
-    #gag {%*盘膝坐下，运起丹田之气，开始修炼%*......$};
-    #gag {%*正专心地研读%*。$};
+    #gag {^{[^你]}%*盘膝坐下，运起丹田之气，开始修炼%*......$};
+    #gag {^{[^你]}%*正专心地研读%*。$};
+    #gag {^{[^你]}%*正专心看着一本厚厚的小说。$};
+    #gag {^{[^你]}%*正专心阅读%*};
     #class gag close;
 };
 
@@ -169,7 +172,7 @@
 #alias {mrx} {#class mra kill};
 
 #nop 华山送信；
-#alias {sxa} {#class sxa read bot/sxa.tt};
+#alias {sxa} {#class sxa read bot/sxa.tt; songxin.start};
 #alias {sxx} {#class sxa kill};
 
 #nop 天珠;
@@ -242,7 +245,29 @@
     #var lianskill %3;
     skaa;
 };
+
+#nop 满内力;
+#alias fullneili {
+    #class fullneili open;
+    #act {{你运功完毕，深深吸了口气，站了起来。|你现在内力接近圆满状态}} {yun recover; hpbrief;}; 
+    #act {^#%*,%d,%%1,%%2,%d,%d$} {
+        #showme <fca>%%1,%%2;
+        #if {%%2 >= %%1} {
+            #unact {^#%*,%d,%%%1,%%%2,%d,%d$};
+            #unact {{你运功完毕，深深吸了口气，站了起来。|你现在内力接近圆满状态}};
+            #showme <fca>内力已满;
+        };
+        #else {dazuo max};
+    };
+    #class fullneili close;
+    xq;
+    hpbrief;
+};
+
+
 #alias {skx} {#class ska kill};
+#alias {mza} {#read bot/mza.tt; menzhong.start};
+#alias {mzx} {menzhong.stop};
 
 #nop 丐帮门忠;
 #alias gbpa {#class gba read bot/gba.tt;ask peng about quest};

@@ -1,19 +1,17 @@
 #class tna open;
 
 #alias {tuna.start} {
-    reloadmap;
     set brief 3;
     gaglines;
-    #delay 2 {
-        #map get roomname {lwroomname} {$lwroom};
-        #map get roomname {bedroomname} {$bedroom};
-        #if {$roomvnum != $bedroom} {
-            #act {^$bedroomname -} {tunaa; #unact {^$$bedroomname -}};
-            #map run $bedroom;
-        };
-        #else {
-            tunaa; 
-        };
+    #map get roomname {lwroomname} {$lwroom};
+    #map get roomname {bedroomname} {$bedroom};
+    #map get roomvnum roomvnum;
+    #if {$roomvnum != $bedroom} {
+        #act {^$bedroomname -} {tunaa; #unact {^$$bedroomname -}};
+        #map run $bedroom;
+    };
+    #else {
+        tunaa; 
     };
 }; 
 
@@ -25,17 +23,17 @@
 
 #act {你的精力上限增加了！！}{hpbrief};
 
-#act {你的精力修为已经达到了瓶颈} {#untic tna;tnx;quit;};
+#act {你的精力修为已经达到了瓶颈} {#untic tna;tnx;};
 
-#act {你吐纳完毕} {tunaa};
+#act {你吐纳完毕} {yun regenerate};
 
 #act {你现在精不足，无法修行精力！} {exert regenerate;};
-#act {你略一凝神，精神看起来好多了。} {tunaa};
+#act {{你现在精力充沛|你略一凝神，精神看起来好多了}。} {tunaa};
 #act {( 你的内力已经枯竭，不能施用内功。)} {sleep};
 
 #act {你的内力不够} {sleep};
 
-#act {你刚在三分钟内睡过} {
+#act {你{刚刚|刚在三分钟内}睡过} {
 #delay 15 {lian $skill 50; sleep};
 };
 

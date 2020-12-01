@@ -1,32 +1,101 @@
 #class sxa open;
 
-#tic {sxa} {#untic sxa;sxaa} {2};
-#alias {sxaa} {ask yue about job};
-#alias  {sxd} {ask yue about finish};
-#alias  {sxf} {ask yue about fail};
-
-#act {岳不群对你道：%*交给%1。} {
-  #tic {sxa1} {#echo {%c%h} {light yellow} {华山送信目标在%1处}} {15}
+#alias {songxin.start} {
+    #alias {sxaa} {ask yue about job};
+    #alias  {sxd} {ask yue about finish};
+    #alias  {sxf} {ask yue about fail};
+    #var {sxarea} {};
+    #var {sxlocation} {};
+    #var npc {};
+    #var npcid {};
+    sxaa;
 };
-#act {岳不群道：%*送到%1。} {
-  #tic {sxa1} {#echo {%c%h} {light yellow} {华山送信目标在%1处}} {15}
+
+
+#var {sxareas} {
+    {1}{牙山}
+    {2}{江州}
+    {3}{襄阳}
+    {4}{全真}
+    {5}{灵鹫}
+    {6}{黄河北岸}
+    {7}{星宿}
+    {8}{黄河南岸}
+    {9}{桃花岛}
+    {10}{嘉兴}
 };
 
+#var {sxlocations} {
+    {黄河北岸黄河北岸} {{黄河北岸}{黄河北岸}}
+    {黄河南岸黄河南岸} {{黄河南岸}{黄河南岸}}
+    {牙山牙山米行} {{牙山}{牙山米行}}
+    {星宿星宿海} {{星宿}{星宿海}}
+};
+
+#alias parselocation {
+    #var tmp $sxlocations[%1];
+    #if {"$tmp" != ""} { #var sxarea *tmp[+1]; #var sxlocation $tmp[+1];};
+    #else {
+        #foreach {${sxareas[%*]}} {area} {
+            #if {"%1" == "$area%*"} {
+                #var sxarea $area;
+                #var sxlocation @replace{{%1} {$area} {};};
+                #return;
+            };
+        };
+        #var sxlocation None;
+    };
+};
+
+#alias sx {songxin @lower{$npcid}};
+
+#act {^           收信人：%1(%2)} {#var npc %1; #var npcid %2};
+
+#act {岳不群对你道：%*交给%1附近的%2。} {
+  #tic {sxa1} {#echo {%c%h} {light yellow} {华山送信目标在%1附近的%2处}} {15};
+  parselocation %1;
+  #while {"$sxlocation" == ""} {#var $sxlocation};
+  #if {"$sxlocation" == "None"} {#showme <fca>未知送信地点};
+  l han;
+};
+
+#act {~岳不群道：%*送到%1\e[33m%2\e[2;37;0m\e[2;37;0m\e[36m附近的%3手中。} {
+  #act {^           收信人：%%1(%%2)} {#var npc %%1; #var npcid %%2; #unact {^           收信人：%%%1(%%%2)};};
+  #tic {sxa1} {#echo {%c%h} {light yellow} {华山送信目标在%1%2附近的%3处}} {15};
+  #var sxarea %1;
+  #var sxlocation %2;
+  l han;
+  e;
+};
+
+#act {^你的任务完成，快回去复命吧。} {
+    #act {^    武林名宿 华山派掌门「君子剑」岳不群(Yue buqun)} {sxd; fullneili; #unact {^    武林名宿 华山派掌门「君子剑」岳不群(Yue buqun)}};
+    #delay 1 runsx
+};
 #act {%*目前在【%1】,快去摁死它吧!} {
   #tic {sxa2} {
   #echo {%c%h} {light yellow} {目标正在%1处} } {15}
 };
 
-#act {你伸手向怀中一摸，发现密函已经不翼而飞！} {
-  #var wait wait;stopwalk;jiali max;yun powerup};
 
-#act {看起来%1想杀死你} {#var sxss %1};
-#act {$sxss死了} {#delay 2 {get all from corpse}};
+#act {{你伸手向怀中一摸，发现密函已经不翼而飞！|.*仰首狂笑道：「你，把密函给我乖乖交出来吧！」}} {
+    #class getss open;
+    #act {^%%1说道：「%*」} {#var sxss %%1; #var showme <fca>送信杀手：$sxss;l;};
+    #act {^    「%*」$sxss(%%1)} {#var sxssid %%1; #var showme 送信杀手id：$sxssid; kill @lower{$sxssid}; #class getss kill;};
+    #class getss close;
+    #undelay %*;
+    #path stop;
+    yun powerup;
+};
+
+#act {^{(?!           收信人：)}%*$npc($npcid)$} {sx};
+
+#act {$sxss死了} {#delay 2 {get all from corpse; #delay 1 {run $sxlocation $sxarea}}};
 
 #act {你的任务失败}{
    #untic sxa1;#untic sxa2;sxx};
 
-#act {你被奖励了} {#untic sxa1;#untic sxa2;sxx};
+#act {你被奖励了} {#untic sxa1;#untic sxa2;#delay 60 songxin.start};
 
 #class sxa close;
 

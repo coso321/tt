@@ -4,6 +4,27 @@
 #map read map.tt;
 #read mapper-paths.tt;
 
+#var fromdir[enter] out;
+#var fromdir[out] enter;
+#var fromdir[north] south;
+#var fromdir[west] east;
+#var fromdir[east] west;
+#var fromdir[south] north;
+#var fromdir[up] down;
+#var fromdir[down] up;
+#var fromdir[northup] southdown;
+#var fromdir[westup] eastdown;
+#var fromdir[eastup] westdown;
+#var fromdir[southup] northdown;
+#var fromdir[northdown] southup;
+#var fromdir[westdown] eastup;
+#var fromdir[eastdown] westup;
+#var fromdir[southdown] northup;
+#var fromdir[southeast] northwest;
+#var fromdir[northwest] southeast;
+#var fromdir[southwest] northeast;
+#var fromdir[northeast] southwest;
+
 #alias setarea {
     #action {^【%%1地图%*】} {#var roomarea %%1; #unaction {^【%*地图%*】}};
     lm; q;
@@ -22,7 +43,10 @@
     #showme <fca>Room note: $roomnote;
 };
 
-#alias mapdone {#map roomflag static on};
+#alias mapdone {
+    #if {"%1" != ""} {#map at %1 mapdone};
+    #else { #map roomflag static on};
+};
 
 #var mapdesc {
     {^    {(?!(「|这里(唯一|明显)的(方向|出口)有)|.*正盘膝坐在地下|.*脸上神色平和，身形凝重，稳如山岳。).*。.*}}{%0}
@@ -117,11 +141,12 @@
     maphere;
 };
 
-#alias ml {#map list {%*%1%*} {} {%*%2%*} {%3%*}};
+#alias ml {#map list {%*%1%*} {} {%*%3%*} {%2%*}};
 #alias mldesc {#map list {%*} {} {%*%1%*}};
 #alias mlarea {
     #if {"%1" == ""} {maphere; #if {"$roomarea" != "" } {mlarea $roomarea}} {#map list {%*} {} {} {%1%*}};
 };
+#alias mlnote {#map list {%*} {} {} {} {%*%1%*}};
 
 #alias mapnum {#map flag asciivnums};
 #alias mapvoid {#map insert %1 void};
@@ -308,4 +333,54 @@
         #map flag nofollow on;
     };
 };
+
+#alias fight-exit {
+    #map exit %1 command {
+        #class tmp open;
+        #action {%2} {#undelay %*; #delay 1 %1};
+        #action {%3} {#map flag nofollow off;#showme <fca>等待结束;#class tmp kill};
+        #class tmp close;
+        %1;
+        #map flag nofollow on;
+    };
+};
+
+#alias wait-none-exit {
+    #map exit %1 command {
+        #class tmp open;
+        #action {%2} {#map flag nofollow off;#showme <fca>等待结束;#class tmp kill};
+        #class tmp close;
+        %1;
+        #map flag nofollow on;
+    };
+};
+
+#alias bianli {
+    #map list {%2%*} {} {} {%1%*} {variable} {vnums};
+    #var idx 1;
+    #list vnums size vnumsize;
+    #showme <fca>遍历地点数量：$vnumsize;
+    bianli.next;
+};
+
+#alias bianli.next {
+    #class bianli open;
+    #act {到达目标地点：%*} {
+         #showme <fca>当前vnum：*vnums[+$idx];
+         #if {$idx >= $vnumsize} {#showme <fca>遍历完成; bianli.stop};
+         #else {
+             #showme <fca>1秒后前往下一地点;
+             #delay bianli {#math idx {$idx + 1}; bianli.next} {1};
+         };
+    };
+    #class bianli close;
+    run *vnums[+$idx];
+};
+    
+#alias bianli.stop {
+    #undelay bianli;
+    #showme <fca>遍历终止;
+    #class bianli kill;
+};
+
 #class mapper close;

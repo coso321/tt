@@ -3,22 +3,17 @@
 #nop #act {1分钟内回答以下问题} {answer 1};
 
 set wimpy 30;
-#action {^{看起来.*想杀死你|看来该找机会逃跑了}} {
-    yun powerup;
-    #class kill open;
-    #act {你动作似乎开始有点不太灵光，但是仍然有条不紊} {yun recover};
-    #act {你似乎十分疲惫，看来需要好好休息了} {yun recover; #delay 2 lifepfm};
-    #act {你气喘嘘嘘，看起来状况并不太好} {yun recover};
-    #act {你看起来已经力不从心了} {yun recover; #delay 2 lifepfm};
-    #act {^你受伤过重，已经有如风中残烛，随时都可能断气。} {yun recover; #20 {touxiang; halt; quit}};
-    #act {^( 你已经陷入半昏迷状态，随时都可能摔倒晕去。)} {yun recover; #20 {touxiang; halt; quit}};
-    #act {^( 你已经一副头重脚轻的模样，正在勉力支撑著不倒下去。)} {yun recover ; #delay 2 lifepfm};
-    #act {^( 你摇头晃脑、歪歪斜斜地站都站不稳，眼看就要倒在地上。)} {yun recover; #20 {touxiang; halt; quit}};
-    #act {^你逐步从之前战斗的紧张气氛中平缓下来。} {#class kill kill;};
-    #act {你的%*运行完毕，将内力收回丹田。} {yun powerup};
-    #class kill close;
-};
 
+#act {^( 你看起来可能有些累了。)} {powerup;};
+#act {你动作似乎开始有点不太灵光，但是仍然有条不紊} {yun recover};
+#act {你似乎十分疲惫，看来需要好好休息了} {yun recover; #delay 2 lifepfm};
+#act {你气喘嘘嘘，看起来状况并不太好} {yun recover};
+#act {你看起来已经力不从心了} {yun recover; #delay 2 lifepfm};
+#act {^你受伤过重，已经有如风中残烛，随时都可能断气。} {yun recover; #20 {touxiang; halt; quit}};
+#act {^( 你已经陷入半昏迷状态，随时都可能摔倒晕去。)} {yun recover; #20 {touxiang; halt; quit}};
+#act {^( 你已经一副头重脚轻的模样，正在勉力支撑著不倒下去。)} {yun recover ; #delay 2 lifepfm};
+#act {^( 你摇头晃脑、歪歪斜斜地站都站不稳，眼看就要倒在地上。)} {yun recover; #20 {touxiang; halt; quit}};
+#act {^你逐步从之前战斗的紧张气氛中平缓下来。} {#class kill kill;};
 
 #act {^你有很长一段时间没有备份档案了} {backup};
 
@@ -63,7 +58,7 @@ set wimpy 30;
 	#class tmp close;
 };
 
-#act {这个方向没有出路。} {#path stop; reloadmap};
+#act {^{哎哟，你一头撞在墙上，才发现这个方向没有出路。|你的动作还没有完成，不能移动}} {#path stop; };
 
 #act {也许是上天垂青于你的勤奋和努力吧，一个小时之内你不用担心被判为机器人。} {loadmap};
 

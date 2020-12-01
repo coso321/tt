@@ -1,4 +1,5 @@
-#class xiake open;
+#class xiake open
+
 
 #alias xiake.start {
     #action {^草屋 -} {
@@ -11,12 +12,13 @@
 #action {崔老汉说到：前几天村子里面来了几个土匪，把过世的老伴留给我的银镯子给抢走了，一定要帮我拿回来！} {
     run 751;
     unwield all; wields;
-    #delay 1 {enter; #delay 1 {tufei.start; l}};
+    #delay 2 {enter; #delay 1 {tufei.start; l}};
 };
 
 #action {土匪把路一挡，狞笑道：怎么，想溜，没那么容易！} {#var found 1; kill robber; kill tufei; kill louluo};
 
 #action {你暗伤发作，不由自主地瑟瑟抖了起来。} {#var yunheal 1};
+#action {忽然一阵刺骨的奇寒袭来，你中的星宿毒掌毒发作了！} {#var yuninspire 1};
 
 #alias {tufei.start} {
     #class tufei open;
@@ -24,49 +26,41 @@
     #var laststep enter;
     #action {{你的内力不够|你的内力不足|你的内力已经枯竭}} {
         tufei.stop;
-        #action {土匪死了} {dazuo max; #unaction {土匪死了};}; 
-        #action {你运功完毕，深深吸了口气，站了起来。} {yun recover; dazuo max;}; 
-        #act {你现在内力接近圆满状态。} {
-            tufei.start; l; 
-            #showme 当前进度：侠客; 
-            #unaction {你运功完毕，深深吸了口气，站了起来。};
-            #unact {你现在内力接近圆满状态。}
+        #act {土匪死了} {dazuo max; #unaction {土匪死了};}; 
+        #act {#%*,%d,%%%1,%%%2,%d,%d} {
+            #if {%%%2 >= %%%1} {
+                #unact {#%*,%d,%%%1,%%%2,%d,%d};
+                #unact {你运功完毕，深深吸了口气，站了起来。};
+                #showme 当前进度：侠客; 
+                tufei.start; l;
+            };
+            #else {dazuo max};
         };
-    #showme 当前进度：侠客-内力不足;
-};
+        #act {你运功完毕，深深吸了口气，站了起来。} {yun recover; hpbrief;}; 
+        #showme 当前进度：侠客-内力不足;
+    };
 
     #action {土匪死了。} {
-        xq; #if {$yunheal == 1} {yun heal; #var yunheal 0; #delay 3 l;} {#delay 3 l};
+        #act {#%*,%d,%%%1,%%%2,%d,%d} {
+            #unact {#%*,%d,%%%1,%%%2,%d,%d};
+            #if {%%%2 < 400} {
+                #showme 你的内力不足;
+                dazuo max
+            };
+            #elseif {$yuninspire == 1} { yun inspire; #var yuninspire 0; #delay 3 l;};
+            #elseif {$yunheal == 1} { yun heal; #var yunheal 0; #delay 3 l;};
+            #else { #delay 3 l};
+        };
+        xq; 
+        hpbrief;
     };
-    #action {    这里明显的方向有 %%1 和 %%2。} {
-        #var fromdir[enter] out;
-        #var fromdir[out] enter;
-        #var fromdir[north] south;
-        #var fromdir[west] east;
-        #var fromdir[east] west;
-        #var fromdir[south] north;
-        #var fromdir[up] down;
-        #var fromdir[down] up;
-        #var fromdir[northup] southdown;
-        #var fromdir[westup] eastdown;
-        #var fromdir[eastup] westdown;
-        #var fromdir[southup] northdown;
-        #var fromdir[northdown] southup;
-        #var fromdir[westdown] eastup;
-        #var fromdir[eastdown] westup;
-        #var fromdir[southdown] northup;
-        #var fromdir[southeast] northwest;
-        #var fromdir[northwest] southeast;
-        #var fromdir[southwest] northeast;
-        #var fromdir[northeast] southwest;
-         
-        #regexp {%%1} {%*、%*} {#var step &1};
-
-        #if {{"$laststep" != "$fromdir[%%1]" && $found == 0 && "%%1" != "{out|.*、.*}" }} {#var laststep %%1; %%1}; 
-        #elseif {{ "$laststep" != "$fromdir[%%1]" && found == 1 && "%%1" != "{enter|out|.*、.*}"}} {#var laststep %%1; %%1};
-        #elseif { "%%2" == "{out|enter}" } {#if {"%%1" == "%*、%*"} {#var laststep $step; $step} {%%1};};
+    #action {    这里明显的方向有 {[^、]+}%* 和 %%2。} {
+        #if {"$laststep" != "$fromdir[%%1]" && $found == 0 && "%%1" != "out" } {#var laststep %%1; %%1}; 
+        #elseif {"$laststep" != "$fromdir[%%1]" && $found == 1 && "%%1" != "{enter|out}"} {#var laststep %%1; %%1};
+        #elseif { "%%2" == "{out|enter}" } {#var laststep %%1; %%1};
         #else {#var laststep %%2; %%2};
     };
+    
     #class tufei close; 
 };
 
@@ -74,10 +68,26 @@
 
 #action {你寡不敌众被抓到土匪窝里} {tufei.stop; #delay 10 {s;#map goto 1398;s;#delay 5 {kill tufei; kill louluo}}};
 
-#action {^山寨 -} {tufei.stop; w;};
-#action {^竹楼 -} {tufei.stop; #unaction {^山寨 -}; kill ${myid}'s tufeitou; #unaction {^竹楼 -}};
+#action {^山寨 -} {tufei.stop; #ticker {move} {w} {5};};
+#action {^竹楼 -} {
+    #unticker move;
+    #unaction {^山寨 -}; 
+    #act {#%*,%d,%%1,%%2,%d,%d} {
+        #if {%%2 >= %%1} {
+            #unact {你运功完毕，深深吸了口气，站了起来。};
+            kill ${myid}'s tufeitou; 
+            #unact {#%*,%d,%%%1,%%%2,%d,%d};
+        };
+        #else {dazuo max};
+    };
+    #act {{你运功完毕，深深吸了口气，站了起来。|你现在内力接近圆满状态}} {yun recover; hpbrief;}; 
+    dazuo max;
+    #unaction {^竹楼 -}
+};
 
 #action {^土匪头死了。} {
+    #action {^山寨 -} {#ticker move {eu} {5};};
+    #action {^林中小路 -} {#unticker move; #ticker move {n;nd} {5};};
     #action {^黄土路 -} {
         #unticker move;   
         #action {^草屋 -} {
@@ -89,7 +99,7 @@
             #unaction {^黄土路 -};
         };
     };
-    #delay 1 {gc;#delay 2 {e;eu;n;nd;#ticker move {n;nd} {5}}};
+    #delay 1 {gc;#delay 2 {e;eu;n;nd;}};
 };
 
 #action {崔老汉紧紧地抓住你的手，老泪纵横，抽泣地说道：『太感谢了！』} {

@@ -1,0 +1,45 @@
+#class menzhong open;
+
+#alias {menzhong.start} {
+    #map get roomname {menzhongname} {$menzhong};
+    #map get roomvnum roomvnum;
+    #if {$roomvnum != $menzhong} {
+        #act {^$menzhongname -} {mzaa; #unact {^$$menzhongname -}};
+        run $menzhong;
+    };
+    #else {
+        mzaa;
+    };
+};
+    
+#alias {menzhong.stop} {#class menzhong kill};
+
+#alias mzaa {
+    #var killtarget {};
+    #var item {};
+    #var mztype {};
+    #class getquest open;
+    #act {%*说道：听说%%1需要%%2} {#var quest %%0; #var mztype deliver; #var item %%2; #var npc %%1; #class getquets kill;}; 
+    #act {%*说道：{你去帮本派找来|这里尚缺些}%%1，} {#var quest %%0; #var mztype item; #var item %%1; #class getquest kill;}; 
+    #act {%*对你说道：%*将%%1{杀|除}掉！} {#var quest %%0; #var mztype kill; #var npc %%1; #class getquest kill;};
+    #act {%*对你说道：%%1散布我派谣言，你去解决了%*！} {#var quest %%0; #var mztype kill; #var npc %%1; #class getquest kill;};
+    #act {%*对你说道：%%1最近有点不知天高地厚，你去给%*点颜色瞧瞧。} {#var quest %%0; #var mztype fight; #var npc %%1; #class getquest kill;};
+
+    #class getquest close;
+    ask $menzhongnpc about quest;
+    gototarget;
+};
+
+#alias gototarget {
+    #act {^    $npc(%%1)$} {$mztype %%1; #unact {^    $$npc(%%1)$}};
+    #act {^$npc死了。} {mza; #unact {^$$npc};};
+    #if {"$mztype" == "kill" && "$killtarget" == "南昌守门将领"} {run 520};
+    #elseif {"$mztype" == "item"} {
+        #act {当铺 -} {list $item; #unact {当铺 -}};
+        rundp;
+    };
+};
+
+
+
+#class menzhong close;

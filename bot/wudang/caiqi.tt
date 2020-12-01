@@ -35,12 +35,12 @@
 #act {每天子午各采气一次就够了！多了对身体不利！} {
     #class dazuo kill;
     #act {^    玄武甲士 武当派真人 冲虚道长(Chongxu daozhang)} {
+        #unact {^    玄武甲士 武当派真人 冲虚道长(Chongxu daozhang)};
         set brief 1;
         ask chongxu about cancel;
         ask chongxu about quest;
         #delay 3 {
             class caiqi kill;
-            #unact {^    玄武甲士 武当派真人 冲虚道长(Chongxu daozhang)};
         };
     };
     #delay 1 {
@@ -50,7 +50,6 @@
 };
     
 #act {%*大脑一片空明，感觉一股热气在任督二脉盘旋，发现自己对道家炼气要诀又有了进一步的理解！} {
-    #class dazuo kill;
     #act {^    玄武甲士 武当派真人 冲虚道长(Chongxu daozhang)} {
         ask chongxu about success;
         ask chongxu about quest;

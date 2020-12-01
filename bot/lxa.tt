@@ -18,7 +18,7 @@
 
 #alias {lxaa} {lian $skname 50; yun recover};
 #alias {ds} {
-    #if {"$book" == "shediao"} {du $book 50};
+    #if {"$book" == "{shediao|tianlong}"} {du $book 50};
     #else {du $book for 50};
 };
 

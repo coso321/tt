@@ -1,7 +1,6 @@
 #class dza open;
 
 #alias {dazuo.start} {
-    reloadmap;
     set brief 3;
     gaglines;
     #delay 2 {
@@ -41,13 +40,13 @@
     #if {${dzaa} == dz}
           {dz};
     #else
-          {dzx;tna};
+          {dzx; halt; tna};
 };
 
 #act {你现在身体状况太差了，无法集中精神！} {sleep}; 
 #act {( 你的内力已经枯竭，不能施用内功。)} {sleep};
 
-#act {你刚在三分钟内睡过} {
+#act {你{刚刚|刚在三分钟内}睡过} {
 #delay 10 {yun recover; dzaa;};
 };
 

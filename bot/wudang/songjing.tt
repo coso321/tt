@@ -145,12 +145,12 @@
 
 #action {你做完了冲虚道长布置的功课，可以回去向他要奖赏了。} {
     #action {^复真观二层} {
-        #action {^武当广场} {
+        #action {^武当广场 -} {
             #unticker fp;
             success-quest;
             ${songjing.after-handler};
             #class songjing kill;
-            #unaction {%*武当广场%*};
+            #unaction {^武当广场 -};
         } {1};    
         give jing to zhike;
         #delay 3 {run 武当广场; #unaction {^复真观二层};};

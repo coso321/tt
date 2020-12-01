@@ -45,15 +45,13 @@
 #act {这里没有这样东西。} {dsx;#show <faa>读书已停止，请随身携带包袱再运行dsa。<099>};
 #act {你的内力已经枯竭，不能施用内功。} {sleep};
 
-#act {你刚在三分钟内睡过一觉}
-{
-#delay {10} {dsaa;};
-};
+#act {^你{刚刚|刚在三分钟内}睡过一觉} { #delay {10} {dsaa;}; };
 
-#act {你略一凝神，精神看起来好多了。} {dsaa};
+#act {你略一凝神，精神看起来好多了。} {#delay 1 dsaa};
 #act {你现在精力充沛。} {#ticker dushu {#unticker dushu;dsaa} {3}};
 #act {你一觉醒来，精神抖擞地活动了几下手脚。} {
     #act {^$bedroomname -} {
+        cha;
         dsaa;
         #unact {^$$bedroomname -};
     };
