@@ -8,11 +8,11 @@
 
 #act {^你一点内功修炼要诀都不懂，怎么进行采气？} {
     #act {^    玄武甲士 武当派真人 冲虚道长(Chongxu daozhang)} {
+        #unact {^    玄武甲士 武当派真人 冲虚道长(Chongxu daozhang)};
         ask chongxu about cancel;
         ask chongxu about quest;
         #delay 3 {
             class caiqi kill;
-            #unact {^    玄武甲士 武当派真人 冲虚道长(Chongxu daozhang)};
         };
     };
     #delay 1 {
@@ -22,11 +22,11 @@
 
 #act {^仅子午两个时辰能够进行采气} {
     #act {^    玄武甲士 武当派真人 冲虚道长(Chongxu daozhang)} {
+        #unact {^    玄武甲士 武当派真人 冲虚道长(Chongxu daozhang)};
         ask chongxu about cancel;
         ask chongxu about quest;
         #delay 3 {
             class caiqi kill;
-            #unact {^    玄武甲士 武当派真人 冲虚道长(Chongxu daozhang)};
         };
     };
     #delay 1 runwd;
@@ -51,9 +51,10 @@
     
 #act {%*大脑一片空明，感觉一股热气在任督二脉盘旋，发现自己对道家炼气要诀又有了进一步的理解！} {
     #act {^    玄武甲士 武当派真人 冲虚道长(Chongxu daozhang)} {
+        #unaction {^    玄武甲士 武当派真人 冲虚道长(Chongxu daozhang)}
         ask chongxu about success;
         ask chongxu about quest;
-        #delay 3 {class caiqi kill; #unaction {^    玄武甲士 武当派真人 冲虚道长(Chongxu daozhang)}};
+        #delay 3 {class caiqi kill; };
     };
     reloadmap;
     #delay 3 {

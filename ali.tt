@@ -168,12 +168,12 @@
 #alias {fskx} {#class fska kill};
 
 #nop 慕容；
-#alias {mra} {#class mra read bot/mra.tt};
-#alias {mrx} {#class mra kill};
+#alias {mra} {#class mra read bot/mra.tt; murong.start};
+#alias {mrx} {#class mra kill; #undelay %*};
 
 #nop 华山送信；
 #alias {sxa} {#class sxa read bot/sxa.tt; songxin.start};
-#alias {sxx} {#class sxa kill};
+#alias {sxx} {#class sxa kill; #undelay %*};
 
 #nop 天珠;
 #alias {tza} {#class tza read bot/tza.tt};
@@ -250,7 +250,7 @@
 #alias fullneili {
     #class fullneili open;
     #act {{你运功完毕，深深吸了口气，站了起来。|你现在内力接近圆满状态}} {yun recover; hpbrief;}; 
-    #act {^#%*,%d,%%1,%%2,%d,%d$} {
+    #act {#%!{(\d{6}|.*(K|M))},%d,%%1,%%2,%d,%d} {
         #showme <fca>%%1,%%2;
         #if {%%2 >= %%1} {
             #unact {^#%*,%d,%%%1,%%%2,%d,%d$};

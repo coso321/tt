@@ -1,6 +1,5 @@
 #class xiake open
 
-
 #alias xiake.start {
     #action {^草屋 -} {
         ask cui about 麻烦;
@@ -11,7 +10,7 @@
 
 #action {崔老汉说到：前几天村子里面来了几个土匪，把过世的老伴留给我的银镯子给抢走了，一定要帮我拿回来！} {
     run 751;
-    unwield all; wields;
+    wields;
     #delay 2 {enter; #delay 1 {tufei.start; l}};
 };
 
@@ -25,11 +24,12 @@
     #var found 0;
     #var laststep enter;
     #action {{你的内力不够|你的内力不足|你的内力已经枯竭}} {
+        #unact {#%d,%d,%d,%d,%d,%d};
         tufei.stop;
         #act {土匪死了} {dazuo max; #unaction {土匪死了};}; 
         #act {#%*,%d,%%%1,%%%2,%d,%d} {
             #if {%%%2 >= %%%1} {
-                #unact {#%*,%d,%%%1,%%%2,%d,%d};
+                #unact {#%*,%d,%%%%1,%%%%2,%d,%d};
                 #unact {你运功完毕，深深吸了口气，站了起来。};
                 #showme 当前进度：侠客; 
                 tufei.start; l;
@@ -41,15 +41,20 @@
     };
 
     #action {土匪死了。} {
-        #act {#%*,%d,%%%1,%%%2,%d,%d} {
-            #unact {#%*,%d,%%%1,%%%2,%d,%d};
+        #act {#%!{(\d{6}|.*(K|M))},%d,%%%1,%%%2,%d,%d} {
+            #unact {#{(\d{6}|.*(K|M))},%d,%%%%1,%%%%2,%d,%d};
             #if {%%%2 < 400} {
                 #showme 你的内力不足;
                 dazuo max
             };
-            #elseif {$yuninspire == 1} { yun inspire; #var yuninspire 0; #delay 3 l;};
-            #elseif {$yunheal == 1} { yun heal; #var yunheal 0; #delay 3 l;};
-            #else { #delay 3 l};
+        };
+        #act {#%d,%d,%d,%d,%d,%d} {
+            #if {%%%1 > %%%2} {yun heal; hpbrief};
+            #elseif {%%%4 >%%%5} {yun inspire; hpbrief};
+            #else {
+                #unact {#%d,%d,%d,%d,%d,%d};
+                #delay 1 l
+            };
         };
         xq; 
         hpbrief;
@@ -66,7 +71,7 @@
 
 #alias {tufei.stop} {#class tufei kill};        
 
-#action {你寡不敌众被抓到土匪窝里} {tufei.stop; #delay 10 {s;#map goto 1398;s;#delay 5 {kill tufei; kill louluo}}};
+#action {你寡不敌众被抓到土匪窝里} {tufei.stop; #delay 12 {s;#map goto 1398;s;#delay 5 {kill tufei; kill louluo}}};
 
 #action {^山寨 -} {tufei.stop; #ticker {move} {w} {5};};
 #action {^竹楼 -} {

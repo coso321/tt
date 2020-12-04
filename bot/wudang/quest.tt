@@ -87,6 +87,7 @@
         };
     };
     #action {冲虚道长说道：「现在还没有新的工作可以分配给你} {
+        #undelay %*;
         #showme 当前进度：等待任务;
         #class waitfor-chongxu-answer kill;
         #var waiting.next waiting.continue;
@@ -117,10 +118,11 @@
     #class xiake kill;
     #class songjing kill;
     #class caiqi kill;
+    #class liandan kill;
+
     #class waitfor-chongxu-drop open;
         #act {^从冲虚道长身上掉了出来一件} {#math {equip-drop} {${equip-drop}+1};};
         #act {^从冲虚道长身上掉了出来一柄} {#math {equip-drop} {${equip-drop}+1};};
-        #act {从冲虚道长身上掉了出%*孽龙丹} {eat dan};
     #class waitfor-chongxu-drop close;
 };
 
@@ -212,25 +214,18 @@
 #alias {waiting.xue} {
     #var skill %1;
     #class waiting open;
-    #action {│  读书写字                │literate                  │%*    │%d.%*       │-} {
-        #if {"$skill" == "literate" && %%2 >= 50} {wdquest dushu shu 2};
-        #else {
-            #action {^三清殿 -} {xue %2 for $skill 50; yun regenerate; #unact {^三清殿 -}};
-            n;
-        };
-        #unaction {│  读书写字                │literate                  │%*    │%d.%*       │-};
-    };
-    #action {你略一凝神，精神看起来好多了。} {xue %2 for $skill 50; yun regenerate};
+    #action {^三清殿 -} {xue %2 for $skill 50; yun regenerate; #unact {^三清殿 -}};
+    #action {你略一凝神，精神看起来好多了。} {#delay 1 {xue %2 for $skill 50; yun regenerate}};
     #action {^客房 -} { sleep; };
     #action {这里不是你能睡的地方} {reloadmap; #delay 3 #map run 12;};
     #action {^你{刚刚|刚在三分钟内}睡过一觉, 多睡对身体有害无益!} {
-        #delay 10 {w;w;xue %2 for $skill 50;}
+        #delay 10 {w;w;xue %2 for $skill 50; yun regenerate}
     };
     #action {{( 你的内力已经枯竭，不能施用内功。)|你的内力不够。}} {
-        #undelay %*; #delay 1 {e;e;}
+        #undelay %*; #delay 1 {cha;e;e;}
     };
-    #action {{也许是缺乏实战经验，你对%*的回答总是无法领会。|你的潜能已经发挥到极限了，没有办法再成长了。}} {#undelay %*; #delay 1 {e;e}};
+    #action {你现在精力充沛。} {#undelay %*; #delay 1 {e;e}};
     #class waiting close;
-    cha;
+    n;
 };
 #class wdquest close;

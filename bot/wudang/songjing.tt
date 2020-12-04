@@ -66,8 +66,8 @@
         #delay 1 ask chongxu about cancel;
         ask-quest;
     };
-    #map run 复真观二层;
-    jie $book; 
+    #action {^复真观二层 -} {#unaction {^复真观二层 -};jie $book;};
+    #map run {复真观二层} {0.2};
 };
     
 #alias gotolocation {
@@ -153,10 +153,10 @@
             #unaction {^武当广场 -};
         } {1};    
         give jing to zhike;
-        #delay 3 {run 武当广场; #unaction {^复真观二层};};
+        #delay 3 {#map run {武当广场} {0.2}; #unaction {^复真观二层};};
     };
     #unticker fp;
-    #map run {复真观二层} {0.3};
+    #map run {复真观二层} {0.2};
 }
      
 #class songjing close;

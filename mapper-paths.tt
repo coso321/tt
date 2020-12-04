@@ -1,28 +1,35 @@
-#var changjiang-north {(黄河南岸|大轮寺|长江北岸|扬州|襄阳|武当|洛阳|长安|信阳|曲阜|灵州|凌霄城|回族小镇|少林|天龙|成都|无量|灵鹫|华山|全真|白驼|丐帮|中原).*};
-#var changjiang-south {(长江南岸|江州|南昌|苏州|嘉兴|明州|桃花|镇江|泉州|岳王墓|牙山|临安|建康|岳阳|桃源|归云庄).*};
+#var changjiang-north {(黄河南岸|大轮寺|长江北岸|扬州|襄阳|荆州|武当|洛阳|长安|信阳|曲阜|灵州|凌霄城|回族小镇|少林|天龙|成都|无量|灵鹫|华山|全真|白驼|丐帮|中原).*};
+#var changjiang-south {(长江南岸|江州|南昌|苏州|嘉兴|明州|桃花|镇江|泉州|闽南|岳王墓|牙山|临安|建康|岳阳|桃源|归云庄).*};
 #var huanghe-north {(黄河北岸|晋阳|张家口|北京|日月神教|湟中|兰州|星宿).*};
 
 #var walk-location {
+    {586}{588}
     {922}{924}
+    {1576}{1578}
     {1609}{1610}
     {1647}{1650}
+    {1665}{1669}
     {1687}{1689}
     {1715}{1692}
     {1720}{1721}
-    {1723}{1958}
     {1972}{1973}
     {1969}{1970}
+    {2422}{2425}
 };
 
 #var walk-reverse {
+    {587}{585}
     {924}{922}
+    {1577}{1575}
     {1610}{1609}
     {1649}{1456}
+    {1668}{1664}
     {1688}{1686}
+    {1723}{1958}
     {1721}{1720}
-    {1958}{1723}
     {1973}{1972}
     {1970}{1969}
+    {2424}{2422}
 };
 
 #act {^陆大有喝道：你不是华山弟子，不得入内。} {hit lu};
@@ -31,7 +38,7 @@
 #act {^鼓手首领一言不发，闪身拦在你面前。} {hit shouling};
 
 #alias {wait-event} {
-    #class wait-event open;
+    #class %4 open;
     #event {MAP ENTER ROOM %1} {
         #class %3 kill;
         #class wait-event open;
@@ -50,9 +57,9 @@
             #unevent {MAP ENTER ROOM %1};
         };
         #class wait-event close;
-        #path stop; #delay 2 {#path walk; };
+        #path stop; #delay 1 {#path walk; };
     };
-    #class wait-event close;
+    #class %4 close;
 };
 
 #alias {walk-event} {
@@ -62,14 +69,10 @@
     #act {^这个方向没有出路} {#path stop; #map undo; #delay 1 {#path run}};
     #class wait-event close;
     #foreach {*{walk-location[%*]}} {vnum} {
-        #class walk-location open;
-        wait-event $vnum ${walk-location[$vnum]} walk-reverse;
-        #class walk-location close;
+        wait-event $vnum ${walk-location[$vnum]} walk-reverse walk-location;
     };
     #foreach {*{walk-reverse[%*]}} {vnum} {
-        #class walk-reverse open;
-        wait-event $vnum ${walk-reverse[$vnum]} walk-location;
-        #class walk-reverse close;
+        wait-event $vnum ${walk-reverse[$vnum]} walk-location walk-reverse;
     };
 };
        
@@ -82,7 +85,7 @@
         #map list {%1} {} {%*%3%*} {%2%*} {} {} {} {variable} {vnums};
         #list vnums size tgtsize;
         #if {$tgtsize == 1} {#map get all {tmp} {*vnums[+1]};};
-        #elseif {$tgtsize == 0} {#showme <fca>未知地点：%1; #var tmp 0};
+        #elseif {$tgtsize == 0} {#var tmp 0};
         #else {
             #var mindist 50000;
             #var minidx 0;
@@ -98,15 +101,21 @@
 #alias run {
     #var target {};
     #var target @gettarget{{%1} {%2} {%3}};
+    #while {"$target" == ""} {#var target};
+    #if {$target == 0} {#showme <fca>未知地点：%1; #return;}
     set brief 3;
     walk-event;
-    #while {"$target" == ""} {#var target};
     #event {MAP ENTER ROOM $target[vnum]} {
+        #class walk-location kill;
+        #class walk-reverse kill;
         #class wait-event kill;
         #class runlocation kill;
-        set brief 1;
-        #showme <fca>到达目标地点：$target[name];
-        #unevent {MAP ENTER ROOM $target[vnum]}
+        #act {^$target[name] -} {
+            set brief 1;
+            #showme <fca>到达目标地点：$target[name];
+            #unevent {MAP ENTER ROOM %*};
+            #unact {^$$target[name] -};
+        };
     };
     #if {"$target[area]" == "{${changjiang-north}}"} {run.changjiang-north $target[vnum]};
     #elseif {"$target[area]" == "{${changjiang-south}}"} {run.changjiang-south $target[vnum]};
@@ -130,14 +139,13 @@
 #alias run.cross-river {
     #map get roomvnum roomvnum;
     #map get roomarea roomarea;
-    #if {$target[vnum] == $roomvnum} {#showme <fca>到达目标地点：$target[name]; #class runlocation kill};
+    #if {$target[vnum] == $roomvnum} {set brief 1; #showme <fca>到达目标地点：$target[name]; #class runlocation kill};
     #else {
         #class runlocation open;
         #act {^到达目标地点：} {#delay 1 {run.%3 {%1}; }};
-        #act {^$target[name] -} {set brief 1; #class runlocation kill;};
+        #act {^$target[name] -} {#map get roomvnum roomvnum; #if {$roomvnum == $target[vnum]} {set brief 1; #class runlocation kill;}};
         #class runlocation close;
         #showme <fca>即将前往：$target[name];
-        set brief 3;
         #regexp $roomarea {{${changjiang-north}}} {#var cjnorth 1} {#var cjnorth 0};
         #regexp $roomarea {{${changjiang-south}}} {#var cjsouth 1} {#var cjsouth 0};
         #regexp $roomarea {{${huanghe-north}}} {#var hhnorth 1} {#var hhnorth 0};
@@ -158,6 +166,8 @@
 #alias runtl {run 1719};
 #alias runwl {run 琅缳福地};
 #alias runcd {run 1658};
+#alias rundl {run 2175};
+#alias runkm {run 2218};
 #alias runjx {run 嘉兴城;};
 
 #alias runywm {run 831;}; 
@@ -176,6 +186,7 @@
 #alias runly {#map run {230} {0.2}};
 #alias runca {run 435};
 #alias runlz {run 570};
+#alias runlanzhou {run 府前广场 兰州};
 #alias runlj {run 1616};
 #alias runsl {run 1300};
 
@@ -187,6 +198,8 @@
 #alias runfz {run 1194};
 #alias runjz {run 502};
 #alias runxx {run 1969};
+#alias runbj {run 2295};
+#alias runhz {run 1928};
 #alias runquanzhen {run 2048};
 
 #alias runth {run 935};

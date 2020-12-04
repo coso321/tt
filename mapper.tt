@@ -25,6 +25,57 @@
 #var fromdir[southwest] northeast;
 #var fromdir[northeast] southwest;
 
+#var {areas} {
+    {1}{牙山}
+    {2}{江州}
+    {3}{襄阳}
+    {4}{全真}
+    {5}{灵鹫}
+    {6}{黄河北岸}
+    {7}{星宿}
+    {8}{黄河南岸}
+    {9}{桃花岛}
+    {10}{嘉兴}
+    {11}{大理}
+    {12}{泉州}
+    {13}{岳阳}
+    {14}{镇江}
+    {15}{泰山}
+    {16}{扬州}
+    {17}{中原}
+    {18}{南昌}
+    {19}{晋阳}
+    {20}{湟中}
+    {21}{丐帮}
+    {22}{归云庄}
+    {23}{张家口}
+};
+
+#var {locations} {
+    {黄河北岸黄河北岸} {{黄河北岸}{黄河北岸}}
+    {黄河南岸黄河南岸} {{黄河南岸}{黄河南岸}}
+    {牙山牙山米行} {{牙山}{牙山米行}}
+    {牙山牙山湾南路} {{牙山}{牙山湾南路}}
+    {星宿星宿海} {{星宿}{星宿海}}
+};
+
+#alias parselocation {
+    #var {area} {};
+    #var {location} {};
+    #var tmp $locations[%1];
+    #if {"$tmp" != ""} { #var area *tmp[+1]; #var location $tmp[+1];};
+    #else {
+        #foreach {${areas[%*]}} {area} {
+            #if {"%1" == "$area%*"} {
+                #var area $area;
+                #var location @replace{{%1} {$area} {};};
+                #return;
+            };
+        };
+        #var location None;
+    };
+};
+
 #alias setarea {
     #action {^【%%1地图%*】} {#var roomarea %%1; #unaction {^【%*地图%*】}};
     lm; q;
@@ -148,7 +199,8 @@
 };
 #alias mlnote {#map list {%*} {} {} {} {%*%1%*}};
 
-#alias mapnum {#map flag asciivnums};
+#alias mapnum {#map flag asciigraphics on; #map flag asciivnums on};
+#alias mapnonum {#map flag unicodegraphics on;};
 #alias mapvoid {#map insert %1 void};
 #alias savemap {#map write map.tt;};
 
@@ -348,7 +400,11 @@
 #alias wait-none-exit {
     #map exit %1 command {
         #class tmp open;
-        #action {%2} {#map flag nofollow off;#showme <fca>等待结束;#class tmp kill};
+        #action {%2} {
+            #map flag nofollow off;
+            #showme <fca>等待结束;
+            #class tmp kill
+        };
         #class tmp close;
         %1;
         #map flag nofollow on;
@@ -374,7 +430,8 @@
          };
     };
     #class bianli close;
-    run *vnums[+$idx];
+    #if {$vnums[+$idx][distance] < 0} {#math idx {$idx + 1}; bianli.next};
+    #else { run *vnums[+$idx];};
 };
     
 #alias bianli.stop {
