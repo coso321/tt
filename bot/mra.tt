@@ -8,11 +8,11 @@
     #var mrlocation {};
     mraa;
     #map get roomvnum roomvnum;
-    #act {^内力已满} {eat liang; drink jiudai; mraa; #unact {^内力已满};}; 
-    #if {$roomvnum == 957} {fullneili;};
+    #act {^内力已满} {ne;eat liang; drink jiudai; mraa; #unact {^内力已满};}; 
+    #if {$roomvnum == 797} {fullneili;};
     #else {
         #act {^    姑苏慕容 仆人(Pu ren)} {fullneili; #unact {^    姑苏慕容 仆人(Pu ren)$}};
-        runmrf;
+        run797;
     };
 };
 
