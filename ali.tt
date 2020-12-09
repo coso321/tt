@@ -76,7 +76,28 @@
 #alias {zl} {yun lifeheal $myid};
 #alias {home} {enter $myid};
 #alias {lm} {localmaps};
-#alias {fm} {fullme;#split};
+#alias {fm} {
+    #nop slink查看mxp链接，termux调用浏览器mxp;
+    #alias {mxp} {#sys termux-open-url $link};
+    #class mxp open;
+    #act {^http://fullme.pkuxkx.net/robot.php?filename=%%1}
+    {
+        #var link {http://fullme.pkuxkx.net/robot.php?filename=%%1};
+        #nop mxp;
+        #system sh bot/fullme.sh $link;
+        loadmap;
+    };
+    
+    #act {^http://fullme.pkuxkx.com/robot.php?filename=%%1}
+    {
+        #var link {http://fullme.pkuxkx.com/robot.php?filename=%%1};
+        #nop mxp;
+        #system sh bot/fullme.sh $link;
+        loadmap;
+    };
+    #class mxp close;
+    fullme;
+};
 #alias {slink} {#show $link};
 #alias {st} {status_me};
 #alias {sh} {sethere};
@@ -170,7 +191,7 @@
 
 #nop 慕容穿插送信;
 #alias {mrsxa} {#class mrsx read bot/mrsx.tt; mrsx.start};
-#alias {mrsxx} {#class mrsx kill; #undelay %*};
+#alias {mrsxx} {#class sxa kill; #class mra kill; #class mrsx kill; #undelay %*};
 
 #nop 慕容；
 #alias {mra} {#class mra read bot/mra.tt; murong.start};

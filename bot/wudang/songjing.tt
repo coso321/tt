@@ -27,17 +27,8 @@
 };
 
 #action {你太疲劳了，请休息一会儿再诵经吧。} {
-    #action {^复真观二层} {
-        #action {你一觉醒来，精神抖擞地活动了几下手脚。} {
-            gotolocation;
-            #unaction {你一觉醒来，精神抖擞地活动了几下手脚。};
-            #unaction {^复真观二层};
-        };    
-        #map run 12;
-        #delay 3 sleep;
-    };
-    set brief 3;
-    #map run {复真观二层} {0.2};
+    #act {^内力已满} {chantpage $page; #unact {^内力已满};};
+    fullneili;
 };
 
 #alias getbook {
@@ -146,17 +137,19 @@
 
 #action {你做完了冲虚道长布置的功课，可以回去向他要奖赏了。} {
     #action {^复真观二层} {
+        #unaction {^复真观二层};
         #action {^武当广场 -} {
+            #undelay %*;
             #unticker fp;
             success-quest;
             ${songjing.after-handler};
             #unaction {^武当广场 -};
         } {1};    
         give jing to zhike;
-        #delay 3 {#map run {武当广场} {0.2}; #unaction {^复真观二层};};
+        #delay 3 {#map run {武当广场} {0.2};};
     };
     #unticker fp;
     #map run {复真观二层} {0.2};
-}
+};
      
 #class songjing close;

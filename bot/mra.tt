@@ -8,9 +8,10 @@
     #var mrlocation {};
     mraa;
     #map get roomvnum roomvnum;
-    #if {$roomvnum == 957} {sxaa};
+    #act {^内力已满} {eat liang; drink jiudai; mraa; #unact {^内力已满};}; 
+    #if {$roomvnum == 957} {fullneili;};
     #else {
-        #act {^    姑苏慕容 仆人(Pu ren)} {#act {^内力已满} {mraa;};fullneili; #unact {^    姑苏慕容 仆人(Pu ren)$}};
+        #act {^    姑苏慕容 仆人(Pu ren)} {fullneili; #unact {^    姑苏慕容 仆人(Pu ren)$}};
         runmrf;
     };
 };
@@ -22,6 +23,7 @@
 #alias {mrlocation} {#showme 仆人叹道：家贼难防，有人偷走了少爷的信件，据传曾在『%1』附近出现，你去把它找回来吧};
 
 #act {仆人叹道：家贼难防，有人偷走了少爷的信件，据传曾在『%1』附近出现，你去把它找回来吧} {
+    #if {"%1" == "以下地点"} {mrf};
     #act {^到达目标地点：$mrlocation} {#map get roomarea roomarea; #if {"$roomarea" == "$mrarea"} {#delay 1 bianli $mrarea;#unact {^到达目标地点：$$mrlocation}; };};
     #tic {mrq1} {#echo {%c%h} {light yellow} {慕容信件目标在%1处}} {15};
     #if {"%1" == "{$badlocations}"} {mrf; #delay 180 mra};

@@ -14,10 +14,9 @@
     #var npc {};
     #var npcid {};
     #map get roomvnum roomvnum;
-    #act {^内力已满} {sxaa; #unact {^内力已满};}; 
-    #if {$roomvnum == 1724} {fullneili;};
+    #if {$roomvnum == 1724} {eat liang; drink jiudai; sxaa;};
     #else {
-        #act {^    武林名宿 华山派掌门「君子剑」岳不群(Yue buqun)} {fullneli; #unact {^    武林名宿 华山派掌门「君子剑」岳不群(Yue buqun)}};
+        #act {^    武林名宿 华山派掌门「君子剑」岳不群(Yue buqun)} {eat liang; drink jiudai; sxaa; #unact {^    武林名宿 华山派掌门「君子剑」岳不群(Yue buqun)}};
         runsx;
     };
 };
@@ -28,7 +27,7 @@
     #var npc %1; 
     #var npcid %2;
     #if {"$npc" == "鼓手首领"} {sxf; #delay 180 songxin.start};
-    #else {e;};
+    #else {e;fullneili};
     #showme 送信：$sxarea $sxlocation $npc;
 };
 
@@ -71,7 +70,7 @@
 #act {%1仰首狂笑道：「你，把密函给我乖乖交出来吧！」} {
     #class getss open;
     #act {^%%1笑道：「%*老子来帮你！」} {#var sxbs %%1; #showme <fca>送信帮手：%%1};
-    #act {^    「%*」$sxss(%%1)} {#var sxssid %%1; #showme <fca>送信杀手id：$sxssid; #delay 1 {#if {"$sxbs" == ""} {kill @lower{$sxssid}; #class getss kill;}}};
+    #act {^    「%*」$sxss(%%1)} {#var sxssid %%1; #showme <fca>送信杀手id：$sxssid; #delay 1 {#if {"$sxbs" == ""} {#ticker kill {kill @lower{$sxssid}} {5}; kill @lower{$sxssid}; #class getss kill;}}};
     #act {^    「%*」$sxbs(%%1)} {#var sxbsid %%1; #showme <fca>送信帮手id：$sxbsid; kill @lower{$sxbsid}; #if {$sxss != 0} {#class getss kill;}};
     #class getss close;
     #undelay %*;
@@ -83,9 +82,11 @@
     yun powerup;
 };
 
+#act {^你对着$sxss吼道：「臭贼！你死期已到，今天就让%*送你上西天吧！」} {#untick kill};
+
 #act {你伸手向怀中一摸，发现密函已经不翼而飞！} {
     #class getss open;
-    #act {^%%1说道：「%*」} {#var sxss %%1; #showme <fca>送信杀手：$sxss;l;};
+    #act {^%!{(?!你)}%%1说道：「%*」} {#var sxss %%1; #showme <fca>送信杀手：$sxss;l;#unact {^%%%1说道：「%*」};};
     #act {^%%1笑道：「%*老子来帮你！」} {#var sxbs %%1; #showme <fca>送信帮手：%%1};
     #act {^    「%*」$sxss(%%1)} {#var sxssid %%1; #showme <fca>送信杀手id：$sxssid; #delay 1 {#if {"$sxbs" == ""} {kill @lower{$sxssid}; #class getss kill;}}};
     #act {^    「%*」$sxbs(%%1)} {#var sxbsid %%1; #showme <fca>送信帮手id：$sxbsid; kill @lower{$sxbsid}; #if {$sxss != 0} {#class getss kill;}};
@@ -104,10 +105,10 @@
 };
 
 #act {^$sxss死了} {
-    #act {^到达目标地点：$sxlocation} {#map get roomarea roomarea; #if {"$roomarea" == "$sxarea"} {#delay 1 bianli $sxarea;#unact {^到达目标地点：$$sxlocation}; };};
+    #act {^到达目标地点：$sxlocation} {#map get roomarea roomarea; #if {"$roomarea" == "$sxarea"} {#unact {^到达目标地点：$$sxlocation}; #delay 1 bianli $sxarea;};};
     get all from corpse; #delay 2 {run $sxlocation $sxarea}
 };
-#act {^$sxbs死了} {get all from corpse; kill @lower{$sxbsid};};
+#act {^$sxbs死了} {get all from corpse; #delay 1 kill @lower{$sxssid};};
 
 #act {你的任务失败}{
    #untic sxa1;#untic sxa2;sxx};

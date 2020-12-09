@@ -9,11 +9,14 @@
 };
 
 #action {崔老汉说到：前几天村子里面来了几个土匪，把过世的老伴留给我的银镯子给抢走了，一定要帮我拿回来！} {
+    #action {^内力已满} {
+        #unaction {^内力已满};
+        wielda;
+        #delay 2 {enter; #delay 1 {tufei.start; l}};
+    };
     run 751;
-    wields;
-    #delay 2 {enter; #delay 1 {tufei.start; l}};
+    fullneili;
 };
-
 #action {土匪把路一挡，狞笑道：怎么，想溜，没那么容易！} {#var found 1; kill robber; kill tufei; kill louluo};
 
 #action {你暗伤发作，不由自主地瑟瑟抖了起来。} {#var yunheal 1};
@@ -91,7 +94,7 @@
 
 #action {^$myname的土匪头死了。} {
     #action {^山寨 -} {#unact {^山寨 -}; #ticker move {eu} {5};};
-    #action {^林中小路 -} {#unact {^林中小路}; #unticker move; #ticker move {#delay 2 {reloadmap; #delay 1 n;nd}} {5};};
+    #action {^林中小路 -} {#unact {^林中小路}; #unticker move; #ticker move {#delay 2 {reloadmap; #delay 1 run 61}} {5};};
     #action {^黄土路 -} {
         #unticker move;   
         #undelay %*;

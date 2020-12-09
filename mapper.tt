@@ -78,7 +78,7 @@
     {平西王府平西王府大门} {{平西王府}{平息王府大门}}
 };
 
-#var badlocations {嘉兴海中|神龙岛男弟子住所|北京厅堂|扬州宝库|归云庄桃树|长江长江岸边|长江长江渡口};
+#var badlocations {北京校场|嘉兴海中|神龙岛男弟子住所|北京厅堂|扬州宝库|归云庄桃树|长江长江岸边|长江长江渡口};
 
 #alias parselocation {
     #var {area} {};
@@ -377,89 +377,6 @@
         set brief 3;
         %1;
         #ticker walkmaze {l} 0.6;
-    };
-};
-
-#alias guojiang-exit {boat-exit %1 过江};
-#alias guohe-exit {boat-exit %1 过河};
-
-#alias boat-exit {
-    #map exit %1 command {
-        #class guojiang open;
-        #action {^你吸了口气，一声“船家”，声音中正平和地远远传了出去。$} {
-            #class tmp open;
-            #action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};
-            #class tmp close;
-        };
-        #action {^你使出吃奶的力气喊了一声：“船家”$} {
-            #class tmp open;
-            #action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};
-            #class tmp close;
-        };
-        #var in_boat 0;
-        #action {江心驶去。} {
-            #var in_boat 1;
-        };
-        #action {^艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。} {
-            #if {$${in_boat} == 1} {
-                #var in_boat 0;
-                out;
-                maphere;
-                #showme <fca>到达目标地点：$$roomname;
-                #class guojiang kill;
-            };
-        };
-        #action {正等着你呢，上来吧。} {#class tmp kill;enter};
-        #action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};
-        #action {^%*接过你递给的船资} {
-            #class tmp open;
-            #action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};
-            #class tmp close;
-        };
-        #action {^你的车船通账上还剩%S，这一趟的船资%S。} {
-            #class tmp open;
-            #action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};
-            #class tmp close;
-        };
-        #class guojiang close;
-        ask shao gong about %2;
-    };
-    #map exitflag %1 avoid on;
-};
-
-#alias wait-exit {
-    #map exit %1 command {
-        #class tmp open;
-        #action {%2} {#delay 1 %1};
-        #action {%3} {#map flag nofollow off;#showme <fca>等待结束;#class tmp kill};
-        #class tmp close;
-        %1;
-        #map flag nofollow on;
-    };
-};
-
-#alias fight-exit {
-    #map exit %1 command {
-        #class tmp open;
-        #action {^{你战胜了%2|%2死了}} {#undelay %*; #delay 1 %1};
-        #action {%3} {#map flag nofollow off;#showme <fca>等待结束;#class tmp kill};
-        #class tmp close;
-        %1;
-        #map flag nofollow on;
-    };
-};
-
-#alias wait-none-exit {
-    #map exit %1 command {
-        #class tmp open;
-        #action {%2} {
-            #map flag nofollow off;
-            #showme <fca>等待结束;
-            #class tmp kill
-        };
-        #class tmp close;
-        %1;
-        #map flag nofollow on;
     };
 };
 

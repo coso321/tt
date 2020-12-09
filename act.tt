@@ -72,23 +72,5 @@ set wimpy 30;
 
 #act {^你逃跑失败。} {#path stop; #path get position pos; #map undo; #math pos {$pos - 1}; #path goto $pos; #path run};
 
-#act {也许是上天垂青于你的勤奋和努力吧，一个小时之内你不用担心被判为机器人。} {loadmap};
-
-#nop slink查看mxp链接，termux调用浏览器mxp;
-#alias {mxp} {#sys termux-open-url $link};
-#act {^http://fullme.pkuxkx.net/robot.php?filename=%1}
-{
-    #var link {http://fullme.pkuxkx.net/robot.php?filename=%1};
-    #nop mxp;
-    #system sh bot/fullme.sh $link;
-    loadmap;
-};
-
-#act {^http://fullme.pkuxkx.com/robot.php?filename=%1}
-{
-    #var link {http://fullme.pkuxkx.com/robot.php?filename=%1};
-    #nop mxp;
-    #system sh bot/fullme.sh $link;
-    loadmap;
-};
+#act {也许是上天垂青于你的勤奋和努力吧，一个小时之内你不用担心被判为机器人。} {#class mxp kill; loadmap};
 
