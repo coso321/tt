@@ -9,9 +9,9 @@
     mraa;
     #map get roomvnum roomvnum;
     #act {^内力已满} {ne;eat liang; drink jiudai; mraa; #unact {^内力已满};}; 
+    #act {^    姑苏慕容 仆人(Pu ren)} {mraa; #unact {^    姑苏慕容 仆人(Pu ren)$}};
     #if {$roomvnum == 797} {fullneili;};
     #else {
-        #act {^    姑苏慕容 仆人(Pu ren)} {fullneili; #unact {^    姑苏慕容 仆人(Pu ren)$}};
         run797;
     };
 };
@@ -54,7 +54,7 @@
 
 
 
-#act {由于你成功的找回慕容复写给江湖豪杰的信件} { #act {^内力已满} {mra;}; #untic mrq1;#untic mrq2;fullneili};
+#act {由于你成功的找回慕容复写给江湖豪杰的信件} {#untic mrq1;#untic mrq2;#delay 3 mraa};
 #act {由于你没有找回慕容复丢失的信件} { #untic mrq1;#untic mrq2;mra};
 
 
