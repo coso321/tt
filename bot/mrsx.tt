@@ -1,0 +1,24 @@
+#class mrsx open;
+
+#re bot/mra.tt;
+#re bot/sxa.tt;
+
+#alias mrsx.start {mrsx.sx};
+#alias mrsx.mr {#var mrdone 0; murong.start;};
+#alias mrsx.sx {#var sxdone 0; songxin.start;};
+
+#act {你的任务失败}{#untic sxa1;#untic sxa2;mrsx.mr};
+#act {你被奖励了} {#untic sxa1;#untic sxa2; #delay 1 {mrsx.mr}};
+
+#act {由于你成功的找回慕容复写给江湖豪杰的信件} {
+    #class checksx open;
+    #act {^│[%d]%s│[主]%s│华山送信任务(%d)%s│现在即可接到下个任务。%s│} { mrsx.sx;#class checksx kill;};
+    #act {^│[%d]%s│[主]%s│华山送信任务(%d)%s│仍需%*才能接到下个任务。%s│} { mrsx.mr;#class checksx kill;};
+    #class checksx close;
+    #untic mrq1;#untic mrq2;jobquery;
+};
+#act {由于你没有找回慕容复丢失的信件} { #untic mrq1;#untic mrq2;mrsx.sx};
+
+
+
+#class mrsx close;

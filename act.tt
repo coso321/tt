@@ -62,11 +62,15 @@ set wimpy 30;
 	#act {你是%*第%*代弟子} {#var mymenpai %%1};
 	#act {你是朝廷%*品官员} {#var mymenpai 朝廷};
 	#act {你是一位%*岁的%*婚%*性人类} {#var myage @ctd{%%1};#var mygender %%3};
-	#act {^≡━━━━━━━━━━━━━━━━━━━━━━━━◎北大侠客行◎━━━━≡$} {#class tmp kill};
+	#act {^≡━━━━━━━━━━━━━━━━━━━━━━━━━◎北大侠客行◎━━━━≡} {#class tmp kill};
 	#class tmp close;
 };
 
-#act {^{哎哟，你一头撞在墙上，才发现这个方向没有出路。|你的动作还没有完成，不能移动}} {#path stop; };
+#act {^你的动作还没有完成，不能移动} {#path stop; #map undo};
+
+#act {这个方向没有出路。$} {#path stop; reloadmap};
+
+#act {^你逃跑失败。} {#path stop; #path get position pos; #map undo; #math pos {$pos - 1}; #path goto $pos; #path run};
 
 #act {也许是上天垂青于你的勤奋和努力吧，一个小时之内你不用担心被判为机器人。} {loadmap};
 
@@ -74,17 +78,17 @@ set wimpy 30;
 #alias {mxp} {#sys termux-open-url $link};
 #act {^http://fullme.pkuxkx.net/robot.php?filename=%1}
 {
-	#var link {http://fullme.pkuxkx.net/robot.php?filename=%1};
-  #nop mxp;
-  	#system sh bot/fullme.sh $link;
-  	#split;
+    #var link {http://fullme.pkuxkx.net/robot.php?filename=%1};
+    #nop mxp;
+    #system sh bot/fullme.sh $link;
+    loadmap;
 };
 
 #act {^http://fullme.pkuxkx.com/robot.php?filename=%1}
 {
-	#var link {http://fullme.pkuxkx.com/robot.php?filename=%1};
-  #nop mxp;
-  	#system sh bot/fullme.sh $link;
-  	#split;
+    #var link {http://fullme.pkuxkx.com/robot.php?filename=%1};
+    #nop mxp;
+    #system sh bot/fullme.sh $link;
+    loadmap;
 };
 

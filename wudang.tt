@@ -35,11 +35,9 @@
     #class wdquest kill;
 };
 
-/*
 #act {^你在攻击中不断积蓄攻势。(气势：%d} {
-    #if {%1 >= 8} {perform sword.chan};
+    #if {%1 >= 50} {plian};
 };
-*/
 
 
 #alias lifepfm {pchan; #delay 2 perform dodge.zong};
@@ -48,6 +46,7 @@
 #act {( 只听见「啪」地一声，你手中的%*已经断为两截！ )} { wield sword};
 
 #alias wields {unwield all; wield sword; #delay 1 wield blade}
+#alias wielda {unwield all; wield sword; #delay 1 wield blade}
 #alias pchan {wield sword; perform sword.chan};
 #alias plian {wield sword; perform sword.lian};
 #alias pzhen {unwield all; perform cuff.zhen; wield sword; #delay 1 wield blade;};

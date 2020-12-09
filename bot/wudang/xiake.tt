@@ -27,12 +27,12 @@
         #unact {#%d,%d,%d,%d,%d,%d};
         tufei.stop;
         #act {土匪死了} {dazuo max; #unaction {土匪死了};}; 
-        #act {#%*,%d,%%%1,%%%2,%d,%d} {
-            #if {%%%2 >= %%%1} {
-                #unact {#%*,%d,%%%%1,%%%%2,%d,%d};
+        #act {#%!{(\d{5}|.+(K|M))},%d,%d,%!{-?}%d,%d,%d} {
+            #if {%%%5 >= %%%4} {
                 #unact {你运功完毕，深深吸了口气，站了起来。};
                 #showme 当前进度：侠客; 
                 tufei.start; l;
+                #unact {#%!{(\d{5}|.+(K|M))},%d,%d,%!{-?}%d,%d,%d};
             };
             #else {dazuo max};
         };
@@ -41,21 +41,29 @@
     };
 
     #action {土匪死了。} {
-        #act {#%!{(\d{6}|.*(K|M))},%d,%%%1,%%%2,%d,%d} {
-            #unact {#{(\d{6}|.*(K|M))},%d,%%%%1,%%%%2,%d,%d};
-            #if {%%%2 < 400} {
-                #showme 你的内力不足;
-                dazuo max
+        #var fullhp 0;
+        #class recover open;
+        #act {#%!{(\d{5}|.+(K|M))},%d,%d,%!{-?}%d,%d,%d} {
+            #if {$fullhp == 1} { 
+                #unact {#%!{(\d{5}|.+(K|M))},%d,%d,%!{-?}%d,%d,%d};
+                tufei.start;
+                #if {%%%5 < 400} {
+                    #showme 你的内力不足;
+                    dazuo max
+                };
+                #else {#delay 3 l};
             };
         };
         #act {#%d,%d,%d,%d,%d,%d} {
-            #if {%%%1 > %%%2} {yun heal; hpbrief};
-            #elseif {%%%4 >%%%5} {yun inspire; hpbrief};
+            #if {%%%1 > %%%2} {tufei.stop; yun heal;#delay 1 hpbrief};
+            #elseif {%%%4 > %%%5} {tufei.stop; yun inspire;#delay 1 hpbrief};
             #else {
                 #unact {#%d,%d,%d,%d,%d,%d};
-                #delay 1 l
+                #var fullhp 1;
+                #delay 1 hpbrief;
             };
         };
+        #class recover close;
         xq; 
         hpbrief;
     };
@@ -73,28 +81,20 @@
 
 #action {你寡不敌众被抓到土匪窝里} {tufei.stop; #delay 12 {s;#map goto 1398;s;#delay 5 {kill tufei; kill louluo}}};
 
-#action {^山寨 -} {tufei.stop; #ticker {move} {w} {5};};
+#action {^山寨 -} {xq; tufei.stop; #ticker {move} {w} {5};};
 #action {^竹楼 -} {
     #unticker move;
-    #unaction {^山寨 -}; 
-    #act {#%*,%d,%%1,%%2,%d,%d} {
-        #if {%%2 >= %%1} {
-            #unact {你运功完毕，深深吸了口气，站了起来。};
-            kill ${myid}'s tufeitou; 
-            #unact {#%*,%d,%%%1,%%%2,%d,%d};
-        };
-        #else {dazuo max};
-    };
-    #act {{你运功完毕，深深吸了口气，站了起来。|你现在内力接近圆满状态}} {yun recover; hpbrief;}; 
-    dazuo max;
+    #act {内力已满} {kill ${myid}'s tufeitou;}; 
+    fullneili;
     #unaction {^竹楼 -}
 };
 
-#action {^土匪头死了。} {
-    #action {^山寨 -} {#ticker move {eu} {5};};
-    #action {^林中小路 -} {#unticker move; #ticker move {n;nd} {5};};
+#action {^$myname的土匪头死了。} {
+    #action {^山寨 -} {#unact {^山寨 -}; #ticker move {eu} {5};};
+    #action {^林中小路 -} {#unact {^林中小路}; #unticker move; #ticker move {#delay 2 {reloadmap; #delay 1 n;nd}} {5};};
     #action {^黄土路 -} {
         #unticker move;   
+        #undelay %*;
         #action {^草屋 -} {
             give cui zhuozi;
             #unaction {^草屋 -};
@@ -108,7 +108,7 @@
 };
 
 #action {崔老汉紧紧地抓住你的手，老泪纵横，抽泣地说道：『太感谢了！』} {
-    #action {^武当广场 -} {success-quest; ask-quest; #class xiake kill; #unaction {^武当广场 -};} {1};
+    #action {^武当广场 -} {success-quest; ask-quest; #unaction {^武当广场 -};} {1};
     reloadmap; #delay 1 runwd;
 };
 

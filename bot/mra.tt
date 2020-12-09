@@ -1,43 +1,59 @@
 #class mra open;
 
+#var capitalid @capital{$myid};
+#prompt {慕容：%1} {慕容：%1};
+
 #alias {murong.start} {
     #var mrarea {};
     #var mrlocation {};
     mraa;
+    #map get roomvnum roomvnum;
+    #if {$roomvnum == 957} {sxaa};
+    #else {
+        #act {^    姑苏慕容 仆人(Pu ren)} {#act {^内力已满} {mraa;};fullneili; #unact {^    姑苏慕容 仆人(Pu ren)$}};
+        runmrf;
+    };
 };
 
-#alias {mraa} {eat liang; drink jiudai; ask pu ren about job};
+#alias {mraa} {ask pu ren about job};
 #alias  {mrd} {give pu xin};
 #alias  {mrf} {ask pu ren about fail};
 
+#alias {mrlocation} {#showme 仆人叹道：家贼难防，有人偷走了少爷的信件，据传曾在『%1』附近出现，你去把它找回来吧};
+
 #act {仆人叹道：家贼难防，有人偷走了少爷的信件，据传曾在『%1』附近出现，你去把它找回来吧} {
+    #act {^到达目标地点：$mrlocation} {#map get roomarea roomarea; #if {"$roomarea" == "$mrarea"} {#delay 1 bianli $mrarea;#unact {^到达目标地点：$$mrlocation}; };};
     #tic {mrq1} {#echo {%c%h} {light yellow} {慕容信件目标在%1处}} {15};
-    #if {"%1" == "扬州宝库"} {mrf; #delay 180 mra};
-    parselocation %1;
-    #while {"$location" == ""} {#var $location};
-    #if {"$location" == "None"} {#showme <fca>未知送信地点};
-    #else {#var mrarea $area; #var mrlocation $location; #showme <fca>慕容信件地点：$area $location; run $location $area};
+    #if {"%1" == "{$badlocations}"} {mrf; #delay 180 mra};
+    #else {
+        parselocation %1;
+        #while {"$location" == ""} {#var $location};
+        #if {"$location" == "None"} {#showme <fca>未知送信地点};
+        #else {#var mrarea $area; #var mrlocation $location; #showme <fca>慕容信件地点：$area $location; run $location $area};
+        #showme {慕容：$area $location};
+   };
 };
 
 #act {%*目前在【%1】,快去摁死它吧!} {
   #tic {mrq2} {
   #echo {%c%h} {light yellow} {目标正在%1处} } {15}};
 
-#act {%*发现的%s慕容世家家贼(@capital{$myid}'s murong jiazei)} {bianli.stop; #path stop; follow jiazei;yun powerup;kill jiazei};
-
-#act {慕容世家家贼死了。} {
-    #unact {%*发现的%s慕容世家家贼(@capital{$$myid}'s murong jiazei)};
-    #act {^    姑苏慕容 仆人(Pu ren)$} {mrd; #unact {^    姑苏慕容 仆人(Pu ren)$}};
-    loadmap; 
-    #delay 1 {
-        get all from corpse; 
-        #delay 2 {runmrf;};
+#act {$myname发现的%s慕容世家家贼($capitalid's murong jiazei)} {
+    #act {慕容世家家贼死了。} {
+        #unact {慕容世家家贼死了。};
+        #act {^    姑苏慕容 仆人(Pu ren)$} {mrd; #unact {^    姑苏慕容 仆人(Pu ren)$}};
+        #delay 1 {
+            get all from corpse; 
+            #delay 2 {runmrf;};
+        };
     };
+    #undelay %*; bianli.stop; #path stop; follow jiazei;yun powerup;kill jiazei
 };
 
-#act {由于你成功的找回慕容复写给江湖豪杰的信件} {#untic mrq1;#untic mrq2;mrx};
-#act {由于你没有找回慕容复丢失的信件} {
-#untic mrq1;#untic mrq2;mrx};
+
+
+#act {由于你成功的找回慕容复写给江湖豪杰的信件} { #act {^内力已满} {mra;}; #untic mrq1;#untic mrq2;fullneili};
+#act {由于你没有找回慕容复丢失的信件} { #untic mrq1;#untic mrq2;mra};
 
 
 #class mra close;

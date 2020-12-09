@@ -25,6 +25,8 @@
 #var fromdir[southwest] northeast;
 #var fromdir[northeast] southwest;
 
+#var shortdir {{east}{e} {west}{w} {north}{n} {south}{s} {northeast}{ne} {northwest}{nw} {southeast}{se} {southwest}{sw} {up}{u} {down}{d} {northup}{nu} {northdown}{nd} {southup}{su} {southdown}{sd} {eastup}{eu} {eastdown}{ed} {westup}{wu} {westdown}{wd} {enter}{enter} {out}{out}};
+
 #var {areas} {
     {1}{牙山}
     {2}{江州}
@@ -49,6 +51,20 @@
     {21}{丐帮}
     {22}{归云庄}
     {23}{张家口}
+    {24}{临安府}
+    {25}{建康府北城}
+    {26}{西湖}
+    {27}{长江}
+    {28}{华山}
+    {29}{北京}
+    {30}{福州}
+    {31}{武当山}
+    {32}{神龙岛}
+    {33}{日月神教}
+    {34}{天龙寺}
+    {35}{少林寺}
+    {36}{丝绸之路}
+    {37}{平西王府}
 };
 
 #var {locations} {
@@ -57,7 +73,12 @@
     {牙山牙山米行} {{牙山}{牙山米行}}
     {牙山牙山湾南路} {{牙山}{牙山湾南路}}
     {星宿星宿海} {{星宿}{星宿海}}
+    {南昌南昌北门} {{南昌}{南昌北门}}
+    {大理城中中心广场} {{大理城}{中心广场}}
+    {平西王府平西王府大门} {{平西王府}{平息王府大门}}
 };
+
+#var badlocations {嘉兴海中|神龙岛男弟子住所|北京厅堂|扬州宝库|归云庄桃树|长江长江岸边|长江长江渡口};
 
 #alias parselocation {
     #var {area} {};
@@ -69,6 +90,10 @@
             #if {"%1" == "$area%*"} {
                 #var area $area;
                 #var location @replace{{%1} {$area} {};};
+                #if {"%1" == "$area$area$location"} {#var location $area$location};
+                #replace area {建康府北城} {建康府};
+                #replace area {西湖} {临安府};
+                #replace area {福州} {闽南};
                 #return;
             };
         };
@@ -77,8 +102,11 @@
 };
 
 #alias setarea {
+    #gag %*;
     #action {^【%%1地图%*】} {#var roomarea %%1; #unaction {^【%*地图%*】}};
+    #action {^[临时存储讯息]} {#ungag %*};
     lm; q;
+    #delay 1 #ungag %*;
 };
 
 #alias maphere {
@@ -99,44 +127,58 @@
     #else { #map roomflag static on};
 };
 
-#var mapdesc {
-    {^    {(?!(「|这里(唯一|明显)的(方向|出口)有)|.*正盘膝坐在地下|.*脸上神色平和，身形凝重，稳如山岳。).*。.*}}{%0}
-    {^    船老大 %1(%*)}{船老大 %1}
-    {^┌───%1─}{%1}
-    {^这条路%1}{这条路%1}
-};
-
-#alias mapaction {
-    #class mapaction open;
-    #action {%1} {%2} 1;
-    #class mapaction close;
-};
-    
 #alias getmapdesc {
     #class mapaction open;
-    #action {^    你可以看看(look):%*<node>} {l <node>};
-    #action {^    你可以看看(look):lupai} {l lupai};
-    #foreach {*mapdesc[%*]} {desc} {mapaction {$desc} {%1 {@@replace{{${mapdesc[$desc]}} {    } {}}}}};
+    #action {^    {(?!(「|一片浓雾中，什么也看不清|这里(唯一|明显)的(方向|出口)有)|.*正盘膝坐在地下|.*脸上神色平和，身形凝重，稳如山岳。).*。$}}{%1 %%0};
     #class mapaction close;
+};
+
+#function parseexit {
+    #if {"%1" != "%*{、|和}%*"} {#return $shortdir[%1]};
+    #elseif {"%1" != "%*、%*"} { 
+        #regexp {%1} {^%!{(.*) 和 (.*)}} {
+            #var tmp {$shortdir[&1];$shortdir[&2]};
+        };
+    };
+    #else { #regexp {%1} {^%!{([^、]+)、(.* 和 .*)}} {#var tmp @parseexit{{&2} {$shortdir[&1]}}; }; };
+    #if {"%2" != ""} {#return {%2;$tmp}};
+    #else {#return $tmp};
 };
 
 #alias loadmap {
     #map goto 1;
     #var roomname {};
+    #var fulldesc {};
     #class loadmap open;
     #gag {^>};
     #gag {^$};
     #action {^%%1 -} {
         #map list {%%1} {variable} {vnums};
-        #if {"%%1" == "%*的储物柜"} {#map goto 644; maphere};  
+        #if {"%%1" == "%*的储物柜"} {#showme <fca>将在离开储物柜后重试。};
         #elseif {&{vnums[]} == 1} {#map goto %%1; maphere};
         #elseif {&{vnums[]} == 0} {#showme <fca>房间不存在，将在移动后重试。};
         #else { 
-            getmapdesc {mg %%1};
-            #delay 1 #class mapaction kill;
+            #class loadmap open;
+            #act {^    %!{这里(唯一|明显)的(方向|出口)有} %%%3。} {
+                #map list {%%1} {} {$fulldesc%*} {variable} {vnums};
+                #if {&{vnums[]} == 1} {#map goto *vnums[+1]; maphere};
+                #else {
+                    #var exits @parseexit{{%%%3}};
+                    #map list {%%1} {$exits} {$fulldesc%*} {variable} {vnums}; 
+                    #if {&{vnums[]} == 1} {#map goto *vnums[+1]; maphere};
+                    #else {
+                        setarea;
+                        #while {"$roomarea" == ""} {#showme <fca>Waiting for roomarea to load!};
+                        #map goto {%%1} {$exits} {$fulldesc%*} {$roomarea};
+                        maphere
+                    };
+                };
+            };
+            #class loadmap close;
+            getmapdesc {builddesc %%1};
         };
     };
-    #action {Room name: %S} {#class mapaction kill; #class loadmap kill;};
+    #action {Room name: %*} {#undelay mg; #class mapaction kill; #class loadmap kill;};
     #class loadmap close;
     #split 10 2;
     #map flag vtmap on;
@@ -166,6 +208,16 @@
     #delay 1 {#class mapaction kill; #class tmp kill;};
 };
 
+
+#alias builddesc {
+    #if {"$fulldesc" == ""} {#var fulldesc %2;};
+    #else {
+       #regexp {$fulldesc} {{.*}%2{.*}} {#return} {#var fulldesc $fulldesc|%2;};
+    };
+    #map list {%1%*} {} {%*%2{(\|.*|)}} {variable} {tmp};
+    #if {&tmp[] == 1} {#map goto *tmp[+1];maphere;};
+};
+
 #alias mapdesc {
     #map get roomdesc roomdesc;
     #if {"$roomdesc" == ""} {#map set roomdesc %1;maphere};
@@ -188,7 +240,7 @@
 #alias mm {#map move %1; mi};
 #alias mg {
     #if {"%1" == "{\d+}"} {#map goto %1};
-    #else {#map goto {%1%*} {} {%*%2%*} {%3%*}};
+    #else {#map goto {%1%*} {} {%*%3%*} {%2%*}};
     maphere;
 };
 
@@ -201,7 +253,7 @@
 
 #alias mapnum {#map flag asciigraphics on; #map flag asciivnums on};
 #alias mapnonum {#map flag unicodegraphics on;};
-#alias mapvoid {#map insert %1 void};
+#alias mapvoid {#map insert %1 void; #map map};
 #alias savemap {#map write map.tt;};
 
 
@@ -389,7 +441,7 @@
 #alias fight-exit {
     #map exit %1 command {
         #class tmp open;
-        #action {%2} {#undelay %*; #delay 1 %1};
+        #action {^{你战胜了%2|%2死了}} {#undelay %*; #delay 1 %1};
         #action {%3} {#map flag nofollow off;#showme <fca>等待结束;#class tmp kill};
         #class tmp close;
         %1;
@@ -422,21 +474,20 @@
 #alias bianli.next {
     #class bianli open;
     #act {到达目标地点：%*} {
-         #showme <fca>当前vnum：*vnums[+$idx];
          #if {$idx >= $vnumsize} {#showme <fca>遍历完成; bianli.stop};
          #else {
-             #showme <fca>1秒后前往下一地点;
              #delay bianli {#math idx {$idx + 1}; bianli.next} {1};
          };
     };
     #class bianli close;
+    #map get roomvnum roomvnum;
     #if {$vnums[+$idx][distance] < 0} {#math idx {$idx + 1}; bianli.next};
-    #else { run *vnums[+$idx];};
+    #elseif{$roomvnum == $vnums[+idx]} {#math idx {$idx + 1}; bianli.next}; 
+    #else {#showme <fca>遍历进度：$idx/$vnumsize; run *vnums[+$idx];};
 };
     
 #alias bianli.stop {
     #undelay bianli;
-    #showme <fca>遍历终止;
     #class bianli kill;
 };
 

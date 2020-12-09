@@ -38,7 +38,8 @@
     #gag {^{[^你]}%*盘膝坐下，运起丹田之气，开始修炼%*......$};
     #gag {^{[^你]}%*正专心地研读%*。$};
     #gag {^{[^你]}%*正专心看着一本厚厚的小说。$};
-    #gag {^{[^你]}%*正专心阅读%*};
+    #gag {^{[^你]}%*正专心{地研读|阅读}%*};
+    #gag {^{[^你]}%*正在专心练习%*。$};
     #class gag close;
 };
 
@@ -167,6 +168,10 @@
 #alias {fska} {#class fska read bot/fska.tt};
 #alias {fskx} {#class fska kill};
 
+#nop 慕容穿插送信;
+#alias {mrsxa} {#class mrsx read bot/mrsx.tt; mrsx.start};
+#alias {mrsxx} {#class mrsx kill; #undelay %*};
+
 #nop 慕容；
 #alias {mra} {#class mra read bot/mra.tt; murong.start};
 #alias {mrx} {#class mra kill; #undelay %*};
@@ -248,16 +253,26 @@
 
 #nop 满内力;
 #alias fullneili {
+    #var fullhp 0;
     #class fullneili open;
     #act {{你运功完毕，深深吸了口气，站了起来。|你现在内力接近圆满状态}} {yun recover; hpbrief;}; 
-    #act {#%!{(\d{6}|.*(K|M))},%d,%%1,%%2,%d,%d} {
-        #showme <fca>%%1,%%2;
-        #if {%%2 >= %%1} {
-            #unact {^#%*,%d,%%%1,%%%2,%d,%d$};
-            #unact {{你运功完毕，深深吸了口气，站了起来。|你现在内力接近圆满状态}};
-            #showme <fca>内力已满;
+    #act {#%!{(\d{5}|.+(K|M))},%!{-?}%d,%d,%!{-?}%d,%d,%d} {
+        #if {$fullhp == 1} {
+            #if {%%5 >= %%4} {
+                #showme <fca>内力已满;
+                #class fullneili kill;
+            };
+            #else {dazuo max};
         };
-        #else {dazuo max};
+    };
+    #act {#%d,%d,%d,%d,%d,%d} {
+        #if {%%1 > %%2} {yun heal; #delay 1 hpbrief};
+        #elseif {%%4 > %%5} {yun inspire; #delay 1 hpbrief};
+        #else {
+            #unact {#%d,%d,%d,%d,%d,%d};
+            #var fullhp 1;
+            hpbrief;
+        };
     };
     #class fullneili close;
     xq;

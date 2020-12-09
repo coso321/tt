@@ -6,28 +6,22 @@
     #map get roomname {lwroomname} {$lwroom};
     #map get roomname {bedroomname} {$bedroom};
     #map get roomvnum roomvnum;
-    #delay 1 {
-        #if {$roomvnum != $bedroom} {
-            #act {^$bedroomname -} {dsaa; #unact {^$$bedroomname -}};
-            #map run {$bedroom} {0.2};
-        };
-        #else {
-            dsaa;
-        };
+    #if {$roomvnum != $bedroom} {
+        #act {^$bedroomname -} {dsaa; #unact {^$$bedroomname -}};
+        #map run {$bedroom} {0.2};
     };
+    #else {
+        dsaa;
+    };
+    
 };
 
-#gag {%*走了过来。$};
-#gag {%*走了进去。$};
-#gag {%*离开。$};
-#gag {%*离去。$};
-#gag {^一道身影出现在场间};
+#gag {^你思索着小说中关于%*{描述|的情节}，对%*有一些新的理解。$};
+#gag {^你已经很累了，歇歇再读吧，身体要紧。$};
 
 #act {^{你运功完毕，深深吸了口气，站了起来。|你将内息走了个小周天，流回丹田，收功站了起来。|你只觉神元归一，全身精力弥漫，无以复加，忍不住长啸一声，徐徐站了起来。|你将真气在体内沿脉络运行了一圈}} {dsaa};
-#act {^你的精神太差，读不下去了。$} {exert regenerate};
+#act {^{你的精神太差，读不下去了。|你已经很累了，歇歇再读吧，身体要紧。}$} {exert regenerate};
 #act {^你的内力不够。} {sleep};
-
-#gag {^你已经很累了，歇歇再读吧，身体要紧};
 
 #act {你正专心看着一本厚厚的小说。} {exert regenerate};
 #act {你正专心阅读%*} {exert regenerate};
@@ -45,7 +39,7 @@
 #act {这里没有这样东西。} {dsx;#show <faa>读书已停止，请随身携带包袱再运行dsa。<099>};
 #act {你的内力已经枯竭，不能施用内功。} {sleep};
 
-#act {^你{刚刚|刚在三分钟内}睡过一觉} { #delay {10} {dsaa;}; };
+#act {^你{刚刚|刚在三分钟内}睡过一觉} {#undelay %*; #delay {10} {dsaa;}; };
 
 #act {你略一凝神，精神看起来好多了。} {#delay 1 dsaa};
 #act {你现在精力充沛。} {#ticker dushu {#unticker dushu;dsaa} {3}};

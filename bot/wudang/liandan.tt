@@ -1,3 +1,4 @@
+#class liandan open;
 #var {liandan.after-handler} {ask-quest}
 
 #alias {liandan-start} {
@@ -27,6 +28,5 @@
     w;w;s;s;s;s;
     ask chongxu about success;
     ${liandan.after-handler};
-    about-me 炼丹任务完成。;
-    #delay 4 {#class {quest-liandan} kill};
 };
+#class liandan close;

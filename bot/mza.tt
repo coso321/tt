@@ -1,8 +1,14 @@
 #class menzhong open;
-
+#prompt {当前进度：%1} {当前进度：%1};
+#ticker look {l} {30};
 #alias {menzhong.start} {
     #map get roomname {menzhongname} {$menzhong};
     #map get roomvnum roomvnum;
+    #class getitem kill;
+    #var killtarget {};
+    #var item {};
+    #var mztype {};
+    #var npc {};
     #if {$roomvnum != $menzhong} {
         #act {^$menzhongname -} {mzaa; #unact {^$$menzhongname -}};
         run $menzhong;
@@ -12,34 +18,209 @@
     };
 };
     
-#alias {menzhong.stop} {#class menzhong kill};
+#alias {menzhong.stop} {#class getitem kill; #class getquest kill; #class menzhong kill};
 
 #alias mzaa {
-    #var killtarget {};
-    #var item {};
-    #var mztype {};
     #class getquest open;
-    #act {%*说道：听说%%1需要%%2} {#var quest %%0; #var mztype deliver; #var item %%2; #var npc %%1; #class getquets kill;}; 
-    #act {%*说道：{你去帮本派找来|这里尚缺些}%%1，} {#var quest %%0; #var mztype item; #var item %%1; #class getquest kill;}; 
-    #act {%*对你说道：%*将%%1{杀|除}掉！} {#var quest %%0; #var mztype kill; #var npc %%1; #class getquest kill;};
-    #act {%*对你说道：%%1散布我派谣言，你去解决了%*！} {#var quest %%0; #var mztype kill; #var npc %%1; #class getquest kill;};
-    #act {%*对你说道：%%1最近有点不知天高地厚，你去给%*点颜色瞧瞧。} {#var quest %%0; #var mztype fight; #var npc %%1; #class getquest kill;};
-
+    #act {%*说道：{你马上去给|听说|正好正好，}%%1{现在急需要|送|需要}%%2{，%*|去。}} {#var quest %%0; #var mztype deliver; #var item %%2; #var npc %%1; mz.deliver; #class getquets kill;}; 
+    #act {%*说道：{本派需要|本派现在需要搜集|本派需要搜集|你去帮本派找来|这里尚缺些|你去给我找来}%%1，} {#var quest %%0; #var mztype item; #var item %%1; mz.item;#class getquest kill;}; 
+    #act {%*说道：%*将%%1{杀|除}掉！} {#var quest %%0; #var mztype kill; #var npc %%1; mz.kill; #class getquest kill;};
+    #act {%*说道：%%1{在武林中耀武扬威|最近太驳我派面子|散布我派谣言|欺压我派中人|最近有点不知天高地厚}%*} {#var quest %%0; #var mztype kill; #var npc %%1; mz.kill; #class getquest kill;};
+    #act {%*说道：%%1{正在比武}%*} {mzf;};
     #class getquest close;
     ask $menzhongnpc about quest;
-    gototarget;
 };
 
-#alias gototarget {
-    #act {^    $npc(%%1)$} {$mztype %%1; #unact {^    $$npc(%%1)$}};
-    #act {^$npc死了。} {mza; #unact {^$$npc};};
-    #if {"$mztype" == "kill" && "$killtarget" == "南昌守门将领"} {run 520};
-    #elseif {"$mztype" == "item"} {
-        #act {当铺 -} {list $item; #unact {当铺 -}};
+#alias mzf {ask $menzhongnpc about cancelquest};
+
+#var ignore-item {红玫瑰|六脉神剑剑谱|无量寿经|雷震挡|大般涅磐经|天山雪莲|手信|大金刚拳法};
+
+#alias mz.item {
+    #showme 当前进度：找物品：$item;
+    #act {^$menzhongname -} {
+        #act {{│| }$item(%%%1)} {
+            #class getitem kill;
+            give @lower{$menzhongnpc} @lower{%%%1}; 
+            #unact {^$$menzhongname -};
+            #unact {{│| }$item(%%%%1)};
+        };
+        i;
+    };
+    #if {"$item" == "{${ignore-item}}"} {#unact {^$$menzhongname -}; ask $menzhongnpc about cancelquest;};
+    #elseif {"$item" == "少林英雄令"} {
+        #class getitem open;
+        #act {^    少林弟子 托钵僧(Tuobo seng)} {give seng 1 gold};
+        #act {^托钵僧给你一块铁铸令牌。} {run $menzhong; };
+        #class getitem close;
+        run 160;
+    };
+    #elseif {"$item" == "水靠"} {
+        #class getitem open;
+        #act {^渔夫把水靠交给了$myname。$} {#delay 1 run $menzhong; #class getitem kill};
+        #act {^虎跳峡 -} {ask yu about 过河; #delay 1 give yu fish};
+        #act {^宝和记 -} {list fish};
+        #act {^你向当铺买下一条鱼。$} {#delay 1 run 虎跳峡;};
+        #act {^│%%1%s│鱼(fish)%s│%*│%d%s│$} { #unact {^│%%%1%s│鱼(fish)%s│%*│%d%s│$};buy %%1;};
+        #class getitem close;
+        run 1071;
+    };
+    #elseif {"$item" == "牢房钥匙"} {
+        #class getitem open;
+        #act {^    崔员外(Cui yuanwai)} {kill cui;};
+        #act {^崔员外死了。} {gc;};
+        #act {^你从崔员外的尸体身上搜出一把牢房钥匙。} {#delay 1 runmz; #class getitem kill;};
+        #class getitem close;
+        run 财主后院;
+    };
+    #else {
+        #class getitem open;
+        #act {当铺 -} {list $item;};
+        #act {^│%%1%s│$item(%%2)%s│%*│%d%s│$} {buy %%1;};
+        #act {^你向当铺买下%*} {#delay 1 {runmz; #class getitem kill}};
+        #class getitem close;
         rundp;
     };
 };
+    
+#alias mz.deliver {
+    #showme 当前进度：送达：$npc $item;
+    #class getitem open;
+    #act {%*$npc(%%1)} {
+        #if {"$npc" != ""} {
+            #class getitem open;
+            #act {{│| }$item(%%%1)} {give @lower{{%%%1}} to @lower{{%%1}}; #unact {{│| }$$item(%%%%1)};;#unact {%*$$npc(%%%1)}};
+            #class getitem close;
+            i;
+        };
+    } {1};
+    #class getitem close;
+    #if {"$item" == "{${ignore-item}}"} {
+        #unact {    %*$npc(%%1)};
+        ask $menzhongnpc about cancelquest;
+    };
+    #elseif {"$npc" == "{媒婆|洪七公|波斯商人}"} {mzf};
+    #elseif {"$npc" == "打铁僧" && "$item" == "烧红的铁锤"} {
+        #class getitem open;
+        #act {^    冯铁匠(Feng)} {kill feng; #unact {^    冯铁匠(Feng)};};
+        #act {^冯铁匠死了。} {gc; #delay 1 run 1982; #unact {^冯铁匠死了。}};
+        #act {^    打铁僧(Datie seng)} {give hot hammer to seng; #unact {^    打铁僧(Datie seng)}};
+        #class getitem close;
+        run 1831;
+    };
+    #elseif {"$npc" == "王铁匠" && "$item" == "烧红的铁锤"} {
+        #class getitem open;
+        #act {^    冯铁匠(Feng)} {kill feng; #unact {^    冯铁匠(Feng)};};
+        #act {^冯铁匠死了。} {gc; #delay 1 run 打铁铺 扬州; #unact {^冯铁匠死了。}};
+        #act {^    打铁僧(Datie seng)} {give hot hammer to seng; #unact {^    打铁僧(Datie seng)}};
+        #class getitem close;
+        run 1831;
+    };
+    #elseif {"$npc" == "裘万家" && "$item" == "竹叶青"} {
+        #class getitem open;
+        #act {^酒店 -} {buy zhuye qing;};
+        #act {^你从沈千盅那里买下了一坛竹叶青。} {run 207;};
+        #class getitem close;
+        run 172;
+    };
+    #elseif {"$npc" == "牧羊人" && "$item" == "长鞭"} {
+        #class getitem open;
+        #act {^│%%1%s│$item(changbian)%s│%*│%d%s│$} { #unact {^│%%%1%s│$item(changbian)%s│%*│%d%s│$};buy %%1;};
+        #act {当铺 -} {list changbian;};
+        #act {^你向当铺买下一柄长鞭。} {run 1960;};
+        #class getitem close;
+        run 150;
+    };
+    #elseif {"$npc" == "药铺伙计" && "$item" == "毒蛇胆"} {
+        #class getitem open;
+        #act {^│%%1%s│$item(%*)%s│%*│%d%s│$} { #unact {^│%%%1%s│$item(%*)%s│%*│%d%s│$};buy %%1;};
+        #act {^当铺 -} {list 毒蛇胆;};
+        #act {^你向当铺买下一只毒蛇胆。} {run 868;};
+        #class getitem close;
+        rundp;
+    };
+    #elseif {"$npc" == "陆大有" && "$item" == "华山剑谱"} {
+        #class getitem open;
+        #act {^│%%1%s│$item(%*)%s│%*│%d%s│$} { #unact {^│%%%1%s│$item(%*)%s│%*│%d%s│$};buy %%1;};
+        #act {^当铺 -} {list 华山剑谱;};
+        #act {^你向当铺买下%*。} {#delay 1 run 1720;};
+        #class getitem close;
+        run 150;
+    };
+    #elseif {"$npc" == "梁发" && "$item" == "华山剑谱"} {
+        #class getitem open;
+        #act {^│%%1%s│$item(%*)%s│%*│%d%s│$} { #unact {^│%%%1%s│$item(%*)%s│%*│%d%s│$};buy %%1;};
+        #act {^当铺 -} {list 华山剑谱;};
+        #act {^你向当铺买下%*。} {#delay 1 run 1723;};
+        #class getitem close;
+        run 150;
+    };
+    #elseif {"$npc" == "书生" && "$item" == "说文解字"} {
+        #class getitem open;
+        #act {^岳麓书院 -} {buy shu};
+        #act {^你从朱熹那里买下了一本说文解字。} {#delay 1 run 1952;};
+        #class getitem close;
+        run 岳麓书院;
+    };
+    #elseif {"$npc" == "李铁嘴" && "$item" == "马屁宝典"} {
+        #class getitem open;
+        #act {^岳麓书院 -} {buy baodian};
+        #act {^你从朱熹那里买下了一本马屁宝典。} {#delay 1 run 玉泉院 华山;};
+        #class getitem close;
+        run 岳麓书院;
+    };
+    #elseif {"$npc" == "游客" && "$item" == "野果"} {
+        #class getitem open;
+        #act {^    %*野果(Ye guo)$} {get guo};
+        #act {^你捡起一颗野果。$} {#delay 1 run 1765;};
+        #class getitem close;
+        run 1703;
+    };
+    #elseif {"$npc" == "渔夫" && "$item" == "鱼"} {
+        #class getitem open;
+        #act {^虎跳峡 -} {give yu fish};
+        #act {^宝和记 -} {list fish};
+        #act {^你向当铺买下一条鱼。$} {run 虎跳峡;};
+        #act {^│%%1%s│鱼(fish)%s│%*│%d%s│$} { #unact {^│%%%1%s│鱼(fish)%s│%*│%d%s│$};buy %%1;};
+        #class getitem close;
+        run 900;
+    };
+    #elseif {"$npc" == "宋远桥" && "$item" == "道德经「第十六章」"} {
+        #class getitem open;
+        #act {当铺 -} {list $item};
+        #act {^你向当铺买下%*。$} {run 三清殿 武当;};
+        #act {^│%%1%s│$item(%*)%s│%*│%d%s│$} { #unact {^│%%%1%s│$$item(%*)%s│%*│%d%s│$};buy %%1;};
+        #class getitem close;
+        rundp;
+    };
+ 
+};
+
+#alias mz.kill {
+    #showme 当前进度：杀人：$npc;
+    #class killnpc open;
+    #act {%*$npc(%%1)} {#if {"$npc" != "" } {kill @lower{{%%1}};};};
+    #act {^$npc死了。} {mza; #unact {^$$npc死了。};#class killnpc kill;#unact {%*$$npc(%%%1)}};
+    #class killnpc close;
+    #if {"$npc" == "{烈火旗众|洪水旗众|壮族青年|巨木旗众|厚土旗众|锐金旗众|号手首领|钹手首领|鼓手首领|巫医|眼镜蛇|七寸子蛇|金环蛇|竹青蛇}"} {#class killnpc kill; ask $menzhongnpc about cancelquest;};
+    #elseif {"$npc" == "舞蛇人"} {run 1898};
+    #elseif {"$npc" == "南昌守门将领"} {run 520};
+    #elseif {"$npc" == "农妇"} {run 2677};
+    #elseif {"$npc" == "小土匪"} {run 1401};
+    #elseif {"$npc" == "小喽罗"} {run 1401};
+    #elseif {"$npc" == "黑老板"} {run 黑店};
+    #elseif {"$npc" == "田伯光"} {run 财主后院};
+    #elseif {"$npc" == "日月教众"} {run 1418};
+    #elseif {"$npc" == "成都士卒"} {run 北门 成都};
+    #elseif {"$npc" == "昆明守城官兵"} {run 2225};
+    #elseif {"$npc" == "花匠"} {run 2817};
+    #elseif {"$npc" == "星宿派号手"} {run 1969};
+    #elseif {"$npc" == "崔员外"} {run 财主后院};
+};
 
 
+#act {%*由衷地向你道谢。} {#delay 1 mza;};
 
+#act {%*说道：恭喜你！你又完成了一项任务！} {#delay 1 mza};
+#act {%*向你叹了口气，说道：算了，看来我不应该让你去做这件事。} {#delay 1 mza};
+#act {%*说道：「%*经验最好再高些，否则没法体现你的忠诚。」} {mzx;dza};
 #class menzhong close;

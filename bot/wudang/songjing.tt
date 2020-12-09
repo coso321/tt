@@ -37,17 +37,17 @@
         #delay 3 sleep;
     };
     set brief 3;
-    #map run {复真观二层} {0.3};
+    #map run {复真观二层} {0.2};
 };
 
 #alias getbook {
+    #class songjing open;
     #action {你先还上图书才能再往外借！} {
         #action {你身上没有 jing 这样东西。} {
             #action {^武当广场} {
                 ask chongxu about cancel;
                 ${songjing.after-handler};
                 #unaction {^武当广场};
-                #class songjing kill;
                 #unaction {你先还上图书才能再往外借！};
                 #unaction {你身上没有 jing 这样东西。};
             };    
@@ -67,6 +67,7 @@
         ask-quest;
     };
     #action {^复真观二层 -} {#unaction {^复真观二层 -};jie $book;};
+    #class songjing close;
     #map run {复真观二层} {0.2};
 };
     
@@ -83,7 +84,7 @@
         findpage;
         #unaction {到达目标地点：$location};
     };
-    #map run {$location} {0.3};
+    #map run {$location} {0.2};
 };
 
 #alias findpage {
@@ -149,7 +150,6 @@
             #unticker fp;
             success-quest;
             ${songjing.after-handler};
-            #class songjing kill;
             #unaction {^武当广场 -};
         } {1};    
         give jing to zhike;
