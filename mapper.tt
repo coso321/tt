@@ -54,7 +54,7 @@
     {24}{临安府}
     {25}{建康府北城}
     {26}{西湖}
-    {27}{长江}
+    {27}{长江北岸}
     {28}{华山}
     {29}{北京}
     {30}{福州}
@@ -65,6 +65,9 @@
     {35}{少林寺}
     {36}{丝绸之路}
     {37}{平西王府}
+    {38}{灵州}
+    {39}{岳王墓}
+    {40}{建康府南城}
 };
 
 #var {locations} {
@@ -75,10 +78,10 @@
     {星宿星宿海} {{星宿}{星宿海}}
     {南昌南昌北门} {{南昌}{南昌北门}}
     {大理城中中心广场} {{大理城}{中心广场}}
-    {平西王府平西王府大门} {{平西王府}{平息王府大门}}
+    {平西王府平西王府大门} {{平西王府}{平西王府大门}}
 };
 
-#var badlocations {北京校场|嘉兴海中|神龙岛男弟子住所|北京厅堂|扬州宝库|归云庄桃树|长江长江岸边|长江长江渡口};
+#var badlocations {桃源黑沼|少林寺竹林|日月神教长廊|少林寺松树林|北京校场|嘉兴海中|神龙岛男弟子住所|北京厅堂|扬州宝库|归云庄桃树|长江长江岸边|长江长江渡口};
 
 #alias parselocation {
     #var {area} {};
@@ -91,6 +94,7 @@
                 #var area $area;
                 #var location @replace{{%1} {$area} {};};
                 #if {"%1" == "$area$area$location"} {#var location $area$location};
+                #replace area {建康府南城} {建康府};
                 #replace area {建康府北城} {建康府};
                 #replace area {西湖} {临安府};
                 #replace area {福州} {闽南};
@@ -105,6 +109,7 @@
     #gag %*;
     #action {^【%%1地图%*】} {#var roomarea %%1; #unaction {^【%*地图%*】}};
     #action {^[临时存储讯息]} {#ungag %*};
+    #action {^Room vnum:} {#ungag %*};
     lm; q;
     #delay 1 #ungag %*;
 };
@@ -167,10 +172,16 @@
                     #map list {%%1} {$exits} {$fulldesc%*} {variable} {vnums}; 
                     #if {&{vnums[]} == 1} {#map goto *vnums[+1]; maphere};
                     #else {
-                        setarea;
-                        #while {"$roomarea" == ""} {#showme <fca>Waiting for roomarea to load!};
-                        #map goto {%%1} {$exits} {$fulldesc%*} {$roomarea};
-                        maphere
+                        #gag %*;
+                        #class setarea open;
+                        #action {^【%%%%1地图%*】} {
+                            #var roomarea %%%%1; #unaction {^【%*地图%*】};
+                            #map goto {%%1} {$exits} {$fulldesc%*} {$roomarea};maphere;#class setarea kill;};
+                        #action {^[临时存储讯息]} {#ungag %*};
+                        #action {^Room vnum:} {#ungag %*};
+                        #class setarea close;
+                        lm; q;
+                        #delay 1 #ungag %*;
                     };
                 };
             };

@@ -5,10 +5,12 @@
 
 #alias mrsx.start {mrsx.sx};
 #alias mrsx.mr {#var mrdone 0; murong.start;};
-#alias mrsx.sx {#var sxdone 0; songxin.start;};
+#alias mrsx.sx {#var sxdone 0; #class mrstart kill; songxin.start;};
 
 #act {你的任务失败}{#untic sxa1;#untic sxa2; #delay 1 mrsx.mr};
 #act {你被奖励了} {#untic sxa1;#untic sxa2; #delay 1 {mrsx.mr}};
+#act {岳不群脸一沉道：「上次交给%*的任务才失败不久，还是等等吧。」} {#delay 1 mrsx.mr};
+#act {^岳不群说道：「%*先下去休息休息吧。」} {#delay 1 mrsx.mr};
 
 #act {由于你成功的找回慕容复写给江湖豪杰的信件} {
     #class checksx open;
@@ -18,6 +20,7 @@
     #untic mrq1;#untic mrq2;jobquery;
 };
 #act {由于你没有找回慕容复丢失的信件} { #untic mrq1;#untic mrq2; #delay 1 mrsx.sx};
+#act {^仆人对着你摇了摇头说：「你刚做过任务，先去休息休息吧。」} {#delay 1 mrsx.sx};
 
 
 

@@ -76,9 +76,9 @@
 #alias {zl} {yun lifeheal $myid};
 #alias {home} {enter $myid};
 #alias {lm} {localmaps};
+#alias {mxp} {#sys sh bot/fullme.sh $link};
 #alias {fm} {
     #nop slink查看mxp链接，termux调用浏览器mxp;
-    #alias {mxp} {#sys termux-open-url $link};
     #class mxp open;
     #act {^http://fullme.pkuxkx.net/robot.php?filename=%%1}
     {

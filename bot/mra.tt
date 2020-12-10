@@ -8,11 +8,13 @@
     #var mrlocation {};
     mraa;
     #map get roomvnum roomvnum;
-    #act {^内力已满} {ne;eat liang; drink jiudai; mraa; #unact {^内力已满};}; 
-    #act {^    姑苏慕容 仆人(Pu ren)} {mraa; #unact {^    姑苏慕容 仆人(Pu ren)$}};
+    #class mrstart open;
+    #act {^内力已满} {eat liang; drink jiudai; ne; mraa; #unact {^内力已满};}; 
+    #act {^到达目标地点：南大街} {fullneili; #unact {^到达目标地点：南大街};};
+    #class mrstart close;
     #if {$roomvnum == 797} {fullneili;};
     #else {
-        run797;
+        run 797;
     };
 };
 
@@ -22,17 +24,27 @@
 
 #alias {mrlocation} {#showme 仆人叹道：家贼难防，有人偷走了少爷的信件，据传曾在『%1』附近出现，你去把它找回来吧};
 
+#act {仆人叹道：家贼难防，有人偷走了少爷的信件，据传曾在以下地点附近出现，你去把它找回来吧！} {
+    #class mxp open;
+    #act {^http://fullme.pkuxkx.net/robot.php?filename=%%1}
+    {
+        #var link {http://fullme.pkuxkx.net/robot.php?filename=%%1};
+        #showme 慕容：等待mxp;
+        #class mxp kill;
+    };
+    #class mxp close;
+};
+
 #act {仆人叹道：家贼难防，有人偷走了少爷的信件，据传曾在『%1』附近出现，你去把它找回来吧} {
-    #if {"%1" == "以下地点"} {mrf};
-    #act {^到达目标地点：$mrlocation} {#map get roomarea roomarea; #if {"$roomarea" == "$mrarea"} {#delay 1 bianli $mrarea;#unact {^到达目标地点：$$mrlocation}; };};
+    #act {^到达目标地点：$mrlocation} {#delay 1 bianli $mrarea;#unact {^到达目标地点：$$mrlocation}; };
     #tic {mrq1} {#echo {%c%h} {light yellow} {慕容信件目标在%1处}} {15};
     #if {"%1" == "{$badlocations}"} {mrf; #delay 180 mra};
     #else {
         parselocation %1;
         #while {"$location" == ""} {#var $location};
         #if {"$location" == "None"} {#showme <fca>未知送信地点};
-        #else {#var mrarea $area; #var mrlocation $location; #showme <fca>慕容信件地点：$area $location; run $location $area};
-        #showme {慕容：$area $location};
+        #else {#var mrarea $area; #var mrlocation $location; run $mrlocation $mrarea};
+        #showme {慕容：$mrarea $mrlocation};
    };
 };
 
@@ -42,6 +54,7 @@
 
 #act {$myname发现的%s慕容世家家贼($capitalid's murong jiazei)} {
     #act {慕容世家家贼死了。} {
+        #showme 慕容：完成;
         #unact {慕容世家家贼死了。};
         #act {^    姑苏慕容 仆人(Pu ren)$} {mrd; #unact {^    姑苏慕容 仆人(Pu ren)$}};
         #delay 1 {

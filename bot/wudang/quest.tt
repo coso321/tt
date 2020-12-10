@@ -47,6 +47,7 @@
 
 
 #action {你向冲虚道长打听有关『quest』的消息。$} {
+    #undelay %*;
     #class xiake kill;
     #class songjing kill;
     #class caiqi kill;

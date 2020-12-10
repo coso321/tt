@@ -89,26 +89,29 @@
 
 #alias run {
     #if {"%1" == ""} {#return};
-    #var wait 0;
     #var target {};
+    #var roomvnum {};
     #var target @gettarget{{%1} {%2} {%3}};
     #while {"$target" == ""} {#var target};
-    #map get roomvnum roomvum;
+    #map get roomvnum roomvnum;
     #if {$target == 0} {#showme <fca>未知地点：%1; #return;};
     #if {$target[vnum] == $roomvnum} {#showme <fca>到达目标地点：$target[name]; #return;};
     set brief 3;
     gaglines;
     walk-event;
-    #act {^$target[name] -} {
-        #unact {^$$target[name] -};
-        #class {walk-location} kill;
-        #class {walk-reverse} kill;
-        #class {wait-event} kill;
-        #class runlocation kill;
-        #class gag kill;
-        set brief 1;
-        #showme <fca>到达目标地点：$target[name];
-        l;
+    #event {MAP ENTER ROOM $target[vnum]} {
+        #act {^$target[name] -} {
+            #unact {^$$target[name] -};
+            #class {walk-location} kill;
+            #class {walk-reverse} kill;
+            #class {wait-event} kill;
+            #class runlocation kill;
+            #class gag kill;
+            set brief 1;
+            #showme <fca>到达目标地点：$target[name];
+            l;
+            #unevent {MAP ENTER ROOM $target[vnum]};
+        };
     };
     #map run {$target[vnum]} {0.05};  
 };

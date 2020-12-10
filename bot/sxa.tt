@@ -39,7 +39,7 @@
         #while {"$location" == ""} {#var $location};
         #if {"$location" == "None"} {#showme <fca>未知送信地点};
         #else {
-            #act {^到达目标地点：$sxlocation} {#map get roomarea roomarea; #if {"$roomarea" == "$sxarea"} {#unact {^到达目标地点：%*}; #delay 1 bianli $sxarea $sxlocation};};
+            #act {^到达目标地点：$sxlocation} {#unact {^到达目标地点：%*}; #delay 1 bianli $sxarea $sxlocation};
             #var sxarea $area; #var sxlocation $location; #showme <fca>送信地点：$sxarea $sxlocation
         };
         l han;
@@ -55,12 +55,6 @@
 };
 
 #act {^岳不群说道：「%*先下去休息休息吧。」} {#delay 30 songxin.start};
-#act {^你的任务完成，快回去复命吧。} {
-    #act {^    武林名宿 华山派掌门「君子剑」岳不群(Yue buqun)} {sxd; #unact {^    武林名宿 华山派掌门「君子剑」岳不群(Yue buqun)}};
-    #undelay %*;
-    #var sxdone 1;
-    #delay 1 runsx;
-};
 
 #act {%*目前在【%1】,快去摁死它吧!} {
   #tic {sxa2} {
@@ -69,7 +63,7 @@
 
 #act {%1仰首狂笑道：「你，把密函给我乖乖交出来吧！」} {
     #class getss open;
-    #act {^%%1笑道：「%*老子来帮你！」} {#var sxbs %%1; #showme <fca>送信帮手：%%1};
+    #act {^%%1笑道：「%*老子来帮你！」} {#var sxbs %%1; #showme <fca>送信帮手：%%1; l};
     #act {^    「%*」$sxss(%%1)} {#var sxssid %%1; #showme <fca>送信杀手id：$sxssid; #delay 1 {#if {"$sxbs" == ""} {#ticker kill {kill @lower{$sxssid}} {5}; kill @lower{$sxssid}; #class getss kill;}}};
     #act {^    「%*」$sxbs(%%1)} {#var sxbsid %%1; #showme <fca>送信帮手id：$sxbsid; kill @lower{$sxbsid}; #if {$sxss != 0} {#class getss kill;}};
     #class getss close;
@@ -88,7 +82,7 @@
     #class getss open;
     #act {^%!{(?!你)}%%1说道：「%*」} {#var sxss %%1; #showme <fca>送信杀手：$sxss;l;#unact {^%%%1说道：「%*」};};
     #act {^%%1笑道：「%*老子来帮你！」} {#var sxbs %%1; #showme <fca>送信帮手：%%1};
-    #act {^    「%*」$sxss(%%1)} {#var sxssid %%1; #showme <fca>送信杀手id：$sxssid; #delay 1 {#if {"$sxbs" == ""} {kill @lower{$sxssid}; #class getss kill;}}};
+    #act {^    「%*」$sxss(%%1)} {#var sxssid %%1; #showme <fca>送信杀手id：$sxssid; #delay 1 {#if {"$sxbs" == ""} {#ticker kill {kill @lower{$sxssid}} {5}; kill @lower{$sxssid}; #class getss kill;}}};
     #act {^    「%*」$sxbs(%%1)} {#var sxbsid %%1; #showme <fca>送信帮手id：$sxbsid; kill @lower{$sxbsid}; #if {$sxss != 0} {#class getss kill;}};
     #class getss close;
     #undelay %*;
@@ -97,23 +91,30 @@
     yun powerup;
 };
 
-#act {^{(?!           收信人：)}%*$npc($npcid)$} { 
-    #act {^你要送给谁？} {#path run};
-    #if {$sxdone == 0} {
-        #path stop; #map get roomarea roomarea; #if {"$roomarea" == "$sxarea%*"} {bianli.stop; sx;} {#path run};
-    };
-};
-
 #act {^$sxss死了} {
     #act {^到达目标地点：$sxlocation} {#map get roomarea roomarea; #if {"$roomarea" == "$sxarea"} {#unact {^到达目标地点：$$sxlocation}; #delay 1 bianli $sxarea;};};
-    get all from corpse; #delay 2 {run $sxlocation $sxarea}
+    #unticker kill; get all from corpse; #delay 2 {run $sxlocation $sxarea}
 };
+
 #act {^$sxbs死了} {get all from corpse; #delay 1 kill @lower{$sxssid};};
+
+#act {^{(?!           收信人：)}%*$npc($npcid)$} { 
+    #act {^你要送给谁？} {#path run};
+    #if {$sxdone == 0} { #path stop; sx; };
+};
+
+#act {^你的任务完成，快回去复命吧。} {
+    #showme 送信：完成;
+    #act {^    武林名宿 华山派掌门「君子剑」岳不群(Yue buqun)} {sxd; #unact {^    武林名宿 华山派掌门「君子剑」岳不群(Yue buqun)}};
+    #undelay %*; bianli.stop; 
+    #var sxdone 1;
+    #delay 2 runsx;
+};
 
 #act {你的任务失败}{
    #untic sxa1;#untic sxa2;sxx};
 
-#act {你被奖励了} {#untic sxa1;#untic sxa2;fullneili;#delay 60 {halt;xq;sxa}};
+#act {你被奖励了} {#untic sxa1;#untic sxa2;#delay 60 {halt;xq;sxa}};
 
 #class sxa close;
 

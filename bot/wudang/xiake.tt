@@ -14,7 +14,7 @@
         wielda;
         #delay 2 {enter; #delay 1 {tufei.start; l}};
     };
-    run 751;
+    e;
     fullneili;
 };
 #action {土匪把路一挡，狞笑道：怎么，想溜，没那么容易！} {#var found 1; kill robber; kill tufei; kill louluo};
@@ -23,6 +23,7 @@
 #action {忽然一阵刺骨的奇寒袭来，你中的星宿毒掌毒发作了！} {#var yuninspire 1};
 
 #alias {tufei.start} {
+    set brief 1;
     #class tufei open;
     #var found 0;
     #var laststep enter;
@@ -87,16 +88,17 @@
 #action {^山寨 -} {xq; tufei.stop; #ticker {move} {w} {5};};
 #action {^竹楼 -} {
     #unticker move;
-    #act {内力已满} {kill ${myid}'s tufeitou;}; 
+    #act {^内力已满} {halt;xq;kill ${myid}'s tufeitou; #unact {^内力已满}}; 
     fullneili;
     #unaction {^竹楼 -}
 };
 
 #action {^$myname的土匪头死了。} {
     #action {^山寨 -} {#unact {^山寨 -}; #ticker move {eu} {5};};
-    #action {^林中小路 -} {#unact {^林中小路}; #unticker move; #ticker move {#delay 2 {reloadmap; #delay 1 run 61}} {5};};
+    #action {^林中小路 -} {#unact {^林中小路 -}; #unticker move; #ticker {move} {#delay 2 {reloadmap; #delay 1 run 61}} {5};};
     #action {^黄土路 -} {
-        #unticker move;   
+        #unaction {^黄土路 -};
+        #unticker move;
         #undelay %*;
         #action {^草屋 -} {
             give cui zhuozi;
@@ -104,14 +106,13 @@
         };
         #delay 1 {
             #map run {752} {0.2};
-            #unaction {^黄土路 -};
         };
     };
     #delay 1 {gc;#delay 2 {e;eu;n;nd;}};
 };
 
 #action {崔老汉紧紧地抓住你的手，老泪纵横，抽泣地说道：『太感谢了！』} {
-    #action {^武当广场 -} {success-quest; ask-quest; #unaction {^武当广场 -};} {1};
+    #action {^    玄武甲士 武当派真人 冲虚道长(Chongxu daozhang)} {success-quest; ask-quest; #unaction {^    玄武甲士 武当派真人 冲虚道长(Chongxu daozhang)};};
     reloadmap; #delay 1 runwd;
 };
 
