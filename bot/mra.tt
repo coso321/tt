@@ -16,6 +16,7 @@
     #else {
         run 797;
     };
+    #showme 慕容：等待开始;
 };
 
 #alias {mraa} {ask pu ren about job};

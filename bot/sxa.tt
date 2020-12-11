@@ -93,10 +93,10 @@
 
 #act {^$sxss死了} {
     #act {^到达目标地点：$sxlocation} {#map get roomarea roomarea; #if {"$roomarea" == "$sxarea"} {#unact {^到达目标地点：$$sxlocation}; #delay 1 bianli $sxarea;};};
-    #unticker kill; get all from corpse; #delay 2 {run $sxlocation $sxarea}
+    #unticker kill; get all from corpse; #delay 3 {run $sxlocation $sxarea}
 };
 
-#act {^$sxbs死了} {get all from corpse; #delay 1 kill @lower{$sxssid};};
+#act {^$sxbs死了} {get all from corpse; #delay 1 {xq; #delay 3 {kill @lower{$sxssid};}};};
 
 #act {^{(?!           收信人：)}%*$npc($npcid)$} { 
     #act {^你要送给谁？} {#path run};

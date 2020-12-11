@@ -6,7 +6,6 @@
     gaglines;
     #var lian 0;
     #var remove 0; 
-    reloadmap;
     getskills;
     #delay 2 {
         #map get roomname {lwroomname} {$lwroom};

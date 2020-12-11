@@ -19,7 +19,7 @@
     #class checksx close;
     #untic mrq1;#untic mrq2;jobquery;
 };
-#act {由于你没有找回慕容复丢失的信件} { #untic mrq1;#untic mrq2; #delay 1 mrsx.sx};
+#act {由于你没有找回慕容复丢失的信件} { #untic mrq1;#untic mrq2; #delay 2 mrsx.sx};
 #act {^仆人对着你摇了摇头说：「你刚做过任务，先去休息休息吧。」} {#delay 1 mrsx.sx};
 
 

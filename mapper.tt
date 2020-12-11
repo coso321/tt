@@ -38,7 +38,7 @@
     {8}{黄河南岸}
     {9}{桃花岛}
     {10}{嘉兴}
-    {11}{大理}
+    {11}{大理城中}
     {12}{泉州}
     {13}{岳阳}
     {14}{镇江}
@@ -68,6 +68,10 @@
     {38}{灵州}
     {39}{岳王墓}
     {40}{建康府南城}
+    {41}{大理}
+    {42}{信阳}
+    {43}{小山村}
+    {44}{峨嵋}
 };
 
 #var {locations} {
@@ -79,6 +83,7 @@
     {南昌南昌北门} {{南昌}{南昌北门}}
     {大理城中中心广场} {{大理城}{中心广场}}
     {平西王府平西王府大门} {{平西王府}{平西王府大门}}
+    {桃源桃源驿站} {{桃源}{桃源驿站}}
 };
 
 #var badlocations {桃源黑沼|少林寺竹林|日月神教长廊|少林寺松树林|北京校场|嘉兴海中|神龙岛男弟子住所|北京厅堂|扬州宝库|归云庄桃树|长江长江岸边|长江长江渡口};
@@ -98,6 +103,8 @@
                 #replace area {建康府北城} {建康府};
                 #replace area {西湖} {临安府};
                 #replace area {福州} {闽南};
+                #replace area {大理城中} {大理};
+                #replace area {小山村} {华山村};
                 #return;
             };
         };
@@ -176,7 +183,8 @@
                         #class setarea open;
                         #action {^【%%%%1地图%*】} {
                             #var roomarea %%%%1; #unaction {^【%*地图%*】};
-                            #map goto {%%1} {$exits} {$fulldesc%*} {$roomarea};maphere;#class setarea kill;};
+                            #map goto {%%1} {$exits} {} {$roomarea};maphere;#class setarea kill;
+                        };
                         #action {^[临时存储讯息]} {#ungag %*};
                         #action {^Room vnum:} {#ungag %*};
                         #class setarea close;
@@ -410,7 +418,7 @@
     #class bianli close;
     #map get roomvnum roomvnum;
     #if {$vnums[+$idx][distance] < 0} {#math idx {$idx + 1}; bianli.next};
-    #elseif{$roomvnum == $vnums[+idx]} {#math idx {$idx + 1}; bianli.next}; 
+    #elseif{$roomvnum == $vnums[+$idx]} {#math idx {$idx + 1}; bianli.next}; 
     #else {#showme <fca>遍历进度：$idx/$vnumsize; run *vnums[+$idx];};
 };
     
