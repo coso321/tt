@@ -72,6 +72,18 @@
     {42}{信阳}
     {43}{小山村}
     {44}{峨嵋}
+    {45}{古墓}
+    {46}{曲阜}
+    {47}{杭州}
+    {48}{桃源}
+    {49}{大轮寺}
+    {50}{荆州}
+    {51}{成都}
+    {52}{昆明}
+    {53}{杀手帮}
+    {54}{洛阳}
+    {55}{苏州}
+    {56}{明教}
 };
 
 #var {locations} {
@@ -84,9 +96,12 @@
     {大理城中中心广场} {{大理城}{中心广场}}
     {平西王府平西王府大门} {{平西王府}{平西王府大门}}
     {桃源桃源驿站} {{桃源}{桃源驿站}}
+    {襄阳荆门} {{荆州}{荆门}}
+    {荆州荆州} {{荆州}{荆州}}
+    {灵州灵州东门} {{灵州}{灵州东门}}
 };
 
-#var badlocations {桃源黑沼|少林寺竹林|日月神教长廊|少林寺松树林|北京校场|嘉兴海中|神龙岛男弟子住所|北京厅堂|扬州宝库|归云庄桃树|长江长江岸边|长江长江渡口};
+#var badlocations {神龙西厢房|天地会暗道|大理城中库房|大轮寺雪谷|北京城墙|杭州提督府小径处|桃源黑沼|少林寺竹林|日月神教长廊|少林寺松树林|北京校场|嘉兴海中|神龙岛男弟子住所|北京厅堂|扬州宝库|归云庄桃树|长江长江岸边|长江长江渡口};
 
 #alias parselocation {
     #var {area} {};
@@ -105,6 +120,7 @@
                 #replace area {福州} {闽南};
                 #replace area {大理城中} {大理};
                 #replace area {小山村} {华山村};
+                #replace area {杭州} {临安府};
                 #return;
             };
         };
@@ -141,7 +157,7 @@
 
 #alias getmapdesc {
     #class mapaction open;
-    #action {^    {(?!(「|一片浓雾中，什么也看不清|这里(唯一|明显)的(方向|出口)有)|.*正盘膝坐在地下|.*脸上神色平和，身形凝重，稳如山岳。).*。$}}{%1 %%0};
+    #action {^    {(?!(「|一片浓雾中，什么也看不清|这里(唯一|明显)的(方向|出口)有)|.*正盘膝坐在地下|.*脸上神色平和，身形凝重，稳如山岳。).*(。|！|？).*}}{%1 %%0};
     #class mapaction close;
 };
 
@@ -400,26 +416,26 @@
 };
 
 #alias bianli {
-    #map list {%2%*} {} {} {%1%*} {variable} {vnums};
+    #map list {%2%*} {} {} {%1%*} {variable} {blvnums};
     #var idx 1;
-    #list vnums size vnumsize;
-    #showme <fca>遍历地点数量：$vnumsize;
+    #list blvnums size blvnumsize;
+    #showme <fca>遍历地点数量：$blvnumsize;
     bianli.next;
 };
 
 #alias bianli.next {
     #class bianli open;
     #act {到达目标地点：%*} {
-         #if {$idx >= $vnumsize} {#showme <fca>遍历完成; bianli.stop};
+         #if {$idx >= $blvnumsize} {#showme <fca>遍历完成; bianli.stop};
          #else {
              #delay bianli {#math idx {$idx + 1}; bianli.next} {1};
          };
     };
     #class bianli close;
     #map get roomvnum roomvnum;
-    #if {$vnums[+$idx][distance] < 0} {#math idx {$idx + 1}; bianli.next};
-    #elseif{$roomvnum == $vnums[+$idx]} {#math idx {$idx + 1}; bianli.next}; 
-    #else {#showme <fca>遍历进度：$idx/$vnumsize; run *vnums[+$idx];};
+    #if {$blvnums[+$idx][distance] < 0} {#math idx {$idx + 1}; bianli.next};
+    #elseif {$roomvnum == *blvnums[+$idx]} {#math idx {$idx + 1}; bianli.next}; 
+    #else {#showme <fca>遍历进度：$idx/$blvnumsize; run *blvnums[+$idx];};
 };
     
 #alias bianli.stop {

@@ -10,7 +10,7 @@
 #nop 断线事件;
 #event {SESSION ACTIVATED}
 {
-	#if {"%0" == "gts"} {#read init.tt}
+	#if {"%0" == "gts"} {#read init.tt; #delay 10 $user;}
 };
 
 #nop 屏蔽连接提示;

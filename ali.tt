@@ -43,7 +43,8 @@
     #class gag close;
 };
 
-#alias logchat { #act {^{【闲聊】|【北侠QQ群】}%*} {#system echo '%%0' >> chat.log};};
+#alias logchat {#log overwrite $user.log; chatwindow};
+#alias chatwindow {#system tmux split -h -c tt -p 30; #sys tmux send-keys "tail -f $user.log | grep --color=never --line-buffered -E '(闲聊|北侠QQ群)'" Enter};
 
 #alias {reloadmap} {#re mapper.tt; loadmap};
 #alias {pda} {#re bot/pda.tt; pingdiao.start};
@@ -70,6 +71,11 @@
 #alias {cf %0} {ask %0 about fail};
 #alias {ls} {look};
 #alias {xq} {yun recover};
+#alias {xqtic} {
+    #act {^{\( 你的内力已经枯竭，不能施用内功。\)|你现在气力充沛。|你深深吸了几口气，脸色看起来好多了。}} {#untick xq;};
+    #ticker {xq} {yun recover} {2};
+    xq
+};
 #alias {yp} {yun powerup};
 #alias {yh} {yun heal};
 #alias {jm} {jiali max};
@@ -191,15 +197,15 @@
 
 #nop 慕容穿插送信;
 #alias {mrsxa} {#class mrsx read bot/mrsx.tt; mrsx.start};
-#alias {mrsxx} {#class sxa kill; #class mra kill; #class mrsx kill; #undelay %*};
+#alias {mrsxx} {sxx; mrx; #class mrsx kill; #undelay %*};
 
 #nop 慕容；
 #alias {mra} {#class mra read bot/mra.tt; murong.start};
-#alias {mrx} {#class mra kill; #undelay %*};
+#alias {mrx} {#class mra kill; #undelay %*; #unticker mr%*;};
 
 #nop 华山送信；
 #alias {sxa} {#class sxa read bot/sxa.tt; songxin.start};
-#alias {sxx} {#class sxa kill; #undelay %*};
+#alias {sxx} {#class sxa kill; #undelay %*; #unticker sx%*};
 
 #nop 天珠;
 #alias {tza} {#class tza read bot/tza.tt};
@@ -281,9 +287,14 @@
         #if {$fullhp == 1} {
             #if {%%5 >= %%4} {
                 #showme <fca>内力已满;
+                #class gag kill;
                 #class fullneili kill;
             };
-            #else {dazuo max};
+            #else {
+                #math dazuohp {$maxhp / 2};
+                gaglines;
+                dazuo $dazuohp;
+            };
         };
     };
     #act {#%d,%d,%d,%d,%d,%d} {
@@ -292,6 +303,7 @@
         #else {
             #unact {#%d,%d,%d,%d,%d,%d};
             #var fullhp 1;
+            #var maxhp %%2;
             hpbrief;
         };
     };

@@ -46,6 +46,8 @@
         success-quest;
         ask-quest;
     };
+    #undelay %*;
+    #path stop;
     reloadmap;
     #delay 3 {
         runwd;

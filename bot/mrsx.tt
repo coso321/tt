@@ -7,8 +7,12 @@
 #alias mrsx.mr {#var mrdone 0; murong.start;};
 #alias mrsx.sx {#var sxdone 0; #class mrstart kill; songxin.start;};
 
-#act {你的任务失败}{#untic sxa1;#untic sxa2; #delay 1 mrsx.mr};
-#act {你被奖励了} {#untic sxa1;#untic sxa2; #delay 1 {mrsx.mr}};
+#act {你的任务失败}{
+    #unact {^到达目标地点%*};
+    #untic sxa1;#untic sxa2; #untic sxnotice; #delay 1 mrsx.mr};
+#act {你被奖励了} {
+    #unact {^到达目标地点%*};
+    #untic sxa1;#untic sxa2; #untic sxnotice; #delay 1 {mrsx.mr}};
 #act {岳不群脸一沉道：「上次交给%*的任务才失败不久，还是等等吧。」} {#delay 1 mrsx.mr};
 #act {^岳不群说道：「%*先下去休息休息吧。」} {#delay 1 mrsx.mr};
 
@@ -17,9 +21,9 @@
     #act {^│[%d]%s│[主]%s│华山送信任务(%d)%s│现在即可接到下个任务。%s│} { #delay 1 {mrsx.sx;#class checksx kill;};};
     #act {^│[%d]%s│[主]%s│华山送信任务(%d)%s│仍需%*才能接到下个任务。%s│} { #delay 1 {mrsx.mr;#class checksx kill;};};
     #class checksx close;
-    #untic mrq1;#untic mrq2;jobquery;
+    #untic mrq1;#untic mrq2;#untic mrnotice;jobquery;
 };
-#act {由于你没有找回慕容复丢失的信件} { #untic mrq1;#untic mrq2; #delay 2 mrsx.sx};
+#act {由于你没有找回慕容复丢失的信件} { #untic mrq1;#untic mrq2;#untic mrnotice; #delay 2 mrsx.sx};
 #act {^仆人对着你摇了摇头说：「你刚做过任务，先去休息休息吧。」} {#delay 1 mrsx.sx};
 
 

@@ -16,7 +16,7 @@
     #else {
         run 797;
     };
-    #showme 慕容：等待开始;
+    #ticker {mrnotice} {#showme 慕容：等待开始;} {1};
 };
 
 #alias {mraa} {ask pu ren about job};
@@ -30,22 +30,21 @@
     #act {^http://fullme.pkuxkx.net/robot.php?filename=%%1}
     {
         #var link {http://fullme.pkuxkx.net/robot.php?filename=%%1};
-        #showme 慕容：等待mxp;
+        #ticker {mrnotice} {#showme 慕容：等待mxp;} {1};
         #class mxp kill;
     };
     #class mxp close;
 };
 
 #act {仆人叹道：家贼难防，有人偷走了少爷的信件，据传曾在『%1』附近出现，你去把它找回来吧} {
-    #act {^到达目标地点：$mrlocation} {#delay 1 bianli $mrarea;#unact {^到达目标地点：$$mrlocation}; };
-    #tic {mrq1} {#echo {%c%h} {light yellow} {慕容信件目标在%1处}} {15};
+    #act {^到达目标地点：$mrlocation} {#if {"$mrlocation" != ""} {#delay 1 bianli $mrarea;};#unact {^到达目标地点：$$mrlocation}; };
     #if {"%1" == "{$badlocations}"} {mrf; #delay 180 mra};
     #else {
         parselocation %1;
         #while {"$location" == ""} {#var $location};
         #if {"$location" == "None"} {#showme <fca>未知送信地点};
         #else {#var mrarea $area; #var mrlocation $location; run $mrlocation $mrarea};
-        #showme {慕容：$mrarea $mrlocation};
+        #ticker {mrnotice} {#showme {慕容：$mrarea $mrlocation};} {1};
    };
 };
 
@@ -55,21 +54,21 @@
 
 #act {$myname发现的%s慕容世家家贼($capitalid's murong jiazei)} {
     #act {慕容世家家贼死了。} {
-        #showme 慕容：完成;
+        #ticker {mrnotice} {#showme 慕容：完成;} {1};
         #unact {慕容世家家贼死了。};
         #act {^    姑苏慕容 仆人(Pu ren)$} {mrd; #unact {^    姑苏慕容 仆人(Pu ren)$}};
         #delay 1 {
             get all from corpse; 
-            #delay 2 {runmrf;};
+            #delay 3 {runmrf;};
         };
     };
-    #undelay %*; bianli.stop; #path stop; follow jiazei;yun powerup;kill jiazei
+    #path stop; #undelay %*; bianli.stop; follow jiazei;yun powerup;kill jiazei
 };
 
 
 
-#act {由于你成功的找回慕容复写给江湖豪杰的信件} {#untic mrq1;#untic mrq2;#delay 3 mraa};
-#act {由于你没有找回慕容复丢失的信件} { #untic mrq1;#untic mrq2;mra};
+#act {由于你成功的找回慕容复写给江湖豪杰的信件} {#untic mrq1;#untic mrq2;#untic mrnotice;#delay 3 mraa};
+#act {由于你没有找回慕容复丢失的信件} { #untic mrq1;#untic mrq2;#untic mrnotice;mra};
 
 
 #class mra close;

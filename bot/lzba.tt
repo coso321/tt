@@ -12,7 +12,7 @@ sc;
 #elseif {"$mymenpai"=="桃花岛"}
 {#2 {draw $wuqi3}};
 #elseif {"$mymenpai"=="武当派"}
-{draw sword; draw sword; draw blade};
+{draw sword; draw blade};
 draw armor;
 draw head;
 draw surcoat;

@@ -2,66 +2,13 @@
 #var changjiang-south {(长江南岸|江州|南昌|苏州|嘉兴|明州|桃花|镇江|泉州|闽南|岳王墓|牙山|临安|建康|岳阳|桃源|归云庄).*};
 #var huanghe-north {(黄河北岸|晋阳|张家口|北京|神龙岛|日月神教|湟中|兰州|星宿|丝绸之路).*};
 
-#var walk-location {
-    {586}{588}
-    {1576}{1578}
-    {1609}{1610}
-    {1695}{1697}
-    {1715}{1692}
-    {2422}{2425}
-};
-
-#var walk-reverse {
-    {587}{585}
-    {1577}{1575}
-    {1610}{1609}
-    {2424}{2422}
-};
-
-
-#alias {wait-event} {
-    #class %4 open;
-    #event {MAP ENTER ROOM %1} {
-        #var wait 1;
-        #class %3 kill;
-        #class wait-event open;
-        #event {MAP ENTER ROOM %2} {
-            #unact {^等待结束};
-            #class wait-event open;
-            #act {^等待结束} {
-                #var wait 0;
-                #undelay %*;
-                #delay 1 {
-                    run $target[vnum];
-                    #unevent {MAP ENTER ROOM %2};
-                };
-            };
-            #class wait-event close;
-            #unevent {MAP ENTER ROOM %1};
-        };
-        #class wait-event close;
-        #path stop; #delay 1 {#path walk; };
-    };
-    #class %4 close;
-};
-
-#alias {walk-event} {
+#act {^{你正要前行，有人大喝：黄河决堤啦，快跑啊！|你刚要前行，忽然发现江水决堤，不由暗自庆幸，还好没过去。}} {
     #class wait-event open;
-    #act {^等待结束} {#undelay %*; #delay 1 #path walk};
-    #act {^{你正要前行，有人大喝：黄河决堤啦，快跑啊！|你刚要前行，忽然发现江水决堤，不由暗自庆幸，还好没过去。}} {
-        #class wait-event open;
-        #act {^这个方向没有出路} {#path stop; #map undo; #delay 10 {run $target[vnum]}};
-        #class wait-event close;
-        #path stop; #map undo; #delay 10 {run $target[vnum]};
-    };
+    #act {^这个方向没有出路} {#path stop; #path get position pos; #map undo; #delay 10 {#path goto $pos; #path run 0.05};} {1};
     #class wait-event close;
-    #foreach {*{walk-location[%*]}} {vnum} {
-        wait-event $vnum ${walk-location[$vnum]} walk-reverse walk-location;
-    };
-    #foreach {*{walk-reverse[%*]}} {vnum} {
-        wait-event $vnum ${walk-reverse[$vnum]} walk-location walk-reverse;
-    };
 };
+
+#act {^你不小心被什么东西绊了一下，差点摔个大跟头。} {#path stop; reloadmap; #delay 2 {run $target[vnum]};};
        
 #function gettarget {
     #var tmp {};
@@ -94,12 +41,9 @@
     #if {$target[vnum] == $roomvnum} {#showme <fca>到达目标地点：$target[name]; #return;};
     set brief 3;
     gaglines;
-    walk-event;
     #event {MAP ENTER ROOM $target[vnum]} {
-        #act {^$target[name] -} {
-            #unact {^$$target[name] -};
-            #class {walk-location} kill;
-            #class {walk-reverse} kill;
+        #act {^{$target[name]|.*储物柜} -} {
+            #unact {^{$$target[name]|.*储物柜} -};
             #class {wait-event} kill;
             #class runlocation kill;
             #class gag kill;
@@ -153,7 +97,7 @@
 
 #alias runth {run 935};
 #alias runhome {run {储物柜} };
-#alias runbk {run {%*{钱庄|票号|银号}}};
+#alias runbk {run {%*{钱庄|票号|银号|鼎泰号}}};
 #alias rundp {#map run {%*{当铺|宝和记}} {0.05}};
 #alias runrbz {#map run {荣宝斋} {0.05}};
 #alias runbt {run 1901};
@@ -165,3 +109,4 @@
 
 #alias runxinyang {run 129 };
 #alias runpx {run 平西王府正厅};
+#alias rungy {run 归云庄大门};
