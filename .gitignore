@@ -4,3 +4,4 @@ reference/*
 users.tt
 *.sw*
 *.log
+logs/*

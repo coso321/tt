@@ -24,7 +24,6 @@
 #alias sx {songxin @lower{$npcid}};
 
 #act {岳不群{对你|}道：%*{交给|送到}%1附近的%2。} {
-    #tic {sxa1} {#echo {%c%h} {light yellow} {华山送信目标在%1附近的%2处}} {15};
     #if {"%1" == "{$badlocations}"} {sxf; #delay 180 sxa};
     #else {
         parselocation %1;
@@ -38,13 +37,12 @@
 };
 
 #act {~岳不群道：%*送到%1\e[33m%2\e[2;37;0m\e[2;37;0m\e[36m附近的%3手中。} {
-  #act {^           收信人：%%1(%%2)} {#var npc %%1; #var npcid %%2; #unact {^           收信人：%%%1(%%%2)};};
   #var sxarea %1;
   #var sxlocation %2;
   l han;
 };
 
-#act {^岳不群说道：「%*先下去休息休息吧。」} {#delay 30 songxin.start};
+#act {岳不群说道：「%*先下去休息休息吧。」} {#delay 30 songxin.start};
 
 #act {%*目前在【%1】,快去摁死它吧!} {
   #tic {sxa2} {
@@ -54,8 +52,7 @@
 #act {^           收信人：%1(%2)} {
     #var npc %1; 
     #var npcid %2;
-    #if {"$npc" == "鼓手首领"} {sxf; #delay 180 songxin.start};
-    #else {e;fullneili};
+    e;fullneili;
     #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 等待杀手;} {1};
 };
 
@@ -70,13 +67,10 @@
     #var sxss %1; 
     #var showme <fca>送信杀手：$sxss;
     #path stop;
-    halt;
     xq;
-    yun powerup;
+    powerup;
     l;
 };
-
-#act {^你对着$sxss吼道：「臭贼！你死期已到，今天就让%*送你上西天吧！」} {#untick kill};
 
 #act {你伸手向怀中一摸，发现密函已经不翼而飞！} {
     #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 杀手;} {1};
@@ -88,28 +82,32 @@
     #class getss close;
     #undelay %*;
     #path stop;
-    halt;
     xq;
     yun powerup;
 };
 
 #act {^$sxss死了} {
     #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 前往目标地点;} {1};
-    #act {^到达目标地点：$sxlocation} {#unact {^到达目标地点：$$sxlocation}; #if {"$sxlocation" != ""} {#delay 1 bianli $sxarea;}};
+    #act {到达目标地点：$sxlocation} {#unact {到达目标地点：$$sxlocation}; #if {"$sxlocation" != ""} {#delay 1 bianli $sxarea;}};
     #unticker kill; get all from corpse; #delay 3 {xq; run $sxlocation $sxarea}
 };
 
-#act {^$sxbs死了} {get all from corpse; #delay 1 {xq; #delay 3 {kill @lower{$sxssid};}};};
+#act {^$sxbs死了} {get all from corpse; #delay 1 {xq; #ticker {kill} {kill @lower{$sxssid};} {5}};};
 
 #act {^{(?!           收信人：)}%*$npc($npcid)$} { 
+    #class sx open;
     #act {^你要送给谁？} {#path run};
+    #act {^你正忙着呢。} {#delay 1 sx};
+    #class sx close;
     #if {$sxdone == 0} { #path stop; sx; };
 };
 
 #act {^你的任务完成，快回去复命吧。} {
+    #class sx kill;
     #ticker {sxnotice} {#showme 送信：完成;} {1};
     #act {^    武林名宿 华山派掌门「君子剑」岳不群(Yue buqun)} {sxd; #unact {^    武林名宿 华山派掌门「君子剑」岳不群(Yue buqun)}};
-    #undelay %*; bianli.stop; 
+    #undelay %*;
+    bianli.stop; 
     #var sxdone 1;
     #delay 2 runsx;
 };

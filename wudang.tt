@@ -33,6 +33,7 @@
     set brief 1;
     #class waiting kill;
     #class wdquest kill;
+    #undelay %*;
 };
 
 #act {^你在攻击中不断积蓄攻势。(气势：%d} {
@@ -40,16 +41,17 @@
 };
 
 
-#alias lifepfm {pchan; #delay 2 perform dodge.zong};
-#alias powerup {yun powerup;};
+#alias lifepfm {pchan;};
+#alias powerup {yun powerup; perform dodge.zong};
 
 #act {( 只听见「啪」地一声，你手中的%*已经断为两截！ )} { wield sword};
+#act {%*卸除了你的兵器%*剑。} {wield sword; wield sword 2};
 
-#alias wields {unwield all; wield sword; #delay 1 wield blade}
-#alias wielda {unwield all; wield sword; #delay 1 wield blade}
-#alias pchan {wield sword; perform sword.chan};
-#alias plian {wield sword; perform sword.lian};
-#alias pzhen {unwield all; perform cuff.zhen; wield sword; #delay 1 wield blade;};
+#alias wields {wield sword; wield blade;}
+#alias wielda {wield sword; wield blade;}
+#alias pchan {wielda; perform sword.chan};
+#alias plian {wielda; perform sword.lian};
+#alias pzhen {unwield all; perform cuff.zhen;};
 #alias pzong {perform dodge.zong};
 #class wudang close;
 

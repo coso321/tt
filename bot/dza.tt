@@ -3,17 +3,15 @@
 #alias {dazuo.start} {
     set brief 3;
     gaglines;
-    #delay 2 {
-        #map get roomname {lwroomname} {$lwroom};
-        #map get roomname {bedroomname} {$bedroom};
-        maphere;
-        #if {$roomvnum != $bedroom} {
-            #act {^$bedroomname -} {dzaa; #unact {^$$bedroomname -}};
-            #map run {$bedroom} {0.2};
-        };
-        #else {
-            dzaa;
-        };
+    #map get roomname {lwroomname} {$lwroom};
+    #map get roomname {bedroomname} {$bedroom};
+    #map get roomvnum roomvnum;
+    #if {$roomvnum != $bedroom} {
+        #act {^$bedroomname -} {dzaa; #unact {^$$bedroomname -}};
+        #map run {$bedroom} {0.2};
+    };
+    #else {
+        dzaa;
     };
 };
 

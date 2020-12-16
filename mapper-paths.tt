@@ -31,6 +31,7 @@
 };
 
 #alias run {
+    #unevent {MAP ENTER ROOM %*};
     #if {"%1" == ""} {#return};
     #var target {};
     #var roomvnum {};
@@ -38,22 +39,28 @@
     #while {"$target" == ""} {#var target};
     #map get roomvnum roomvnum;
     #if {$target == 0} {#showme <fca>未知地点：%1; #return;};
-    #if {$target[vnum] == $roomvnum} {#showme <fca>到达目标地点：$target[name]; #return;};
-    set brief 3;
-    gaglines;
-    #event {MAP ENTER ROOM $target[vnum]} {
-        #act {^{$target[name]|.*储物柜} -} {
-            #unact {^{$$target[name]|.*储物柜} -};
-            #class {wait-event} kill;
-            #class runlocation kill;
-            #class gag kill;
-            set brief 1;
-            #showme <fca>到达目标地点：$target[name];
-            l;
-            #unevent {MAP ENTER ROOM $target[vnum]};
+    #elseif {$target[vnum] == $roomvnum} {#showme <fca>到达目标地点：$target[name]; #return;};
+    #else {
+        set brief 3;
+        gaglines;
+        #event {MAP ENTER ROOM $target[vnum]} {
+            #var targetname $target[name];
+            #replace targetname {(} {\(};
+            #replace targetname {)} {\)};
+            #act {^{$targetname|.*储物柜} -} {
+                #unact {^{$$targetname|.*储物柜} -};
+                #class {wait-event} kill;
+                #class runlocation kill;
+                #class gag kill;
+                set brief 1;
+                #showme <fca>到达目标地点：$target[name];
+                #path destroy;
+                l;
+                #unevent {MAP ENTER ROOM $target[vnum]};
+            };
         };
+        #map run {$target[vnum]} {0.05};  
     };
-    #map run {$target[vnum]} {0.05};  
 };
 
 #alias runtl {run 1719};
@@ -82,6 +89,7 @@
 #alias runlanzhou {run 府前广场 兰州};
 #alias runlj {run 1616};
 #alias runsl {run 1300};
+#alias runshenlong {run 客厅 神龙};
 
 #alias runqz {run 960};
 #alias runla {run 1091};
@@ -110,3 +118,4 @@
 #alias runxinyang {run 129 };
 #alias runpx {run 平西王府正厅};
 #alias rungy {run 归云庄大门};
+#alias runem {run 广场 峨嵋};

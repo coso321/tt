@@ -14,7 +14,7 @@
     #unact {^到达目标地点%*};
     #untic sxa1;#untic sxa2; #untic sxnotice; #delay 1 {mrsx.mr}};
 #act {岳不群脸一沉道：「上次交给%*的任务才失败不久，还是等等吧。」} {#delay 1 mrsx.mr};
-#act {^岳不群说道：「%*先下去休息休息吧。」} {#delay 1 mrsx.mr};
+#act {岳不群说道：「%*先下去休息休息吧。」} {#delay 1 mrsx.mr};
 
 #act {由于你成功的找回慕容复写给江湖豪杰的信件} {
     #class checksx open;

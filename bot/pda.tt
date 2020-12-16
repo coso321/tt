@@ -2,7 +2,7 @@
 
 #alias pingdiao.start {
     #act {^岳  飞  墓 -} {pingdiao;#unact {^岳  飞  墓 -}};
-    maphere;
+    #map get roomvnum roomvnum;
     #if ${$roomvnum != 831} {
         runywm;
     } {

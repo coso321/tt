@@ -9,21 +9,21 @@
     mraa;
     #map get roomvnum roomvnum;
     #class mrstart open;
-    #act {^内力已满} {eat liang; drink jiudai; ne; mraa; #unact {^内力已满};}; 
-    #act {^到达目标地点：南大街} {fullneili; #unact {^到达目标地点：南大街};};
+    #act {^内力已满} {eat liang; drink jiudai; ne; mraa; #class mrstart kill;}; 
+    #act {到达目标地点：南大街} {fullneili; #unact {^到达目标地点：南大街};};
+    #ticker {mrnotice} {#showme 慕容：等待开始;} {1};
     #class mrstart close;
     #if {$roomvnum == 797} {fullneili;};
     #else {
         run 797;
     };
-    #ticker {mrnotice} {#showme 慕容：等待开始;} {1};
 };
 
 #alias {mraa} {ask pu ren about job};
 #alias  {mrd} {give pu xin};
 #alias  {mrf} {ask pu ren about fail};
 
-#alias {mrlocation} {#showme 仆人叹道：家贼难防，有人偷走了少爷的信件，据传曾在『%1』附近出现，你去把它找回来吧};
+#alias {mrlocation} {#split 10 2; #showme 仆人叹道：家贼难防，有人偷走了少爷的信件，据传曾在『%1』附近出现，你去把它找回来吧};
 
 #act {仆人叹道：家贼难防，有人偷走了少爷的信件，据传曾在以下地点附近出现，你去把它找回来吧！} {
     #class mxp open;
@@ -62,7 +62,7 @@
             #delay 3 {runmrf;};
         };
     };
-    #path stop; #undelay %*; bianli.stop; follow jiazei;yun powerup;kill jiazei
+    #path stop; #undelay %*; bianli.stop; follow jiazei;powerup;kill jiazei
 };
 
 
@@ -70,6 +70,7 @@
 #act {由于你成功的找回慕容复写给江湖豪杰的信件} {#untic mrq1;#untic mrq2;#untic mrnotice;#delay 3 mraa};
 #act {由于你没有找回慕容复丢失的信件} { #untic mrq1;#untic mrq2;#untic mrnotice;mra};
 
+#act {^仆人忙着呢，等会吧。} {#delay 1 give letter to pu ren};
 
 #class mra close;
 

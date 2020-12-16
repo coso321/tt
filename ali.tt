@@ -43,8 +43,8 @@
     #class gag close;
 };
 
-#alias logchat {#log overwrite $user.log; chatwindow};
-#alias chatwindow {#system tmux split -h -c tt -p 30; #sys tmux send-keys "tail -f $user.log | grep --color=never --line-buffered -E '(闲聊|北侠QQ群)'" Enter};
+#alias log {#log append logs/$user.log;};
+#alias chatwindow {#system tmux split -h -c tt -p 30; #sys tmux send-keys "tail -f logs/$user.log | grep --color=never --line-buffered -E '(闲聊|北侠QQ群)'" Enter; #sys tmux select-pane -t 1};
 
 #alias {reloadmap} {#re mapper.tt; loadmap};
 #alias {pda} {#re bot/pda.tt; pingdiao.start};
@@ -72,7 +72,9 @@
 #alias {ls} {look};
 #alias {xq} {yun recover};
 #alias {xqtic} {
-    #act {^{\( 你的内力已经枯竭，不能施用内功。\)|你现在气力充沛。|你深深吸了几口气，脸色看起来好多了。}} {#untick xq;};
+    #class xq open;
+    #act {^{\( 你的内力已经枯竭，不能施用内功。\)|你现在气力充沛。|你深深吸了几口气，脸色看起来好多了。}} {#untick xq; #class xq kill};
+    #class xq open;
     #ticker {xq} {yun recover} {2};
     xq
 };
@@ -82,7 +84,7 @@
 #alias {zl} {yun lifeheal $myid};
 #alias {home} {enter $myid};
 #alias {lm} {localmaps};
-#alias {mxp} {#sys sh bot/fullme.sh $link};
+#alias {mxp} {#sys sh bot/fullme.sh $link; loadmap};
 #alias {fm} {
     #nop slink查看mxp链接，termux调用浏览器mxp;
     #class mxp open;
@@ -197,7 +199,7 @@
 
 #nop 慕容穿插送信;
 #alias {mrsxa} {#class mrsx read bot/mrsx.tt; mrsx.start};
-#alias {mrsxx} {sxx; mrx; #class mrsx kill; #undelay %*};
+#alias {mrsxx} {sxx; mrx; #class mrsx kill; #undelay %*; #untick mr%*; #untick sx%*};
 
 #nop 慕容；
 #alias {mra} {#class mra read bot/mra.tt; murong.start};

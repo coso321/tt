@@ -13,7 +13,7 @@
         #var idx 1;
         #list skills get $idx lwname;
         #list skills size numskills;
-        maphere;
+        #map get roomvnum roomvnum;
         #if {$roomvnum != $lwroom} {
             #act {^$lwroomname -} {lwaa; #unact {^$$lwroomname -}};
             run {$lwroom} {0.2};
@@ -116,8 +116,9 @@
 
 #act {^你的太极拳火候太浅。} {
     #list skills find cuff tmp;
-    #if {$tmp == 0 || $remove == 1} {#var lian 0; removeskill};
+    #if {$tmp == 0 && $remove == 1} {#var lian 0; removeskill};
     #elseif {$idx < $numskills && $tmp > 0} {
+        #if {$remove == 1} {#var lian 0};
         #var remove 0;
         #math idx {$idx + 1};
         #list skills get $idx lwname;

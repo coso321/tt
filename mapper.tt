@@ -101,7 +101,7 @@
     {灵州灵州东门} {{灵州}{灵州东门}}
 };
 
-#var badlocations {神龙西厢房|天地会暗道|大理城中库房|大轮寺雪谷|北京城墙|杭州提督府小径处|桃源黑沼|少林寺竹林|日月神教长廊|少林寺松树林|北京校场|嘉兴海中|神龙岛男弟子住所|北京厅堂|扬州宝库|归云庄桃树|长江长江岸边|长江长江渡口};
+#var badlocations {丝绸之路大沙漠|日月神教成德殿门|神龙岛潜龙堂|神龙岛西厢房|天地会暗道|大理城中库房|大轮寺雪谷|北京城墙|杭州提督府小径处|桃源黑沼|少林寺竹林|日月神教长廊|少林寺松树林|北京校场|嘉兴海中|神龙岛男弟子住所|北京厅堂|扬州宝库|归云庄桃树|长江长江岸边|长江长江渡口};
 
 #alias parselocation {
     #var {area} {};
@@ -137,7 +137,7 @@
     #delay 1 #ungag %*;
 };
 
-#alias maphere {
+#alias roominfo {
     #map get roomvnum roomvnum;
     #map get roomname roomname;
     #map get roomarea roomarea;
@@ -183,23 +183,23 @@
     #action {^%%1 -} {
         #map list {%%1} {variable} {vnums};
         #if {"%%1" == "%*的储物柜"} {#showme <fca>将在离开储物柜后重试。};
-        #elseif {&{vnums[]} == 1} {#map goto %%1; maphere};
+        #elseif {&{vnums[]} == 1} {#map goto %%1; roominfo};
         #elseif {&{vnums[]} == 0} {#showme <fca>房间不存在，将在移动后重试。};
         #else { 
             #class loadmap open;
             #act {^    %!{这里(唯一|明显)的(方向|出口)有} %%%3。} {
                 #map list {%%1} {} {$fulldesc%*} {variable} {vnums};
-                #if {&{vnums[]} == 1} {#map goto *vnums[+1]; maphere};
+                #if {&{vnums[]} == 1} {#map goto *vnums[+1]; roominfo};
                 #else {
                     #var exits @parseexit{{%%%3}};
                     #map list {%%1} {$exits} {$fulldesc%*} {variable} {vnums}; 
-                    #if {&{vnums[]} == 1} {#map goto *vnums[+1]; maphere};
+                    #if {&{vnums[]} == 1} {#map goto *vnums[+1]; roominfo};
                     #else {
                         #gag %*;
                         #class setarea open;
                         #action {^【%%%%1地图%*】} {
                             #var roomarea %%%%1; #unaction {^【%*地图%*】};
-                            #map goto {%%1} {$exits} {} {$roomarea};maphere;#class setarea kill;
+                            #map goto {%%1} {$exits} {} {$roomarea};roominfo;#class setarea kill;
                         };
                         #action {^[临时存储讯息]} {#ungag %*};
                         #action {^Room vnum:} {#ungag %*};
@@ -250,14 +250,14 @@
        #regexp {$fulldesc} {{.*}%2{.*}} {#return} {#var fulldesc $fulldesc|%2;};
     };
     #map list {%1%*} {} {%*%2{(\|.*|)}} {variable} {tmp};
-    #if {&tmp[] == 1} {#map goto *tmp[+1];maphere;};
+    #if {&tmp[] == 1} {#map goto *tmp[+1];roominfo;};
 };
 
 #alias mapdesc {
     #map get roomdesc roomdesc;
-    #if {"$roomdesc" == ""} {#map set roomdesc %1;maphere};
+    #if {"$roomdesc" == ""} {#map set roomdesc %1;roominfo};
     #else {
-       #regexp {$roomdesc} {{.*}%1{.*}} {maphere} {#map set roomdesc $roomdesc|%1; maphere};
+       #regexp {$roomdesc} {{.*}%1{.*}} {roominfo} {#map set roomdesc $roomdesc|%1; roominfo};
     };
 };
 
@@ -268,7 +268,7 @@
     } {
         #map set roomnote $roomnote|%1;
     };
-    maphere;
+    roominfo;
 };
 
 #alias mi {#map info};
@@ -276,13 +276,13 @@
 #alias mg {
     #if {"%1" == "{\d+}"} {#map goto %1};
     #else {#map goto {%1%*} {} {%*%3%*} {%2%*}};
-    maphere;
+    roominfo;
 };
 
 #alias ml {#map list {%*%1%*} {} {%*%3%*} {%2%*}};
 #alias mldesc {#map list {%*} {} {%*%1%*}};
 #alias mlarea {
-    #if {"%1" == ""} {maphere; #if {"$roomarea" != "" } {mlarea $roomarea}} {#map list {%*} {} {} {%1%*}};
+    #if {"%1" == ""} {roominfo; #if {"$roomarea" != "" } {mlarea $roomarea}} {#map list {%*} {} {} {%1%*}};
 };
 #alias mlnote {#map list {%*} {} {} {} {%*%1%*}};
 
@@ -428,7 +428,7 @@
     #act {到达目标地点：%*} {
          #if {$idx >= $blvnumsize} {#showme <fca>遍历完成; bianli.stop};
          #else {
-             #delay bianli {#math idx {$idx + 1}; bianli.next} {1};
+             #delay bianli {#math idx {$idx + 1}; bianli.next} {0.5};
          };
     };
     #class bianli close;
