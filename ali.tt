@@ -44,7 +44,7 @@
 };
 
 #alias log {#log append logs/$user.log;};
-#alias chatwindow {#system tmux split -h -c tt -p 30; #sys tmux send-keys "tail -f logs/$user.log | grep --color=never --line-buffered -E '(闲聊|北侠QQ群)'" Enter; #sys tmux select-pane -t 1};
+#alias chatwindow {#system tmux split -h -c tt -p 30; #sys tmux send-keys "tail -f logs/$user.log | grep --color=never --line-buffered -E '(【闲聊】|【北侠QQ群】)'" Enter; #sys tmux select-pane -t 1};
 
 #alias {reloadmap} {#re mapper.tt; loadmap};
 #alias {pda} {#re bot/pda.tt; pingdiao.start};

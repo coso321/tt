@@ -24,7 +24,7 @@
     };
 };
 
-#alias {lingwu.stop} {set brief 1; #class gag kill; #class lwa kill;};
+#alias {lingwu.stop} {set brief 1; #unticker look; #class gag kill; #class lwa kill;};
 
 
 #alias getskills {

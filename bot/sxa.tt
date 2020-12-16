@@ -24,7 +24,7 @@
 #alias sx {songxin @lower{$npcid}};
 
 #act {岳不群{对你|}道：%*{交给|送到}%1附近的%2。} {
-    #if {"%1" == "{$badlocations}"} {sxf; #delay 180 sxa};
+    #if {"%1" == "{$badlocations}"} {sxf;};
     #else {
         parselocation %1;
         #while {"$location" == ""} {#var $location};
@@ -67,50 +67,77 @@
 };
 
 #act {%1仰首狂笑道：「你，把密函给我乖乖交出来吧！」} {
-    #act {$sxss死了} {
-        #unact {$$sxss死了};
+    #undelay %*;
+    #path stop;
+    #var sxss %1; 
+    #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 杀手;} {1};
+
+    #class getss open;
+    #act {^%%1笑道：「%*老子来帮你！」} {
+        #var sxbs %%1;
+        #act {$sxbs死了} {get all from corpse; #ticker {kill} {kill @lower{$sxssid};} {5}; #delay 1 {xq;}; #unact {$$sxbs死了}};
+        #act {^    「%*」$sxbs(%%%1)} {#unact {    「%*」$$sxbs(%%%%1)}; #var sxbsid %%%1; kill @lower{$sxbsid}; #if {$sxss != 0} {#class getss kill;}};
+        l;
+    };
+    #act {^    「%*」$sxss(%%1)} {
+        #var sxssid %%1;
+        #delay 1 {
+            #if {"$sxbs" == ""} {
+                #ticker kill {kill @lower{$sxssid}} {5}; 
+                kill @lower{$sxssid};
+                #class getss kill;
+            }
+        }
+    };
+    #class getss close;
+
+    #act {^$sxss死了} {
+        #unact {^$$sxss死了};
         #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 前往目标地点;} {1};
         #act {到达目标地点：$sxlocation} {#unact {到达目标地点：$$sxlocation}; #if {"$sxlocation" != ""} {#delay 1 bianli $sxarea;}};
         #unticker kill; get all from corpse; #delay 3 {xq; run $sxlocation $sxarea}
     };
-    #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 杀手;} {1};
-    #class getss open;
-    #act {^%%1笑道：「%*老子来帮你！」} {
-        #act {$sxbs死了} {get all from corpse; #ticker {kill} {kill @lower{$sxssid};} {5}; #delay 1 {xq;}; #unact {$$sxbs死了}};
-        #act {^    「%*」$sxbs(%%1)} {#var sxbsid %%1; #showme <fca>送信帮手id：$sxbsid; kill @lower{$sxbsid}; #if {$sxss != 0} {#class getss kill;}};
-        #var sxbs %%1; #showme <fca>送信帮手：%%1; l
-    };
-    #act {^    「%*」$sxss(%%1)} {#var sxssid %%1; #showme <fca>送信杀手id：$sxssid; #delay 1 {#if {"$sxbs" == ""} {#ticker kill {kill @lower{$sxssid}} {5}; kill @lower{$sxssid}; #class getss kill;}}};
-    #class getss close;
-    #undelay %*;
-    #var sxss %1; 
-    #var showme <fca>送信杀手：$sxss;
-    #path stop;
+
     xq;
     powerup;
     l;
+
 };
 
 #act {你伸手向怀中一摸，发现密函已经不翼而飞！} {
-    #act {$sxss死了} {
-        #unact {$$sxss死了};
-        #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 前往目标地点;} {1};
-        #act {到达目标地点：$sxlocation} {#unact {到达目标地点：$$sxlocation}; #if {"$sxlocation" != ""} {#delay 1 bianli $sxarea;}};
-        #unticker kill; get all from corpse; #delay 3 {xq; run $sxlocation $sxarea}
-    };
-
-    #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 杀手;} {1};
-    #class getss open;
-    #act {^%!{(?!你)}%%1说道：「%*」} {#var sxss %%1; #showme <fca>送信杀手：$sxss;l;#unact {^%%%1说道：「%*」};};
-    #act {^%%1笑道：「%*老子来帮你！」} {
-        #act {$sxbs死了} {get all from corpse; #ticker {kill} {kill @lower{$sxssid};} {5}; #delay 1 {xq;}; #unact {$$sxbs死了}};
-        #var sxbs %%1; #showme <fca>送信帮手：%%1
-    };
-    #act {^    「%*」$sxss(%%1)} {#var sxssid %%1; #showme <fca>送信杀手id：$sxssid; #delay 1 {#if {"$sxbs" == ""} {#ticker kill {kill @lower{$sxssid}} {5}; kill @lower{$sxssid}; }; #class getss kill;}};
-    #act {^    「%*」$sxbs(%%1)} {#var sxbsid %%1; #showme <fca>送信帮手id：$sxbsid; kill @lower{$sxbsid}; #if {$sxss != 0} {#class getss kill;}};
-    #class getss close;
     #undelay %*;
     #path stop;
+    #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 杀手;} {1};
+    #class getss open;
+    #act {^%!{(?!你)}%%1说道：「%*」} {
+        #act {^    「%*」$sxss(%%%1)} {
+            #unact {^    「%*」$$sxss(%%%%1)};
+            #var sxssid %%%1;
+            #delay 1 {#if {"$sxbs" == ""} {#ticker kill {kill @lower{$sxssid}} {5}; kill @lower{$sxssid}; }; #class getss kill;}
+        };
+        #act {$sxss死了} {
+            #unact {$$sxss死了};
+            #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 前往目标地点;} {1};
+            #act {到达目标地点：$sxlocation} {#unact {到达目标地点：$$sxlocation}; #if {"$sxlocation" != ""} {#delay 1 bianli $sxarea;}};
+            #unticker kill; get all from corpse; #delay 3 {xq; run $sxlocation $sxarea}
+        };
+
+        #var sxss %%1;
+        l;
+        #unact {^%!{(?!你)}%%%1说道：「%*」};
+    };
+    #act {^%%1笑道：「%*老子来帮你！」} {
+        #act {^    「%*」$sxbs(%%%1)} {
+            #unact {^    「%*」$$sxbs(%%%%1)};
+            #var sxbsid %%%1; 
+            kill @lower{$sxbsid}; 
+            #if {$sxss != 0} {#class getss kill;}
+        };
+        #act {^$sxbs死了} {get all from corpse; #ticker {kill} {kill @lower{$sxssid};} {5}; #delay 1 {xq;}; #unact {^$$sxbs死了}};
+        #var sxbs %%1;
+        l;
+    };
+    #class getss close;
     xq;
     yun powerup;
 };

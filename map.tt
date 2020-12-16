@@ -18,7 +18,7 @@ F 274
 
 G 0
 
-I 3400
+I 618
 
 L {ASCII NESW LINE} {NO EXITS} {x}
 L {ASCII NESW LINE} {N} {o}
@@ -216,7 +216,7 @@ L {MUDFONT CURVED} {N E} {\u2818}
 L {MUDFONT CURVED} {S E} {\u28A0}
 L {MUDFONT CURVED} {S W} {\u2844}
 L {MUDFONT CURVED} {N W} {\u2803}
-L {UNICODE GRAPHICS} {NO DIAGONAL} { }
+L {UNICODE GRAPHICS} {NO DIAGONAL} {}
 L {UNICODE GRAPHICS} {SE} {\u2E0C}
 L {UNICODE GRAPHICS} {NE} {\u2E1D}
 L {UNICODE GRAPHICS} {SE NE} {>}
@@ -2863,7 +2863,7 @@ R {  617} {4616} {} {} { } {} {} {} {} {} {1.000} {}
 E {  770} {d} {d} {32} {0} {} {1.000} {} {0.00}
 E {  811} {u} {u} {16} {0} {} {1.000} {} {0.00}
 
-R {  618} {0} {} {} { } {} {} {} {} {} {1.000} {}
+R {  618} {0} {} {黄河北岸} { } {这里是黄河北岸，滚滚黄河一刻不停地奔腾东去。} {黄河北岸} {} {} {} {1.000} {}
 E {  616} {w} {w} {8} {0} {} {1.000} {} {0.00}
 E {  619} {ne} {ne} {3} {0} {} {1.000} {} {0.00}
 
@@ -7134,16 +7134,16 @@ E { 2582} {nw} {#path stop; #path save forward tmp; #path get position pos; #mat
 E { 2583} {sw} {#path stop; #path save forward tmp; #path get position pos; #math pos {$pos - 1}; #class tmp open; #act {^皇城禁地，闲人免入！} {#map undo; #map run 427;}; #act {^你缴纳了一两黄金后，郭隆递给你一面皇城通行令，凭令可以在一天内在皇城内通行无阻。} {#class tmp open;#act {^延喜门 -} {#path load tmp; #path goto $pos; #path run 0.05; #class tmp kill;};#class tmp close; #map run 1646;}; #act {^京兆府侧厅 -} {ask shaoyin about 通行令;}; #act {^承天门横街 -} {#path run; #class tmp kill}; #class tmp close; sw} {12} {0} {} {1.000} {} {0.00}
 
 R { 1647} {0} {} {金牛道} { } {蜀道难行，自古有云：蜀道难，难于上青天。} {成都} {} {} {} {1.000} {}
-E { 1456} {nd} {#path stop; #path get position pos; #class tmp open;#action {你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。} {#map undo; #delay 1 nd};#action {^汉中 -} {#path goto $pos; #path run 0.05; #class tmp kill};#class tmp close;nd;} {33} {0} {} {1.000} {} {0.00}
-E { 1648} {sw} {#path stop; #path get position pos; #class tmp open;#action {你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。} {#map undo; #delay 1 sw}; #action {^金牛道 -} {#path goto $pos; #path run 0.05; #class tmp kill}; #class tmp close; sw} {12} {0} {} {1.000} {} {0.00}
+E { 1456} {nd} {#path stop; #path get position pos; #class tmp open;#action {你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。} {#map undo; #delay 1 nd};#action {^汉中 -} {#path goto $pos; #path run 0.05; #class tmp kill};#class tmp close;nd;} {33} {0} {} {10.000} {} {0.00}
+E { 1648} {sw} {#path stop; #path get position pos; #class tmp open;#action {你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。} {#map undo; #delay 1 sw}; #action {^金牛道 -} {#path goto $pos; #path run 0.05; #class tmp kill}; #class tmp close; sw} {12} {0} {} {10.000} {} {0.00}
 
 R { 1648} {512} {} {金牛道} { } {蜀道难行，自古有云：蜀道难，难于上青天。} {成都} {} {} {} {1.000} {}
-E { 1647} {ne} {#path stop; #path get position pos; #class tmp open;#action {你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。} {#map undo; #delay 1 ne};#action {^金牛道 -} {#path goto $pos; #path run 0.05; #class tmp kill};#class tmp close;ne;} {3} {0} {} {1.000} {} {0.00}
-E { 1649} {se} {#path stop; #path get position pos; #class tmp open;#action {你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。} {#map undo; #delay 1 se};#action {^金牛道 -} {#path goto $pos; #path run 0.05; #class tmp kill};#class tmp close;se;} {6} {0} {} {1.000} {} {0.00}
+E { 1647} {ne} {#path stop; #path get position pos; #class tmp open;#action {你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。} {#map undo; #delay 1 ne};#action {^金牛道 -} {#path goto $pos; #path run 0.05; #class tmp kill};#class tmp close;ne;} {3} {0} {} {10.000} {} {0.00}
+E { 1649} {se} {#path stop; #path get position pos; #class tmp open;#action {你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。} {#map undo; #delay 1 se};#action {^金牛道 -} {#path goto $pos; #path run 0.05; #class tmp kill};#class tmp close;se;} {6} {0} {} {10.000} {} {0.00}
 
 R { 1649} {0} {} {金牛道} { } {蜀道难行，自古有云：蜀道难，难于上青天。} {成都} {} {} {} {1.000} {}
-E { 1648} {nw} {#path stop; #path get position pos; #class tmp open;#action {你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。} {#map undo; #delay 1 nw};#action {^金牛道 -} {#path goto $pos; #path run 0.05; #class tmp kill};#class tmp close;nw;} {9} {0} {} {1.000} {} {0.00}
-E { 1650} {su} {#path stop; #path get position pos; #class tmp open;#action {你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。} {#map undo; #delay 1 su};#action {^剑门关 -} {#path goto $pos; #path run 0.05; #class tmp kill};#class tmp close;su;} {20} {0} {} {1.000} {} {0.00}
+E { 1648} {nw} {#path stop; #path get position pos; #class tmp open;#action {你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。} {#map undo; #delay 1 nw};#action {^金牛道 -} {#path goto $pos; #path run 0.05; #class tmp kill};#class tmp close;nw;} {9} {0} {} {10.000} {} {0.00}
+E { 1650} {su} {#path stop; #path get position pos; #class tmp open;#action {你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。} {#map undo; #delay 1 su};#action {^剑门关 -} {#path goto $pos; #path run 0.05; #class tmp kill};#class tmp close;su;} {20} {0} {} {10.000} {} {0.00}
 
 R { 1650} {0} {} {剑门关} { } {剑门关位于成都北面的大剑山口，扼守着成都的北大门，大剑山倚天如剑，峭壁连绵，横亘似城，山口两崖相对如门。} {成都} {} {} {} {1.000} {}
 E { 1649} {nd} {#path stop; #act {^金牛道 -} {#path run 0.05}; nd;} {33} {0} {} {1.000} {} {0.00}
@@ -7339,8 +7339,7 @@ R { 1695} {0} {} {无量山后山} { } {眼前是一座直入云霄的山峰－�
 E { 1694} {sd} {sd} {36} {0} {} {1.000} {} {0.00}
 E { 1696} {u} {#path stop; #class tmp open;#action {^崖间古松} {#path run 0.05; #class tmp kill};#class tmp close;climb stiff;} {16} {0} {} {1.000} {} {0.00}
 
-R { 1696} {512} {} {悬崖} { } {只见左右上下都是陡峭的岩石，滑滑的难以着手。脚下就是万丈悬崖，吓得让人不敢下望。山风罡烈，简直要把你吹了下去。} {天龙寺} {} {} {} {1.000} {}
-E { 1695} {d} {d} {32} {0} {} {1.000} {} {0.00}
+R { 1696} {512} {} {崖间古松} { } {你惊魂略定，慢慢的移身崖壁，细看山崖中裂开了一条大缝(yafeng)，勉强可攀援而下。} {天龙寺} {} {} {} {1.000} {}
 E { 1697} {out} {#path stop; #class tmp open; #act {^谷底 -} {#path run 0.05; #class tmp kill}; climb yafeng} {61} {0} {} {1.000} {} {0.00}
 
 R { 1697} {0} {} {谷底} { } {大瀑布不断注入，湖水却不满溢，想来另有泄水之处。瀑布注入处湖水翻滚，只离得瀑布十馀丈，湖水便一平如镜。只见湖畔生着一丛丛茶花和玫瑰，摇曳生姿。} {无量山} {} {} {} {1.000} {}
@@ -7437,7 +7436,7 @@ E { 3134} {n} {n} {1} {0} {} {1.000} {} {0.00}
 
 R { 1720} {0} {} {客厅} { } {这是华山掌门岳不群的居所「有所不为轩」，此处是前厅，厅上挂着「正气堂」三字匾额。厅中很宽敞，却没什么摆设，靠墙放着两把交椅，这里是岳不群议事、授徒的地方，后面是花园。} {华山} {} {} {} {1.000} {}
 E { 1441} {n} {n} {1} {0} {} {1.000} {} {0.00}
-E { 1721} {s} {#path stop; #path get position pos; #class tmp open; #act {^陆大有喝道：你不是华山弟子，不得入内。} {#map undo; hit lu; #ticker {hit} {hit lu} {1}}; #act {^经过一段时间后，你终于完全从紧张地战斗氛围中解脱出来。} {#unticker hit; s;}; #act {^后花园 -} {#path goto $pos; #path run 0.05; #class tmp kill}; #class tmp close; s} {4} {0} {} {1.000} {} {0.00}
+E { 1721} {s} {#path stop; #path get position pos; #class tmp open; #act {^{陆大有喝道：你不是华山弟子，不得入内。|陆大有一眼瞥见你，「哼」的一声冲了过来！}} {#map undo; hit lu; #ticker {hit} {hit lu} {1}}; #act {^经过一段时间后，你终于完全从紧张地战斗氛围中解脱出来。} {#unticker hit; s;}; #act {^后花园 -} {#path goto $pos; #path run 0.05; #class tmp kill}; #class tmp close; s} {4} {0} {} {1.000} {} {0.00}
 
 R { 1721} {0} {} {后花园} { } {这里是华山派的后花园，种满了花草，几个小童正在浇花。北边是客厅，掌门人常在那里会客。} {华山} {} {} {} {1.000} {}
 E { 1720} {n} {n} {1} {0} {} {1.000} {} {0.00}
@@ -7762,11 +7761,11 @@ E { 3201} {e} {e} {2} {0} {} {1.000} {} {0.00}
 E { 1802} {sw} {sw} {12} {0} {} {1.000} {} {0.00}
 E { 1799} {ne} {ne} {3} {0} {} {1.000} {} {0.00}
 
-R { 1802} {0} {} {} { } {} {} {} {} {} {1.000} {}
+R { 1802} {0} {} {黄河北岸} { } {这里是黄河北岸，滚滚黄河一刻不停地奔腾东去，西北面黄土坡之间有一条狭长的平原。} {黄河北岸} {} {} {} {1.000} {}
 E { 1801} {ne} {ne} {3} {0} {} {1.000} {} {0.00}
 E { 1803} {sw} {sw} {12} {0} {} {1.000} {} {0.00}
 
-R { 1803} {0} {} {} { } {} {} {} {} {} {1.000} {}
+R { 1803} {0} {} {黄河北岸} { } {这里是黄河北岸，滚滚黄河一刻不停地奔腾东去，西北面黄土坡之间有一条狭长的平原。似乎能向上} {黄河北岸} {} {} {} {1.000} {}
 E { 1802} {ne} {ne} {3} {0} {} {1.000} {} {0.00}
 E { 1804} {sw} {sw} {12} {0} {} {1.000} {} {0.00}
 
@@ -8088,6 +8087,7 @@ E { 1881} {w} {w} {8} {0} {} {1.000} {} {0.00}
 
 R { 1880} {0} {} {黄河渡口} { } {这里是黄河北岸一处免费的渡口，东北面不远是著名的丝绸之路，可以通向西域。} {黄河北岸} {} {} {} {1.000} {}
 E { 1878} {ne} {ne} {3} {0} {} {1.000} {} {0.00}
+E { 3403} {sw} {sw} {12} {0} {} {1.000} {} {0.00}
 
 R { 1881} {0} {} {丝绸之路} { } {这是一条中原和西域之间的商道。南面连绵的祁连山脉在阳光的照射下好像是一条玉带。东边是黄河，西面则通往西域。} {丝绸之路} {} {} {} {1.000} {}
 E { 1879} {e} {e} {2} {0} {} {1.000} {} {0.00}
@@ -14222,3 +14222,10 @@ E { 3400} {e} {e} {2} {0} {} {1.000} {} {0.00}
 
 R { 3402} {0} {} {八角亭} { } {这里一座装饰精美的八角亭，夏天时候，坐在这里可是无比惬意。} {江州} {} {} {} {1.000} {}
 E { 3400} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R { 3403} {0} {} {黄河北岸} { } {这里是黄河北岸，滚滚黄河一刻不停地奔腾东去。} {黄河北岸} {} {} {} {1.000} {}
+E { 1880} {ne} {ne} {3} {0} {} {1.000} {} {0.00}
+E { 3404} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R { 3404} {0} {} {黄河北岸} { } {这里是黄河北岸，滚滚黄河一刻不停地奔腾东去。} {黄河北岸} {} {} {} {1.000} {}
+E { 3403} {e} {e} {2} {0} {} {1.000} {} {0.00}

@@ -49,8 +49,8 @@
 
 #alias wields {wield sword; wield blade;}
 #alias wielda {wield sword; wield blade;}
-#alias pchan {wielda; perform sword.chan};
-#alias plian {wielda; perform sword.lian};
+#alias pchan {wielda; #delay 1 perform sword.chan};
+#alias plian {wielda; #delay 1 perform sword.lian};
 #alias pzhen {unwield all; perform cuff.zhen;};
 #alias pzong {perform dodge.zong};
 #class wudang close;
