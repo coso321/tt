@@ -207,7 +207,7 @@
 
 #nop 华山送信；
 #alias {sxa} {#class sxa read bot/sxa.tt; songxin.start};
-#alias {sxx} {#class sxa kill; #undelay %*; #unticker sx%*};
+#alias {sxx} {#class sxa kill; #class sx kill; #undelay %*; #unticker sx%*};
 
 #nop 天珠;
 #alias {tza} {#class tza read bot/tza.tt};

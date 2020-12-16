@@ -1,4 +1,5 @@
 #class newbie open;
+#unact %*;
 #alias bedroom {
     #if {"$mygender" == "女"} {e;};
     #else {w;};
@@ -15,6 +16,7 @@
 }}};
 
 #alias {newbie.start} {
+    sc;
     hp;
     look river;
     get hulu;
@@ -316,17 +318,18 @@
         };
         #if {$newbiesk == 5} {
             #delay 2 {bedroomb;
-            ask you kunyi about 闯荡江湖;
+                ask you kunyi about 闯荡江湖;
+            };
         };
     };
 };
 #action {把学到的功夫都激发起来吧！} {
     sleep;#var newbiesk 3;
-}
+};
 
 #action {这里禁止战斗} {
     #var newbiesk 4;
-}
+};
 
 #action {趁热打铁去练习一级太乙剑法，一定能有收获的。} {
     #var newbiesk 1;
@@ -338,7 +341,7 @@
     #if {$newbiesk == 1} {
     	#delay 2 {s;bedroom;lian sword 1}
     }
-}
+};
 
 #action {你试着练习太乙神剑，获得了少许进步！} {
     lian sword 1;
@@ -475,5 +478,5 @@
             follow a shu;
         };
     };
-}
+};
 #class newbie close;
