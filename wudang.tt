@@ -8,8 +8,8 @@
 #var food tao;
 #var drink wan;
 
-#alias runfzg {#map run 复真观二层};
-#alias runjxg {#map run $lwroom};
+#alias runfzg {run 复真观二层};
+#alias runjxg {run $lwroom};
 #alias runmz {run 13};
 
 #alias getfood {
@@ -37,7 +37,7 @@
 };
 
 #act {^你在攻击中不断积蓄攻势。(气势：%d} {
-    #if {%1 >= 50} {plian};
+    #if {%1 >= 30} {plian};
 };
 
 

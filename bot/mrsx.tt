@@ -4,7 +4,7 @@
 #re bot/sxa.tt;
 
 #alias mrsx.start {mrsx.sx};
-#alias mrsx.mr {#var mrdone 0; murong.start;};
+#alias mrsx.mr {#var mrdone 0; murong.start 0;};
 #alias mrsx.sx {#var sxdone 0; #class mrstart kill; songxin.start;};
 
 #act {你的任务失败}{
@@ -21,7 +21,7 @@
     #act {^│[%d]%s│[主]%s│华山送信任务(%d)%s│现在即可接到下个任务。%s│} { #delay 1 {mrsx.sx;#class checksx kill;};};
     #act {^│[%d]%s│[主]%s│华山送信任务(%d)%s│仍需%*才能接到下个任务。%s│} { #delay 1 {mrsx.mr;#class checksx kill;};};
     #class checksx close;
-    #untic mrq1;#untic mrq2;#untic mrnotice;jobquery;
+    #untic mrq2;#untic mrnotice;jobquery;
 };
 #act {由于你没有找回慕容复丢失的信件} { #untic mrq1;#untic mrq2;#untic mrnotice; #delay 2 mrsx.sx};
 #act {^仆人对着你摇了摇头说：「你刚做过任务，先去休息休息吧。」} {#delay 1 mrsx.sx};

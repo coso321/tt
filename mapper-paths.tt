@@ -2,13 +2,6 @@
 #var changjiang-south {(长江南岸|江州|南昌|苏州|嘉兴|明州|桃花|镇江|泉州|闽南|岳王墓|牙山|临安|建康|岳阳|桃源|归云庄).*};
 #var huanghe-north {(黄河北岸|晋阳|张家口|北京|神龙岛|日月神教|湟中|兰州|星宿|丝绸之路).*};
 
-#act {^{你正要前行，有人大喝：黄河决堤啦，快跑啊！|你刚要前行，忽然发现江水决堤，不由暗自庆幸，还好没过去。}} {
-    #class wait-event open;
-    #act {^这个方向没有出路} {#path stop; #path get position pos; #map undo; #delay 10 {#path goto $pos; #path run 0.05};} {1};
-    #class wait-event close;
-};
-
-#act {^你不小心被什么东西绊了一下，差点摔个大跟头。} {#path stop; reloadmap; #delay 2 {run $target[vnum]};};
        
 #function gettarget {
     #var tmp {};
@@ -41,17 +34,26 @@
     #if {$target == 0} {#showme <fca>未知地点：%1; #return;};
     #elseif {$target[vnum] == $roomvnum} {#showme <fca>到达目标地点：$target[name]; #return;};
     #else {
+        #class wait-event open;
+        #act {^你的动作还没有完成，不能移动} {#undelay %*; #path stop; #path move backward; #map undo; #delay 1 {#path run 0.05};};
+        #act {^{哎哟，你一头撞在墙上，才发现这个方向没有出路。|这个方向没有出路。}} {#path stop; reloadmap; #delay 1 run %1};
+        #act {^你逃跑失败。} {#path stop; #path get position pos; #map undo; #math pos {$pos - 1}; #path goto $pos; #path run 0.05};
+        #act {^{你正要前行，有人大喝：黄河决堤啦，快跑啊！|你刚要前行，忽然发现江水决堤，不由暗自庆幸，还好没过去。}} {
+            #class wait-event open;
+            #act {^这个方向没有出路。} {#undelay %*; #path stop; #path move backward; #map undo; #delay 1 {#path run 0.05; #delay 1 { #act {^这个方向没有出路。} {#path stop; reloadmap; #delay 1 run %1}; };}; };
+            #class wait-event close;
+        };
+        #act {^你不小心被什么东西绊了一下，差点摔个大跟头。} {#path stop; #path move backward; #delay 1 {#path run 0.05}};
+        #class wait-event close;
         set brief 3;
-        gaglines;
         #event {MAP ENTER ROOM $target[vnum]} {
             #var targetname $target[name];
             #replace targetname {(} {\(};
             #replace targetname {)} {\)};
-            #act {^{$targetname|.*储物柜} -} {
-                #unact {^{$$targetname|.*储物柜} -};
+            #act {^{$targetname|.*储物柜|.*泥人} -%s$} {
+                #unact {^{$$targetname|.*储物柜|.*泥人} -%s$};
                 #class {wait-event} kill;
                 #class runlocation kill;
-                #class gag kill;
                 set brief 1;
                 #showme <fca>到达目标地点：$target[name];
                 #path destroy;
@@ -59,7 +61,8 @@
                 #unevent {MAP ENTER ROOM $target[vnum]};
             };
         };
-        #map run {$target[vnum]} {0.05};  
+        #if {"%2" != ""} {#var speed %2} {#var speed 0.05};
+        #map run {$target[vnum]} {$speed};  
     };
 };
 
@@ -119,3 +122,8 @@
 #alias runpx {run 平西王府正厅};
 #alias rungy {run 归云庄大门};
 #alias runem {run 广场 峨嵋};
+#alias runty {run 桃源县境};
+#alias runts {run 天街 泰山};
+#alias runmj {run 广场 明教};
+#alias rundtp {run 打铁铺 洛阳};
+#alias runmr {run 3524};

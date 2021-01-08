@@ -31,8 +31,8 @@
     {1}{牙山}
     {2}{江州}
     {3}{襄阳}
-    {4}{全真}
-    {5}{灵鹫}
+    {4}{全真教}
+    {5}{灵鹫宫}
     {6}{黄河北岸}
     {7}{星宿}
     {8}{黄河南岸}
@@ -84,6 +84,10 @@
     {54}{洛阳}
     {55}{苏州}
     {56}{明教}
+    {57}{白驼山}
+    {58}{全真}
+    {59}{灵鹫}
+    {60}{姑苏慕容}
 };
 
 #var {locations} {
@@ -97,11 +101,16 @@
     {平西王府平西王府大门} {{平西王府}{平西王府大门}}
     {桃源桃源驿站} {{桃源}{桃源驿站}}
     {襄阳荆门} {{荆州}{荆门}}
-    {荆州荆州} {{荆州}{荆州}}
+    {襄阳荆州} {{荆州}{荆州}}
     {灵州灵州东门} {{灵州}{灵州东门}}
+    {杭州提督府花园} {{}{3027}}
+    {杭州提督府小径} {{临安}{小径}}
+    {杭州提督府提督府大道} {{临安}{提督府大道}}
+    {长江长江岸边} {{长江南岸}{长江岸边}}
+    {长江长江渡口} {{长江南岸}{长江渡口}}
 };
 
-#var badlocations {丝绸之路大沙漠|日月神教成德殿门|神龙岛潜龙堂|神龙岛西厢房|天地会暗道|大理城中库房|大轮寺雪谷|北京城墙|杭州提督府小径处|桃源黑沼|少林寺竹林|日月神教长廊|少林寺松树林|北京校场|嘉兴海中|神龙岛男弟子住所|北京厅堂|扬州宝库|归云庄桃树|长江长江岸边|长江长江渡口};
+#var badlocations {襄阳黑松岭|桃花岛小木屋|华山小路|岳王墓风波亭|白驼山蛇谷荒地|丝绸之路大沙漠|日月神教成德殿门|神龙岛潜龙堂|神龙岛白龙堂|神龙岛西厢房|大理城中库房|大轮寺雪谷|北京.*门城楼|北京城墙|少林寺竹林|日月神教望海石|日月神教黑木崖|日月神教长廊|少林寺松树林|北京校场|嘉兴海中|神龙岛男弟子住所|北京厅堂|扬州宝库|归云庄桃树};
 
 #alias parselocation {
     #var {area} {};
@@ -121,6 +130,8 @@
                 #replace area {大理城中} {大理};
                 #replace area {小山村} {华山村};
                 #replace area {杭州} {临安府};
+                #replace area {白驼山} {白驼};
+                #replace area {姑苏慕容} {慕容};
                 #return;
             };
         };
@@ -157,7 +168,7 @@
 
 #alias getmapdesc {
     #class mapaction open;
-    #action {^    {(?!(「|一片浓雾中，什么也看不清|这里(唯一|明显)的(方向|出口)有)|这里没有任何明显的出口。|.*正盘膝坐在地下|.*脸上神色平和，身形凝重，稳如山岳。).*(。|！|？).*}}{%1 %%0; #class mapaction kill;};
+    #action {^    {(?!(「|一片浓雾中，什么也看不清|这里(唯一|明显)的(方向|出口)有)|这里没有任何明显的出口。|.*正盘膝坐在地下|.*脸上神色平和，身形凝重，稳如山岳。).*}{。|！|？|．}%s$}{%1 %%0; #class mapaction kill;};
     #class mapaction close;
 };
 
@@ -180,18 +191,19 @@
     #class loadmap open;
     #gag {^>};
     #gag {^$};
-    #action {^%%1 -} {
+    #action {^%%1 -%s$} {
         #map list {%%1} {variable} {vnums};
         #if {"%%1" == "%*的储物柜"} {#showme <fca>将在离开储物柜后重试。};
+        #elseif {"%%1" == "%*泥人"} {#showme <fca>将在离开泥人铺后重试。};
         #elseif {&{vnums[]} == 1} {#map goto %%1; roominfo};
         #elseif {&{vnums[]} == 0} {#showme <fca>房间不存在，将在移动后重试。};
         #else { 
             #class loadmap open;
-            #act {^    %!{这里(唯一|明显)的(方向|出口)有} %%%3。} {
+            #act {^    这里{唯一|明显}的{方向|出口}有 %%%1。} {
                 #map list {%%1} {} {$fulldesc%*} {variable} {vnums};
                 #if {&{vnums[]} == 1} {#map goto *vnums[+1]; roominfo};
                 #else {
-                    #var exits @parseexit{{%%%3}};
+                    #var exits @parseexit{{%%%1}};
                     #map list {%%1} {$exits} {$fulldesc%*} {variable} {vnums}; 
                     #if {&{vnums[]} == 1} {#map goto *vnums[+1]; roominfo};
                     #else {
@@ -199,6 +211,8 @@
                         #class setarea open;
                         #action {^【%%%%1地图%*】} {
                             #var roomarea %%%%1; #unaction {^【%*地图%*】};
+                            #if {"$roomarea" == "%*北岸" && "%%1" == "%*渡口"} {#var exits {$exits;d}};
+                            #elseif {"$roomarea" == "%*南岸" && "%%1" == "%*渡口"} {#var exits {$exits;u}};
                             #map goto {%%1} {$exits} {} {$roomarea};roominfo;#class setarea kill;
                         };
                         #action {^[临时存储讯息]} {#ungag %*};
@@ -212,8 +226,8 @@
             #class loadmap close;
             getmapdesc {builddesc %%1};
         };
-    };
-    #action {Room name: %*} {#undelay mg; #class mapaction kill; #class loadmap kill;};
+    } {1};
+    #action {Room name: %*} {#class mapaction kill; #class loadmap kill;};
     #class loadmap close;
     #split 10 2;
     #map flag vtmap on;
@@ -232,11 +246,11 @@
     #class tmp open;
     #gag {^>};
     #gag {^$};
-    #action {^%%1 -} {
+    #action {^%%1 -%s$} {
         #map set roomarea $roomarea;
         #map set roomname %%1;
         getmapdesc {mapdesc};
-    };
+    } {1};
     #class tmp close;
     setarea;
     l;
@@ -272,7 +286,7 @@
 };
 
 #alias mi {#map info};
-#alias mm {#map move %1; mi};
+#alias mm {#map move %1;};
 #alias mg {
     #if {"%1" == "{\d+}"} {#map goto %1};
     #else {#map goto {%1%*} {} {%*%3%*} {%2%*}};
@@ -280,6 +294,7 @@
 };
 
 #alias ml {#map list {%*%1%*} {} {%*%3%*} {%2%*}};
+#alias mf {#map find {%1} {} {} {%2%*}};
 #alias mldesc {#map list {%*} {} {%*%1%*}};
 #alias mlarea {
     #if {"%1" == ""} {roominfo; #if {"$roomarea" != "" } {mlarea $roomarea}} {#map list {%*} {} {} {%1%*}};
@@ -417,28 +432,68 @@
 
 #alias bianli {
     #map list {%2%*} {} {} {%1%*} {variable} {blvnums};
+    #var sortedlist @sortdist{{{$blvnums}}};
     #var idx 1;
     #list blvnums size blvnumsize;
     #showme <fca>遍历地点数量：$blvnumsize;
     bianli.next;
 };
 
+#alias bianlidist {
+    #map list {variable} {blvnums};
+    #var sortedlist {};
+    #var tmp {};
+    #foreach {*blvnums[%*]} {vnum} {
+        #if {$blvnums[$vnum][distance] <= %1 && $blvnums[$vnum][distance] > 0} {
+            #var tmp[$blvnums[$vnum][distance]] {$tmp[$blvnums[$vnum][distance]];$vnum};
+        };
+    };
+    #foreach {$tmp[%*]} {distlist} {#var sortedlist {$sortedlist$distlist}};
+    #var idx 1;
+    #list sortedlist create $sortedlist;
+    #list sortedlist size blvnumsize;
+    #showme <fca>遍历地点数量：$blvnumsize;
+    bianli.next;
+};
+
+#func sortdist {
+    #var vnumlist %1;
+    #var tmp {};
+    #var sortedlist {};
+    #if {%2 > 0} {#var dist %2} {#var dist 99999};
+    #foreach {*vnumlist[%*]} {vnum} {
+        #if {$vnumlist[$vnum][distance] < $dist} {
+            #var tmp[$vnumlist[$vnum][distance]] {$tmp[$vnumlist[$vnum][distance]];$vnum};
+        };
+    };
+    #foreach {$tmp[%*]} {distlist} {#var sortedlist {$sortedlist$distlist}};
+    #list sortedlist create $sortedlist;
+    #return $sortedlist;
+};
+
 #alias bianli.next {
+    #unticker bianli;
+    #if {$idx == 0} {#return};
+    #ticker {bianli} {bianli.next} {10};
     #class bianli open;
-    #act {到达目标地点：%*} {
+    #act {^到达目标地点：$nextname} {
          #if {$idx >= $blvnumsize} {#showme <fca>遍历完成; bianli.stop};
          #else {
-             #delay bianli {#math idx {$idx + 1}; bianli.next} {0.5};
+             #delay bianli {#math idx {$idx + 1}; bianli.next} {1};
          };
     };
     #class bianli close;
     #map get roomvnum roomvnum;
-    #if {$blvnums[+$idx][distance] < 0} {#math idx {$idx + 1}; bianli.next};
-    #elseif {$roomvnum == *blvnums[+$idx]} {#math idx {$idx + 1}; bianli.next}; 
-    #else {#showme <fca>遍历进度：$idx/$blvnumsize; run *blvnums[+$idx];};
+    #var nextvnum *blvnums[$sortedlist[+$idx]];
+    #showme <fca>遍历进度：$idx/$blvnumsize; 
+    #if {$blvnums[$nextvnum][distance] < 0} {#math idx {$idx + 1}; bianli.next};
+    #elseif {$roomvnum == $nextvnum} {#math idx {$idx + 1}; bianli.next}; 
+    #else {#map get {roomname} {nextname} {$nextvnum}; run $nextvnum;};
 };
     
 #alias bianli.stop {
+    #var idx 0;
+    #var blvnums {};
     #undelay bianli;
     #class bianli kill;
 };

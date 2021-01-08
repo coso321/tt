@@ -16,9 +16,11 @@
 #nop 常用别名;
 #alias {zisha} {suicide -f};
 #alias {rl} {
-     #kill;
-    #re init.tt;
-    #event {SCREEN RESIZE} {#split}
+    reload;
+    remove all;
+    unwield all;
+    wear all;
+    wielda; 
 };
 #alias {gaglines} {
     #class gag open;
@@ -44,7 +46,7 @@
 };
 
 #alias log {#log append logs/$user.log;};
-#alias chatwindow {#system tmux split -h -c tt -p 30; #sys tmux send-keys "tail -f logs/$user.log | grep --color=never --line-buffered -E '(【闲聊】|【北侠QQ群】)'" Enter; #sys tmux select-pane -t 1};
+#alias chatwindow {#system tmux split -h -c tt -p 30; #sys tmux send-keys "tail -f logs/$user.log | grep --color=never --line-buffered -E '^[^ ]*(【闲聊】|【北侠QQ群】)'" Enter; #sys tmux select-pane -t 1};
 
 #alias {reloadmap} {#re mapper.tt; loadmap};
 #alias {pda} {#re bot/pda.tt; pingdiao.start};
@@ -74,7 +76,7 @@
 #alias {xqtic} {
     #class xq open;
     #act {^{\( 你的内力已经枯竭，不能施用内功。\)|你现在气力充沛。|你深深吸了几口气，脸色看起来好多了。}} {#untick xq; #class xq kill};
-    #class xq open;
+    #class xq close;
     #ticker {xq} {yun recover} {2};
     xq
 };
@@ -106,12 +108,12 @@
     #class mxp close;
     fullme;
 };
-#alias {slink} {#show $link};
+#alias {cw} {changewield};
 #alias {st} {status_me};
 #alias {sh} {sethere};
 #alias {gps} {gt here};
 #alias {way} {inquire};
-#alias {h} {halt;stopwalk;set brief 1};
+#alias {h} {#path stop;set brief 1};
 #alias {hf} {helpme find};
 #alias {ga} {get all};
 #alias {sa} {sell all};
@@ -225,6 +227,10 @@
 #alias {gsza} {#class gsza read bot/gsza.tt};
 #alias {gszx} {#class gsza kill;#untic gsza1};
 
+#nop 运镖
+#alias {yba} {#read bot/yba.tt; yunbiao.start %1 %2};
+#alias {ybx} {#class yunbiao kill; #unticker ybprompt; #unticker walk};
+
 #nop 功德捐献;
 #alias {gda} {#class gda read bot/gda.tt;say 天不生我小乖乖，侠客万古长如夜};
 #alias {gdx} {#class gda kill};
@@ -284,18 +290,23 @@
 #alias fullneili {
     #var fullhp 0;
     #class fullneili open;
-    #act {{你运功完毕，深深吸了口气，站了起来。|你现在内力接近圆满状态}} {yun recover; hpbrief;}; 
+    #act {你运功完毕，深深吸了口气，站了起来。} {fullneili;}; 
+    #act {^你现在精不够，无法控制内息的流动！} {yun regenerate; fullneili};
+    #act {^你已经受伤过重，只怕一运真气便有生命危险！} {eat yangjing dan; fullneili};
     #act {#%!{(\d{5}|.+(K|M))},%!{-?}%d,%d,%!{-?}%d,%d,%d} {
         #if {$fullhp == 1} {
-            #if {%%5 >= %%4} {
+            yun recover;
+            #if {%%5 >= %%4 * 2 - 1} {
                 #showme <fca>内力已满;
                 #class gag kill;
                 #class fullneili kill;
             };
             #else {
-                #math dazuohp {$maxhp / 2};
+                #math dazuohp {$maxhp / 2}; 
+                #math mpdiff {%%4 * 2 - 1 - %%5};
                 gaglines;
-                dazuo $dazuohp;
+                #if {$dazuohp > $mpdiff} {dazuo max};
+                #else {dazuo $dazuohp;};
             };
         };
     };
@@ -310,10 +321,9 @@
         };
     };
     #class fullneili close;
-    xq;
     hpbrief;
 };
-
+#alias {fnlx} {#class fullneili kill;};
 
 #alias {skx} {#class ska kill};
 #alias {mza} {#read bot/mza.tt; menzhong.start};

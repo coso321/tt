@@ -7,7 +7,7 @@
     #map get roomname {bedroomname} {$bedroom};
     #map get roomvnum roomvnum;
     #if {$roomvnum != $bedroom} {
-        #act {^$bedroomname -} {dsaa; #unact {^$$bedroomname -}};
+        #act {^$bedroomname -} {gaglines; dsa; #unact {^$$bedroomname -}};
         #map run {$bedroom} {0.2};
     };
     #else {
@@ -46,7 +46,7 @@
 #act {你一觉醒来，精神抖擞地活动了几下手脚。} {
     #act {^$bedroomname -} {
         cha;
-        dsaa;
+        dsa;
         #unact {^$$bedroomname -};
     };
     getfood {#map run $bedroom};

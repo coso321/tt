@@ -5,8 +5,8 @@
         #var {zhenfa.after-handler} %1;
     };
     #class zhenfastart open;
-    #action {小校场 -} {
-        #delay {stuck} {w;ask chongxu about cancel} {300};
+    #action {小校场 -%s$} {
+        #delay {stuck} {w;ask chongxu about cancel;ask chongxu about quest} {300};
         zhenfa;
         #unaction {小校场 -};
     };
@@ -17,6 +17,10 @@
 
 #action {房间中已经有人在演习阵法，请等对方演习结束再进去吧} {
     #delay 1 e;
+};
+
+#action {你正在演习阵法，请演习完阵法以后再离开！} {
+        #delay {stuck} {w;ask chongxu about cancel;ask chongxu about quest} {30};
 };
 
 #var {zhenfa.type} {};
@@ -30,6 +34,7 @@
         zouwei ${zhenfa.zouwei};
     };
     #class zhenfa close;
+    sc;
 };
 
 #action {按照『%1』的要求往下走一步} {

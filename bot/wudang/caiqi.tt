@@ -46,12 +46,9 @@
         success-quest;
         ask-quest;
     };
-    #undelay %*;
-    #path stop;
+    #act {^你的动作还没有完成，不能移动} {h;} {1};
     reloadmap;
-    #delay 3 {
-        runwd;
-    };   
+    #delay 3 { runwd; };   
 };
 
 #class caiqi close;

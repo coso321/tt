@@ -14,7 +14,7 @@
     #var npc {};
     #var npcid {};
     #map get roomvnum roomvnum;
-    #if {$roomvnum == 1724} {eat liang; drink jiudai; sxaa;};
+    #if {$roomvnum == 1724} {eat liang; drink; sxaa;};
     #else {
         #act {^    武林名宿 华山派掌门「君子剑」岳不群(Yue buqun)} {eat liang; drink jiudai; sxaa; #unact {^    武林名宿 华山派掌门「君子剑」岳不群(Yue buqun)}};
         runsx;
@@ -52,7 +52,7 @@
 #act {^           收信人：%1(%2)} {
 
     #class sx open;
-    #act {^{(?!           收信人：)}%*$npc($npcid)$} { 
+    #act {^{(?!           收信人：)}%*$npc%*($npcid)$} { 
         #class sx open;
         #act {^你要送给谁？} {#path run};
         #act {^你正忙着呢。} {#delay 1 sx};
@@ -62,82 +62,61 @@
     #class sx close;
     #var npc %1; 
     #var npcid %2;
-    e;fullneili;
-    #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 等待杀手;} {1};
+    e;e;n;n;n;fullneili;
+    #showme 送信：$sxarea $sxlocation $npc - 等待杀手;
+    #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 等待杀手;} {10};
 };
 
 #act {%1仰首狂笑道：「你，把密函给我乖乖交出来吧！」} {
     #undelay %*;
     #path stop;
     #var sxss %1; 
-    #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 杀手;} {1};
-
-    #class getss open;
-    #act {^%%1笑道：「%*老子来帮你！」} {
-        #var sxbs %%1;
-        #act {$sxbs死了} {get all from corpse; #ticker {kill} {kill @lower{$sxssid};} {5}; #delay 1 {xq;}; #unact {$$sxbs死了}};
-        #act {^    「%*」$sxbs(%%%1)} {#unact {    「%*」$$sxbs(%%%%1)}; #var sxbsid %%%1; kill @lower{$sxbsid}; #if {$sxss != 0} {#class getss kill;}};
-        l;
-    };
-    #act {^    「%*」$sxss(%%1)} {
-        #var sxssid %%1;
-        #delay 1 {
-            #if {"$sxbs" == ""} {
-                #ticker kill {kill @lower{$sxssid}} {5}; 
-                kill @lower{$sxssid};
-                #class getss kill;
-            }
-        }
-    };
-    #class getss close;
-
+    #showme 送信：$sxarea $sxlocation $npc - 杀手;
+    #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 杀手;} {10};
+    #act {^    「%*」$sxss(%%1)} {#unact {^    「%*」$sxss(%%1)}; #var sxssid %%1; };
+    #act {^经过一段时间后，你终于完全从紧张地战斗氛围中解脱出来。} {#unact {^经过一段时间后，你终于完全从紧张地战斗氛围中解脱出来。}; xq; #delay 1 {kill @lower{$sxssid};}};
     #act {^$sxss死了} {
         #unact {^$$sxss死了};
-        #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 前往目标地点;} {1};
-        #act {到达目标地点：$sxlocation} {#unact {到达目标地点：$$sxlocation}; #if {"$sxlocation" != ""} {#delay 1 bianli $sxarea;}};
-        #unticker kill; get all from corpse; #delay 3 {xq; run $sxlocation $sxarea}
+        #act {^这里没有可攻击的对手。} {
+            #unticker kill;
+            #unact {^这里没有可攻击的对手。};
+            #showme 送信：$sxarea $sxlocation $npc - 前往目标地点;
+            #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 前往目标地点;} {10};
+            #act {^到达目标地点：$sxlocation} {#unact {^到达目标地点：$$sxlocation}; #if {"$sxlocation" != ""} {#delay 1 bianli $sxarea;}};
+            #delay 1 {gc; #delay 1 {run $sxlocation $sxarea};};
+        };
+        #delay 1 {get all from corpse; #delay 2 {xq; killall; #ticker kill {killall;} {3}};};
     };
-
     xq;
     powerup;
     l;
-
 };
 
 #act {你伸手向怀中一摸，发现密函已经不翼而飞！} {
     #undelay %*;
     #path stop;
-    #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 杀手;} {1};
-    #class getss open;
+    #showme 送信：$sxarea $sxlocation $npc - 杀手;
+    #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 杀手;} {10};
+    #act {^经过一段时间后，你终于完全从紧张地战斗氛围中解脱出来。} {#unact {^经过一段时间后，你终于完全从紧张地战斗氛围中解脱出来。}; xq; #delay 1 {kill @lower{$sxssid};}};
     #act {^%!{(?!你)}%%1说道：「%*」} {
-        #act {^    「%*」$sxss(%%%1)} {
-            #unact {^    「%*」$$sxss(%%%%1)};
-            #var sxssid %%%1;
-            #delay 1 {#if {"$sxbs" == ""} {#ticker kill {kill @lower{$sxssid}} {5}; kill @lower{$sxssid}; }; #class getss kill;}
-        };
-        #act {$sxss死了} {
-            #unact {$$sxss死了};
-            #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 前往目标地点;} {1};
-            #act {到达目标地点：$sxlocation} {#unact {到达目标地点：$$sxlocation}; #if {"$sxlocation" != ""} {#delay 1 bianli $sxarea;}};
-            #unticker kill; get all from corpse; #delay 3 {xq; run $sxlocation $sxarea}
+        #unact {^%!{(?!你)}%%%1说道：「%*」};
+        #act {^    「%*」$sxss(%%%1)} { #unact {^    「%*」$$sxss(%%%%1)}; #var sxssid %%%1; };
+        #act {^$sxss死了} {
+            #unact {^$$sxss死了};
+            #act {^这里没有可攻击的对手。} {
+                #unticker kill;
+                #unact {^这里没有可攻击的对手。};
+                #showme 送信：$sxarea $sxlocation $npc - 前往目标地点;
+                #ticker {sxnotice} {#showme 送信：$sxarea $sxlocation $npc - 前往目标地点;} {10};
+                #act {^到达目标地点：$sxlocation} {#unact {^到达目标地点：$$sxlocation}; #if {"$sxlocation" != ""} {#delay 1 bianli $sxarea;}};
+                #delay 1 {gc; #delay 1 {run $sxlocation $sxarea};};
+            };
+            #delay 1 {get all from corpse; #delay 2 {xq; killall; #ticker kill {killall;} {3}}};
         };
 
         #var sxss %%1;
         l;
-        #unact {^%!{(?!你)}%%%1说道：「%*」};
     };
-    #act {^%%1笑道：「%*老子来帮你！」} {
-        #act {^    「%*」$sxbs(%%%1)} {
-            #unact {^    「%*」$$sxbs(%%%%1)};
-            #var sxbsid %%%1; 
-            kill @lower{$sxbsid}; 
-            #if {$sxss != 0} {#class getss kill;}
-        };
-        #act {^$sxbs死了} {get all from corpse; #ticker {kill} {kill @lower{$sxssid};} {5}; #delay 1 {xq;}; #unact {^$$sxbs死了}};
-        #var sxbs %%1;
-        l;
-    };
-    #class getss close;
     xq;
     yun powerup;
 };
@@ -145,7 +124,8 @@
 
 #act {^你的任务完成，快回去复命吧。} {
     #class sx kill;
-    #ticker {sxnotice} {#showme 送信：完成;} {1};
+    #showme 送信：完成;
+    #ticker {sxnotice} {#showme 送信：完成;} {10};
     #act {^    武林名宿 华山派掌门「君子剑」岳不群(Yue buqun)} {sxd; #unact {^    武林名宿 华山派掌门「君子剑」岳不群(Yue buqun)}};
     #undelay %*;
     bianli.stop; 

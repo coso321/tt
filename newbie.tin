@@ -1,5 +1,14 @@
 #class newbie open;
 #unact %*;
+#act {^≡━━━━◎人物详情◎━━━━━━━━━━━━━━━━━━━━━━━━━━≡$} {
+	#class tmp open;
+	#act {^ 【%*】%* %*(%*)$} {#var myname %%3; #var myid @lower{%%4}};
+	#act {你是%*第%*代弟子} {#var mymenpai %%1};
+	#act {你是朝廷%*品官员} {#var mymenpai 朝廷};
+	#act {你是一位%*岁的%*婚%*性人类} {#var myage @ctd{%%1};#var mygender %%3};
+	#act {^≡━━━━━━━━━━━━━━━━━━━━━━━━━◎北大侠客行◎━━━━≡} {#class tmp kill};
+	#class tmp close;
+};
 #alias bedroom {
     #if {"$mygender" == "女"} {e;};
     #else {w;};
@@ -462,7 +471,8 @@
 
 #action {大车停稳了下来，你可以下车(xia)了。} {
     xia;
-    lzba; 
+    reloadmap;
+    #delay 1 lzba; 
 };
 
 #action {你{刚刚|刚在三分钟内}睡过一觉} {

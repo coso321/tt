@@ -45,6 +45,8 @@ set wimpy 30;
 #act {^ %*两黄金(Gold)$} {get gold;};
 #act {^ %*银票(Cash)$} {get cash;};
 #act {^    %*之护腕(Wrists)} {get wrists;};
+#act {^    %*之盾(Shield)} {get shield;};
+#act {^    %*之腰带(Waist)} {get waist;};
 #act {^你从%*{搜出|拿出}一柄长剑。$} {drop changjian};
 #act {^你从%*{搜出|拿出}一把青锋剑。$} {drop qingfeng sword};
 #act {^你获得了%*份石炭【劣质】。$} {drop tan};
@@ -59,8 +61,6 @@ set wimpy 30;
 
 #act {^你从%*{搜出|拿出}一只铁轮。$} {drop falun};
 
-#act {^卫士对你大吼一声：站住，干什么的？(answer)} {answer 送信};
-
 #act {^{目前权限|重新连线完毕}} { #delay 1 {hpbrief; sc; reloadmap; log;}};
 
 #act {^≡━━━━◎人物详情◎━━━━━━━━━━━━━━━━━━━━━━━━━━≡$} {
@@ -73,11 +73,6 @@ set wimpy 30;
 	#class tmp close;
 };
 
-#act {^你的动作还没有完成，不能移动} {#path stop; #path get position pos; #math pos {$pos - 1}; #map undo; #delay 5 {#path goto $pos; #path run 0.05};};
-
-#act {这个方向没有出路。$} {#path stop; reloadmap};
-
-#act {^你逃跑失败。} {#path stop; #path get position pos; #map undo; #math pos {$pos - 1}; #path goto $pos; #path run 0.05};
 
 #act {也许是上天垂青于你的勤奋和努力吧，一个小时之内你不用担心被判为机器人。} {#class mxp kill; loadmap};
 

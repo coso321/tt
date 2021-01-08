@@ -1,6 +1,6 @@
 #CONFIG           {CHARSET}  {UTF-8}
 #CONFIG           {COLOR PATCH}  {ON}
-#CONFIG           {PACKET PATCH}  {0.8}
+#CONFIG           {PACKET PATCH}  {0.5}
 #CONFIG           {WORDWRAP}  {ON}
 #PATHDIR         {n}  {s}  {1}
 #PATHDIR         {e}  {w}  {2}

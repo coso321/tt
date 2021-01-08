@@ -8,14 +8,21 @@
     #var mrlocation {};
     mraa;
     #map get roomvnum roomvnum;
-    #class mrstart open;
-    #act {^内力已满} {eat liang; drink jiudai; ne; mraa; #class mrstart kill;}; 
-    #act {到达目标地点：南大街} {fullneili; #unact {到达目标地点：南大街};};
-    #ticker {mrnotice} {#showme 慕容：等待开始;} {1};
-    #class mrstart close;
-    #if {$roomvnum == 797} {fullneili;};
+    #if {%1 == 1} {
+        #class mrstart open;
+        #act {^内力已满} {eat liang; drink; ne; mraa; #class mrstart kill;}; 
+        #act {到达目标地点：南大街} {fullneili; #unact {到达目标地点：南大街};};
+        #showme 慕容：等待开始;
+        #ticker {mrnotice} {#showme 慕容：等待开始;} {10};
+        #class mrstart close;
+        #if {$roomvnum == 797} {fullneili;};
+        #else {
+            run 797;
+        };
+    };
     #else {
-        run 797;
+        #act {^    姑苏慕容 仆人(Pu ren)} {#unact {^    姑苏慕容 仆人(Pu ren)}; mraa};
+        run 茶馆 苏州;
     };
 };
 
@@ -23,14 +30,15 @@
 #alias  {mrd} {give pu xin};
 #alias  {mrf} {ask pu ren about fail};
 
-#alias {mrlocation} {#split 10 2; #showme 仆人叹道：家贼难防，有人偷走了少爷的信件，据传曾在『%1』附近出现，你去把它找回来吧};
+#alias {mrl} {#split 10 2; #showme 仆人叹道：家贼难防，有人偷走了少爷的信件，据传曾在『%1』附近出现，你去把它找回来吧};
 
 #act {仆人叹道：家贼难防，有人偷走了少爷的信件，据传曾在以下地点附近出现，你去把它找回来吧！} {
     #class mxp open;
     #act {^http://fullme.pkuxkx.net/robot.php?filename=%%1}
     {
         #var link {http://fullme.pkuxkx.net/robot.php?filename=%%1};
-        #ticker {mrnotice} {#showme 慕容：等待mxp;} {1};
+        #showme 慕容：等待mxp;
+        #ticker {mrnotice} {#showme 慕容：等待mxp;} {10};
         #class mxp kill;
     };
     #class mxp close;
@@ -44,7 +52,8 @@
         #while {"$location" == ""} {#var $location};
         #if {"$location" == "None"} {#showme <fca>未知送信地点};
         #else {#var mrarea $area; #var mrlocation $location; run $mrlocation $mrarea};
-        #ticker {mrnotice} {#showme {慕容：$mrarea $mrlocation};} {1};
+        #showme {慕容：$mrarea $mrlocation};
+        #ticker {mrnotice} {#showme {慕容：$mrarea $mrlocation};} {10};
    };
 };
 
@@ -53,22 +62,30 @@
   #echo {%c%h} {light yellow} {目标正在%1处} } {15}};
 
 #act {$myname发现的%s慕容世家家贼($capitalid's murong jiazei)} {
+    #act {这里不准战斗。} {ask jiazei about fight};
+    #act {慕容世家家贼往%*离开。} {loadmap};
     #act {慕容世家家贼死了。} {
-        #ticker {mrnotice} {#showme 慕容：完成;} {1};
+        #showme 慕容：完成;
+        #ticker {mrnotice} {#showme 慕容：完成;} {10};
         #unact {慕容世家家贼死了。};
-        #act {^    姑苏慕容 仆人(Pu ren)$} {mrd; #unact {^    姑苏慕容 仆人(Pu ren)$}};
+        #act {^    姑苏慕容 仆人(Pu ren)} {give letter to pu ren; #unact {^    姑苏慕容 仆人(Pu ren)}};
         #delay 1 {
             get all from corpse; 
             #delay 3 {runmrf;};
         };
     };
-    #path stop; #undelay %*; bianli.stop; follow jiazei;powerup;kill jiazei
+    follow jiazei;
 };
 
+#act {^你决定开始跟随慕容世家家贼一起行动。} {
+    #unact {^到达目标地点：$$mrlocation};
+    #path stop; #undelay %*; #path destroy; bianli.stop; kill jiazei
+};
+#act {^你对着慕容世家家贼吼道：%*} {powerup};
 
 
-#act {由于你成功的找回慕容复写给江湖豪杰的信件} {#untic mrq1;#untic mrq2;#untic mrnotice;#delay 3 mraa};
-#act {由于你没有找回慕容复丢失的信件} { #untic mrq1;#untic mrq2;#untic mrnotice;mraa};
+#act {由于你成功的找回慕容复写给江湖豪杰的信件} {#untic mrq2;#untic mrnotice;#delay 3 mraa};
+#act {由于你没有找回慕容复丢失的信件} { #untic mrq2;#untic mrnotice;mraa};
 
 #act {^仆人忙着呢，等会吧。} {#delay 1 give letter to pu ren};
 #act {^仆人对着你摇了摇头说：「你刚做过任务，先去休息休息吧。」} {#delay 10 mraa};

@@ -1,3 +1,199 @@
 #class yunbiao open;
 
+#prompt {运镖：%1} {运镖：%1};
+
+#alias yunbiao.start {
+    #map get roomvnum bj;
+    #map get roomname bjname;
+    #if {"%1" == ""} {#showme <fca>需要镖头id; ybx;};
+    #else {#var npc %1; #if {%2 == 1} {#var skipmx 1}; ybaa;};
+};
+
+#alias ybaa {
+    #var findnpc 0;
+    #class getesc open;
+    #act {^%%1%s%S%s%d秒%s待认领 0} {#unact {^%%%1%s%S%s%d秒%s待认领 0}; getesc %%1; #class getesc kill};
+    #act {^内力已满} {listesc};
+    #class getesc close;
+    eat liang;
+    drink;
+    #showme 运镖：等待开始;
+    #ticker {ybprompt} {#showme 运镖：等待开始} {10};
+    fullneili
+};
+#alias ybf {ask $npc about fail}; 
+#alias ybd {ask $npc about finish}; 
+#alias ybmap { #map find {$ybloc} {} {} {$ybarea%*}; ybpath };
+
+#alias genter {#map move enter; gan che to enter};
+#alias gout   {#map move out; gan che to out};
+#alias gn     {#map move n; gan che to north};
+#alias gw     {#map move w; gan che to west};
+#alias ge     {#map move e; gan che to east};
+#alias gs     {#map move s; gan che to south};
+#alias gu     {#map move u; gan che to up};
+#alias gd     {#map move d; gan che to down};
+#alias gnu    {#map move nu; gan che to northup};
+#alias gwu    {#map move wu; gan che to westup};
+#alias geu    {#map move eu; gan che to eastup};
+#alias gsu    {#map move su; gan che to southup};
+#alias gnd    {#map move nd; gan che to northdown};
+#alias gwd    {#map move wd; gan che to westdown};
+#alias ged    {#map move ed; gan che to eastdown};
+#alias gsd    {#map move sd; gan che to southdown};
+#alias gse    {#map move se; gan che to southeast};
+#alias gnw    {#map move nw; gan che to northwest};
+#alias gsw    {#map move sw; gan che to southwest};
+#alias gne    {#map move ne; gan che to northeast};
+
+#alias ybpath {
+    #path save tmp;
+    #path destroy;
+    #var idx 0;
+    #foreach {$tmp} {dir} {
+        #math mod_three {$idx % 3};
+        #if {${mod_three} == 1} {
+            #path insert {g$dir};
+        };
+        #math idx {$idx + 1};
+    };
+};
+
+#alias ybwalk {
+    #if {$findnpc == 1} {#return};
+    #class walk open;
+    #act {^{你还是先把对手解决了再说吧！|你现在正忙着哩。}} {#map undo; #path move backward; };
+    #act {^这个方向过不去。} {#class walk kill; #untick walk; reloadmap; #delay 1 {ybmap; ybwalk}};
+    #act {^$ybloc -%s$} {
+        #map get roomarea roomarea;
+        #if {"$roomarea" == "$ybarea"} {
+            #var findnpc 1;
+            #unact {^$$ybloc -%s$};
+            #untick walk;
+            #delay {findnpc} {findnpc} {2};
+        };
+    };
+    #class walk close;
+    #ticker {walk} {
+        #path get position pos;
+        #path get length len;
+        #if {$pos > $len} {#var findnpc 1; findnpc;};
+        #else { #path walk;};
+    } {2};
+};
+
+#alias findnpc {
+    #unticker walk;
+    #map get roomvnum bcloc;
+    #map get roomname bcname;
+    #class findnpc open;
+    #act {%*$ybnpc%*(%%1)} {
+        #var findnpc 0;
+        #path stop; #path destroy; bianli.stop;
+        #map get roomvnum ybloc;
+        #delay 1 {
+            #act {^到达目标地点：$bcname} {#unact {^到达目标地点：$$bcname}; #delay 1 {ybmap; ybwalk; #class findnpc kill;}};
+            run $bcloc;
+        };
+    };
+    #class findnpc close;
+    bianlidist 10;
+};
+
+#act {^你上次运镖太辛苦了，下去休息休息吧。} {#delay 10 ybaa};
+#act {%*在你的耳边悄声说道：你把这批红货送到%1那里，他已经派了个伙计名叫%2到%3附近接你，把镖车送到他那里就行了。} {
+    #if {"%1" == "南昌飞虎镖局楚大业" && "%3" == "山路"} {#var ybarea 江州; #var ybloc 山路};
+    #elseif {"%1" == "镇江飞龙镖局张经" && "%3" == "山路"} {#var ybarea 镇江; #var ybloc 定波门};
+    #else { parselocation %1; #var ybarea $area; #var ybloc %3;};
+    #var ybnpc %2;
+    #format {starttime} {%t} {%H:%M:%S};
+    #showme {运镖：$ybarea$ybloc$ybnpc@$starttime};
+    #tic ybprompt {#showme {运镖：$ybarea$ybloc$ybnpc@$starttime};} {10};
+    ybmap; ybwalk;
+};
+
+#act {^劫匪突然从暗处跳了出来，阴笑道：“红货和人命都留下来吧！。”} {
+    #class robber open;
+    #act {^经过一段时间后，你终于完全从紧张地战斗氛围中解脱出来。} {
+        #unticker kill;
+        #act {#%!{(\d{5}|.+(K|M))},%!{-?}%d,%d,%!{-?}%d,%d,%d} {
+            #unact {#%!{(\d{5}|.+(K|M))},%!{-?}%d,%d,%!{-?}%d,%d,%d};
+            #if {%%%5 < %%%4} {fullneili};
+            #else {
+                #act {#%d,%d,%d,%d,%d,%d} {
+                    #unact {#%d,%d,%d,%d,%d,%d};
+                    #if {%%%%1 > %%%%2 || %%%%4 > %%%%5} {fullneili};
+                    #elseif {$findnpc == 1} {findnpc; #class robber kill;};
+                    #else {ybwalk; l; #class robber kill; };
+                };
+                hpbrief;
+            };
+        };
+        
+        hpbrief;
+    };
+    #act {^内力已满} {eat liang; drink; #if {$findnpc == 1} {findnpc}; #else {ybwalk; l}; #class robber kill;};
+    #class robber close;
+    #undelay findnpc;
+    #untick walk;
+    kill robber;
+};
+
+#act {^围上来几个伙计将镖车拉了进去。} {
+    #class tmp open;
+    #act {^到达目标地点：$bjname} {ask $npc about finish; #class tmp kill};
+    #class tmp close;
+    #path stop; #path destroy;
+    #untick walk;
+    #undelay findnpc;
+    #showme 运镖：完成;
+    #ticker {ybprompt} {#showme 运镖：完成} {10};
+    run $bj;
+};
+
+#act {^接应你的伙计已经不在了，你运的镖已经没有用处了。} {
+    #class tmp open;
+    #act {^到达目标地点：$bjname} {ask $npc about fail; #class tmp kill};
+    #class tmp close;
+    #untick walk; #undelay findnpc; bianli.stop;
+    #showme 运镖：失败;
+    #ticker {ybprompt} {#showme 运镖：失败} {10};
+    run $bj;
+};
+#act {林震南拍了拍$myname的头，说道：「好孩子，乖。」} {
+    #unticker ybprompt;
+    ybaa;
+};
+#act {你向林震南打听有关『fail』的消息。} {
+    ybaa;
+};
+
+#act {^你想着你的密信还没解决，摇了摇头还是放弃了接镖的想法。} {
+    #showme 运镖：密信;
+    #ticker {ybprompt} {#showme 运镖：密信} {10};
+    #if {$skipmx == 1} {xian mixin; give letter to $npc; #delay 1 ybaa};
+};
+
+#alias mxl {
+    parselocation %1;
+    #var mxloc $location;
+    #var mxarea $area;
+    #class mx open;
+    #act {到达目标地点：$location} {zhao};
+    #act {你正忙着哪！} {#delay 1 zhao};
+    #act {%%1挖着鼻屎走了出来，道：你找我啥事？} {
+        #class tmp open;
+        #act {    卷走%*财物的伙计 %%1(%%%1)} {ask @lower{%%%1} about yao;};
+        #act {%%1%*说道：%*} {#delay 1 l};
+        #class tmp close;
+        l
+    };
+    #act {%*把一包财物砸向你，一转眼不见了。} {#class tmp kill;run $bj};
+    #act {到达目标地点：$bjname} {give cai wu to $npc};
+    #class mx close;
+    run $mxloc $mxarea;
+};
+
+#act {你给%*一些失踪的财物。} {#class mx kill; #delay 1 ybaa};
+
 #class yunbiao close;
